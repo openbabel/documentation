@@ -1,0 +1,1 @@
+The files in this folder will be automatically generated from the C++ source.
