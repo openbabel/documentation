@@ -11,7 +11,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   Command-line_tools/babel.rst
+   Installation/install.rst
+   Command-line_tools/Overview.rst
    Python/Python.rst
    FileFormats/Overview.rst
 
