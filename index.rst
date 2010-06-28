@@ -1,27 +1,11 @@
-.. Open Babel documentation master file, created by
-   sphinx-quickstart on Wed Jun 09 20:02:52 2010.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+OpenBabel
+=========
 
-Welcome to Open Babel's documentation!
-======================================
+**Open Babel** is a chemical toolbox designed to speak the many languages of chemical data.
 
-Contents:
+It's an open, collaborative project allowing anyone to search, convert, analyze, or store data from molecular modeling, chemistry, solid-state materials, biochemistry, or related areas.
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
 
-   Installation/install.rst
-   Command-line_tools/Overview.rst
-   Python/Python.rst
-   FileFormats/Overview.rst
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   documentation.rst
