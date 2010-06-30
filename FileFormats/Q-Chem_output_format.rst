@@ -1,7 +1,12 @@
 Q-Chem output format (qcout)
 ============================
+Read Options
+~~~~~~~~~~~~
 
-Q-Chem output format
+.. cmdoption:: s
 
-Write Options
-~~~~~~~~~~~~~
+  Output single bonds only
+
+.. cmdoption:: b
+
+  Disable bonding entirely

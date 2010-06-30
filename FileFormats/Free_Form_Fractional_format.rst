@@ -1,7 +1,12 @@
 Free Form Fractional format (fract)
 ===================================
+Read Options
+~~~~~~~~~~~~
 
-Free Form Fractional format
+.. cmdoption:: s
 
-Write Options
-~~~~~~~~~~~~~
+  Output single bonds only
+
+.. cmdoption:: b
+
+  Disable bonding entirely

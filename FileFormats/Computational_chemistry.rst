@@ -22,6 +22,8 @@ Computational chemistry
    NWChem_input_format.rst
    NWChem_output_format.rst
    Parallel_Quantum_Solutions_format.rst
+   Q-Chem_input_format.rst
+   Q-Chem_output_format.rst
    TurboMole_Coordinate_format.rst
    VASP_format.rst
    ZINDO_input_format.rst

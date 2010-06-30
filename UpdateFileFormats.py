@@ -10,20 +10,28 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 't41', 'tmol', 'zin', 
             'mopcrt', 'mopin', 'mopout', 'mp', 'mpc', 'nw', 'nwo',
             'outmol', 'mpqc', 'mpqcin', 'CONTCAR', 'pqs', 'hin',
             'adf', 'adfout', 'com', 'g03', 'g09', 'g92', 'g98', 'gal',
-            'cub', 'cube', 'dmol', 'fch', 'fck', 'fh'])
-viewers = ("3D viewers", ['mold', 'molden', 'yob'])
+            'cub', 'cube', 'dmol', 'fch', 'fck', 'fh',
+            'qcin', 'qcout'])
+viewers = ("3D viewers", ['mold', 'molden', 'yob', 'vmol'])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
                  'inchi', 'mol2', 'mol', 'cml'])
-cheminf = ("Other cheminformatics", ['fix', 'msi', 'mpd', 'cif',
+cheminf = ("Other cheminformatics", ['fix', 'msi', 'mpd', 
                                      'cdxml', 'cdx'])
+crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
+                               "fract", "cssr"])
 images = ("Images", ['png', 'svg', 'pov'])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
-                       'nul', 'xyz', 'xml'])
+                       'nul', 'xyz', 'xml', "mna", "fpt", "fs"])
 molecular_dynamics = ('Molecular dynamics',
-                      ['gr96'])
+                      ['gr96', 'txyz', "prep"])
+reactions = ("Reactions", ["cmlr"])
+# 'test' format does not appear to exist (although it's on the wiki)
+# Para break in final comments don't appear
+# cml format has a lot of text on wiki
+# Also fastsearch
 
 allformats = set(pybel.informats.keys()) | set(pybel.outformats.keys())
-sections = [common_cheminf, utility, cheminf, compchem, images, viewers,
+sections = [common_cheminf, utility, cheminf, compchem, crystal, reactions, images, viewers,
             molecular_dynamics]
 ##sections = [images]
 

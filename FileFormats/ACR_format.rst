@@ -1,7 +1,11 @@
 ACR format (acr)
 ================
 
-ACR format CaRIne ASCII Crystal format (ACR)
+**CaRIne ASCII Crystal format (ACR)**
 
-Write Options
-~~~~~~~~~~~~~
+Read Options
+~~~~~~~~~~~~
+
+.. cmdoption:: s
+
+  Consider single bonds only

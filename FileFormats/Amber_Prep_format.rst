@@ -1,7 +1,12 @@
 Amber Prep format (prep)
 ========================
+Read Options
+~~~~~~~~~~~~
 
-Amber Prep format
+.. cmdoption:: s
 
-Write Options
-~~~~~~~~~~~~~
+  Output single bonds only
+
+.. cmdoption:: b
+
+  Disable bonding entirely

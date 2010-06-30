@@ -1,7 +1,9 @@
-Macromolecular Crystallographic Information (mcif)
-==================================================
+Macromolecular Crystallographic Information (mmcif, mcif)
+=========================================================
 
-Macromolecular Crystallographic Information  
+** **
 
-Write Options
-~~~~~~~~~~~~~
+
+
+
+

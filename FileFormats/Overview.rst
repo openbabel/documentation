@@ -8,6 +8,8 @@ Supported File Formats and Options
    Utility.rst
    Other_cheminformatics.rst
    Computational_chemistry.rst
+   Crystallography.rst
+   Reactions.rst
    Images.rst
    3D_viewers.rst
    Molecular_dynamics.rst
