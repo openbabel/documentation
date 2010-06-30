@@ -1,4 +1,4 @@
-HyperChem HIN format (hin)
+POV-Ray input format (pov)
 ==========================
 
 **No comments yet**

@@ -1,7 +1,12 @@
 MPQC output format (mpqc)
 =========================
+Read Options
+~~~~~~~~~~~~
 
-MPQC output format
+.. cmdoption:: s
 
-Write Options
-~~~~~~~~~~~~~
+  Output single bonds only
+
+.. cmdoption:: b
+
+  Disable bonding entirely

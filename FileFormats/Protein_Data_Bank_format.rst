@@ -1,13 +1,16 @@
 Protein Data Bank format (pdb, ent)
 ===================================
-
-Protein Data Bank format
-
 Read Options
 ~~~~~~~~~~~~
-**s**
-    Output single bonds only
-**b**
-    Disable bonding entirely
-**c**
-    Ignore CONECT records
+
+.. cmdoption:: s
+
+  Output single bonds only
+
+.. cmdoption:: b
+
+  Disable bonding entirely
+
+.. cmdoption:: c
+
+  Ignore CONECT records

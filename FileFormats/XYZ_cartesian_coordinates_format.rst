@@ -1,7 +1,12 @@
 XYZ cartesian coordinates format (xyz)
 ======================================
+Read Options
+~~~~~~~~~~~~
 
-XYZ cartesian coordinates format
+.. cmdoption:: s
 
-Write Options
-~~~~~~~~~~~~~
+  Output single bonds only
+
+.. cmdoption:: b
+
+  Disable bonding entirely

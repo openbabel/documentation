@@ -1,11 +1,12 @@
 Molden format (molden, mold)
 ============================
-
-Molden format
-
 Read Options
 ~~~~~~~~~~~~
-**b**
-    no bonds
-**s**
-    no multiple bonds
+
+.. cmdoption:: b
+
+  no bonds
+
+.. cmdoption:: s
+
+  no multiple bonds

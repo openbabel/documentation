@@ -1,11 +1,15 @@
 Gaussian cube format (cub, cube)
 ================================
 
-Gaussian cube format ReadOnly.
+**ReadOnly.**
 
 Read Options
 ~~~~~~~~~~~~
-**b**
-    no bonds
-**s**
-    no multiple bonds
+
+.. cmdoption:: b
+
+  no bonds
+
+.. cmdoption:: s
+
+  no multiple bonds

@@ -1,7 +1,12 @@
-Gaussian formatted checkpoint file format (fck)
-===============================================
+Gaussian formatted checkpoint file format (fchk, fch, fck)
+==========================================================
+Read Options
+~~~~~~~~~~~~
 
-Gaussian formatted checkpoint file format
+.. cmdoption:: s
 
-Write Options
-~~~~~~~~~~~~~
+  Single bonds only
+
+.. cmdoption:: b
+
+  No bond perception

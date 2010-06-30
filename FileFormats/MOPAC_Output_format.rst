@@ -1,11 +1,12 @@
 MOPAC Output format (moo, mopout)
 =================================
-
-MOPAC Output format
-
 Read Options
 ~~~~~~~~~~~~
-**s**
-    Output single bonds only
-**b**
-    Disable bonding entirely
+
+.. cmdoption:: s
+
+  Output single bonds only
+
+.. cmdoption:: b
+
+  Disable bonding entirely

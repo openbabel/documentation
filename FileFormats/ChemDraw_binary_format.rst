@@ -1,7 +1,5 @@
 ChemDraw binary format (cdx)
 ============================
 
-ChemDraw binary format Read only.
+**Read only.**
 
-Write Options
-~~~~~~~~~~~~~

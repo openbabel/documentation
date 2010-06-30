@@ -1,11 +1,21 @@
 PNG files with embedded data (png)
 ==================================
 
-PNG files with embedded data Extract chemical structure data embedded in PNG image files
+**Extract chemical structure data embedded in PNG image files**
 
+Read Options
+~~~~~~~~~~~~
+
+.. cmdoption:: y <additional chunk ID>
+
+  Look also in chunks with specified ID
 Write Options
 ~~~~~~~~~~~~~
-**O**
-    <format ID> Format of embedded text
-**y**
-    <additional chunk ID> Write to a chunk with specified ID
+
+.. cmdoption:: O <format ID>
+
+  Format of embedded text
+
+.. cmdoption:: y <additional chunk ID>
+
+  Write to a chunk with specified ID

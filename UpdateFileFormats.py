@@ -8,15 +8,24 @@ def heading(text, symbol):
 
 compchem = ("Computational chemistry", ['POSCAR', 'tmol', 't41', 'tmol', 'zin', 'moo', 'mop',
             'mopcrt', 'mopin', 'mopout', 'mp', 'mpc', 'nw', 'nwo',
-            'outmol',
+            'outmol', 'mpqc', 'mpqcin', 'CONTCAR', 'pqs', 'hin',
             'adf', 'adfout', 'com', 'g03', 'g09', 'g92', 'g98', 'gal',
-            'cub', 'cube', 'dmol'])
+            'cub', 'cube', 'dmol', 'fch', 'fck', 'fh'])
 viewers = ("3D viewers", ['mold', 'molden', 'yob'])
-common_cheminf = ("Most common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
+common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
                  'inchi', 'mol2', 'mol', 'cml'])
+cheminf = ("Other cheminformatics", ['fix', 'msi', 'mpd', 'cif',
+                                     'cdxml', 'cdx'])
+images = ("Images", ['png', 'svg', 'pov'])
+utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
+                       'nul', 'xyz', 'xml'])
+molecular_dynamics = ('Molecular dynamics',
+                      ['gr96'])
 
 allformats = set(pybel.informats.keys()) | set(pybel.outformats.keys())
-sections = [common_cheminf, compchem, viewers]
+sections = [common_cheminf, utility, cheminf, compchem, images, viewers,
+            molecular_dynamics]
+##sections = [images]
 
 exts = collections.defaultdict(list)
 for format in allformats:
@@ -51,6 +60,7 @@ for name, codes in sections:
         format = pybel.ob.OBFormat.FindType(exts[formatname][0])
         desc = format.Description()
         print desc
+        print "++++++++++++++++++++++++"
         safename = formatname.replace(" ", "_").replace("/", "_or_")
         print >> sectionfile, "   %s.rst" % safename
         
@@ -59,28 +69,60 @@ for name, codes in sections:
         title = "%s (%s)" % (formatname, ", ".join(exts[formatname]))
         print >> output, heading(title, "=")
 
-        INTRO, WRITE, READ = range(3)
-        data = [[] for i in range(3)]
+        INTRO, WRITE, READ, COMMENTS = range(4)
+        data = [[] for i in range(4)]
         N = INTRO
-        for line in desc.splitlines():
+        emptyline = False
+        for line in desc.splitlines()[1:]:
             if line.lower().strip().startswith("write options"):
                 N = WRITE
+                options = True
             elif line.lower().strip().startswith("read options"):
                 N = READ
+                options = True
+            elif emptyline == True and N != INTRO:
+                N = COMMENTS
+##            print "Line", N, line                
             data[N].append(line)
-
-        print >> output, "\n%s\n" % " ".join(data[0])
+            emptyline = line.strip()==""
+            if N==INTRO and emptyline:
+                data[N].append("\n\n")
+        if data[INTRO]:
+            print >> output, "\n**%s**\n" % data[INTRO][0]
+            if len(data[INTRO]) > 1:        
+                print >> output, "%s\n" % " ".join(data[INTRO][1:])
 
         for x, y in ((READ, "Read"), (WRITE, "Write")):
+            firstline = True
             if len("".join(data[x][1:]).strip()) > 0:
                 print >> output, heading("%s Options" % y, "~")
                 for d in data[x][1:]:
                     if d.strip():
+                        if d.startswith("   "):
+                            if firstline:
+                                print >> output, "\n.. note::\n"
+##                                print >> output, "::\n"
+                            print >> output, d
+                            firstline = False
+                            continue
+                        else:
+                            firstline = True
+                    
                         d = d.strip()
                         broken = d.split()
-                        print >> output, "**%s**" % broken[0]
-                        print >> output, "    " + " ".join(broken[1:])
-                        print "    " + " ".join(broken[1:])
+                        start = 1
+                        if broken[1][0] in ["<", '"']:
+                            while broken[start - 1][-1] not in [">", '"']:
+                                broken[0] += " " + broken[start]
+                                start += 1
+##                        print >> output, "**%s**" % broken[0]
+##                        print >> output, "    " + " ".join(broken[start:])
+                        print >> output, "\n.. cmdoption:: %s\n" % broken[0]
+                        print >> output, "  " + " ".join(broken[start:])
+##                        print "    " + " ".join(broken[start:])
+        if data[COMMENTS]:
+            print >> output, heading("Comments", "~")
+            print >> output, "\n%s\n" % " ".join(data[COMMENTS])
        
         output.close()
     sectionfile.close()
