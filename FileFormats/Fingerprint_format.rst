@@ -4,7 +4,6 @@ Fingerprint format (fpt)
 **Constructs and displays fingerprints and (for multiple input objects)**
 
 the Tanimoto coefficient and whether a superstructure of the first object
-
 Write Options
 ~~~~~~~~~~~~~
 

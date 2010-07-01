@@ -24,16 +24,16 @@ utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        'nul', 'xyz', 'xml', "mna", "fpt", "fs"])
 molecular_dynamics = ('Molecular dynamics',
                       ['gr96', 'txyz', "prep"])
-reactions = ("Reactions", ["cmlr"])
+reactions = ("Reactions", ["cmlr", "rxn", "rsmi"])
 # 'test' format does not appear to exist (although it's on the wiki)
 # Para break in final comments don't appear
 # cml format has a lot of text on wiki
-# Also fastsearch
+# (fastsearch missing s option)
 
 allformats = set(pybel.informats.keys()) | set(pybel.outformats.keys())
 sections = [common_cheminf, utility, cheminf, compchem, crystal, reactions, images, viewers,
             molecular_dynamics]
-##sections = [images]
+sections = [common_cheminf]
 
 exts = collections.defaultdict(list)
 for format in allformats:
@@ -93,12 +93,14 @@ for name, codes in sections:
 ##            print "Line", N, line                
             data[N].append(line)
             emptyline = line.strip()==""
-            if N==INTRO and emptyline:
-                data[N].append("\n\n")
+##            if N==INTRO and emptyline:
+##                data[N].append("\n\n")
         if data[INTRO]:
             print >> output, "\n**%s**\n" % data[INTRO][0]
-            if len(data[INTRO]) > 1:        
-                print >> output, "%s\n" % " ".join(data[INTRO][1:])
+            if len(data[INTRO]) > 1:
+                for line in data[INTRO][1:]:
+                    print >> output, line.rstrip()
+##                print >> output, "%s\n" % "\n".join(data[INTRO][1:])
 
         for x, y in ((READ, "Read"), (WRITE, "Write")):
             firstline = True
@@ -130,7 +132,9 @@ for name, codes in sections:
 ##                        print "    " + " ".join(broken[start:])
         if data[COMMENTS]:
             print >> output, heading("Comments", "~")
-            print >> output, "\n%s\n" % " ".join(data[COMMENTS])
+            for line in data[COMMENTS]:
+                print >> output, line.rstrip()
+##            print >> output, "\n%s\n" % " ".join(data[COMMENTS])
        
         output.close()
     sectionfile.close()

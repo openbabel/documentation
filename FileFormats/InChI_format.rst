@@ -61,6 +61,15 @@ Write Options
   truncate InChI, /nostereo etc.
 Comments
 ~~~~~~~~
+Currently the output is standard InChI only.InChI options may be reintroduced later. The InChI options should be space delimited in a single quoted string.
+ See InChI documentation for possible options.
 
-Currently the output is standard InChI only.InChI options may be reintroduced later. The InChI options should be space delimited in a single quoted string.  See InChI documentation for possible options.   Truncation parameters used with -xT /formula  formula only /connect  formula and connectivity only /nostereo ignore E/Z and sp3 stereochemistry /sp3      ignore sp3 stereochemistry /noEZ     ignore E/Z steroeochemistry /nochg    ignore charge and protonation /noiso    ignore isotopes 
+ Truncation parameters used with -xT
+/formula  formula only
+/connect  formula and connectivity only
+/nostereo ignore E/Z and sp3 stereochemistry
+/sp3      ignore sp3 stereochemistry
+/noEZ     ignore E/Z steroeochemistry
+/nochg    ignore charge and protonation
+/noiso    ignore isotopes
 
