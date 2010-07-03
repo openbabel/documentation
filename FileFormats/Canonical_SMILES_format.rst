@@ -7,6 +7,8 @@ The SMILES format is a linear text format which can describe the
 connectivity and chirality of a molecule. Canonical SMILES gives a single
 'canonical' form for any particular molecule.
 
+
+
 Write Options
 ~~~~~~~~~~~~~
 

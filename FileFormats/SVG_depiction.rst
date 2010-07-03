@@ -3,15 +3,28 @@ SVG depiction (svg)
 
 **Scalable Vector Graphics 2D rendering of molecular structure.**
 
- 
 
- Single molecules are displayed at a fixed scale, as in normal diagrams, but multiple molecules are displayed in a table which expands to fill the containing element, such as a browser window.  
+Single molecules are displayed at a fixed scale, as in normal diagrams,
+but multiple molecules are displayed in a table which expands to fill
+the containing element, such as a browser window.
 
- Multiple molecules are displayed in a grid of dimensions specified by the -xr and -xc options (number of rows and columns respectively). When displayed in an appropriate program, e.g. Firefox, there is javascript support for zooming (with the mouse wheel) and panning (by dragging with the left mouse button).  
+Multiple molecules are displayed in a grid of dimensions specified by
+the -xr and -xc options (number of rows and columns respectively).
+When displayed in an appropriate program, e.g. Firefox, there is
+javascript support for zooming (with the mouse wheel)
+and panning (by dragging with the left mouse button).
 
- If both -xr and -xc are specified, they define the maximum number of molecules that are displayed. If only one of them is displayed, then the other is calculated so that ALL the molecules are displayed. If neither are specified, all the molecules are output in an approximately square table.  
+If both -xr and -xc are specified, they define the maximum number of
+molecules that are displayed.
+If only one of them is displayed, then the other is calculated so that
+ALL the molecules are displayed.
+If neither are specified, all the molecules are output in an
+approximately square table.
 
- By default, 2D atom coordinates are generated (using gen2D) unless they are already present. This can be slow with a large number of molecules. (3D coordinates are ignored.) Include --gen2D explicitly if you wish any existing 2D coordinates to be recalculated.  
+By default, 2D atom coordinates are generated (using gen2D) unless they
+are already present. This can be slow with a large number of molecules.
+(3D coordinates are ignored.) Include --gen2D explicitly if you wish
+any existing 2D coordinates to be recalculated.
 
 
 
@@ -117,6 +130,19 @@ Write Options
     can be edited.
 Comments
 ~~~~~~~~
+Additional option(not displayed in GUI)
+ x omit XML declaration
+    Useful if the output is to be embedded in another xml file.
 
-Additional option(not displayed in GUI)  x omit XML declaration     Useful if the output is to be embedded in another xml file.  If the input molecule(s) contain explicit hydrogen, you could consider improving the appearance of the diagram by adding an option -d to make it implicit. Hydrogen on hetero atoms and on explicitly drawn C is always shown. For example, if input.smi had 10 molecules:       babel input.smi out.svg -xbCe would produce a svg file with a black background, with no explict terminal carbon, and with an embedded cml representation of each molecule. The structures would be in two rows of four and one row of two. Not that it is possible to concatinate multiple single- letter options (with a single preceding -x). 
+If the input molecule(s) contain explicit hydrogen, you could consider
+improving the appearance of the diagram by adding an option -d to make
+it implicit. Hydrogen on hetero atoms and on explicitly drawn C is
+always shown.
+For example, if input.smi had 10 molecules:
+      babel input.smi out.svg -xbCe
+would produce a svg file with a black background, with no explict
+terminal carbon, and with an embedded cml representation of each
+molecule. The structures would be in two rows of four and one row
+of two. Not that it is possible to concatinate multiple single-
+letter options (with a single preceding -x).
 

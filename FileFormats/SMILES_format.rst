@@ -4,6 +4,8 @@ SMILES format (smi, smiles)
 **A linear text format which can describe the connectivity**
 
 and chirality of a molecule
+
+
 Write Options
 ~~~~~~~~~~~~~
 

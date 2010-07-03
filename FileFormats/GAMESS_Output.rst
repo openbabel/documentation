@@ -1,7 +1,16 @@
-GAMESS Output (gam)
-===================
+GAMESS Output (gamout, gam, gamess)
+===================================
+Read Options
+~~~~~~~~~~~~
 
-GAMESS Output
+.. cmdoption:: s
 
-Write Options
-~~~~~~~~~~~~~
+  Output single bonds only
+
+.. cmdoption:: b
+
+  Disable bonding entirely
+Comments
+~~~~~~~~
+  c  Read multiple conformers
+

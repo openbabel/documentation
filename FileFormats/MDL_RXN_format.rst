@@ -3,7 +3,3 @@ MDL RXN format (rxn)
 
 ****
 
-
-
-
-

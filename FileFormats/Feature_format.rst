@@ -1,7 +1,12 @@
 Feature format (feat)
 =====================
+Read Options
+~~~~~~~~~~~~
 
-Feature format
+.. cmdoption:: s
 
-Write Options
-~~~~~~~~~~~~~
+  Output single bonds only
+
+.. cmdoption:: b
+
+  Disable bonding entirely

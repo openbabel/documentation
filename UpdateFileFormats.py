@@ -11,8 +11,8 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 't41', 'tmol', 'zin', 
             'outmol', 'mpqc', 'mpqcin', 'CONTCAR', 'pqs', 'hin',
             'adf', 'adfout', 'com', 'g03', 'g09', 'g92', 'g98', 'gal',
             'cub', 'cube', 'dmol', 'fch', 'fck', 'fh',
-            'qcin', 'qcout'])
-viewers = ("3D viewers", ['mold', 'molden', 'yob', 'vmol'])
+            'qcin', 'qcout', 'gamin', 'gamout'])
+viewers = ("3D viewers", ['mold', 'molden', 'yob', 'vmol', 'gpr'])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
                  'inchi', 'mol2', 'mol', 'cml'])
 cheminf = ("Other cheminformatics", ['fix', 'msi', 'mpd', 
@@ -25,15 +25,17 @@ utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
 molecular_dynamics = ('Molecular dynamics',
                       ['gr96', 'txyz', "prep"])
 reactions = ("Reactions", ["cmlr", "rxn", "rsmi"])
+biology = ("Biological data", ["fasta"])
+unknown = ("I have no idea what this is", ["feat"])
 # 'test' format does not appear to exist (although it's on the wiki)
-# Para break in final comments don't appear
-# cml format has a lot of text on wiki
+# fastsearch, cml format - added some markup
 # (fastsearch missing s option)
+# gamessuk not on Windows, gukin, gukout
 
 allformats = set(pybel.informats.keys()) | set(pybel.outformats.keys())
 sections = [common_cheminf, utility, cheminf, compchem, crystal, reactions, images, viewers,
-            molecular_dynamics]
-sections = [common_cheminf]
+            molecular_dynamics, unknown]
+##sections = [common_cheminf]
 
 exts = collections.defaultdict(list)
 for format in allformats:
@@ -100,6 +102,7 @@ for name, codes in sections:
             if len(data[INTRO]) > 1:
                 for line in data[INTRO][1:]:
                     print >> output, line.rstrip()
+                print >> output, "\n"
 ##                print >> output, "%s\n" % "\n".join(data[INTRO][1:])
 
         for x, y in ((READ, "Read"), (WRITE, "Write")):

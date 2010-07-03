@@ -1,7 +1,12 @@
 Gaussian cube format (cub, cube)
 ================================
 
-**ReadOnly.**
+**A grid format for volume data used by Gaussian**
+
+Open Babel supports reading and writing Gaussian cubes, including multiple
+grids in one file.
+
+
 
 Read Options
 ~~~~~~~~~~~~

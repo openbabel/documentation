@@ -8,6 +8,8 @@ Computational chemistry
    ADF_output_format.rst
    DMol3_coordinates_format.rst
    Fenske-Hall_Z-Matrix_format.rst
+   GAMESS_Input.rst
+   GAMESS_Output.rst
    Gaussian_98_or_03_Input.rst
    Gaussian_Output.rst
    Gaussian_cube_format.rst

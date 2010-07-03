@@ -3,10 +3,6 @@ Crystallographic Information File (cif)
 
 ****
 
-
-
-
-
 Read Options
 ~~~~~~~~~~~~
 

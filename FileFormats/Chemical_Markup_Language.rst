@@ -34,6 +34,8 @@ The following are read:
     atomRefs4 (for atomParity)
   - On <bond>: atomRefs2, order, CML1: atomRef, atomRef1, atomRef2
 
+
+
 Read Options
 ~~~~~~~~~~~~
 

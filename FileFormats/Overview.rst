@@ -5,3 +5,12 @@ Supported File Formats and Options
    :maxdepth: 2
 
    Common_cheminformatics.rst
+   Utility.rst
+   Other_cheminformatics.rst
+   Computational_chemistry.rst
+   Crystallography.rst
+   Reactions.rst
+   Images.rst
+   3D_viewers.rst
+   Molecular_dynamics.rst
+   I_have_no_idea_what_this_is.rst
