@@ -10,31 +10,45 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 't41', 'tmol', 'zin', 
             'mopcrt', 'mopin', 'mopout', 'mp', 'mpc', 'nw', 'nwo',
             'outmol', 'mpqc', 'mpqcin', 'CONTCAR', 'pqs', 'hin',
             'adf', 'adfout', 'com', 'g03', 'g09', 'g92', 'g98', 'gal',
-            'cub', 'cube', 'dmol', 'fch', 'fck', 'fh',
-            'qcin', 'qcout', 'gamin', 'gamout'])
-viewers = ("3D viewers", ['mold', 'molden', 'yob', 'vmol', 'gpr'])
+            'dmol', 'fch', 'fck', 'fh',
+            'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout'])
+viewers = ("3D viewers", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
+                          "unixyz"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
                  'inchi', 'mol2', 'mol', 'cml'])
-cheminf = ("Other cheminformatics", ['fix', 'msi', 'mpd', 
-                                     'cdxml', 'cdx'])
+cheminf = ("Other cheminformatics", ['msi', 'mpd', 'pc', 
+                                     'cdxml', 'cdx', 'mcdl'])
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
                                "fract", "cssr"])
 images = ("Images", ['png', 'svg', 'pov'])
+volume_data = ("Volume data", ["cube", "dx"])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
-                       'nul', 'xyz', 'xml', "mna", "fpt", "fs"])
+                       'nul', 'xyz', 'xml', "mna", "fpt", "fs",
+                       "mpd"])
 molecular_dynamics = ('Molecular dynamics',
-                      ['gr96', 'txyz', "prep"])
+                      ['gr96', 'txyz', "prep", "mmod"])
+thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
 reactions = ("Reactions", ["cmlr", "rxn", "rsmi"])
 biology = ("Biological data", ["fasta"])
-unknown = ("I have no idea what this is", ["feat"])
+misc = ("Miscellaneous", ["msms"])
+unknown = ("I have no idea what this is", ["feat", "fix", "xed"])
 # 'test' format does not appear to exist (although it's on the wiki)
 # fastsearch, cml format - added some markup
 # (fastsearch missing s option)
 # gamessuk not on Windows, gukin, gukout
+# inchi refs inchi docs
+# mcdl refs paper
+# cml refs papers
+# mna refs paper
+# see also between mol report and report
+# see also between cml reaction and mdl rxn
+# smiles format link to radical extension
+# xml contains ref to two other formats
 
 allformats = set(pybel.informats.keys()) | set(pybel.outformats.keys())
-sections = [common_cheminf, utility, cheminf, compchem, crystal, reactions, images, viewers,
-            molecular_dynamics, unknown]
+sections = [common_cheminf, utility, cheminf, compchem, crystal, reactions,
+            images, viewers, thermo,
+            molecular_dynamics, volume_data, misc, biology, unknown]
 ##sections = [common_cheminf]
 
 exts = collections.defaultdict(list)
