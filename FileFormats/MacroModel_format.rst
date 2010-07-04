@@ -1,7 +1,7 @@
-MacroModel format (mmd)
-=======================
+.. _MacroModel_format:
 
-MacroModel format              No comments yet
+MacroModel format (mmod, mmd)
+=============================
 
-Write Options
-~~~~~~~~~~~~~
+**No comments yet**
+

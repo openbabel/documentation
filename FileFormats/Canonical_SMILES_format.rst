@@ -1,3 +1,5 @@
+.. _Canonical_SMILES_format:
+
 Canonical SMILES format (can)
 =============================
 
@@ -10,31 +12,16 @@ connectivity and chirality of a molecule. Canonical SMILES gives a single
 
 
 Write Options
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~ 
 
-.. cmdoption:: a
+-a  *Output atomclass like [C:2], if available*
+-h  *Output explicit hydrogens as such*
+-i  *Do not include isotopic or chiral markings*
+-n  *No molecule name*
+-r  *Radicals lower case eg ethyl is Cc*
+-t  *Molecule name only*
 
-  Output atomclass like [C:2], if available
 
-.. cmdoption:: h
-
-  Output explicit hydrogens as such
-
-.. cmdoption:: i
-
-  Do not include isotopic or chiral markings
-
-.. cmdoption:: n
-
-  No molecule name
-
-.. cmdoption:: r
-
-  Radicals lower case eg ethyl is Cc
-
-.. cmdoption:: t
-
-  Molecule name only
 Comments
 ~~~~~~~~
 See also, the "regular" SMILES format, which results in faster

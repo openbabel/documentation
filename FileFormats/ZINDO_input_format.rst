@@ -1,5 +1,7 @@
+.. _ZINDO_input_format:
+
 ZINDO input format (zin)
 ========================
 
-**No comments yet**
+**The input format for the semiempirical quantum-mechanics program ZINDO.**
 

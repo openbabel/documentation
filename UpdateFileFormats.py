@@ -49,7 +49,7 @@ allformats = set(pybel.informats.keys()) | set(pybel.outformats.keys())
 sections = [common_cheminf, utility, cheminf, compchem, crystal, reactions,
             images, viewers, thermo,
             molecular_dynamics, volume_data, misc, biology, unknown]
-##sections = [common_cheminf]
+##sections = [utility]
 
 exts = collections.defaultdict(list)
 for format in allformats:
@@ -83,13 +83,13 @@ for name, codes in sections:
 
         format = pybel.ob.OBFormat.FindType(exts[formatname][0])
         desc = format.Description()
-        print desc
-        print "++++++++++++++++++++++++"
+       
         safename = formatname.replace(" ", "_").replace("/", "_or_")
         print >> sectionfile, "   %s.rst" % safename
         
         output = open(os.path.join("FileFormats", "%s.rst" % safename), "w")
-
+        ref = ".. _%s:\n" % safename
+        print >> output, ref
         title = "%s (%s)" % (formatname, ", ".join(exts[formatname]))
         print >> output, heading(title, "=")
 
@@ -104,7 +104,7 @@ for name, codes in sections:
             elif line.lower().strip().startswith("read options"):
                 N = READ
                 options = True
-            elif emptyline == True and N != INTRO:
+            elif N != INTRO and line and line[0]!=" ":
                 N = COMMENTS
 ##            print "Line", N, line                
             data[N].append(line)
@@ -122,31 +122,42 @@ for name, codes in sections:
         for x, y in ((READ, "Read"), (WRITE, "Write")):
             firstline = True
             if len("".join(data[x][1:]).strip()) > 0:
-                print >> output, heading("%s Options" % y, "~")
+                print >> output, heading("%s Options" % y, "~"), "\n"
                 for d in data[x][1:]:
-                    if d.strip():
-                        if d.startswith("   "):
-                            if firstline:
-                                print >> output, "\n.. note::\n"
-##                                print >> output, "::\n"
-                            print >> output, d
-                            firstline = False
-                            continue
-                        else:
-                            firstline = True
-                    
-                        d = d.strip()
-                        broken = d.split()
-                        start = 1
-                        if broken[1][0] in ["<", '"']:
-                            while broken[start - 1][-1] not in [">", '"']:
-                                broken[0] += " " + broken[start]
-                                start += 1
-##                        print >> output, "**%s**" % broken[0]
-##                        print >> output, "    " + " ".join(broken[start:])
-                        print >> output, "\n.. cmdoption:: %s\n" % broken[0]
-                        print >> output, "  " + " ".join(broken[start:])
-##                        print "    " + " ".join(broken[start:])
+##                    if d.strip():
+                    if d.startswith("   ") or not d.strip():
+                        if firstline:
+                            print >> output, ""
+
+                        print >> output, d
+                        firstline = False
+                        continue
+                    else:
+                        firstline = True
+                
+                    d = d.strip()
+                    d = d.replace("#", "<num>")
+                    broken = d.split()
+                    if len(broken[0]) > 1: # Param stuck to option
+                        broken = [d[0], broken[0][1:]] + broken[1:]
+                    start = 1                        
+
+                    if broken[1][0] in ["<", '"']:
+                        
+                        broken[1] = "<" + broken[1][1:]
+            
+                        while True:
+                            broken[0] += " " + broken[start]
+                            if broken[start][-1] in [">", '"']:
+                                break
+                            start += 1
+                        start += 1
+                        
+                        broken[0] = broken[0][:-1] + ">"
+
+                    print >> output, "-%s  *%s*" % (broken[0], " ".join(broken[start:]))
+                    print  "-%s  %s" % (broken[0], " ".join(broken[start:]))
+
         if data[COMMENTS]:
             print >> output, heading("Comments", "~")
             for line in data[COMMENTS]:

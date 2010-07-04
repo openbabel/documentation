@@ -1,3 +1,5 @@
+.. _Reads_raw_text:
+
 Reads raw text (text)
 =====================
 

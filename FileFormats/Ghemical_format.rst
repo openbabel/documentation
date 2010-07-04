@@ -1,3 +1,5 @@
+.. _Ghemical_format:
+
 Ghemical format (gpr)
 =====================
 

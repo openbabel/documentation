@@ -1,7 +1,11 @@
+.. _UniChem_XYZ_format:
+
 UniChem XYZ format (unixyz)
 ===========================
+Read Options
+~~~~~~~~~~~~ 
 
-UniChem XYZ format
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-Write Options
-~~~~~~~~~~~~~
+

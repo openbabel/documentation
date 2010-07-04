@@ -1,12 +1,11 @@
+.. _Molden_format:
+
 Molden format (molden, mold)
 ============================
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: b
+-b  *no bonds*
+-s  *no multiple bonds*
 
-  no bonds
 
-.. cmdoption:: s
-
-  no multiple bonds

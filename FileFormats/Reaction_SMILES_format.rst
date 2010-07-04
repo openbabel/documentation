@@ -1,8 +1,10 @@
+.. _Reaction_SMILES_format:
+
 Reaction SMILES format (rsmi)
 =============================
 Write Options
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~ 
 
-.. cmdoption:: r
+-r  *radicals lower case eg ethyl is Cc*
 
-  radicals lower case eg ethyl is Cc
+

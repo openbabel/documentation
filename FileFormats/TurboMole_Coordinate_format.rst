@@ -1,22 +1,18 @@
+.. _TurboMole_Coordinate_format:
+
 TurboMole Coordinate format (tmol)
 ==================================
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: s
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
+-a  *Input in Angstroms*
 
-  Output single bonds only
 
-.. cmdoption:: b
-
-  Disable bonding entirely
-
-.. cmdoption:: a
-
-  Input in Angstroms
 Write Options
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~ 
 
-.. cmdoption:: a
+-a  *Output Angstroms*
 
-  Output Angstroms
+

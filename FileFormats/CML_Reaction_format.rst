@@ -1,3 +1,5 @@
+.. _CML_Reaction_format:
+
 CML Reaction format (cmlr)
 ==========================
 
@@ -7,43 +9,19 @@ This implementation uses libxml2.
 
 
 Write Options
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~ 
 
-.. cmdoption:: 1
+-1  *output CML1 (rather than CML2)*
+-a  *output array format for atoms and bonds*
+-l  *molecules NOT in MoleculeList*
+-h  *use hydrogenCount for all hydrogens*
+-x  *omit XML declaration*
+-r  *omit rate constant data*
+-N <prefix>  *add namespace prefix to elements*
+-M  *add obr prefix on non-CMLReact elements*
+-p  *add properties to molecules*
 
-  output CML1 (rather than CML2)
 
-.. cmdoption:: a
-
-  output array format for atoms and bonds
-
-.. cmdoption:: l
-
-  molecules NOT in MoleculeList
-
-.. cmdoption:: h
-
-  use hydrogenCount for all hydrogens
-
-.. cmdoption:: x
-
-  omit XML declaration
-
-.. cmdoption:: r
-
-  omit rate constant data
-
-.. cmdoption:: N<prefix>
-
-  add namespace prefix to elements
-
-.. cmdoption:: M
-
-  add obr prefix on non-CMLReact elements
-
-.. cmdoption:: p
-
-  add properties to molecules
 Comments
 ~~~~~~~~
 The implementation of this format which reads and writes to and from

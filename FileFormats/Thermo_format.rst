@@ -1,7 +1,13 @@
-Thermo format (therm)
-=====================
+.. _Thermo_format:
 
-Thermo format Reads and writes old-style NASA polynomials in original fixed format
+Thermo format (tdd, therm)
+==========================
 
-Write Options
-~~~~~~~~~~~~~
+**Reads and writes old-style NASA polynomials in original fixed format**
+
+Read Options
+~~~~~~~~~~~~ 
+
+-e  *Terminate on "END"*
+
+

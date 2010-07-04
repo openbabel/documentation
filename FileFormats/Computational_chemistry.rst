@@ -12,9 +12,10 @@ Computational chemistry
    GAMESS_Output.rst
    Gaussian_98_or_03_Input.rst
    Gaussian_Output.rst
-   Gaussian_cube_format.rst
    Gaussian_formatted_checkpoint_file_format.rst
    HyperChem_HIN_format.rst
+   Jaguar_input_format.rst
+   Jaguar_output_format.rst
    MOPAC_Cartesian_format.rst
    MOPAC_Internal.rst
    MOPAC_Output_format.rst

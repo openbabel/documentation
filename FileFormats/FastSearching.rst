@@ -1,3 +1,5 @@
+.. _FastSearching:
+
 FastSearching (fs)
 ==================
 
@@ -43,46 +45,22 @@ the user's tutorial.
 
 
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: t#
+-t <num>  *Do similarity search: <num>mols or <num> as min Tanimoto*
+-a  *Add Tanimoto coeff to title in similarity search*
+-l <num>  *Maximum number of candidates. Default<4000>*
+-e  *Exact match*
+-S <filename>  *Structure spec in a file*
+-n  *No further SMARTS filtering after fingerprint phase*
+-h  *SMARTS uses explicit H in pattern file*
 
-  Do similarity search: #mols or # as min Tanimoto
 
-.. cmdoption:: a
-
-  Add Tanimoto coeff to title in similarity search
-
-.. cmdoption:: l#
-
-  Maximum number of candidates. Default<4000>
-
-.. cmdoption:: e
-
-  Exact match
-
-.. cmdoption:: S"filename"
-
-  Structure spec in a file:
-
-.. cmdoption:: n
-
-  No further SMARTS filtering after fingerprint phase
-
-.. cmdoption:: h
-
-  SMARTS uses explicit H in pattern file
 Write Options
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~ 
 
-.. cmdoption:: f#
+-f <num>  *Fingerprint type*
+-N <num>  *Fold fingerprint to <num> bits*
+-u  *Update an existing index*
 
-  Fingerprint type
 
-.. cmdoption:: N#
-
-  Fold fingerprint to # bits
-
-.. cmdoption:: u
-
-  Update an existing index

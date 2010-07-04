@@ -1,5 +1,7 @@
+.. _YASARA.org_YOB_format:
+
 YASARA.org YOB format (yob)
 ===========================
 
-**No comments yet**
+**The native YASARA format.**
 

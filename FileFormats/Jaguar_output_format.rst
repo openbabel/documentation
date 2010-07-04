@@ -1,7 +1,11 @@
+.. _Jaguar_output_format:
+
 Jaguar output format (jout)
 ===========================
+Read Options
+~~~~~~~~~~~~ 
 
-Jaguar output format
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-Write Options
-~~~~~~~~~~~~~
+

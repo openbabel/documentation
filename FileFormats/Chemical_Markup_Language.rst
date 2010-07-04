@@ -1,3 +1,5 @@
+.. _Chemical_Markup_Language:
+
 Chemical Markup Language (cml)
 ==============================
 
@@ -37,49 +39,25 @@ The following are read:
 
 
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: 2
+-2  *read 2D rather than 3D coordinates if both provided*
 
-  input 2D rather than 3D coordinates if both provided
+
 Write Options
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~ 
 
-.. cmdoption:: 1
+-1  *write CML1 (rather than CML2)*
+-a  *write array format for atoms and bonds*
+-A  *write aromatic bonds as such, not Kekule form*
+-h  *use hydrogenCount for all hydrogens*
+-m  *write metadata*
+-x  *omit XML and namespace declarations*
+-c  *continuous output: no formatting*
+-p  *write properties*
+-N <prefix>  *add namespace prefix to elements*
 
-  output CML1 (rather than CML2)
 
-.. cmdoption:: a
-
-  output array format for atoms and bonds
-
-.. cmdoption:: A
-
-  write aromatic bonds as such, not Kekule form
-
-.. cmdoption:: h
-
-  use hydrogenCount for all hydrogens
-
-.. cmdoption:: m
-
-  output metadata
-
-.. cmdoption:: x
-
-  omit XML and namespace declarations
-
-.. cmdoption:: c
-
-  continuous output: no formatting
-
-.. cmdoption:: p
-
-  output properties
-
-.. cmdoption:: N<prefix>
-
-  add namespace prefix to elements
 Comments
 ~~~~~~~~
 In the absence of hydrogenCount and any explicit hydrogen on

@@ -1,3 +1,5 @@
+.. _Fingerprint_format:
+
 Fingerprint format (fpt)
 ========================
 
@@ -20,7 +22,6 @@ For a single molecule the fingerprint is output in hexadecimal form
 (intended mainly for debugging).
 
 With multiple molecules the hexadecimal form is output only if the -xh
-
 option is specified. But in addition the Tanimoto coefficient between the
 first molecule and each of the subsequent ones is displayed. If the first
 molecule is a substructure of the target molecule a note saying this is
@@ -46,28 +47,11 @@ instance a well-known molecule gives::
 
 
 Write Options
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~ 
 
-.. cmdoption:: f<id>
-
-  fingerprint type
-
-.. cmdoption:: N#
-
-  fold to specified number of bits, 32, 64, 128, etc.
-
-.. cmdoption:: h
-
-  hex output when multiple molecules
-
-.. cmdoption:: o
-
-  hex output only
-
-.. cmdoption:: s
-
-  describe each set bit
-
-.. cmdoption:: u
-
-  describe each unset bit
+-f <id>  *fingerprint type*
+-N <num>  *fold to specified number of bits, 32, 64, 128, etc.*
+-h  *hex output when multiple molecules*
+-o  *hex output only*
+-s  *describe each set bit*
+-u  *describe each unset bit*

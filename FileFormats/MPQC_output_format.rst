@@ -1,12 +1,11 @@
+.. _MPQC_output_format:
+
 MPQC output format (mpqc)
 =========================
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: s
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-  Output single bonds only
 
-.. cmdoption:: b
-
-  Disable bonding entirely

@@ -1,3 +1,5 @@
+.. _Gaussian_formatted_checkpoint_file_format:
+
 Gaussian formatted checkpoint file format (fchk, fch, fck)
 ==========================================================
 
@@ -8,12 +10,9 @@ Currently supports reading molecular geometries from fchk files. More to come.
 
 
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: s
+-s  *Single bonds only*
+-b  *No bond perception*
 
-  Single bonds only
 
-.. cmdoption:: b
-
-  No bond perception

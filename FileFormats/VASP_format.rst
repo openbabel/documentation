@@ -1,3 +1,5 @@
+.. _VASP_format:
+
 VASP format (CONTCAR, POSCAR)
 =============================
 

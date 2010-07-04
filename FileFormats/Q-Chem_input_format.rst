@@ -1,12 +1,11 @@
+.. _Q-Chem_input_format:
+
 Q-Chem input format (qcin)
 ==========================
 Write Options
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~ 
 
-.. cmdoption:: k "keywords"
+-k <keywords>  *Use the specified keywords for input*
+-f <file>  *Read the file specified for input keywords*
 
-  Use the specified keywords for input
 
-.. cmdoption:: f <file>
-
-  Read the file specified for input keywords

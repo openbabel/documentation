@@ -1,16 +1,14 @@
+.. _GAMESS_Output:
+
 GAMESS Output (gamout, gam, gamess)
 ===================================
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: s
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-  Output single bonds only
 
-.. cmdoption:: b
+-c  *Read multiple conformers*
 
-  Disable bonding entirely
-Comments
-~~~~~~~~
-  c  Read multiple conformers
 

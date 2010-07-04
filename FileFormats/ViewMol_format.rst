@@ -1,12 +1,11 @@
+.. _ViewMol_format:
+
 ViewMol format (vmol)
 =====================
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: s
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-  Output single bonds only
 
-.. cmdoption:: b
-
-  Disable bonding entirely

@@ -1,12 +1,11 @@
+.. _ShelX_format:
+
 ShelX format (ins, res)
 =======================
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: s
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-  Output single bonds only
 
-.. cmdoption:: b
-
-  Disable bonding entirely

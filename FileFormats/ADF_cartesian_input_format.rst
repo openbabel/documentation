@@ -1,12 +1,11 @@
+.. _ADF_cartesian_input_format:
+
 ADF cartesian input format (adf)
 ================================
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: s
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-  Output single bonds only
 
-.. cmdoption:: b
-
-  Disable bonding entirely

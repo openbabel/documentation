@@ -1,3 +1,5 @@
+.. _Gaussian_cube_format:
+
 Gaussian cube format (cub, cube)
 ================================
 
@@ -9,12 +11,9 @@ grids in one file.
 
 
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: b
+-b  *no bonds*
+-s  *no multiple bonds*
 
-  no bonds
 
-.. cmdoption:: s
-
-  no multiple bonds

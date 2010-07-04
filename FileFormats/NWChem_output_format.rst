@@ -1,12 +1,11 @@
+.. _NWChem_output_format:
+
 NWChem output format (nwo)
 ==========================
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: s
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-  Output single bonds only
 
-.. cmdoption:: b
-
-  Disable bonding entirely

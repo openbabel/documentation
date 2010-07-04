@@ -1,3 +1,5 @@
+.. _Free_Form_Fractional_format:
+
 Free Form Fractional format (fract)
 ===================================
 
@@ -50,12 +52,9 @@ Here is an example file::
 
 
 Read Options
-~~~~~~~~~~~~
+~~~~~~~~~~~~ 
 
-.. cmdoption:: s
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-  Output single bonds only
 
-.. cmdoption:: b
-
-  Disable bonding entirely

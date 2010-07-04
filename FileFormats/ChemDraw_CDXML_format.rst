@@ -1,3 +1,5 @@
+.. _ChemDraw_CDXML_format:
+
 ChemDraw CDXML format (cdxml)
 =============================
 
