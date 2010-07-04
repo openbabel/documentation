@@ -60,7 +60,8 @@ for format in allformats:
     exts[formatname].append(format)
 
 indexfile = open(os.path.join("FileFormats", "Overview.rst"), "w")
-print >> indexfile, heading("Supported File Formats and Options", "=")
+print >> indexfile, open(os.path.join("FileFormats", "Overview.txt"), "r").read()
+##print >> indexfile, heading("Supported File Formats and Options", "=")
 print >> indexfile, "\n.. toctree::\n   :maxdepth: 2\n"
 
 seen = set()

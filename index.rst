@@ -1,11 +1,20 @@
-OpenBabel
-=========
-
-**Open Babel** is a chemical toolbox designed to speak the many languages of chemical data.
-
-It's an open, collaborative project allowing anyone to search, convert, analyze, or store data from molecular modeling, chemistry, solid-state materials, biochemistry, or related areas.
+Open Babel, or how I learned to love the chemistry file format
+==============================================================
 
 .. toctree::
-   :hidden:
+   :maxdepth: 2
 
-   documentation.rst
+   Installation/install.rst
+   Command-line_tools/Overview.rst
+   Python/Python.rst
+   Contributing/Contributing.rst
+   FileFormats/Overview.rst
+
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
