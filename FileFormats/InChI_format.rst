@@ -5,8 +5,6 @@ InChI format (inchi)
 
 **IUPAC/NIST molecular identifier**
 
-Experimental InChI read support was added in version 2.1,
-although this does not always support stereochemistry.
 
 
 
@@ -21,26 +19,49 @@ Read Options
 Write Options
 ~~~~~~~~~~~~~ 
 
--X <Option string>  *List of additional InChI options*
--t  *add molecule name*
+
+    Standard InChI is written unless certain InChI options are used
+-K  *output InChIKey only*
+-t  *add molecule name after InChI*
+-w  *ignore less important warnings*
+
+    These are:
+    'Omitted undefined stereo'
+    'Charges were rearranged'
+    'Proton(s) added/removed'
+    'Metal was disconnected'
 -a  *output auxilliary information*
--K  *output InChIKey*
--w  *don't warn on undef stereo or charge rearrangement*
 -l  *display InChI log*
+
+    Uniqueness options. See also --unique and --sort which are more vesatile.
 -u  *output only unique molecules*
 -U  *output only unique molecules and sort them*
 -e  *compare first molecule to others*
+
+    This can also be done with InChICompare format
+      babel first.smi second.mol third.cml -ok
 -T <param>  *truncate InChI, /nostereo etc.*
+
+    See below for possible truncation parameters.
+    These can be combined, e.g. /nochg/noiso
+-X <Option string>  *Additional InChI options*
+
+    See InChI documentation.
+    These options should be space delimited in a single quoted string.
+    Structure perception (compatible with stdInChI)
+     NEWPSOFF  DoNotAddH   SNon
+    Stereo interpretation (produces non-standard InChI)
+     SRel SRac SUCF ChiralFlagON ChiralFlagOFF
+    InChI creation options (produces non-standard InChI)
+     SUU SLUUD   FixedH  RecMet  KET  15T
+    The following options are for convenience, e.g. -xF
+    but produce non-standard InChI.
+-F  *include fixed hydrogen layer*
+-M  *include bonds to metal*
 
 
 Comments
 ~~~~~~~~
-Currently the output is standard InChI only. InChI options may be
-reintroduced later.
-
-The InChI options should be space delimited in a single quoted string.
-See InChI documentation for possible options.
-
 Truncation parameters used with -xT:
 
 /formula   formula only

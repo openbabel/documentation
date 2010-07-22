@@ -1,7 +1,11 @@
+.. _PQR_format:
+
 PQR format (pqr)
 ================
+Read Options
+~~~~~~~~~~~~ 
 
-PQR format
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-Write Options
-~~~~~~~~~~~~~
+

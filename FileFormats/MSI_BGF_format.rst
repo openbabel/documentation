@@ -1,7 +1,7 @@
+.. _MSI_BGF_format:
+
 MSI BGF format (bgf)
 ====================
 
-MSI BGF format              No comments yet
+**No comments yet**
 
-Write Options
-~~~~~~~~~~~~~

@@ -43,6 +43,7 @@ More than one read (or write) option can be specified, either using separate ter
    Crystallography.rst
    Reactions.rst
    Images.rst
+   2D_drawing.rst
    3D_viewers.rst
    Kinetics_and_Thermodynamics.rst
    Molecular_dynamics.rst

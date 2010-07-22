@@ -1,7 +1,11 @@
+.. _Molpro_output_format:
+
 Molpro output format (mpo)
 ==========================
+Read Options
+~~~~~~~~~~~~ 
 
-Molpro output format
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
 
-Write Options
-~~~~~~~~~~~~~
+

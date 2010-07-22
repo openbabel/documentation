@@ -1,7 +1,7 @@
+.. _Alchemy_format:
+
 Alchemy format (alc)
 ====================
 
-Alchemy format     No comments yet
+**No comments yet**
 
-Write Options
-~~~~~~~~~~~~~

@@ -12,6 +12,7 @@ Computational chemistry
    GAMESS_Output.rst
    Gaussian_98_or_03_Input.rst
    Gaussian_Output.rst
+   Gaussian_Z-Matrix_Input.rst
    Gaussian_formatted_checkpoint_file_format.rst
    HyperChem_HIN_format.rst
    Jaguar_input_format.rst
@@ -22,6 +23,7 @@ Computational chemistry
    MPQC_output_format.rst
    MPQC_simplified_input_format.rst
    Molpro_input_format.rst
+   Molpro_output_format.rst
    NWChem_input_format.rst
    NWChem_output_format.rst
    Parallel_Quantum_Solutions_format.rst

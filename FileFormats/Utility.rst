@@ -7,6 +7,7 @@ Utility
    FastSearching.rst
    Fingerprint_format.rst
    General_XML_format.rst
+   Generic_Output_file_format.rst
    MolPrint2D_format.rst
    Multilevel_Neighborhoods_of_Atoms_(MNA).rst
    Open_Babel_molecule_report.rst

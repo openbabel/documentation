@@ -7,31 +7,32 @@ def heading(text, symbol):
     return text + "\n" + symbol*len(text)
 
 compchem = ("Computational chemistry", ['POSCAR', 'tmol', 't41', 'tmol', 'zin', 'moo', 'mop',
-            'mopcrt', 'mopin', 'mopout', 'mp', 'mpc', 'nw', 'nwo',
+            'mopcrt', 'mopin', 'mopout', 'mp', 'mpo', 'mpc', 'nw', 'nwo',
             'outmol', 'mpqc', 'mpqcin', 'CONTCAR', 'pqs', 'hin',
             'adf', 'adfout', 'com', 'g03', 'g09', 'g92', 'g98', 'gal',
-            'dmol', 'fch', 'fck', 'fh',
+            'dmol', 'fch', 'fck', 'fh', "gzmat",
             'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout'])
 viewers = ("3D viewers", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
-                          "unixyz"])
+                          "unixyz", "c3d1", "c3d2"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
                  'inchi', 'mol2', 'mol', 'cml'])
-cheminf = ("Other cheminformatics", ['msi', 'mpd', 'pc', 
-                                     'cdxml', 'cdx', 'mcdl'])
+cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
+                                     'mcdl'])
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
                                "fract", "cssr"])
+twoD_drawing = ("2D drawing", ["ct", "cdxml", "cdx", "ct"])
 images = ("Images", ['png', 'svg', 'pov'])
 volume_data = ("Volume data", ["cube", "dx"])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
-                       'nul', 'xyz', 'xml', "mna", "fpt", "fs",
+                       'nul', 'xyz', 'xml', "mna", "fpt", "fs", "dat",
                        "mpd"])
 molecular_dynamics = ('Molecular dynamics',
                       ['gr96', 'txyz', "prep", "mmod"])
 thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
 reactions = ("Reactions", ["cmlr", "rxn", "rsmi"])
-biology = ("Biological data", ["fasta"])
+biology = ("Biological data", ["fasta", "pqr"])
 misc = ("Miscellaneous", ["msms"])
-unknown = ("I have no idea what this is", ["feat", "fix", "xed"])
+unknown = ("I have no idea what this is", ["feat", "fix", "xed", "alc"])
 # 'test' format does not appear to exist (although it's on the wiki)
 # fastsearch, cml format - added some markup
 # (fastsearch missing s option)
@@ -47,7 +48,7 @@ unknown = ("I have no idea what this is", ["feat", "fix", "xed"])
 
 allformats = set(pybel.informats.keys()) | set(pybel.outformats.keys())
 sections = [common_cheminf, utility, cheminf, compchem, crystal, reactions,
-            images, viewers, thermo,
+            images, twoD_drawing, viewers, thermo,
             molecular_dynamics, volume_data, misc, biology, unknown]
 ##sections = [utility]
 
@@ -81,6 +82,7 @@ for name, codes in sections:
     names = sorted(list(names))
         
     for formatname in names:
+        print formatname
 
         format = pybel.ob.OBFormat.FindType(exts[formatname][0])
         desc = format.Description()
