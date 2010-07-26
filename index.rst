@@ -6,6 +6,7 @@ Open Babel, or how I learned to love the chemistry file format
 
    Installation/install.rst
    Command-line_tools/Overview.rst
+   Spectrophore/intro.rst
    Python/Python.rst
    Contributing/Contributing.rst
    FileFormats/Overview.rst
