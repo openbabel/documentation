@@ -23,7 +23,7 @@ Install the bindings
 Python bindings, you should uninstall that first (using Add/Remove
 Programs) and then follow steps 1 and 2 above. You should also make
 sure that BABEL\_DATADIR is set correctly to the directory of the
-OpenBabelGUI (at a command prompt, type *echo %BABEL\_DATADIR%*).
+OpenBabelGUI (at a command prompt, type *echo %BABEL\_DATADIR%*).
 If not, carefully delete any existing System environment variables
 with the name BABEL\_DATADIR, and correct the value of the User
 environment variable BABEL\_DATADIR (if necessary).
@@ -159,8 +159,8 @@ import the OpenBabel library at the Python prompt:
     $ python
     >>> import openbabel 
     Traceback (most recent call last):
-      File "<stdin>", line 1, in ?
-      File "/usr/lib/python2.4/site-packages/openbabel.py", line 9, in ?
+      File "<stdin>", line 1, in
+      File "/usr/lib/python2.4/site-packages/openbabel.py", line 9, in
        import _openbabel
     ImportError: libopenbabel.so.3: cannot open shared object file: No such file or directory
 
