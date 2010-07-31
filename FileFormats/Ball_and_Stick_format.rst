@@ -1,7 +1,7 @@
+.. _Ball_and_Stick_format:
+
 Ball and Stick format (bs)
 ==========================
 
-Ball and Stick format              No comments yet
+**No comments yet**
 
-Write Options
-~~~~~~~~~~~~~

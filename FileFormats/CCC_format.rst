@@ -1,7 +1,7 @@
+.. _CCC_format:
+
 CCC format (ccc)
 ================
 
-CCC format              No comments yet
+**No comments yet**
 
-Write Options
-~~~~~~~~~~~~~

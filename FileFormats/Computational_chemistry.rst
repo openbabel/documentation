@@ -6,8 +6,6 @@ Computational chemistry
    ADF_TAPE41_format.rst
    ADF_cartesian_input_format.rst
    ADF_output_format.rst
-   Cacao_Cartesian_format.rst
-   Cacao_Internal_format.rst
    DMol3_coordinates_format.rst
    Fenske-Hall_Z-Matrix_format.rst
    GAMESS_Input.rst
