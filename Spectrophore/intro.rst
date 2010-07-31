@@ -51,7 +51,49 @@ user and influences the accuracy of the method.
 
 The Spectrophore code was developed by Silicos NV, and donated to the OpenBabel project in July 2010 (see sidebar for information on commercial support). Spectrophores can be generated either using the command-line application :command:`obspectrophore` (see next section) or through the API (``OBSpectrophore``, as described in the :obapi:`API documentation <OBSpectrophore>`).
 
-.. note:: Insert Section on command-line application here
+obspectrophore
+--------------
+
+USAGE: `obspectrophore -i inputfile [options]`
+
+PARAMETER DETAILS:
+
+-i <input file>  *Specify the input file*
+
+    Spectrophores will be calculated for each molecule in the input file.
+    The filetype is automatically detected from the file extension.
+
+-n <type>  *The type of normalization that should be performed*
+
+    Valid values are (without quotes):
+
+      -  No (default)
+      -  ZeroMean
+      -  UnitStd
+      -  ZeroMeanAndUnitStd
+
+-a <accuracy>  *The required accuracy expressed as the angular stepsize*
+
+    Only the following discrete values are allowed:
+        1, 2, 5, 10, 15, 20 (default), 30, 36, 45, 60
+
+-s <type>  *The kind of cages that should be used*
+        
+    The cage type is specified in terms of
+    the underlying pointgroup: P1 or P-1. Valid values are (without quotes):
+
+      -  No (default)
+      -  Unique
+      -  Mirror
+      -  All
+
+-r <resolution>  *The required resolution expressed as a real positive number*
+
+    The default value is 3.0 Angstrom. Negative values or a value equal
+    to 0 generates an error message
+
+-h  *Displays help*
+
 
 Implementation
 --------------
