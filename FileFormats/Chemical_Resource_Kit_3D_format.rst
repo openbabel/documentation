@@ -1,7 +1,7 @@
+.. _Chemical_Resource_Kit_3D_format:
+
 Chemical Resource Kit 3D format (crk3d)
 =======================================
 
-Chemical Resource Kit 3D format              No comments yet
+**No comments yet**
 
-Write Options
-~~~~~~~~~~~~~

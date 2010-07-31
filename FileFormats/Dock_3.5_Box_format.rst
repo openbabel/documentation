@@ -1,7 +1,7 @@
+.. _Dock_3.5_Box_format:
+
 Dock 3.5 Box format (box)
 =========================
 
-Dock 3.5 Box format              No comments yet
+**No comments yet**
 
-Write Options
-~~~~~~~~~~~~~
