@@ -31,9 +31,9 @@ modeling.
    Commercial support for Spectrophores is available from Silicos NV, the
    developers of the Spectrophore technology.
   
-   Silicos is a fee-for-service company empowering open source chemo-informatics virtual screening technologies for the discovery of novel lead compounds and database characterization. Silicos fully endorses the concept of open innovation and open source software development, and provides its clients with a wide variety of computational chemistry-based lead discovery services, including Open Babel support, training and code development. Please visit the homepage_ for more details.
+   Silicos is a fee-for-service company empowering open source chemo-informatics virtual screening technologies for the discovery of novel lead compounds and database characterization. Silicos fully endorses the concept of open innovation and open source software development, and provides its clients with a wide variety of computational chemistry-based lead discovery services, including Open Babel support, training and code development. Please visit Silicos_ for more details.
 
-.. _homepage: http://www.silicos.com
+.. _Silicos: http://www.silicos.com
 
 The computation of |specs| is independent of the position and
 orientation of the molecule and this enables easy and fast comparison of
