@@ -46,7 +46,7 @@ More than one read (or write) option can be specified, either using separate ter
    2D_drawing.rst
    3D_viewers.rst
    Kinetics_and_Thermodynamics.rst
-   Molecular_dynamics.rst
+   Molecular_dynamics_and_docking.rst
    Volume_data.rst
    Miscellaneous.rst
    Biological_data.rst
