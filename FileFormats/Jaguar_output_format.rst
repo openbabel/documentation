@@ -2,6 +2,8 @@
 
 Jaguar output format (jout)
 ===========================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

@@ -27,3 +27,5 @@ Example:
 
 
 
+.. note:: This is a write-only format.
+

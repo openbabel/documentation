@@ -2,6 +2,8 @@
 
 MOPAC Output format (moo, mopout)
 =================================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

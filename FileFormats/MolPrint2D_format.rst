@@ -24,6 +24,8 @@ which has been used in QSAR studies and for measuring molecular similarity.
 
 
 
+.. note:: This is a write-only format.
+
 Write Options
 ~~~~~~~~~~~~~ 
 

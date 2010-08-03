@@ -5,3 +5,5 @@ CSD CSSR format (cssr)
 
 **No comments yet**
 
+.. note:: This is a write-only format.
+

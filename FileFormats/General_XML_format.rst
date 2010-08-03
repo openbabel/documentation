@@ -21,6 +21,8 @@ This implementation uses libxml2.
 
 
 
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

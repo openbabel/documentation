@@ -8,6 +8,8 @@ M.F. Sanner's MSMS input format (msms)
 WriteOnly.
 
 
+.. note:: This is a write-only format.
+
 Write Options
 ~~~~~~~~~~~~~ 
 

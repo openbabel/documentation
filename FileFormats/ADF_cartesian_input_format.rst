@@ -2,6 +2,8 @@
 
 ADF cartesian input format (adf)
 ================================
+.. note:: This is a write-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

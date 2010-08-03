@@ -11,3 +11,5 @@ Due to limitations in OB's file handling, reading in VASP files can be a bit tri
 	path to the CONTCAR file must be provided, otherwise the other files need won't be found.
 
 
+.. note:: This is a read-only format.
+

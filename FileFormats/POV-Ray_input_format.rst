@@ -5,6 +5,8 @@ POV-Ray input format (pov)
 
 **Generate an input file for the open source POV-Ray ray tracer.**
 
+.. note:: This is a write-only format.
+
 Write Options
 ~~~~~~~~~~~~~ 
 

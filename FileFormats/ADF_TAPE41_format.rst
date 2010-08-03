@@ -2,6 +2,8 @@
 
 ADF TAPE41 format (t41)
 =======================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

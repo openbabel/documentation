@@ -5,3 +5,5 @@ Fenske-Hall Z-Matrix format (fh)
 
 **No comments yet**
 
+.. note:: This is a write-only format.
+

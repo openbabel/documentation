@@ -80,6 +80,8 @@ represented by the SMILES string CC(=O)Cl::
 
 
 
+.. note:: This is a write-only format.
+
 Write Options
 ~~~~~~~~~~~~~ 
 

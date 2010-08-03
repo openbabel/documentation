@@ -5,3 +5,5 @@ ChemDraw binary format (cdx)
 
 **Read only.**
 
+.. note:: This is a read-only format.
+

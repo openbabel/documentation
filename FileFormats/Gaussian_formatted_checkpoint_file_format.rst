@@ -9,6 +9,8 @@ Currently supports reading molecular geometries from fchk files. More to come.
 
 
 
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

@@ -30,6 +30,8 @@ any existing 2D coordinates to be recalculated.
 
 
 
+.. note:: This is a write-only format.
+
 Write Options
 ~~~~~~~~~~~~~ 
 

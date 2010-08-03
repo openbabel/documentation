@@ -5,3 +5,5 @@ SMILES FIX format (fix)
 
 **  No comments yet**
 
+.. note:: This is a write-only format.
+

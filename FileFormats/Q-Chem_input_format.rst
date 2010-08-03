@@ -2,6 +2,8 @@
 
 Q-Chem input format (qcin)
 ==========================
+.. note:: This is a write-only format.
+
 Write Options
 ~~~~~~~~~~~~~ 
 

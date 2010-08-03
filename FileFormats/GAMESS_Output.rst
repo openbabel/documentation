@@ -2,6 +2,8 @@
 
 GAMESS Output (gamout, gam, gamess)
 ===================================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

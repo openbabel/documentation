@@ -97,6 +97,23 @@ for name, codes in sections:
         title = "%s (%s)" % (formatname, ", ".join(exts[formatname]))
         print >> output, heading(title, "=")
 
+        flags = []
+#define NOTREADABLE     0x01
+#define READONEONLY     0x02
+#define READBINARY      0x04
+#define ZEROATOMSOK     0x08
+#define NOTWRITABLE     0x10
+#define WRITEONEONLY    0x20
+#define WRITEBINARY     0x40
+#define READXML         0x80
+#define DEFAULTFORMAT   0x4000        
+        if format.Flags() & pybel.ob.NOTWRITABLE:
+            flags.append("This is a read-only format.")   
+        if format.Flags() & pybel.ob.NOTREADABLE:
+            flags.append("This is a write-only format.")
+##        print flags
+        
+
         INTRO, WRITE, READ, COMMENTS = range(4)
         data = [[] for i in range(4)]
         N = INTRO
@@ -117,11 +134,14 @@ for name, codes in sections:
 ##                data[N].append("\n\n")
         if data[INTRO]:
             print >> output, "\n**%s**\n" % data[INTRO][0]
+            
             if len(data[INTRO]) > 1:
                 for line in data[INTRO][1:]:
                     print >> output, line.rstrip()
                 print >> output, "\n"
-##                print >> output, "%s\n" % "\n".join(data[INTRO][1:])
+
+        if len(flags) > 0:
+            print >> output, ".. note:: " + " ".join(flags) + "\n"
 
         for x, y in ((READ, "Read"), (WRITE, "Write")):
             firstline = True

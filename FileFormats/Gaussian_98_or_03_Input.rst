@@ -2,6 +2,8 @@
 
 Gaussian 98/03 Input (gjf, gjc, com, gau)
 =========================================
+.. note:: This is a write-only format.
+
 Write Options
 ~~~~~~~~~~~~~ 
 

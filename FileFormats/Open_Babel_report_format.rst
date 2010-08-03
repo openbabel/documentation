@@ -125,3 +125,5 @@ Example for benzene::
 
 
 
+.. note:: This is a write-only format.
+

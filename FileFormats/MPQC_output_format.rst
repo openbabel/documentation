@@ -2,6 +2,8 @@
 
 MPQC output format (mpqc)
 =========================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

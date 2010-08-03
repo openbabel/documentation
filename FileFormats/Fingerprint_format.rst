@@ -46,6 +46,8 @@ instance a well-known molecule gives::
 
 
 
+.. note:: This is a write-only format.
+
 Write Options
 ~~~~~~~~~~~~~ 
 

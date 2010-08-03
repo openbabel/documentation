@@ -2,6 +2,8 @@
 
 NWChem output format (nwo)
 ==========================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

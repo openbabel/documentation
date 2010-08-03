@@ -2,6 +2,8 @@
 
 Accelrys/MSI Biosym/Insight II CAR format (arc, car)
 ====================================================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

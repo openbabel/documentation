@@ -2,6 +2,8 @@
 
 ShelX format (ins, res)
 =======================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

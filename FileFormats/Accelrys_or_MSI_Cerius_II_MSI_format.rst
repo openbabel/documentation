@@ -2,3 +2,5 @@
 
 Accelrys/MSI Cerius II MSI format (msi)
 =======================================
+.. note:: This is a read-only format.
+

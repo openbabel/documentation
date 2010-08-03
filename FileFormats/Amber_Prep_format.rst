@@ -2,6 +2,8 @@
 
 Amber Prep format (prep)
 ========================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

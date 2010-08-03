@@ -2,6 +2,8 @@
 
 Molpro output format (mpo)
 ==========================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

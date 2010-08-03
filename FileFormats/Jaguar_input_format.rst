@@ -5,3 +5,5 @@ Jaguar input format (jin)
 
 ** **
 
+.. note:: This is a write-only format.
+

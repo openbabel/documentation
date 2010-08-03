@@ -34,3 +34,5 @@ Example output::
 
 
 
+.. note:: This is a write-only format.
+

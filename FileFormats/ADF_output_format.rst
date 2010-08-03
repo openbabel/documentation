@@ -2,6 +2,8 @@
 
 ADF output format (adfout)
 ==========================
+.. note:: This is a read-only format.
+
 Read Options
 ~~~~~~~~~~~~ 
 

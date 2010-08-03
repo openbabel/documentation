@@ -2,6 +2,8 @@
 
 GROMOS96 format (gr96)
 ======================
+.. note:: This is a write-only format.
+
 Write Options
 ~~~~~~~~~~~~~ 
 

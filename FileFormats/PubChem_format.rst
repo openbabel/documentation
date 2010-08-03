@@ -15,3 +15,5 @@ The format seems to handle multiple conformers, but only one is read
 
 
 
+.. note:: This is a read-only format.
+
