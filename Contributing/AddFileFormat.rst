@@ -1,3 +1,5 @@
+.. _add-file-format:
+
 How to add a new file format
 ============================
 
