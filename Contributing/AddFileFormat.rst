@@ -22,4 +22,3 @@ Adding support for a new file format is a relatively easy process, particularly 
 After the code is released in a new version, a new entry for your format should be added to this website under the formats category and to the list of extensions pages. See some of the examples for more information. 
 
 .. _openbabel-discuss: http://lists.sourceforge.net/lists/listinfo/openbabel-discuss
-
