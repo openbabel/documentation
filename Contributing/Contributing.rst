@@ -6,6 +6,7 @@ Contributing to Open Babel
     Overview.rst
     DevBestPractices.rst
     DeveloperResources.rst
+    VersionControl.rst
     Documentation.rst
     Testing.rst
     AddFileFormat.rst

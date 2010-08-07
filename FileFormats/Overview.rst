@@ -2,6 +2,8 @@
    Overview.rst when you run UpdateFileFormats.py. Don't
    edit Overview.rst directly - instead, edit this file.
 
+.. _file formats:
+
 Supported File Formats and Options
 ==================================
 
