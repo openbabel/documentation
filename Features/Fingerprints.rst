@@ -24,11 +24,23 @@ You can see the available fingerprints by typing the following command::
         FP4    SMARTS patterns specified in the file SMARTS_InteLigand.txt
         MACCS    SMARTS patterns specified in the file MACCS.txt
 
-At present there are four types of fingerprints: **FP2**, a path-based fingerprint which indexes small molecule fragments (somewhat similar to the Daylight fingerprints), fingerprint types **FP3** and **FP4** which both use a series of SMARTS queries that are stored in :file:`patterns.txt` and :file:`SMARTS_InteLigand.txt`, and a MACCS fingerprint that uses the SMARTS pattersn in :file:`MACCS.txt`.
+At present there are four types of fingerprints:
+
+* **FP2**, a path-based fingerprint which indexes small molecule fragments based on linear segments of up to 7 atoms (somewhat similar to the Daylight fingerprints):
+
+    A molecule structure is analysed to identify linear fragments of length from 1-7 atoms. Single atom fragments of C, N, and O are ignored. A fragment is terminated when the atoms form a ring.
+
+    For each of these fragments the atoms, bonding and whether they constitute a complete ring is recorded and saved in a set so that there is only one of each fragment type. Chemically identical versions, (i.e. ones with the atoms listed in reverse order and rings listed starting at different atoms) are identified and only a single canonical fragment is retained.
+
+    Each remaining fragment is assigned a hash number from 0 to 1020 which is used to set a bit in a 1024 bit vector 
+  
+* **FP3** uses a series of SMARTS queries stored in :file:`patterns.txt`
+* **FP4** uses a series of SMARTS queries stored in :file:`SMARTS_InteLigand.txt`
+* **MACCS** uses the SMARTS patterns in :file:`MACCS.txt`
 
 .. note::
 
-        Note that you can tailor these fingerprints to your own needs by adding your own SMARTS queries to these files. On UNIX and Mac systems, these files are frequently found in :file:`/usr/local/share/openbabel` under a directory for each version of Open Babel. 
+        Note that you can tailor the latter three fingerprints to your own needs by adding your own SMARTS queries to these files. On UNIX and Mac systems, these files are frequently found in :file:`/usr/local/share/openbabel` under a directory for each version of Open Babel. 
 
 Similarity searching
 --------------------
