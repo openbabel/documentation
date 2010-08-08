@@ -58,6 +58,8 @@ Options
     Filter based on molecular properties. See
     :ref:`filter options` for examples and a list of
     criteria.
+--gen3d 
+    Generate 3D coordinates
 -h 
     Add hydrogens
 -H 
@@ -69,8 +71,7 @@ Options
     Output formatting information and options for all
     `formats </wiki/Category:Formats>`_
 -i <format-ID> 
-    Specifies input format, see below for the available
-    `formats </wiki/Category:Formats>`_
+    Specifies input format. See :ref:`file formats`.
 -j, --join 
     Join all input molecules into a single output molecule entry
 -k 
@@ -89,8 +90,7 @@ Options
     For multiple entry input, stop import with molecule # as the last
     entry
 -o <format-ID> 
-    Specifies output format, see below for the available
-    `formats </wiki/Category:Formats>`_
+    Specifies output format. See :ref:`file formats`.
 -p <pH> 
     Add Hydrogens appropriate for pH (use transforms in phmodel.txt)
 --property 
@@ -100,10 +100,14 @@ Options
     pattern specified
 --separate 
     Separate disconnected fragments into individual molecular records
+--sort
+    Output molecules ordered by the value of a descriptor. See :ref:`sorting option`.
 -t
     All input files describe a single molecule
 --title <title> 
     Add or replace molecular title
+--unique, --unique <param>
+    Do not convert duplicate molecules. See :ref:`removing duplicates`.
 -x <options> 
     Format-specific output options. See ``-H <format-ID>`` for options
     allowed by a particular format
@@ -131,6 +135,62 @@ STDOUT::
 Split a multi-molecule file into new1.smi, new2.smi, etc.::
 
     babel infile.mol new.smi -m
+
+To convert :file:`mymols.sdf` to SMILES format::
+
+  PROMPT> babel -isdf  'mymols.sdf' -osmi 'outputfile.smi'
+
+Multiple input files can be converted in batch format too. To convert all files ending in .xyz (\*.xyz) to PDB files, you can type::
+
+  PROMPT> babel *.xyz -opdb -m
+
+You may need to include the full path to the files e.g. :file:`/Users/username/Desktop/mymols.sdf`. If no input or output specification is defined Open Babel will try to assign the filetype based on the file suffix.
+
+Open Babel will not generate coordinates unless asked, so while a conversion from SMILES to SDF will generate a valid SDF file, the resulting file will not contain coordinates. To generate coordinates, use the ``-gen3d`` option::
+
+  PROMPT> babel infile.smi out.sdf --gen3d
+
+If you want to remove all hydrogens when doing the conversion the command would be::
+
+  PROMPT> babel -isdf  'mymols.sdf' -osmi 'outputfile.smi' -d
+
+If you want to add all hydrogens when doing the conversion the command would be::
+
+  PROMPT> babel -isdf  'mymols.sdf' -osmi 'outputfile.smi' -h
+
+If you want to add hydrogens appropriate for pH7.4 when doing the conversion the command would be::
+
+  PROMPT> babel -isdf  'mymols.sdf' -osmi 'outputfile.smi' -p
+
+The protonation is done an atom-by-atom basis so molecules with multiple ionizable centers will have all centers ionized.
+
+Of course you don't actually need to change the file type to modify the hydrogens. If you want to add all hydrogens the command would be::
+
+  PROMPT> babel -isdf  'mymols.sdf' -osdf 'mymols_H.sdf' ' -h
+
+Some functional groups e.g. nitro or sulphone can be represented either as ``[N+]([O-])=O`` or ``N(=O)=O``. To convert all to the dative bond form::
+
+  PROMPT> babel -isdf  'mymols.sdf'  -osmi 'outputfile.smi' -b
+
+If you only want to convert a subset of molecules you can define them using -f and -l, so to convert molecules 2-4 of the file mymols.sdf type::
+
+  PROMPT> /babel   'mymols.sdf' -f 2 -l 4 -osdf 'outputfile.sdf'
+
+Alternatively you can select a subset matching a SMARTS pattern, so to select all molecules containing bromobenzene use::
+
+  PROMPT> babel   mymols.sdf  -osdf  'selected.sdf'    -s 'c1ccccc1Br'
+
+You can select a subset that do not match a SMARTS pattern, so to select all molecules not containing bromobenzene use::
+
+  PROMPT> babel   mymols.sdf  -osdf  'selected.sdf'    -v 'c1ccccc1Br'
+
+You can of course combine options, so to join molecules and add hydrogens type::
+
+  PROMPT> babel   mymols.sdf' -osdf ' myjoined.sdf' -h   -j
+
+The output file can be compressed with gzip, but note if you don't specify the ".gz" suffix it will not be added automatically, which could cause problems when you try to open the file::
+
+  PROMPT>  babel   ' /mymols.sdf' -osdf 'outputfile.sdf.gz'     -z
 
 Format Options
 --------------
@@ -277,3 +337,87 @@ Substructure and similarity searching
 -------------------------------------
 
 For information on using :command:`babel` for substructure searching and similarity searching, see :ref:`fingerprints`.
+
+.. _sorting option: 
+
+Sorting molecules
+-----------------
+
+The ``--sort`` option is used to output molecules ordered by the value of a descriptor::
+
+ babel  infile.xxx  outfile.xxx  --sort desc
+
+If the descriptor desc provides a numerical value, the molecule with the smallest value is output first. For descriptors which provide a string output the order is alphabetical, but for the inchi descriptor a more chemically informed order is used (e.g. "CH4" is before than "C2H6", "CH4" is less than "ClH" hydrogen chloride).
+
+The order can be reversed by preceding the descriptor name with ``~``, e.g.::
+
+ babel  infile.xxx  outfile.yyy  --sort ~logP
+
+As a shortcut, the value of the descriptor can be appended to the molecule name by adding a ``+`` to the descriptor, e.g.::
+
+ babel  aromatics.smi  -osmi  --sort ~MW+
+  c1ccccc1C=C	styrene 104.149
+  c1ccccc1C	toluene 92.1384
+  c1ccccc1	benzene 78.1118
+
+.. _removing duplicates:
+
+Remove duplicate molecules
+---------------------------
+
+The ``--unique`` option is used to remove, i.e. not output, any chemically identical molecules during conversion::
+
+ babel  infile.xxx  outfile.yyy  --unique [param]
+
+The optional parameter param defines what is regarded as "chemically identical". It can be the name of any descriptor, although not many are likely to be useful. If param is omitted, the InChI descriptor is used. Other useful descriptors are 'cansmi' and 'cansmiNS' (canonical SMILES, with and without stereochemical information),'title' and truncated InChI, see below.
+
+Note that if you want to use ``--unique`` without a parameter with :command:`babel`, it needs to be last on the line. With the alternative commandline interface, :command:`obabel`, it can be anywhere after the output file.
+
+A message is output for each duplicate found::
+
+ ==============================
+ *** Open Babel Warning
+ Removed methyl benzene - a duplicate of toluene (#1)
+
+Clearly, this is more useful if each molecule has a title. The (#1) is the number of duplicates found so far.
+
+If you wanted to identify duplicates but not output the unique molecules, you could use nulformat::
+
+ babel  infile.xxx  -onul  --unique    
+
+Truncated InChI
+~~~~~~~~~~~~~~~
+
+It is possible to relax the criterion by which molecules are regarded as "chemically identical" by using a truncated InChI specification as param. This takes advantage of the layered structure of InChI. So to remove duplicates, treating stereoisomers as the same molecule::
+
+ babel  infile.xxx  outfile.yyy  --unique /nostereo
+
+Truncated InChI specifications start with '/' and are case-sensitive. param can be a concatenation of these e.g. /nochg/noiso ::
+
+ /formula   formula only
+ /connect   formula and connectivity only
+ /nostereo  ignore E/Z and sp3 stereochemistry
+ /nosp3     ignore sp3 stereochemistry
+ /noEZ      ignore E/Z stereoochemistry
+ /nochg     ignore charge and protonation
+ /noiso     ignore isotopes
+
+Multiple files
+~~~~~~~~~~~~~~
+
+The input molecules do not have to be in a single file. So to collect all the unique molecules from a set of mol files::
+
+ babel  *.mol  uniquemols.sdf  --unique
+
+If you want the unique molecules to remain in individual files::
+
+ babel  *.mol  U.mol  -m  --unique
+
+On the GUI use the form::
+
+ babel  *.mol  U*.mol  --unique
+
+Either form is acceptable on the Windows command line.
+
+The unique molecules will be in files with the original name prefixed by 'U'. Duplicate molecules will be in similar files but with zero length, which you will have to delete yourself. 
+
