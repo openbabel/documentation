@@ -1,20 +1,20 @@
-Babel - Convert, Filter and Manipulate Chemical Data
-====================================================
+babel and obabel - Convert, Filter and Manipulate Chemical Data
+===============================================================
 
-Babel is a cross-platform program designed to interconvert between
-many file formats used in molecular modeling and computational
-chemistry and related areas.
+:command:`babel` and :command:`obabel` are cross-platform programs designed to interconvert between many file formats used in molecular modeling and computational chemistry and related areas. They can also be used for filtering molecules and for simple manipulation of chemical data.
 
 Synopsis
 --------
 
-``babel [-H <help-options>]``
+.. hlist::
 
-``babel [OPTIONS] [-i <input-format-ID>] infile [-o <output-format-ID>] outfile``
+   * ``babel [-H <help-options>]``
+   * ``obabel [-H <help-options>]`` 
+   * ``babel [OPTIONS] [-i <input-ID>] infile [-o <output-ID>] outfile``
+   * ``obabel [OPTIONS] [-i <input-ID>] infile [-o <output-ID>] [-O outfile]``
 
 If only input and ouput files are given, Open Babel will guess the
-file type from the
-filename extension. For information on the file formats supported by Open Babel, please see :ref:`file formats`.
+file type from the filename extension. For information on the file formats supported by Open Babel, please see :ref:`file formats`.
 
 Options
 -------
@@ -191,6 +191,23 @@ You can of course combine options, so to join molecules and add hydrogens type::
 The output file can be compressed with gzip, but note if you don't specify the ".gz" suffix it will not be added automatically, which could cause problems when you try to open the file::
 
   PROMPT>  babel   ' /mymols.sdf' -osdf 'outputfile.sdf.gz'     -z
+
+Differences between babel and obabel
+------------------------------------
+
+Essentially :command:`obabel` is a modern version of :command:`babel` with additional capabilities and a more standard interface. Over time, :command:`obabel` will replace :command:`babel` and so we recommend that you start using :command:`obabel` now. 
+
+Specifically, the differences are as follows:
+
+* :command:`obabel` allows the user to specify parameters values for format options:
+
+    Some file formats (such as :ref:`POV-Ray_input_format`) have read or write options that accept parameters (such as ``-xm <model-type>`` in the case of POV-Ray). Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
+
+* :command:`obabel` requires that the output file be specified with a ``-O`` option. This is closer to the normal Unix convention for commandline programs, and prevents the users accidentally overwriting the input file.
+
+.. tip::
+
+    To adapt a command line for :command:`babel` into one for :command:`obabel` simply put ``-O`` in front of the output filename.
 
 Format Options
 --------------
