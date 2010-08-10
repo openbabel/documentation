@@ -13,22 +13,50 @@ Synopsis
    * ``babel [OPTIONS] [-i <input-ID>] infile [-o <output-ID>] outfile``
    * ``obabel [OPTIONS] [-i <input-ID>] infile [-o <output-ID>] [-O outfile]``
 
-If only input and ouput files are given, Open Babel will guess the
+If only input and output files are given, Open Babel will guess the
 file type from the filename extension. For information on the file formats supported by Open Babel, please see :ref:`file formats`.
 
 Options
 -------
 
+Information and help, for example:
+
+  babel  [-H <help-options>]
+  obabel [-H <help-options>]
+
+-H 
+    Output usage information
+-H <format-ID> 
+    Output formatting information and options for
+    `format </wiki/Category:Formats>`_ specified
+-Hall 
+    Output formatting information and options for all
+    `formats </wiki/Category:Formats>`_
+-L  
+    List plugin types (`formats </wiki/Category:Formats>`, descriptors, ops, etc.)
+-L <plugin type>
+    List plugins of this type
+-L <plugin-ID>
+    Details of a plugin of any type
+-V 
+    Output version number
+
+Conversion options:
+
+   babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS] 
+   obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS] 
+
 -a <options>
     Format-specific input options. See ``-H <format-ID>`` for options
     allowed by a particular format
---addtotitle 
-    Append text after the current molecule title
---addformula 
-    Append the molecular formula after the current molecule title
-
---append <property list> 
-    Append properties values to the current molecule title. For more
+--add <list>
+    Add properties (for SDF, CML, etc.) from descriptors in list
+--addindex
+    Append output index to title
+--addtotitle <text>
+    Append the text after the each molecule title
+--append <list> 
+    Append properties or descriptor values appropriate for a molecule to its title. For more
     information, see :ref:`append option`.
 -b 
     Convert dative bonds (e.g. ``[N+]([O-])=O`` to ``N(=O)=O``)
@@ -37,7 +65,9 @@ Options
 -C 
     Combine molecules in first file with others having the same name
 -d 
-    Delete Hydrogens
+    Delete hydrogens (make all hydrogen implicit)
+--delete <list> 
+    Delete properties in list\n"
 -e 
     Continue to convert molecules after errors
 --errorlevel <N>
@@ -52,24 +82,16 @@ Options
 -f <#> 
     For multiple entry input, start import with molecule # as the first
     entry
--F 
-    Output the available fingerprint types
 --filter <criteria> 
     Filter based on molecular properties. See
     :ref:`filter options` for examples and a list of
     criteria.
+--gen2d 
+    Generate 2D coordinates
 --gen3d 
     Generate 3D coordinates
 -h 
-    Add hydrogens
--H 
-    Output usage information
--H <format-ID> 
-    Output formatting information and options for
-    `format </wiki/Category:Formats>`_ specified
--Hall 
-    Output formatting information and options for all
-    `formats </wiki/Category:Formats>`_
+    Add hydrogens (make all hydrogen explicit)
 -i <format-ID> 
     Specifies input format. See :ref:`file formats`.
 -j, --join 
@@ -79,45 +101,45 @@ Options
     `GAMESS </w/index.php?title=GAMESS&action=edit&redlink=1>`_ and
     `Gaussian </w/index.php?title=Gaussian&action=edit&redlink=1>`_)
 -m 
-    Produce multiple output files, to allow:
-    
+    Produce multiple output files, to allow:    
     -  Splitting one input file - put each molecule into consecutively
        numbered output files
     -  Batch conversion - convert each of multiple input files into a
        specified output format
-
 -l <#> 
     For multiple entry input, stop import with molecule # as the last
     entry
 -o <format-ID> 
     Specifies output format. See :ref:`file formats`.
 -p <pH> 
-    Add Hydrogens appropriate for pH (use transforms in phmodel.txt)
---property 
+    Add hydrogens appropriate for pH (use transforms in phmodel.txt)
+--property <name> <value>
     Add or replace a property (for example, in an SD file, :ref:`MDL MOL format`)
--s <SMARTS>
-    Convert only molecules matching the SMARTS
-    pattern specified
+-r 
+    Remove all but the largest contiguous fragment (strip salts)
+--readconformers
+    Combine adjacent conformers in multi-molecule input into a single molecule
+-s <SMARTS> 
+    Convert only molecules matching the SMARTS pattern specified
+-s <filename.xxx>
+    Convert only molecules with the molecule in the file as a substructure
 --separate 
     Separate disconnected fragments into individual molecular records
 --sort
     Output molecules ordered by the value of a descriptor. See :ref:`sorting option`.
--t
-    All input files describe a single molecule
 --title <title> 
     Add or replace molecular title
 --unique, --unique <param>
     Do not convert duplicate molecules. See :ref:`removing duplicates`.
+--writeconformers 
+    Output multiple conformers as separate molecules
 -x <options> 
     Format-specific output options. See ``-H <format-ID>`` for options
     allowed by a particular format
 -v <SMARTS>
-    Convert only molecules **NOT** matching the SMARTS
-    pattern specified
--V 
-    Output version number and exit
+    Convert only molecules **NOT** matching the SMARTS pattern specified
 -z 
-    Compress the output with gzip
+    Compress the output with gzip (not on Windows)
 
 
 Examples
