@@ -13,27 +13,28 @@ Synopsis
    * ``babel [OPTIONS] [-i <input-ID>] infile [-o <output-ID>] outfile``
    * ``obabel [OPTIONS] [-i <input-ID>] infile [-o <output-ID>] [-O outfile]``
 
-If only input and output files are given, Open Babel will guess the
-file type from the filename extension. For information on the file formats supported by Open Babel, please see :ref:`file formats`.
+.. note::
+
+  If only input and output files are given, Open Babel will guess the file type from the filename extension. For information on the file formats supported by Open Babel, please see :ref:`file formats`.
 
 Options
 -------
 
-Information and help, for example:
+.. rubric:: Information and help
 
-  babel  [-H <help-options>]
-  obabel [-H <help-options>]
+*  ``babel  [-H <help-options>]``
+*  ``obabel [-H <help-options>]``
 
 -H 
     Output usage information
 -H <format-ID> 
     Output formatting information and options for
-    `format </wiki/Category:Formats>`_ specified
+    the format specified
 -Hall 
     Output formatting information and options for all
-    `formats </wiki/Category:Formats>`_
+    formats
 -L  
-    List plugin types (`formats </wiki/Category:Formats>`, descriptors, ops, etc.)
+    List plugin types (formats, descriptors, ops, etc.)
 -L <plugin type>
     List plugins of this type
 -L <plugin-ID>
@@ -41,10 +42,10 @@ Information and help, for example:
 -V 
     Output version number
 
-Conversion options:
+.. rubric:: Conversion options
 
-   babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS] 
-   obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS] 
+* ``babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
+* ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]`` 
 
 -a <options>
     Format-specific input options. See ``-H <format-ID>`` for options
