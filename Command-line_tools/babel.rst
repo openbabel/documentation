@@ -10,12 +10,11 @@ Synopsis
 
    * ``babel [-H <help-options>]``
    * ``obabel [-H <help-options>]`` 
-   * ``babel [OPTIONS] [-i <input-ID>] infile [-o <output-ID>] outfile``
-   * ``obabel [OPTIONS] [-i <input-ID>] infile [-o <output-ID>] [-O outfile]``
+   * ``babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
+   * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]``
 
-.. note::
+:command:`obabel` is recommended over :command:`babel` (see :ref:`babel vs obabel`).
 
-  If only input and output files are given, Open Babel will guess the file type from the filename extension. For information on the file formats supported by Open Babel, please see :ref:`file formats`.
 
 Options
 -------
@@ -47,6 +46,10 @@ Options
 * ``babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
 * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]`` 
 
+.. note::
+
+  If only input and output files are given, Open Babel will guess the file type from the filename extension. For information on the file formats supported by Open Babel, please see :ref:`file formats`.
+
 -a <options>
     Format-specific input options. See ``-H <format-ID>`` for options
     allowed by a particular format
@@ -68,7 +71,7 @@ Options
 -d 
     Delete hydrogens (make all hydrogen implicit)
 --delete <list> 
-    Delete properties in list\n"
+    Delete properties in list
 -e 
     Continue to convert molecules after errors
 --errorlevel <N>
@@ -103,6 +106,7 @@ Options
     `Gaussian </w/index.php?title=Gaussian&action=edit&redlink=1>`_)
 -m 
     Produce multiple output files, to allow:    
+
     -  Splitting one input file - put each molecule into consecutively
        numbered output files
     -  Batch conversion - convert each of multiple input files into a
@@ -114,8 +118,8 @@ Options
     Specifies output format. See :ref:`file formats`.
 -p <pH> 
     Add hydrogens appropriate for pH (use transforms in phmodel.txt)
---property <name> <value>
-    Add or replace a property (for example, in an SD file, :ref:`MDL MOL format`)
+--property <name  value>
+    Add or replace a property (for example, in an SD file, :ref:`MDL_MOL_format`)
 -r 
     Remove all but the largest contiguous fragment (strip salts)
 --readconformers
@@ -215,6 +219,8 @@ The output file can be compressed with gzip, but note if you don't specify the "
 
   PROMPT>  babel   ' /mymols.sdf' -osdf 'outputfile.sdf.gz'     -z
 
+.. _babel vs obabel:
+
 Differences between babel and obabel
 ------------------------------------
 
@@ -222,11 +228,11 @@ Essentially :command:`obabel` is a modern version of :command:`babel` with addit
 
 Specifically, the differences are as follows:
 
-* :command:`obabel` allows the user to specify parameters values for format options:
+* :command:`obabel` is more flexible when the user needs to specify parameter values for format options:
 
-    Some file formats (such as :ref:`POV-Ray_input_format`) have read or write options that accept parameters (such as ``-xm <model-type>`` in the case of POV-Ray). Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
+    Some file formats (such as :ref:`POV-Ray_input_format`) have read or write options that accept parameters (such as ``-xm <model-type>`` in the case of POV-Ray). With :command:`babel`, the parameter value must be the last term in the command line; with :command:`obabel`, no such restriction applies. Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
 
-* :command:`obabel` requires that the output file be specified with a ``-O`` option. This is closer to the normal Unix convention for commandline programs, and prevents the users accidentally overwriting the input file.
+* :command:`obabel` requires that the output file be specified with a ``-O`` option. This is closer to the normal Unix convention for commandline programs, and prevents users accidentally overwriting the input file.
 
 .. tip::
 
