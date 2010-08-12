@@ -9,7 +9,7 @@ Open Babel, or how I learned to love the chemistry file format
    Command-line_tools/babel.rst
    Features/Fingerprints.rst
    Spectrophore/intro.rst
-   Python/Python.rst
+   UseTheLibrary/intro.rst
    Contributing/Contributing.rst
    FileFormats/Overview.rst
 
