@@ -304,7 +304,7 @@ You can filter on two types of property:
 
     babel -L descriptors
 
-or from a menu item in the GUI.
+  or from a menu item in the GUI.
 
 .. sidebar:: Faster filtering
 
