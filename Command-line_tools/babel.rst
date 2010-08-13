@@ -239,13 +239,15 @@ Essentially :command:`obabel` is a modern version of :command:`babel` with addit
 
 Specifically, the differences are as follows:
 
-* :command:`obabel` is more flexible when the user needs to specify parameter values for format options. For instance,  the ``--unique`` option can be used with or without a parameter (specifying the criteria used).  With :command:`babel`, this only works when the option is the last on the line; with :command:`obabel`, no such restriction applies. Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
-
 * :command:`obabel` requires that the output file be specified with a ``-O`` option. This is closer to the normal Unix convention for commandline programs, and prevents users accidentally overwriting the input file.
+
+* :command:`obabel` is more flexible when the user needs to specify parameter values on options. For instance,  the ``--unique`` option can be used with or without a parameter (specifying the criteria used).  With :command:`babel`, this only works when the option is the last on the line; with :command:`obabel`, no such restriction applies. Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
+
+* :command:`obabel` cannot use concatenated single-character options. 
 
 .. tip::
 
-    To adapt a command line for :command:`babel` into one for :command:`obabel` simply put ``-O`` in front of the output filename.
+    To adapt a command line for :command:`babel` into one for :command:`obabel` you can usually simply put ``-O`` in front of the output filename.
 
 Format Options
 --------------
