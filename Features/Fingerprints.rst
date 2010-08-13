@@ -48,12 +48,12 @@ Similarity searching
 Small datasets
 ~~~~~~~~~~~~~~
 
-For relatively small datasets (<10,000's) it is possible to do similarity searches without the need to build a similarity index, however larger datasets (up to 100,000's) can be searched rapidly once a fastsearch index has been built.
-Small datasets
+For relatively small datasets (<10,000's) it is possible to do similarity searches without the need to build a similarity index, however larger datasets (up to a few million) can be searched rapidly once a fastsearch index has been built.
 
 On small datasets these fingerprints can be used in a variety of ways. The following command gives you the Tanimoto coefficient between a SMILES string in mysmiles.smi and all the molecules in mymols.sdf::
 
-        PROMPT>  babel  mysmiles.smi  mymols.sdf -ofpt
+        babel  mysmiles.smi  mymols.sdf -ofpt
+
         MOL_00000067   Tanimoto from first mol = 0.0888889
         MOL_00000083   Tanimoto from first mol = 0.0869565
         MOL_00000105   Tanimoto from first mol = 0.0888889
@@ -68,18 +68,19 @@ On small datasets these fingerprints can be used in a variety of ways. The follo
 
 The default fingerprint used is the FP2 fingerprint. You change the fingerprint using the ``f`` output option as follows::
 
-        PROMPT>  babel mymols.sdf -ofpt -xfFP3
+        babel mymols.sdf -ofpt -xfFP3
 
 The ``-s`` option of babel is used to filter by SMARTS string (see Babel). If you wanted to know the similarity only to the substituted bromobenzenes in mymols.sdf then you might combine commands like this (note: if the query molecule does not match the SMARTS string this will not work as expected, as the first molecule in the database that matches the SMARTS string will instead be used as the query)::
 
-        PROMPT>  babel mysmiles.smi mymols.sdf -ofpt -s c1ccccc1Br
+        babel mysmiles.smi mymols.sdf -ofpt -s c1ccccc1Br
+
         MOL_00000067   Tanimoto from first mol = 0.0888889
         MOL_00000083   Tanimoto from first mol = 0.0869565
         MOL_00000105   Tanimoto from first mol = 0.0888889
 
 If you don't specify a query file, babel will just use the first molecule in the database as the query::
 
-        PROMPT>  babel mymols.sdf  -ofpt
+        babel mymols.sdf  -ofpt
 
         MOL_00000067
         MOL_00000083   Tanimoto from MOL_00000067 = 0.810811
@@ -98,15 +99,15 @@ Large datasets
 
 On larger datasets it is necessary to first build a fastsearch index. This is an new file that stores a database of fingerprints for the files indexed. You will still need to keep both the new .fs fastsearch index and the original files. However, the new index will allow significantly faster searching and similarity comparisons. The index is created with the following command::
 
-        PROMPT>  babel mymols.sdf -ofs
+        babel mymols.sdf -ofs
 
 This builds mymols.fs with the default fingerprint (unfolded). The following command uses the index to find the 5 most similar molecules to the molecule in query.mol::
 
-        PROMPT>  babel mymols.fs results.sdf -Squery.mol -at5
+        babel mymols.fs results.sdf -squery.mol -at5
 
 or to get the matches with Tanimoto>0.6 to 1,2-dicyanobenzene::
 
-        PROMPT>  babel mymols.fs results.sdf -sN#Cc1ccccc1C#N -at0.6
+        babel mymols.fs results.sdf -sN#Cc1ccccc1C#N -at0.6
 
 Substructure searching
 ----------------------
@@ -116,26 +117,30 @@ Small datasets
 
 This command will find all molecules containing 1,2-dicyanobenzene and return the results as SMILES strings::
 
-        PROMPT>  babel mymols.sdf -sN#Cc1ccccc1C#N results.smi
+        babel mymols.sdf -sN#Cc1ccccc1C#N results.smi
 
 If all you want output are the molecule names then adding ``-xt`` will return just the molecule names::
 
-        PROMPT>  babel mymols.sdf -sN#Cc1ccccc1C#N results.smi -xt
+        babel mymols.sdf -sN#Cc1ccccc1C#N results.smi -xt
+
+The parameter of the -s option in these examples is actually SMARTS, which allows a richer matching specification, if required. It does mean that the aromaticity of atoms and bonds is significant; use `[#6]` rather than `C` to match both aliphatic and aromatic carbon.
+
+The -s option's parameter can also be a file name with an extension. The file must contain a molecule, which means only substructure matching is possible (rather than full SMARTS). The matching is also slightly more relaxed with respect to aromaticity.
 
 Large datasets
 ~~~~~~~~~~~~~~
 
 First of all, you need to create a fastsearch index (see above). The index is created with the following command::
 
-        PROMPT>  babel mymols.sdf -ofs
+        babel mymols.sdf -ofs
 
 Substructure searching is as for small datasets, except that the fastsearch index is used instead of the original file. This command will find all molecules containing 1,2-dicyanobenzene and return the results as SMILES strings::
 
-        PROMPT>  babel mymols.fs -ifs -sN#Cc1ccccc1C#N results.smi
+        babel mymols.fs -ifs -sN#Cc1ccccc1C#N results.smi
 
 If all you want output are the molecule names then adding ``-xt`` will return just the molecule names::
 
-        PROMPT>  babel mymols.fs -ifs -sN#Cc1ccccc1C#N results.smi -xt
+        babel mymols.fs -ifs -sN#Cc1ccccc1C#N results.smi -xt
 
 Case study: Search ChEMBLdb
 ---------------------------
@@ -152,7 +157,7 @@ This case study uses a combination of the techniques described above for similar
 
 (4) This first molecule is 100183. Check its `ChEMBL page`_. It's pretty weird, but is there anything similiar in ChEMBLdb? Let's find the 5 most similar molecules::
 
-        babel chembl_02.fs mostsim.sdf -Sfirst.sdf -at5
+        babel chembl_02.fs mostsim.sdf -s first.sdf -at5
 
 .. _ChEMBL page: http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/100183
 
@@ -194,3 +199,22 @@ This case study uses a combination of the techniques described above for similar
 .. _206983: http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/206983
 .. _207022: http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/207022
 .. _607087: http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/607087
+
+(8) How many of the molecules in the dataset are superstructures of the molecule in `first.sdf`? To do this and to visualize the large numbers of molecules produced, we can output to `SVGFormat` ::
+
+        obabel chembl_02.fs  -O out.svg  -s first.sdf
+
+Note that :program:`obabel` has been used here because of its more flexible option handling.
+This command does a substructure search and puts the 47 matching structures in the file out.svg. This can be viewed in a browser like Firefox, Opera or Chrome (but not Internet Explorer). The display will give an overall impression of the set of molecules but details can be seen by zooming in with the mousewheel and panning by dragging with a mouse button depressed.
+
+(9) The substructure that is being matched can be highlighted in the output molecules by adding another parameter to the -s option. Just for variety, the display is also changed to a black background, 'uncolored' (no element-specific coloring), and terminal carbon not shown explicitly. (Just refresh your browser to see the modified display.)
+
+        obabel chembl_02.fs  -O out.svg  -s first.sdf green  -xb -xu -xc
+
+This highlighting option also works when  the -s option is used without fastsearch on small datasets.
+
+(10) The substructure search here has two stages.  The indexed fingerprint search quickly produces 62 matches from the 500K+ molecules in the dataset. Each of these is then checked by a slow detailed isomorphism check. There are 12 false positives from the fingerprint stage. These are of no significance, but you can see them by ::
+ 
+        obabel chembl_02.fs  -O out.svg  -s ~first.sdf
+
+
