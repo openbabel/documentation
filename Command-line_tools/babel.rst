@@ -150,12 +150,21 @@ Options
 Examples
 --------
 
+The examples below assume the files are in the current directory. Otherwise you may need to include the full path to the files e.g. :file:`/Users/username/Desktop/mymols.sdf` and you may need to put quotes around the filenames (especially in Windows when they can contain spaces).
+
 Standard conversion::
 
-    babel -ixyz ethanol.xyz -opdb ethanol.pdb
+    babel ethanol.xyz ethanol.pdb
 
-Conversion from a SMI file in STDIN to a Mol2 file written to
-STDOUT::
+Conversion if the files do not have an extension that describes their format::
+  
+    babel -ixyz ethanol.aa -opdb ethanol.bb
+
+Molecules from multiple input files (which can have different formats) are normally combined in the output file:: 
+
+    babel ethanol.xyz acetal.sdf benzene.cml allmols.smi
+
+Conversion from a SMI file in STDIN to a Mol2 file written to STDOUT::
 
     babel -ismi -omol2
 
@@ -163,61 +172,63 @@ Split a multi-molecule file into new1.smi, new2.smi, etc.::
 
     babel infile.mol new.smi -m
 
-To convert :file:`mymols.sdf` to SMILES format::
+In Windows this can also be written::
 
-  PROMPT> babel -isdf  'mymols.sdf' -osmi 'outputfile.smi'
+    babel infile.mol new*.smi
 
 Multiple input files can be converted in batch format too. To convert all files ending in .xyz (\*.xyz) to PDB files, you can type::
 
-  PROMPT> babel *.xyz -opdb -m
+    babel *.xyz -opdb -m
 
-You may need to include the full path to the files e.g. :file:`/Users/username/Desktop/mymols.sdf`. If no input or output specification is defined Open Babel will try to assign the filetype based on the file suffix.
+Open Babel will not generate coordinates unless asked, so while a conversion from SMILES to SDF will generate a valid SDF file, the resulting file will not contain coordinates. To generate coordinates, use either the ``-gen3d`` or  the``-gen2d`` option::
 
-Open Babel will not generate coordinates unless asked, so while a conversion from SMILES to SDF will generate a valid SDF file, the resulting file will not contain coordinates. To generate coordinates, use the ``-gen3d`` option::
+     babel infile.smi out.sdf --gen3d
 
-  PROMPT> babel infile.smi out.sdf --gen3d
+If you want to remove all hydrogens, i.e. make them all implicit, when doing the conversion the command would be::
 
-If you want to remove all hydrogens when doing the conversion the command would be::
+     babel mymols.sdf -osmi outputfile.smi -d
 
-  PROMPT> babel -isdf  'mymols.sdf' -osmi 'outputfile.smi' -d
+If you want to add hydrogens, i.e. make thenm all explicit, when doing the conversion the command would be::
 
-If you want to add all hydrogens when doing the conversion the command would be::
-
-  PROMPT> babel -isdf  'mymols.sdf' -osmi 'outputfile.smi' -h
+     babel  mymols.sdf outputfile.smi  -h
 
 If you want to add hydrogens appropriate for pH7.4 when doing the conversion the command would be::
 
-  PROMPT> babel -isdf  'mymols.sdf' -osmi 'outputfile.smi' -p
+     babel  mymols.sdf outputfile.smi' -p
 
 The protonation is done an atom-by-atom basis so molecules with multiple ionizable centers will have all centers ionized.
 
 Of course you don't actually need to change the file type to modify the hydrogens. If you want to add all hydrogens the command would be::
 
-  PROMPT> babel -isdf  'mymols.sdf' -osdf 'mymols_H.sdf' ' -h
+     babel  mymols.sdf mymols_H.sdf -h
 
 Some functional groups e.g. nitro or sulphone can be represented either as ``[N+]([O-])=O`` or ``N(=O)=O``. To convert all to the dative bond form::
 
-  PROMPT> babel -isdf  'mymols.sdf'  -osmi 'outputfile.smi' -b
+     babel  mymols.sdf outputfile.smi  -b
 
 If you only want to convert a subset of molecules you can define them using -f and -l, so to convert molecules 2-4 of the file mymols.sdf type::
 
-  PROMPT> /babel   'mymols.sdf' -f 2 -l 4 -osdf 'outputfile.sdf'
+     babel  mymols.sdf -f 2 -l 4 -osdf  outputfile.sdf 
 
 Alternatively you can select a subset matching a SMARTS pattern, so to select all molecules containing bromobenzene use::
 
-  PROMPT> babel   mymols.sdf  -osdf  'selected.sdf'    -s 'c1ccccc1Br'
+     babel   mymols.sdf   selected.sdf  -s "c1ccccc1Br"
 
 You can select a subset that do not match a SMARTS pattern, so to select all molecules not containing bromobenzene use::
 
-  PROMPT> babel   mymols.sdf  -osdf  'selected.sdf'    -v 'c1ccccc1Br'
+     babel   mymols.sdf   selected.sdf    -v "c1ccccc1Br"
 
 You can of course combine options, so to join molecules and add hydrogens type::
 
-  PROMPT> babel   mymols.sdf' -osdf ' myjoined.sdf' -h   -j
+     babel   mymols.sdf  myjoined.sdf -h   -j
 
-The output file can be compressed with gzip, but note if you don't specify the ".gz" suffix it will not be added automatically, which could cause problems when you try to open the file::
+Files compressed with gzip are read transparently, whether or not they have a .gz suffix::
 
-  PROMPT>  babel   ' /mymols.sdf' -osdf 'outputfile.sdf.gz'     -z
+     babel  compressed.sdf.gz  expanded.smi
+
+On platforms other than Windows, the output file can be compressed with gzip, but note if you don't specify the ".gz" suffix it will not be added automatically, which could cause problems when you try to open the file::
+
+     babel   mymols.sdf  outputfile.sdf.gz   -z
 
 .. _babel vs obabel:
 
@@ -228,9 +239,7 @@ Essentially :command:`obabel` is a modern version of :command:`babel` with addit
 
 Specifically, the differences are as follows:
 
-* :command:`obabel` is more flexible when the user needs to specify parameter values for format options:
-
-    Some file formats (such as :ref:`POV-Ray_input_format`) have read or write options that accept parameters (such as ``-xm <model-type>`` in the case of POV-Ray). With :command:`babel`, the parameter value must be the last term in the command line; with :command:`obabel`, no such restriction applies. Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
+* :command:`obabel` is more flexible when the user needs to specify parameter values for format options. For instance,  the ``--unique`` option can be used with or without a parameter (specifying the criteria used).  With :command:`babel`, this only works when the option is the last on the line; with :command:`obabel`, no such restriction applies. Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
 
 * :command:`obabel` requires that the output file be specified with a ``-O`` option. This is closer to the normal Unix convention for commandline programs, and prevents users accidentally overwriting the input file.
 
@@ -243,7 +252,9 @@ Format Options
 
 Individual file formats may have additional formatting options. These are listed in the documentation for the individual formats (see :ref:`file formats`) or can be shown using the ``-H <format-Id>`` option, e.g. ``-H cml``.
 
-To use these additional options, input format options are preceded by ``-a``, e.g. ``-as``. Output format options are preceded by ``-x``, e.g. ``-xn``.
+To use these additional options, input format options are preceded by ``-a``, e.g. ``-as``. Output format options, which are much more common, are preceded by ``-x``, e.g. ``-xn``. So to read the 2D coordinates rather than a from a molecule in a CML file and display it on a blackground::
+
+      babel mymol.cml out.svg -a2 -xb
 
 .. _append option:
 
@@ -299,7 +310,7 @@ or from a menu item in the GUI.
 
   Open Babel provides a number of utility file formats (see :ref:`file formats`). Of these, using the *copy format* as the output format is particularly useful when filtering (see :ref:`Copy_raw_text`). This copies the content of the molecular file directly from input to output. If you are not converting the molecules between different formats, this procedure is much faster and avoids any possibility of information loss.
 
-  In addition, if you are converting SDF files and are filtering based on the title, you should consider using ``-as`` (see :ref:`MDL_MOL_format`). Rather than perceiving the chemistry of the entire molecule, this option will only read in the title.
+  In addition, if you are converting SDF files and are filtering based on the title, you should consider using ``-aT`` (see :ref:`MDL_MOL_format`). Rather than perceiving the chemistry of the entire molecule, this option will only read in the title.
 
 The descriptor names are case-insensitive. With the property names currently, you need to get the case right. Both types of identifier can contain letters, numbers and underscores, '_'. Properties can contain spaces, but then when writing the name in the filter parameter, you need to replace them with underscores. So in the example above, the test would also be suitable for a property 'ROTATABLE BOND'.
 
@@ -421,9 +432,7 @@ Note that if you want to use ``--unique`` without a parameter with :command:`bab
 
 A message is output for each duplicate found::
 
- ==============================
- *** Open Babel Warning
- Removed methyl benzene - a duplicate of toluene (#1)
+      Removed methyl benzene - a duplicate of toluene (#1)
 
 Clearly, this is more useful if each molecule has a title. The (#1) is the number of duplicates found so far.
 
