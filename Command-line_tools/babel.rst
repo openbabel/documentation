@@ -180,7 +180,7 @@ Multiple input files can be converted in batch format too. To convert all files 
 
     babel *.xyz -opdb -m
 
-Open Babel will not generate coordinates unless asked, so while a conversion from SMILES to SDF will generate a valid SDF file, the resulting file will not contain coordinates. To generate coordinates, use either the ``-gen3d`` or  the``-gen2d`` option::
+Open Babel will not generate coordinates unless asked, so while a conversion from SMILES to SDF will generate a valid SDF file, the resulting file will not contain coordinates. To generate coordinates, use either the ``--gen3d`` or  the ``--gen2d`` option::
 
      babel infile.smi out.sdf --gen3d
 
