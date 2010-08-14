@@ -123,9 +123,9 @@ If all you want output are the molecule names then adding ``-xt`` will return ju
 
         babel mymols.sdf -sN#Cc1ccccc1C#N results.smi -xt
 
-The parameter of the -s option in these examples is actually SMARTS, which allows a richer matching specification, if required. It does mean that the aromaticity of atoms and bonds is significant; use `[#6]` rather than `C` to match both aliphatic and aromatic carbon.
+The parameter of the ``-s`` option in these examples is actually SMARTS, which allows a richer matching specification, if required. It does mean that the aromaticity of atoms and bonds is significant; use `[#6]` rather than `C` to match both aliphatic and aromatic carbon.
 
-The -s option's parameter can also be a file name with an extension. The file must contain a molecule, which means only substructure matching is possible (rather than full SMARTS). The matching is also slightly more relaxed with respect to aromaticity.
+The ``-s`` option's parameter can also be a file name with an extension. The file must contain a molecule, which means only substructure matching is possible (rather than full SMARTS). The matching is also slightly more relaxed with respect to aromaticity.
 
 Large datasets
 ~~~~~~~~~~~~~~
@@ -200,20 +200,21 @@ This case study uses a combination of the techniques described above for similar
 .. _207022: http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/207022
 .. _607087: http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/607087
 
-(8) How many of the molecules in the dataset are superstructures of the molecule in `first.sdf`? To do this and to visualize the large numbers of molecules produced, we can output to `SVGFormat` ::
+(8) How many of the molecules in the dataset are superstructures of the molecule in :file:`first.sdf`? To do this and to visualize the large numbers of molecules produced, we can output to SVG format (see :ref:`SVG_depiction`)::
 
         obabel chembl_02.fs  -O out.svg  -s first.sdf
 
-Note that :program:`obabel` has been used here because of its more flexible option handling.
-This command does a substructure search and puts the 47 matching structures in the file out.svg. This can be viewed in a browser like Firefox, Opera or Chrome (but not Internet Explorer). The display will give an overall impression of the set of molecules but details can be seen by zooming in with the mousewheel and panning by dragging with a mouse button depressed.
+  Note that :program:`obabel` has been used here because of its more flexible option handling.
 
-(9) The substructure that is being matched can be highlighted in the output molecules by adding another parameter to the -s option. Just for variety, the display is also changed to a black background, 'uncolored' (no element-specific coloring), and terminal carbon not shown explicitly. (Just refresh your browser to see the modified display.)
+  This command does a substructure search and puts the 47 matching structures in the file :file:`out.svg`. This can be viewed in a browser like Firefox, Opera or Chrome (but not Internet Explorer). The display will give an overall impression of the set of molecules but details can be seen by zooming in with the mousewheel and panning by dragging with a mouse button depressed.
+
+(9) The substructure that is being matched can be highlighted in the output molecules by adding another parameter to the ``-s`` option. Just for variety, the display is also changed to a black background, 'uncolored' (no element-specific coloring), and terminal carbon not shown explicitly. (Just refresh your browser to see the modified display.) ::
 
         obabel chembl_02.fs  -O out.svg  -s first.sdf green  -xb -xu -xc
 
-This highlighting option also works when  the -s option is used without fastsearch on small datasets.
+  This highlighting option also works when  the ``-s`` option is used without fastsearch on small datasets.
 
-(10) The substructure search here has two stages.  The indexed fingerprint search quickly produces 62 matches from the 500K+ molecules in the dataset. Each of these is then checked by a slow detailed isomorphism check. There are 12 false positives from the fingerprint stage. These are of no significance, but you can see them by ::
+(10) The substructure search here has two stages.  The indexed fingerprint search quickly produces 62 matches from the 500K+ molecules in the dataset. Each of these is then checked by a slow detailed isomorphism check. There are 12 false positives from the fingerprint stage. These are of no significance, but you can see them using::
  
         obabel chembl_02.fs  -O out.svg  -s ~first.sdf
 
