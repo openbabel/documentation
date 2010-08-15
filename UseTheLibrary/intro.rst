@@ -13,7 +13,9 @@ Open Babel is a C++ library and can easily be used from C++. In addition it can 
 .. _GNU Public License version 2: http://www.gnu.org/licenses/gpl-2.0.html
 
 .. toctree::
+   :maxdepth: 2
 
    Python.rst
    Java.rst
    CSharp.rst
+   Ruby.rst
