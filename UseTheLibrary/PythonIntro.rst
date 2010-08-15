@@ -1,8 +1,10 @@
 Introduction
 ~~~~~~~~~~~~
 
-The Python interface to OpenBabel is perhaps the most popular of the several languages that OpenBabel supports.
+The Python interface to OpenBabel is perhaps the most popular of the several languages that OpenBabel supports. We provide two Python modules that can be used to access the functionality of Open Babel toolkit:
 
-The rationale and technical details behind Pybel are described in the Pybel paper. To support further development of Pybel, please cite this paper if you use Pybel to obtain results for publication:
+# The standard Python bindings, contained in the *openbabel* module. These were automatically generated using SWIG from the C++ API. See [FIXME]
 
-    N.M. O'Boyle, C. Morley and G.R. Hutchison. `Pybel: a Python wrapper for the OpenBabel cheminformatics toolkit <http://dx.doi.org/10.1186/1752-153X-2-5>`_ *Chem. Cent. J.* **2008**, *2*, 5.
+# An additional module called *Pybel*. This is a light-weight wrapper around the classes and methods in *openbabel*  and provides more convenient and Pythonic ways to access the Open Babel toolkit. See [FIXME]
+
+You don't have to choose between them though - they can be used together.

@@ -123,24 +123,23 @@ More information on compiling JNI libraries on Mac OS X can be found at the `App
 API
 ---
 
-openbabel.jar provides direct access to the C++ Open Babel library from Java through the namespace org.openbabel. This binding is generated using the SWIG package and provides access to almost all of the Open Babel interfaces via Java, including the base classes OBMol, OBAtom, OBBond, and OBResidue, as well as the conversion framework OBConversion. As such, essentially any call in the C++ API is available to Java programs with very little difference in syntax.
+:file:`openbabel.jar` provides direct access to the C++ Open Babel library from Java through the namespace **org.openbabel**. This binding is generated using the SWIG package and provides access to almost all of the Open Babel interfaces from Java, including the base classes :obapi:`OBMol`, :obapi:`OBAtom`, :obapi:`OBBond`, and :obapi:`OBResidue`, as well as the conversion framework :obapi:`OBConversion`.
 
-As a result, the principal documentation is the Open Babel C++ API documentation.
+Essentially any call in the C++ API is available to Java programs with very little difference in syntax. As a result, the principal documentation is the `Open Babel C++ API documentation`_. A few differences exist, however:
 
-Differences between the C++ API and the Java API
-------------------------------------------------
+.. _Open Babel C++ API documentation: http://openbabel.org/api
 
 .. highlight:: java
 
-* Global variables, global functions and constants in the C++ API can be found in org.openbabel.openbabel_java. The variables are accessible through get methods.
-* When accessing various types of OBGenericData, you will need to cast them to the particular subclass using the global functions, toPairData, toUnitCell, etc.
-* The iterator classes in the C++ API (that is, all those classes ending in Iter) implement the Iterator and Iterable interfaces. This means that the following foreach loop is possible::
+* Global variables, global functions and constants in the C++ API can be found in **org.openbabel.openbabel_java**. The variables are accessible through get methods.
+* When accessing various types of :obapi:`OBGenericData`, you will need to cast them to the particular subclass using the global functions, *toPairData*, *toUnitCell*, etc.
+* The Java versions of the iterator classes in the C++ API (that is, all those classes ending in *Iter*) implement the *Iterator* and *Iterable* interfaces. This means that the following *foreach* loop is possible::
 
         for(OBAtom atom : new OBMolAtomIter(mol)) {
             System.out.println(atom.GetAtomicNum());
         }
 
-* To facilitate use of the OBMolAtomBFSIter, OBAtom has been extended to incorporate a CurrentDepth value, accessible through Get::
+* To facilitate use of the :obapi:`OBMolAtomBFSIter`, *OBAtom* has been extended to incorporate a *CurrentDepth* value, accessible through *Get*::
 
         for(OBAtom atom : new OBMolAtomBFSIter(mol)) {
             System.out.println(atom.GetCurrentDepth());
