@@ -476,5 +476,19 @@ On the GUI use the form::
 
 Either form is acceptable on the Windows command line.
 
-The unique molecules will be in files with the original name prefixed by 'U'. Duplicate molecules will be in similar files but with zero length, which you will have to delete yourself. 
+The unique molecules will be in files with the original name prefixed by 'U'. Duplicate molecules will be in similar files but with zero length, which you will have to delete yourself.
+
+Aliases for chemical groups
+---------------------------------
+
+There is a limited amount of support for representing common chemical groups by an alias, e.g. benzoic acid as ``Ph-COOH``, with two alias groups. Internally in OpenBabel, the molecule usually has a 'real' structure with the alias names present as only an alternative representation. For MDL mol and sd files alias names can be read from or written to an 'A' line. The more modern RGroup representations are not yet recognized. Reading is transparent; the alias group is expanded and the 'real' atoms given reasonable coordinates if the the molecule is 2D or 3D. Writing in alias form, rather than the 'real' structure, requires the use the -xA option.  SVGFormat will also display any aliases present in a molecule if the -xA option is set.
+
+The alias names that are recognized are in the file :file:``superatoms.txt`` which can be edited.
+
+Normal molecules can have certain common groups given alternative alias representation using the --genalias option. The groups that are recognized and converted are a subset of those that are read. Displaying or writing them still requires the -xA option. For example, if :file:``aspirin.smi`` contained ``O=C(O)c1ccccc1OC(=O)C``, it could be displayed with the  aliases ``COOH`` and ``OAc`` by::
+
+  obabel aspirin.smi  -O out.svg  --genalias  -xA 
+  
+
+ 
 
