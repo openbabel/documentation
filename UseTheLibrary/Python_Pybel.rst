@@ -14,8 +14,8 @@ below.
 The rationale and technical details behind Pybel are described in O'Boyle et al [omh2008]_. To support further development of Pybel, please cite this paper if you use Pybel to obtain results for publication:
 
 Information on the Pybel API can be found at the interactive Python
-prompt using the ``help()`` function, and is also available here:
-`Pybel API <http://openbabel.sourceforge.net/pybel.html>`_.
+prompt using the ``help()`` function, and is also available in 
+Appendix 1 (see :ref:`Pybel API`).
 
 To use Pybel, use ``import pybel`` or ``from pybel import *``.
 
