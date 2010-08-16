@@ -11,7 +11,7 @@ converted to and from the OBAtom and OBMol used by the
 ``openbabel`` module. These features are discussed in more detail
 below.
 
-The rationale and technical details behind Pybel are described in O'Boyle et al [omh2008]_. To support further development of Pybel, please cite this paper if you use Pybel to obtain results for publication:
+The rationale and technical details behind Pybel are described in O'Boyle et al [omh2008]_. To support further development of Pybel, please cite this paper if you use Pybel to obtain results for publication.
 
 Information on the Pybel API can be found at the interactive Python
 prompt using the ``help()`` function, and is also available in 
@@ -68,7 +68,7 @@ associated with the molecule (see
 :obapi:`OBUnitCell`).
 The remaining attributes correspond directly to attributes of
 OBMols: e.g. :attr:`~pybel.Molecule.formula` is equivalent to
-:obapi:`OpenBabel::OBMol::GetFormula()`. For more information on what these
+:obapi:`OBMol::GetFormula() <OpenBabel::OBMol::GetFormula>`. For more information on what these
 attributes are, please see the Open Babel C++ documentation for
 :obapi:`OBMol`.
 
@@ -88,17 +88,14 @@ values in the data fields:
     3
     >>> mol.data['Random Value'] = random.randint(0,1000) # Add a descriptor containing noise
 
-Molecules have a
-``<a href="http://openbabel.sourceforge.net/pybel.html#Molecule-write" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Molecule-write" rel="nofollow">.write()</a>``
+Molecules have a :func:`~pybel.Molecule.write()`
 method that writes a representation of a Molecule to a file or to a
 string. See `Input/Output <#Input.2FOutput>`_ below. They also have
-a
-``<a href="http://openbabel.sourceforge.net/pybel.html#Molecule-calcfp" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Molecule-calcfp" rel="nofollow">.calcfp()</a>``
-method that calculates a molecular fingerprint. See
-`Fingerprints <#Fingerprints>`_ below.
+a :func:`~pybel.Molecule.calcfp()`
+method that calculates a molecular fingerprint. See :ref:`Fingerprints Pybel`
+below.
 
-The
-``<a href="http://openbabel.sourceforge.net/pybel.html#Molecule-draw" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Molecule-draw" rel="nofollow">.draw()</a>``
+The :func:`~pybel.Molecule.draw()`
 method of a Molecule generates 2D coordinates and a 2D depiction of
 a molecule. It uses the
 `OASA library <http://bkchem.zirael.org/oasa_en.html>`_ by Beda
@@ -108,35 +105,31 @@ options are to show the image on the screen (``show=True``), not to
 write to a file (``filename=None``), to calculate 2D coordinates
 (``usecoords=False``) but not to store them (``update=False``).
 
-The
-``<a href="http://openbabel.sourceforge.net/pybel.html#Molecule-addh" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Molecule-addh" rel="nofollow">.addh()</a>``
-and
-``<a href="http://openbabel.sourceforge.net/pybel.html#Molecule-removeh" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Molecule-removeh" rel="nofollow">.removeh()</a>``
+The :func:`~pybel.Molecule.addh()`
+and :func:`~pybel.Molecule.removeh()`
 methods allow hydrogens to be added and removed.
 
 If a molecule does not have 3D coordinates, they can be generated
-using the
-``<a href="http://openbabel.sourceforge.net/pybel.html#Molecule-make3D" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Molecule-make3D" rel="nofollow">.make3D()</a>``
+using the :func:`~pybel.Molecule.make3D()`
 method. By default, this includes 50 steps of a geometry
 optimisation using the MMFF94 forcefield. The list of available
 forcefields is stored in the
-`forcefields <http://openbabel.sourceforge.net/pybel.html#forcefields>`_
+:attr:`~pybel.forcefields`
 variable. To further optimise the structure, you can use the
-``<a href="http://openbabel.sourceforge.net/pybel.html#Molecule-localopt" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Molecule-localopt" rel="nofollow">.localopt()</a>``
+:func:`~pybel.Molecule.localopt()`
 method, which by default carries out 500 steps of an optimisation
 using MMFF94. Note that hydrogens need to be added before calling
 ``localopt()``.
 
-The
-``<a href="http://openbabel.sourceforge.net/pybel.html#Molecule-calcdesc" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Molecule-calcdesc" rel="nofollow">.calcdesc()</a>``
+The :func:`~pybel.Molecule.calcdesc()`
 method of a Molecule returns a dictionary containing descriptor
 values for LogP, Polar Surface Area ("TPSA") and Molar Refractivity
 ("MR"). A list of the available descriptors is contained in the
-variable
-``<a href="http://openbabel.sourceforge.net/pybel.html#descs" class="external text" title="http://openbabel.sourceforge.net/pybel.html#descs" rel="nofollow">descs</a>``.
+variable :data:`~pybel.descs`.
+
 If only one or two descriptor values are required, you can specify
 the names as follows: ``calcdesc(["LogP", "TPSA"])``. Since the
-``.data`` attribute of a Molecule is also a dictionary, you can
+:attr:`~pybel.Molecule.data` attribute of a Molecule is also a dictionary, you can
 easily add the result of ``calcdesc()`` to an SD file (for example)
 as follows:
 
@@ -159,13 +152,13 @@ This is used as follows:
     for atom in myMolecule:
        # do something with atom
 
-Atoms have the following attributes: atomicmass, atomicnum, cidx,
-coords, coordidx, exactmass, formatcharge, heavyvalence,
-heterovalence, hyb, idx, implicitvalence, index, isotope,
-partialcharge, spin, type, valence, vector. The ``.coords``
+Atoms have the following attributes: :attr:`~pybel.Atom.atomicmass`, :attr:`~pybel.Atom.atomicnum`,
+:attr:`~pybel.Atom.coords`, :attr:`~pybel.Atom.exactmass`, :attr:`~pybel.Atom.formalcharge`, :attr:`~pybel.Atom.heavyvalence`,
+:attr:`~pybel.Atom.heterovalence`, :attr:`~pybel.Atom.hyb`, :attr:`~pybel.Atom.idx`, :attr:`~pybel.Atom.implicitvalence`, :attr:`~pybel.Atom.isotope`,
+:attr:`~pybel.Atom.partialcharge`, :attr:`~pybel.Atom.spin`, :attr:`~pybel.Atom.type`, :attr:`~pybel.Atom.valence`, :attr:`~pybel.Atom.vector`. The ``.coords``
 attribute provides a tuple (x, y, z) of the atom's coordinates. The
-remaining attributes are as for
-`OBAtom <http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBAtom.shtml>`_.
+remaining attributes are as for the *Get* methods of
+:obapi:`OBAtom`.
 
 .. _Input Output:
 
@@ -173,23 +166,21 @@ Input/Output
 ^^^^^^^^^^^^
 
 One of the strengths of Open Babel is the number of chemical file
-formats that it can handle. Pybel provides a dictionary of the
-input and output formats in the variables
-`informats <http://openbabel.sourceforge.net/pybel.html#formats>`_
-and
-`outformats <http://openbabel.sourceforge.net/pybel.html#formats>`_,
+formats that it can handle (see :ref:`file formats`). Pybel provides a dictionary of the
+input and output formats in the variables :attr:`~pybel.informats`
+and :attr:`~pybel.outformats`
 where the keys are the three-letter codes for each format (e.g.
-'pdb') and the values are the descriptions (e.g. 'Protein Data Bank
-format').
+``pdb``) and the values are the descriptions (e.g. ``Protein Data Bank
+format``).
 
 Pybel greatly simplifies the process of reading and writing
 molecules to and from strings or files. There are two functions for
 reading Molecules:
 
 
-#. ``<a href="http://openbabel.sourceforge.net/pybel.html#-readstring" class="external text" title="http://openbabel.sourceforge.net/pybel.html#-readstring" rel="nofollow">readstring(format, string)</a>``
+#. :func:`~pybel.readstring()`
    reads a Molecule from a string
-#. ``<a href="http://openbabel.sourceforge.net/pybel.html#-readfile" class="external text" title="http://openbabel.sourceforge.net/pybel.html#-readfile" rel="nofollow">readfile(format, filename)</a>``
+#. :func:`~pybel.readfile()`
    provides an iterator over the Molecules in a file
 
 Here are some examples of their use. Note in particular the use of
@@ -206,9 +197,8 @@ file:
     >>> singlemol = readfile("pdb", "1CRN.pdb").next()
 
 If a single molecule is to be written to a molecule or string, the
-``<a href="http://openbabel.sourceforge.net/pybel.html#Molecule-write" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Molecule-write" rel="nofollow">.write()</a>``
+:func:`~pybel.Molecule.write`
 method of the Molecule should be used:
-
 
 #. ``mymol.write(format)`` returns a string
 #. ``mymol.write(format, filename)`` writes the Molecule to a file.
@@ -216,14 +206,14 @@ method of the Molecule should be used:
    ``True`` if you wish to overwrite an existing file.
 
 For files containing multiple molecules, the
-`Outputfile <http://openbabel.sourceforge.net/pybel.html#Outputfile>`_
+:class:`~pybel.Outputfile`
 class should be used instead. This is initialised with a format and
 filename (and optional ``overwrite`` parameter). To write a
 Molecule to the file, the
-``<a href="http://openbabel.sourceforge.net/pybel.html#Outputfile-write" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Outputfile-write" rel="nofollow">.write()</a>``
+:func:`~pybel.Outputfile.write()`
 method of the Outputfile is called with the Molecule as a
 parameter. When all molecules have been written, the
-``<a href="http://openbabel.sourceforge.net/pybel.html#Outputfile-close" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Outputfile-close" rel="nofollow">.close()</a>``
+:func:`~pybel.Outputfile.close()`
 method of the Outputfile should be called.
 
 Here are some examples of output using the Pybel methods and
@@ -239,33 +229,33 @@ classes:
     >>> largeSDfile.write(myothermol)
     >>> largeSDfile.close()
 
+.. _Fingerprints Pybel:
+
 Fingerprints
 ^^^^^^^^^^^^
 
-A
-`Fingerprint <http://openbabel.sourceforge.net/pybel.html#Fingerprint>`_
+A :class:`Fingerprint`
 can be created in either of two ways:
 
 
 #. From a vector returned by the OpenBabel GetFingerprint() method,
    using ``Fingerprint(myvector)``
-#. By calling the
-   ``<a href="http://openbabel.sourceforge.net/pybel.html#Molecule-calcfp" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Molecule-calcfp" rel="nofollow">.calcfp()</a>``
+#. By calling the :func:`~pybel.Molecule.calcfp()`
    method of a Molecule
 
-The ``.calcfp()`` method takes an optional argument, ``fptype``,
+The :func:`~pybel.Molecule.calcfp()` method takes an optional argument, ``fptype``,
 which should be one of the fingerprint types supported by OpenBabel
-(see `Tutorial:Fingerprints </wiki/Tutorial:Fingerprints>`_). The
+(see :ref:`fingerprints`). The
 list of supported fingerprints is stored in the variable
-``<a href="http://openbabel.sourceforge.net/pybel.html#fps" class="external text" title="http://openbabel.sourceforge.net/pybel.html#fps" rel="nofollow">fps</a>``.
-If unspecified, the default fingerprint ("FP2") is calculated.
+:attr:`~pybel.fps`.
+If unspecified, the default fingerprint (``FP2``) is calculated.
 
-Once created, the Fingerprint has two attributes: ``fp`` gives the
+Once created, the Fingerprint has two attributes: :attr:`~pybel.Fingerprint.fp` gives the
 original OpenBabel vector corresponding to the fingerprint, and
-``bits`` gives a list of the bits that are set.
+:attr:`~pybel.Fingerprint.bits` gives a list of the bits that are set.
 
 The Tanimoto coefficient of two Fingerprints can be calculated
-using the "\|" operator.
+using the ``|`` operator.
 
 Here is an example of its use:
 
@@ -285,9 +275,9 @@ SMARTS matching
 
 Pybel also provides a simplified API to the Open Babel SMARTS
 pattern matcher. A
-`Smarts <http://openbabel.sourceforge.net/pybel.html#Smarts>`_
+:class:`~pybel.Smarts`
 object is created, and the
-``<a href="http://openbabel.sourceforge.net/pybel.html#Smarts-findall" class="external text" title="http://openbabel.sourceforge.net/pybel.html#Smarts-findall" rel="nofollow">.findall()</a>``
+:func:`~pybel.Smarts.findall()`
 method is then used to return a list of the matches to a given
 Molecule.
 
