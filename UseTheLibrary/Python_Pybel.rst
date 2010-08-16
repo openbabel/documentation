@@ -234,7 +234,7 @@ classes:
 Fingerprints
 ^^^^^^^^^^^^
 
-A :class:`Fingerprint`
+A :class:`~pybel.Fingerprint`
 can be created in either of two ways:
 
 
