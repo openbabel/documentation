@@ -10,6 +10,7 @@ Open Babel, or how I learned to love the chemistry file format
    Features/Fingerprints.rst
    Spectrophore/intro.rst
    UseTheLibrary/intro.rst
+   Features/Radicals.rst
    Contributing/Contributing.rst
    FileFormats/Overview.rst
 
