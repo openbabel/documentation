@@ -7,6 +7,7 @@ Open Babel, or how I learned to love the chemistry file format
    Introduction/intro.rst
    Installation/install.rst
    Command-line_tools/babel.rst
+   GUI/GUI.rst
    Features/Fingerprints.rst
    Spectrophore/intro.rst
    UseTheLibrary/intro.rst
