@@ -1,10 +1,20 @@
+C++
+===
+
+How to use Open Babel from C++
+------------------------------
+
+**TODO**
+
 Examples
-========
+--------
+
+Here are a couple of examples of how to use the Open Babel toolkit from C++.
 
 .. highlight:: c++
 
 Simple conversion between chemical formats
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -47,7 +57,7 @@ Simple conversion between chemical formats
 Notice that just to convert molecules (without manipulating them), :file:`mol.h` does not have to be included.
 
 Output Molecular Weight for a Multi-Molecule SDF File
------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Let's say we want to print out the molecular weights of every molecule in an SD file. Why? Well, we might want to plot a histogram of the distribution, or see whether the average of the distribution is significantly different (in the statistical sense) compared to another SD file.
 
@@ -77,7 +87,7 @@ Let's say we want to print out the molecular weights of every molecule in an SD 
   }
 
 Properties from SMARTS Matches
-------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Let's say that we want to get the average bond length or dihedral angle over particular types of atoms in a large molecule. So we'll use SMARTS to match a set of atoms and loop through the matches. The following example does this for sulfur-carbon-carbon-sulfur dihedral angles in a polymer and the carbon-carbon bond lengths between the monomer units::
 
