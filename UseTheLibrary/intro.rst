@@ -15,6 +15,7 @@ Open Babel is a C++ library and can easily be used from C++. In addition it can 
 .. toctree::
    :maxdepth: 2
 
+   CppAPI.rst
    CppExamples.rst
    Python.rst
    Java.rst

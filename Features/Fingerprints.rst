@@ -210,12 +210,14 @@ This case study uses a combination of the techniques described above for similar
 
 (9) The substructure that is being matched can be highlighted in the output molecules by adding another parameter to the ``-s`` option. Just for variety, the display is also changed to a black background, 'uncolored' (no element-specific coloring), and terminal carbon not shown explicitly. (Just refresh your browser to see the modified display.) ::
 
-        obabel chembl_02.fs  -O out.svg  -s first.sdf green  -xb -xu -xc
+        obabel chembl_02.fs  -O out.svg  -s first.sdf green  -xb -xu -xC
 
   This highlighting option also works when  the ``-s`` option is used without fastsearch on small datasets.
 
-(10) The substructure search here has two stages.  The indexed fingerprint search quickly produces 62 matches from the 500K+ molecules in the dataset. Each of these is then checked by a slow detailed isomorphism check. There are 12 false positives from the fingerprint stage. These are of no significance, but you can see them using::
+(10) The substructure search here has two stages.  The indexed fingerprint search quickly produces 62 matches from the 500K+ molecules in the dataset. Each of these is then checked by a slow detailed isomorphism check. There are 15 false positives from the fingerprint stage. These are of no significance, but you can see them using::
  
         obabel chembl_02.fs  -O out.svg  -s ~first.sdf
+
+  The fingerprint search is unaffected but the selection in the second stage is inverted. 
 
 

@@ -1,7 +1,7 @@
 Goals of the Open Babel project
 ===============================
 
-Open Babel is a project to facilitate the interconversion of chemical data from one format to another -- including file formats of various types. While this likely seems mundane to some, it reflects several realistic points:
+Open Babel is a project to facilitate the interconversion of chemical data from one format to another -- including file formats of various types. This is important for the following reasons:
 
 * Multiple programs are often required in realistic workflows. These may include databases, modeling or computational programs, visualization programs, etc.
 * Many programs have individual data formats, and/or support only a small subset of other file types.
