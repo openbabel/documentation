@@ -5,7 +5,6 @@ Open Babel, or how I learned to love the chemistry file format
    :maxdepth: 2
 
    Introduction/intro.rst
-   Introduction/faq.rst
    Installation/install.rst
    Command-line_tools/babel.rst
    GUI/GUI.rst
