@@ -1,7 +1,9 @@
 Install Open Babel
 ==================
 
-Open Babel runs on Windows, Linux and MacOSX. You can either `install a binary package`_ (the easiest option) or `compile OpenBabel yourself`_ (also easy, but much more geek cred).
+Open Babel runs on Windows, Linux and MacOSX. You can either :ref:`install a binary package <Install binaries>` (the easiest option) or :ref:`compile OpenBabel yourself <Compiling Open Babel>` (also easy, but much more geek cred).
+
+.. _Install binaries:
 
 Install a binary package
 ------------------------
@@ -22,7 +24,7 @@ Open Babel binary packages are available from many Linux distributions including
 
 In general, we recommend using the latest release of Open Babel (currently |release|). If this is not available for your Linux distribution, you should :ref:`compile OpenBabel yourself <Compiling Open Babel>`.
 
-.. _Compiling Open Babel
+.. _Compiling Open Babel:
 
 Compiling Open Babel
 --------------------
@@ -38,6 +40,8 @@ Although pre-compiled (or "binary") packages are available for several platforms
 - You just want to compile stuff yourself. We understand.
 
 Open Babel can be compiled on Linux, MacOSX, BSDs and other Unixes, and also on Windows (with Cygwin, MinGW or MSVC).
+
+.. _requirements:
 
 Requirements
 ~~~~~~~~~~~~
@@ -55,21 +59,32 @@ To build Open Babel, you **need** the following:
 
     You need to install CMake 2.4 or newer. This is available as a binary package from the KitWare website; alternatively, it may be available through your package manager (on Linux). If necessary, you can also compile it yourself from the source code.
 
-The following are optional when compiling Open Babel, but if not available some features will be missing:
+If you want to build the GUI (Graphical User Interface), you **need** the following in addition:
 
-.. todo:: This section needs to be updated
+* wxWidgets 2.8 (or newer)
+  
+    Binary packages may be available through your package manager (*wx-common* and *wx2.8-headers* on Ubuntu) or from http://www.wxwidgets.org/downloads/. Otherwise, you could try compiling it yourself from the source code.
 
-* libxml2 development headers are required to read/write CML files (the libxml2-dev package in Ubuntu) 
-* zlib.h is required to support reading gzipped files (the zlib1g-dev package in Ubuntu) 
+The following are **optional** when compiling Open Babel, but if not available some features will be missing:
+
+* :program:`libxml2` development headers are required to read/write CML files and other XML formats (the *libxml2-dev* package in Ubuntu) 
+* :program:`zlib` development libraries are required to support reading gzipped files (the *zlib1g-dev* package in Ubuntu) 
+* :program:`Eigen` version 2 is required for some API classes (OBAlign, OBConformerSearch) and plugins (the QEq and QTPIE charge models, the conformer operation). These will not be available otherwise.
+    Eigen may be available through your package manager (the *libeigen2-dev* package in Ubuntu). Alternatively, Eigen is available from http://eigen.tuxfamily.org. It doesn't need to be compiled or installed. Just unzip it and specify its location when configuring :program:`cmake` (see below) using ``-DEIGEN2_INCLUDE_DIR=whereever``.
 * If using GCC 3.x to compile (and not GCC 4.x), then the Boost headers are required for certain formats (CML, Chemkin, Chemdraw CDX, MDL RXN and RSMI) 
 
+If you want to use Open Babel using one of the supported **language bindings**, then the following notes may apply:
+
+* You need the the Python development libraries to compile the Python bindings (package *python-dev* in Ubuntu)
+* You need the the Perl development libraries to compile the Perl bindings (package *libperl-dev* in Ubuntu)
+ 
 
 Basic build procedure
 ~~~~~~~~~~~~~~~~~~~~~
 
 The basic build procedure is the same for all platforms and will be described first. After this, we will look at variations for particular platforms.
 
-.. highlight:: bash
+.. highlight:: console
 
 1. The recommended way to build Open Babel is to use a separate source and build directory; for example, :file:`src` and :file:`build`. The first step is to create these directories::
 
@@ -82,15 +97,19 @@ The basic build procedure is the same for all platforms and will be described fi
         $ cd build
         $ cmake ../src
 
-3. If you need to specify an option, use the ``-D`` switch to :program:`cmake`. For example, the following line sets the value of ``CMAKE_INSTALL_PREFIX`` and ``BUILD_TYPE``::
+3. If you need to specify an option, use the ``-D`` switch to :program:`cmake`. For example, the following line sets the value of ``CMAKE_INSTALL_PREFIX`` and ``CMAKE_BUILD_TYPE``::
 
-        $ cmake ../src -DCMAKE_INSTALL_PREFIX=~/Tools -DBUILD_TYPE=DEBUG
+        $ cmake ../src -DCMAKE_INSTALL_PREFIX=~/Tools -DCMAKE_BUILD_TYPE=DEBUG
 
    We will discuss various possible options later.
 
 4. At this point, it would be a good idea to compile Open Babel::
 
         $ make
+
+   Have a coffee while the magic happens. If you have a multi-processor machine and would prefer an expresso, try a parallel build instead::
+
+        $ make -j4    # parallel build across 4 processors
 
 5. And finally, as root (or using ``sudo``) you should install it::
 
@@ -101,30 +120,132 @@ Local build
 
 .. sidebar:: Look Ma, no install!
 
-  With the right sort of environment variable magic, you can actually use Open Babel straight from the build folder. But life is a bit easier if you install it somewhere, either system-wide or locally.
+  With the right sort of environment variable magic (see :ref:`below <environment variables>`), you can actually use Open Babel straight from the build folder. But life is a bit easier if you install it somewhere, either system-wide or locally.
 
 By default, Open Babel is installed in :file:`/usr/local/` on a Unix-like system. This requires root access (or ``sudo``). Even if you do have root access, you may not want to overwrite an existing installation or you may want to avoid conflicts with a version of Open Babel installed by your package manager.
 
 The solution to all of these problems is to do a local install into a directory somewhere in your home folder. 
-An additional advantage of a local install is that if you ever want to uninstall it, all you need to do is delete the installation directory; removing the files from a global install is more tricky.
-To configure :cmake: to install into :file:`~/Tools/openbabel-install`, for example, you would do the following::
+An additional advantage of a local install is that if you ever want to uninstall it, all you need to do is delete the installation directory; removing the files from a global install is more work.
+
+1. To configure :program:`cmake` to install into :file:`~/Tools/openbabel-install`, for example, you would do the following::
 
         $ cmake ../src -DCMAKE_INSTALL_PREFIX=~/Tools/openbabel-install
 
-Then you can run :command:`make` and :command:`make install` without needing root access::
+2. Then you can run :command:`make` and :command:`make install` without needing root access::
 
         $ make && make install
 
+Compile the GUI
+~~~~~~~~~~~~~~~
+
+The GUI is built using the wxWidgets toolkit. Assuming that you have already installed this (see :ref:`requirements` above), you just need to configure :program:`cmake` as follows::
+
+        $ cmake ../src -DBUILD_GUI=ON
+
+When you run ``make`` and ``make install``, the GUI will be automatically built and installed alongside the main Open Babel library and tools.
  
 Compile language bindings
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Linux
------
+1. When configuring CMake, include options such as ``-DPYTHON_BINDINGS=ON -DRUBY_BINDINGS=ON`` for whichever bindings you wish to build (valid names are ``PYTHON``, ``CSHARP``, ``PERL``, ``JAVA`` or ``RUBY``). The bindings will then be built and installed along with rest of Open Babel.
 
+2. With Java and CSharp, the bindings will be installed by default to the same location as the Open Babel libraries.
+  
+3. For Ruby, Python and Perl, the library files are installed to a subdirectory of wherever the Open Babel libraries are installed: something like :file:`python2.6/site-packages/` in the case of Python, :file:`perl/5.8.7` for Perl, and :file:`ruby` for Ruby. If you wish to install the Python bindings somewhere else, configure CMake with the option ``-DPYTHON_PREFIX=wherever``, or something similar for Perl and Ruby.
+
+4. To tell Python where to find the bindings, add the directory containing ``openbabel.py`` to the front of your PYTHONPATH environment variable (if it is not there already). Similarly add the ``perl`` subdirectory (where the bindings were installed) to the front of your PERL5LIB directory; for Java, add the location of ``openbabel.jar`` to your CLASSPATH.
+
+For example, for Python::
+
+        $ cmake ../src -DPYTHON_BINDINGS=ON
+        $ make
+        # make install
+        $ export PYTHONPATH=/usr/local/lib/python2.6/site-packages:$PYTHONPATH
+
+Cygwin
+~~~~~~
+The basic build instructions up above work just fine so long as you use the CMake provided by Cygwin rather than a native Windows installation.
+
+If you get an error about ``undefined reference to '_xmlFreeTextReader'``, you need to specify the location of the XML libraries with the ``-DLIBXML2_LIBRARIES`` option::
+
+        $ cmake ../src -DLIBXML2_LIBRARIES=/usr/lib/libxml2.dll.a
+
+The language bindings don't seem to work under Cygwin. If you can get them to work, let us know. Also remember that anything that uses Cygwin runs slower than a native build using MinGW or MSVC++, so if speed is an issue you might prefer to compile with MinGW or MSVC++.
+
+Mingw
+~~~~~
+Open Babel builds out of the box with MinGW. It's an awkward system to set up though, so here are some step-by-step instructions...TODO
+
+.. todo:: MinGW
 
 
 Windows
 ~~~~~~~
 
-TODO
+1. Install the Microsoft Visual C++ 2008 (or newer) compiler.
+     We use the Visual C++ 2008 (9.0) `Express Edition`_ (available for free).
+
+.. _Express Edition: http://www.microsoft.com/Express/VC/
+
+2. Open a command prompt, and change directory to the :file:`windows-vc2008` subdirectory. To configure :program:`cmake`, and generate the VC++ project files, run :file:`default_build.bat`.
+
+3. Double-click on :file:`windows-vc2008\build\openbabel.sln` to start MSVC++. At the top of the window just below the menu bar, choose `Release` in the drop-down box.
+
+4. On the left-hand side, right-click on the ``ALL_BUILD`` target, and choose :guilabel:`Build`.
+
+.. todo:: How to build the GUI
+
+Troubleshooting build problems
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. rubric:: How do I specify the location of the XML libraries?
+
+CMake should find these automatically if they are installed system-wide. If you need to specify them, try using the ``-DLIBXML2_LIBRARIES=wherever`` option with CMake to specify the location of the DLL or SO file, and ``-DLIBXML2_INCLUDE_DIR=wherever`` to specify the location of the header files.
+
+.. rubric:: How do I specify the location of the ZLIB libraries?
+
+CMake should find these automatically if they are installed system-wide. If you need to specify them, try using the ``-DZLIB_LIBRARY=wherever`` option with CMake to specify the location of the DLL or SO file, and ``-DZLIB_INCLUDE_DIR=wherever`` to specify the location of the header files.
+
+.. _environment variables:
+
+.. rubric:: What environment variables affect how Open Babel finds formats, plugins and libraries?
+
+**LD_LIBRARY_PATH** - Used to find the location of the :file:`libopenbabel.so` file.
+  You should set this if you get error messages about not being about to find :file:`libopenbabel.so`.
+**BABEL_LIBDIR** - Used to find plugins such as the file formats
+  If ``obabel -L formats`` does not list any file formats, then you need to set this environment variable to the directory where the file formats were installed, typically :file:`/usr/local/lib/openbabel/`.
+**BABEL_DATADIR** - Used to find the location of the data files used for fingerprints, forcefields, etc.
+  If you get errors about not being able to initialise ??? (TODO), then you should set this to the name of the folder containing files such as :file:`patterns.txt` and :file:`MACCS.txt`. These are typically installed to :file:`/usr/local/share/openbabel`.
+
+Advanced build options
+~~~~~~~~~~~~~~~~~~~~~~
+.. rubric:: How do I control whether the tests are built?
+
+The CMake option ``-DENABLE_TESTS=ON`` or ``OFF`` will look after this. To actually run the tests, use ``make tests``.
+
+.. rubric:: How do I do a debug build?
+
+``-DCMAKE_BUILD_TYPE=Debug`` does a debug build (``gcc -g``). To revert to a regular build use ``-DCMAKE_BUILD_TYPE=Release``.
+
+.. rubric:: How do I see what commands cmake is using to build?
+
+Run Make as follows::
+    
+        $ VERBOSE=1 make
+
+.. rubric:: How do I build one specific target?
+
+Just specify the target when running Make. The following just builds the Python bindings::
+
+        $ make _openbabel
+
+To speed things up, you can ask Make to ignore dependencies::
+
+        $ make _openbabel/fast
+
+.. rubric:: How do I create the SWIG bindings?
+
+Use the ``-DRUN_SWIG=ON`` option with CMake. This requires SWIG 2.0 or newer. If the SWIG executable is not on the PATH, you will need to specify its location with ``-DSWIG_EXECUTABLE=wherever``.
+
+.. rubric:: How do I build the Doxygen documentation?
+
+Use the ``-DBUILD_DOCS=ON`` option with CMake. If the Doxygen executable is not on the PATH, you will need to specify its location with ``-DDOXYGEN_EXECUTABLE=wherever``.
