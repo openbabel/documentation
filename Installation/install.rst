@@ -147,13 +147,17 @@ When you run ``make`` and ``make install``, the GUI will be automatically built 
 Compile language bindings
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. When configuring CMake, include options such as ``-DPYTHON_BINDINGS=ON -DRUBY_BINDINGS=ON`` for whichever bindings you wish to build (valid names are ``PYTHON``, ``CSHARP``, ``PERL``, ``JAVA`` or ``RUBY``). The bindings will then be built and installed along with rest of Open Babel.
+1. When configuring CMake, include options such as ``-DPYTHON_BINDINGS=ON -DRUBY_BINDINGS=ON`` for whichever bindings you wish to build (valid names are ``PYTHON``, ``CSHARP``, ``PERL``, ``JAVA`` or ``RUBY``). The bindings will then be built and installed along with rest of Open Babel. You should note any warning messages in the CMake output.
 
-2. With Java and CSharp, the bindings will be installed by default to the same location as the Open Babel libraries.
+2. If CMake cannot find Java, you should set the value of the environment variable ``JAVA_HOME`` to the directory containing the Java :file:`bin` and :file:`lib`  directories. For example, if you download the JDK from Sun and run the self-extracting .bin file, it creates a directory :file:`jdk1.6.0_21` (or similar); you should set ``JAVA_HOME`` to the full path to this directory.
+
+3. If CMake cannot find the Perl libraries (which happens on Ubuntu 9.10, surprisingly), you need to configure CMake with something like ``-DPERL_LIBRARY=/usr/lib/libperl.so -DPERL_INCLUDE_PATH=/usr/lib/perl/5.10.0/CORE``.
+
+4. With Java and CSharp, the bindings will be installed by default to the same location as the Open Babel libraries.
   
-3. For Ruby, Python and Perl, the library files are installed to a subdirectory of wherever the Open Babel libraries are installed: something like :file:`python2.6/site-packages/` in the case of Python, :file:`perl/5.8.7` for Perl, and :file:`ruby` for Ruby. If you wish to install the Python bindings somewhere else, configure CMake with the option ``-DPYTHON_PREFIX=wherever``, or something similar for Perl and Ruby.
+5. For Ruby, Python and Perl, the library files are installed to a subdirectory of wherever the Open Babel libraries are installed: something like :file:`python2.6/site-packages/` or `dist-packages` in the case of Python, :file:`perl/5.8.7` for Perl, and :file:`site_ruby/1.8/linux-i486` for Ruby. If you wish to install the Python bindings somewhere else, configure CMake with the option ``-DPYTHON_PREFIX=wherever``, or something similar for Perl and Ruby.
 
-4. To tell Python where to find the bindings, add the directory containing ``openbabel.py`` to the front of your PYTHONPATH environment variable (if it is not there already). Similarly add the ``perl`` subdirectory (where the bindings were installed) to the front of your PERL5LIB directory; for Java, add the location of ``openbabel.jar`` to your CLASSPATH.
+6. To tell Python where to find the bindings, add the directory containing ``openbabel.py`` to the front of your PYTHONPATH environment variable (if it is not there already). Similarly add the ``perl`` subdirectory (where the bindings were installed) to the front of your PERL5LIB directory; for Java, add the location of ``openbabel.jar`` to your CLASSPATH.
 
 For example, for Python::
 
@@ -197,6 +201,10 @@ Windows
 
 Troubleshooting build problems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. rubric:: CMake caches some variables from run-to-run. How can I wipe the cache to start from scratch?
+
+Delete :file:`CMakeCache.txt`. This is also a very useful file to look into if you have any problems.
+
 .. rubric:: How do I specify the location of the XML libraries?
 
 CMake should find these automatically if they are installed system-wide. If you need to specify them, try using the ``-DLIBXML2_LIBRARIES=wherever`` option with CMake to specify the location of the DLL or SO file, and ``-DLIBXML2_INCLUDE_DIR=wherever`` to specify the location of the header files.
