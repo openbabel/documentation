@@ -11,23 +11,24 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 't41', 'tmol', 'zin', 
             'outmol', 'mpqc', 'mpqcin', 'CONTCAR', 'pqs', 'hin',
             'adf', 'adfout', 'com', 'g03', 'g09', 'g92', 'g98', 'gal',
             'dmol', 'fch', 'fck', 'fh', "gzmat", "caccrt", "cacint",
-            'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout'])
+            'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout',
+            'fhiaims', 'got', 'pwscf' ,'gukin', 'gukout', 'cache'])
 viewers = ("3D viewers", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
                           "unixyz", "c3d1", "c3d2", "bs", "crk3d"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
                  'inchi', 'mol2', 'mol', 'cml'])
 cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
-                                     'mcdl', "car"])
+                                     'mcdl', "car", "csr"])
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
                                "fract", "cssr"])
-twoD_drawing = ("2D drawing", ["ct", "cdxml", "cdx", "ct", "crk2d"])
+twoD_drawing = ("2D drawing", ["ct", "cdxml", "cdx", "ct", "crk2d", "cht"])
 images = ("Images", ['png', 'svg', 'pov'])
 volume_data = ("Volume data", ["cube", "dx"])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        'nul', 'xyz', 'xml', "mna", "fpt", "fs", "dat",
-                       "mpd"])
+                       "mpd", "k"])
 md_and_dock = ('Molecular dynamics and docking',
-                      ['gr96', 'txyz', "prep", "mmod", "box"])
+                      ['gr96', 'txyz', "prep", "mmod", "box", "xtc"])
 thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
 reactions = ("Reactions", ["cmlr", "rxn", "rsmi"])
 biology = ("Biological data", ["fasta", "pqr"])
@@ -48,21 +49,38 @@ unknown = ("I have no idea what this is", ["feat", "fix", "xed", "alc",
 # xml contains ref to two other formats
 
 allformats = set(pybel.informats.keys()) | set(pybel.outformats.keys())
+exts = collections.defaultdict(list)
+in_exts = set()
+out_exts = set()
+for format in allformats:
+    if format in pybel.informats:
+        formatname = pybel.informats[format]
+        in_exts.add(formatname)
+    if format in pybel.outformats:
+        formatname = pybel.outformats[format]
+        out_exts.add(formatname)
+    exts[formatname].append(format)
+
 sections = [common_cheminf, utility, cheminf, compchem, crystal, reactions,
             images, twoD_drawing, viewers, thermo,
             md_and_dock, volume_data, misc, biology, unknown]
 ##sections = [utility]
-
-exts = collections.defaultdict(list)
-for format in allformats:
-    try:
-        formatname = pybel.informats[format]
-    except KeyError:
-        formatname = pybel.outformats[format]
-    exts[formatname].append(format)
-
+classified = set()
+for x in sections:
+    for y in x[1]:
+        for z in exts.values():
+            if y in z:
+                classified.update(z)
+unclassified = [x for x in allformats if x not in classified]
+if unclassified:
+    sections.append(["Unclassified", unclassified])
+    
 indexfile = open(os.path.join("FileFormats", "Overview.rst"), "w")
-print >> indexfile, open(os.path.join("FileFormats", "Overview.txt"), "r").read()
+overview = open(os.path.join("FileFormats", "Overview.txt"), "r").read()
+print >> indexfile, overview.replace(
+    "X formats", "%d formats" % len(exts)).replace(
+    "Y formats", "%d formats" % len(in_exts)).replace(
+    "Z formats", "%d formats" % len(out_exts))
 ##print >> indexfile, heading("Supported File Formats and Options", "=")
 print >> indexfile, "\n.. toctree::\n   :maxdepth: 2\n"
 

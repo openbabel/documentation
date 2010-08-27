@@ -1,7 +1,7 @@
 .. _Molden_format:
 
-Molden format (molden, mold)
-============================
+Molden format (molden, mold, molf)
+==================================
 Read Options
 ~~~~~~~~~~~~ 
 

@@ -8,3 +8,4 @@ Molecular dynamics and docking
    GROMOS96_format.rst
    MacroModel_format.rst
    Tinker_MM2_format.rst
+   XTC_format.rst

@@ -33,13 +33,15 @@ Write Options
 -a  *output auxilliary information*
 -l  *display InChI log*
 
-    Uniqueness options. See also --unique and --sort which are more vesatile.
+    **Uniqueness options** (see also ``--unique`` and ``--sort`` which are more versatile)
 -u  *output only unique molecules*
 -U  *output only unique molecules and sort them*
 -e  *compare first molecule to others*
 
-    This can also be done with InChICompare format
+    This can also be done with :ref:`InChICompare format <Compare_molecules_using_InChI>`::
+
       babel first.smi second.mol third.cml -ok
+
 -T <param>  *truncate InChI, /nostereo etc.*
 
     See below for possible truncation parameters.
@@ -62,7 +64,7 @@ Write Options
 
 Comments
 ~~~~~~~~
-Truncation parameters used with -xT:
+Truncation parameters used with ``-xT``:
 
 /formula   formula only
 /connect   formula and connectivity only

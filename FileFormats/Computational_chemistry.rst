@@ -6,12 +6,17 @@ Computational chemistry
    ADF_TAPE41_format.rst
    ADF_cartesian_input_format.rst
    ADF_output_format.rst
+   CAChe_MolStruct_format.rst
    Cacao_Cartesian_format.rst
    Cacao_Internal_format.rst
    DMol3_coordinates_format.rst
+   FHIaims_XYZ_format.rst
    Fenske-Hall_Z-Matrix_format.rst
    GAMESS_Input.rst
    GAMESS_Output.rst
+   GAMESS-UK_Input.rst
+   GAMESS-UK_Output.rst
+   GULP_format.rst
    Gaussian_98_or_03_Input.rst
    Gaussian_Output.rst
    Gaussian_Z-Matrix_Input.rst
@@ -28,6 +33,7 @@ Computational chemistry
    Molpro_output_format.rst
    NWChem_input_format.rst
    NWChem_output_format.rst
+   PWscf_format.rst
    Parallel_Quantum_Solutions_format.rst
    Q-Chem_input_format.rst
    Q-Chem_output_format.rst

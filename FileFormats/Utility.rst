@@ -3,8 +3,9 @@ Utility
 
 .. toctree::
 
+   Compare_molecules_using_InChI.rst
    Copy_raw_text.rst
-   FastSearching.rst
+   Fastsearch_format.rst
    Fingerprint_format.rst
    General_XML_format.rst
    Generic_Output_file_format.rst

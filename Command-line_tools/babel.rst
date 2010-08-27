@@ -15,6 +15,7 @@ Synopsis
 
 :command:`obabel` is recommended over :command:`babel` (see :ref:`babel vs obabel`).
 
+.. _babel options:
 
 Options
 -------

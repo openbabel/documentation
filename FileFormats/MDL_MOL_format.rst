@@ -8,10 +8,18 @@ MDL MOL format (mol, mdl, sdf, sd)
 Read Options
 ~~~~~~~~~~~~ 
 
--s  *determine stereochemistry from atom flags*
--t  *read title only*
+-s  *determine chirality from atom parity flags*
+
+       This is valid only for 0D information. Atom
+       parity is always ignored on reading for MOL files
+       containing 2D or 3D information.
+-T  *read title only*
+-P  *read title and properties only*
 
 
+       When filtering an sdf file on title or properties
+       only, avoid lengthy chemical interpretation by
+       using the T or P option together with copy format.
 Write Options
 ~~~~~~~~~~~~~ 
 
