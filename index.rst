@@ -14,6 +14,7 @@ Open Babel, or how I learned to love the chemistry file format
    Features/Radicals.rst
    Features/Misc.rst
    Contributing/Contributing.rst
+   WritePlugins/index.rst
    FileFormats/Overview.rst
 
 

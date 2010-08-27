@@ -9,7 +9,6 @@ Contributing to Open Babel
     VersionControl.rst
     Documentation.rst
     Testing.rst
-    AddFileFormat.rst
     SoftwareArchaeology.rst
     
 

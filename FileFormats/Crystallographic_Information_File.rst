@@ -3,7 +3,10 @@
 Crystallographic Information File (cif)
 =======================================
 
-****
+**The CIF file format is the standard interchange format for small-molecule chemical structures**
+
+
+
 
 Read Options
 ~~~~~~~~~~~~ 

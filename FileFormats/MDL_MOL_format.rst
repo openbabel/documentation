@@ -16,10 +16,10 @@ Read Options
 -T  *read title only*
 -P  *read title and properties only*
 
-
        When filtering an sdf file on title or properties
        only, avoid lengthy chemical interpretation by
        using the T or P option together with copy format.
+
 Write Options
 ~~~~~~~~~~~~~ 
 
