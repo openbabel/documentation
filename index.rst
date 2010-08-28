@@ -11,6 +11,7 @@ Open Babel, or how I learned to love the chemistry file format
    Features/Fingerprints.rst
    Spectrophore/intro.rst
    UseTheLibrary/intro.rst
+   Cheminf101/index.rst
    Features/Radicals.rst
    Features/Misc.rst
    Contributing/Contributing.rst
@@ -18,10 +19,9 @@ Open Babel, or how I learned to love the chemistry file format
    FileFormats/Overview.rst
 
 
-Indices and tables
-------------------
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+.. The following lines are commented out...
+   Indices and tables
+   ------------------
+   * :ref:`genindex`
+   * :ref:`modindex`
+   * :ref:`search`

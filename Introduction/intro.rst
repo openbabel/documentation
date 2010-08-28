@@ -7,3 +7,4 @@ Open Babel is a chemical toolbox designed to speak the many languages of chemica
 
    goals.rst
    faq.rst
+   thanks.rst
