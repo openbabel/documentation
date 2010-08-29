@@ -19,16 +19,6 @@ It is somewhat like searching for "221b Baker Street" and finding
 nothing because the database contains "221B Baker Street" and the
 system doesn't consider "b" and "B" a match.
 
-.. sidebar:: eMolecules, Inc.
-
-   .. image:: ../_static/eMolecules.png
-      :align: center
-   
-   eMolecules is a commercial chemical registration technology based on Open
-   Babel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis lorem vel lorem elementum sollicitudin. Quisque ut leo odio. Phasellus vel dictum urna. Nullam congue purus ac risus semper vel tempor magna scelerisque. Nulla vehicula, lectus vitae viverra tincidunt, quam quam sollicitudin velit, ut bibendum risus arcu ut ante. Sed quis lacinia sem. Donec pretium, tortor nec rutrum tincidunt, odio lorem vehicula dui, vel hendrerit erat massa at mi.
-  
-   Proin cursus, lorem nec malesuada auctor, odio turpis lobortis tortor, sed fermentum neque libero et lacus. Mauris eu ornare massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sem sapien, blandit vel adipiscing sed, pellentesque non arcu. Nullam vel odio dapibus dui tempus aliquet. Maecenas ut nibh sit amet mi scelerisque tempus in vehicula orci. Aliquam at metus in elit sodales viverra id et justo. Sed volutpat scelerisque velit ut faucibus.
-
 
 A good similarity search would find the target structure shown
 above, because even though it is not a substructure match, it is
