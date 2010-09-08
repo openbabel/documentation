@@ -291,11 +291,12 @@ By default, the extra items are added to the title separated by spaces. But if t
 Filtering molecules from a multimolecule file
 ---------------------------------------------
 
-Five of the options above can be used to filter molecules:
+Six of the options above can be used to filter molecules:
 
 * ``-s`` - convert molecules that match a SMARTS string
 * ``-v`` - convert molecules that don't match a SMARTS string
 * ``-f`` and ``-l`` - convert molecules in a certain range
+* ``--unique`` - only convert unique molecules (that is, remove duplicates)
 * ``--filter`` - convert molecules that meet specified chemical (and other) criteria
 
 This section focuses on the ``--filter`` option, which is very versatile and can select a subset of molecules based either on properties imported with the molecule (as from a SDF file) or from calculations made by Open Babel on the molecule.
