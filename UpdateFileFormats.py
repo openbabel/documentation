@@ -33,7 +33,7 @@ thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
 reactions = ("Reactions", ["cmlr", "rxn", "rsmi"])
 biology = ("Biological data", ["fasta", "pqr"])
 misc = ("Miscellaneous", ["msms"])
-unknown = ("I have no idea what this is", ["feat", "fix", "xed", "alc",
+unknown = ("Obscure formats", ["feat", "fix", "xed", "alc",
                                            "ccc"])
 # 'test' format does not appear to exist (although it's on the wiki)
 # fastsearch, cml format - added some markup
