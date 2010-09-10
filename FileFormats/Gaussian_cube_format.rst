@@ -1,6 +1,6 @@
 .. _Gaussian_cube_format:
 
-Gaussian cube format (cub, cube)
+Gaussian cube format (cube, cub)
 ================================
 
 **A grid format for volume data used by Gaussian**

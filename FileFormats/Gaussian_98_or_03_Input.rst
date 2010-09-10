@@ -1,6 +1,6 @@
 .. _Gaussian_98_or_03_Input:
 
-Gaussian 98/03 Input (gjf, gjc, com, gau)
+Gaussian 98/03 Input (gjf, gjc, gau, com)
 =========================================
 .. note:: This is a write-only format.
 

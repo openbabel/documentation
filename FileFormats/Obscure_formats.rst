@@ -1,5 +1,5 @@
-I have no idea what this is
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Obscure formats
+~~~~~~~~~~~~~~~
 
 .. toctree::
 

@@ -1,7 +1,7 @@
 .. _Chemical_Markup_Language:
 
-Chemical Markup Language (cml)
-==============================
+Chemical Markup Language (cml, mrv)
+===================================
 
 **An XML format.**
 

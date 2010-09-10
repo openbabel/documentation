@@ -28,7 +28,8 @@ utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        'nul', 'xyz', 'xml', "mna", "fpt", "fs", "dat",
                        "mpd", "k"])
 md_and_dock = ('Molecular dynamics and docking',
-                      ['gr96', 'txyz', "prep", "mmod", "box", "xtc"])
+                      ['gr96', 'txyz', "prep", "mmod", "box", "xtc",
+                       "pdbqt", "CONFIG"])
 thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
 reactions = ("Reactions", ["cmlr", "rxn", "rsmi"])
 biology = ("Biological data", ["fasta", "pqr"])
