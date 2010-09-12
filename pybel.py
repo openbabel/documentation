@@ -615,7 +615,7 @@ class Atom(object):
     def hyb(self):
         """The hybridization of this atom: 1 for sp, 2 for sp2, 3 for sp3, ...
 
-        For further details see :obapi:`OpenBabel::OBAtom::GetHyb()`"""
+        For further details see :obapi:`OBAtom::GetHyb() <OpenBabel::OBAtom::GetHyb>`"""
         return self.OBAtom.GetHyb()
     @property
     def idx(self):
@@ -678,7 +678,7 @@ class Fingerprint(object):
     """A molecular fingerprint.
     
     Required parameters:
-       **fingerprint** -- a vector calculated by :obapi:`OBFingerprint.FindFingerprint()`
+       **fingerprint** -- a vector calculated by :obapi:`OBFingerprint::FindFingerprint() <OpenBabel::OBFingerprint::FindFingerprint>`
 
     Attributes:
        :attr:`bits`
