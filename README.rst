@@ -19,13 +19,13 @@ To build the docs yourself, you need to have Sphinx 1.0 installed:
 
 (1) Sphinx has several dependencies so it is most easily installed using Python's package managers. Download `distribute <http://pypi.python.org/pypi/distribute#downloads>`_, and once unpacked run the following commands::
 
-    python distribute_setup.py install # (as root)
-    easy_install pip # (as root) on Windows, use C:\Python26\Scripts\easy_install
-    pip install sphinx # (as root)
+      python distribute_setup.py install # (as root)
+      easy_install pip # (as root) on Windows, use C:\Python26\Scripts\easy_install
+      pip install sphinx # (as root)
 
 (2) You also need to install the doxylink extension::
 
-    pip install sphinxcontrib-doxylink # (as root)
+      pip install sphinxcontrib-doxylink # (as root)
 
 (3) To build the documentation, type ``make html`` or ``make latex``. 
 
