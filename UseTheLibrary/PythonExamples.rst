@@ -145,6 +145,6 @@ Python. The code is at `[1] <http://gist.github.com/95387>`_.
 
 TJ's book,
 "`Design and Use of Relational Databases in Chemistry <http://www.amazon.com/Design-Use-Relational-Databases-Chemistry/dp/1420064428/ref=sr_1_1?ie=UTF8&s=books&qid=1221754435&sr=1-1>`_",
-also contains examples of Python code using OpenBabel to create and
+also contains examples of Python code using Open Babel to create and
 query molecular databases (see for example the link to Open Babel
 code in the `Appendix <http://www.gnova.com/book/>`_).
