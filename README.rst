@@ -15,12 +15,23 @@ Github provides previews of reST documentation, which makes it easy to edit the 
 Building the docs
 -----------------
 
-To build the docs yourself, you need to have Sphinx 1.0 installed. Ideally you would also have the doxylink extension installed, but if not, you will just be missing the hyperlinks to the Doxygen docs.
+To build the docs yourself, you need to have Sphinx 1.0 installed:
 
-(1) To build the documentation, type ``make html`` or ``make latex``. 
-(2) To correct errors in the generated HTML and LaTeX, type ``python FixHTML.py``.
+(1) Sphinx has several dependencies so it is most easily installed using Python's package managers. Download `distribute <http://pypi.python.org/pypi/distribute#downloads>`_, and once unpacked run the following commands::
+
+  python distribute_setup.py install # (as root)
+  easy_install pip # (as root) on Windows, use C:\Python26\Scripts\easy_install
+  pip install sphinx # (as root)
+
+(2) You also need to install the doxylink extension::
+
+  pip install sphinxcontrib-doxylink # (as root)
+
+(3) To build the documentation, type ``make html`` or ``make latex``. 
+
+(4) To correct errors in the generated HTML and LaTeX, type ``python FixHTML.py``.
 
 Automatic generation
 --------------------
 
-The docs are automatically generated once an hour on the hour from the latest source. (Let me know if you want it more often)
+The docs are automatically generated once an hour (on the hour) from the latest source. You can find them at http:://openbabel.org/docs/dev.
