@@ -34,4 +34,6 @@ To build the docs yourself, you need to have Sphinx 1.0 installed:
 Automatic generation
 --------------------
 
-The docs are automatically generated once an hour (on the hour) from the latest source. You can find them at http:://openbabel.org/docs/dev.
+Within a few seconds, updated docs will be available at http://readthedocs.org/projects/baoilleach/open-babel/. Note that these docs are missing the links to the C++ documentation and to Pybel.
+
+The complete docs are automatically generated once an hour (on the hour) from the latest source, and are available at http:://openbabel.org/docs/dev.
