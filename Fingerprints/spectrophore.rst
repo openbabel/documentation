@@ -1,6 +1,8 @@
 .. include:: <xhtml1-symbol.txt>
 .. include:: <isolat1.txt>
 
+.. _spectrophores:
+
 Spectrophores\ |trade|
 ======================
 

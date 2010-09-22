@@ -8,8 +8,7 @@ Open Babel, or how I learned to love the chemistry file format
    Installation/install.rst
    Command-line_tools/babel.rst
    GUI/GUI.rst
-   Features/Fingerprints.rst
-   Spectrophore/intro.rst
+   Fingerprints/intro.rst
    UseTheLibrary/intro.rst
    Cheminf101/index.rst
    Features/Radicals.rst

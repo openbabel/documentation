@@ -1,22 +1,9 @@
-.. _fingerprints:
+.. _fingerprint_format_details:
 
-Molecular fingerprints and similarity searching
-===============================================
+Fingerprint format
+==================
 
-Molecular fingerprints encode molecular structure in a series of binary digits (bits) that represent the presence or absence of particular substructures in the molecule. Comparing fingerprints will allow you to determine the similarity between two molecules, search databases, etc., but does not include full structural data (such as coordinates). 
-
-The Open Babel fingerprints can be accessed through the following Utility file formats:
-
-* :ref:`Fingerprint_format`: the path-based fingerprint FP2; substructure based fingerprints FP2, FP3 and MACCS; user-defined substructures 
-* :ref:`Multilevel_Neighborhoods_of_Atoms_(MNA)`: a circular fingerprint
-* :ref:`MolPrint2D_format`: a circular fingerprint
-
-Here we will focus on the first one, the *fingerprint format*. For the others, please see the relevant sections listed above.
-
-Available fingerprints
-----------------------
-
-You can see the available fingerprints by typing the following command::
+The :ref:`Fingerprint_format` is a utility file format that provides access to a number of substructure-based fingerprints, and that enables the user to carry out similarity and substructure searching. You can see the available fingerprints using the following command::
 
         $ babel -L fingerprints
         FP2    Indexes linear fragments up to 7 atoms.
