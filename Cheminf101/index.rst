@@ -7,7 +7,7 @@ Cheminformatics 101
 
 .. centered:: Copyright |copy| 2009 by **Craig A. James**, *eMolecules, Inc.*
 
-The original version of this introduction to cheminformatics can be found on the `eMolecules website`_. It is the copyright of Craig James and is included here with the permission of the author.
+The original version of this introduction to cheminformatics can be found on the `eMolecules website`_. It is included here with the permission of the author.
 
 .. _eMolecules website: http://www.emolecules.com/doc/cheminformatics-101.php
 
