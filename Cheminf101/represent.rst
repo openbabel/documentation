@@ -239,10 +239,7 @@ and find anything that contains them. For example:
    .. image:: ../_static/eMolecules.png
       :align: center
    
-   eMolecules_ is a commercial chemical registration technology based on Open
-   Babel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis lorem vel lorem elementum sollicitudin. Quisque ut leo odio. Phasellus vel dictum urna. Nullam congue purus ac risus semper vel tempor magna scelerisque. Nulla vehicula, lectus vitae viverra tincidunt, quam quam sollicitudin velit, ut bibendum risus arcu ut ante. Sed quis lacinia sem. Donec pretium, tortor nec rutrum tincidunt, odio lorem vehicula dui, vel hendrerit erat massa at mi.
-  
-   Proin cursus, lorem nec malesuada auctor, odio turpis lobortis tortor, sed fermentum neque libero et lacus. Mauris eu ornare massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sem sapien, blandit vel adipiscing sed, pellentesque non arcu. Nullam vel odio dapibus dui tempus aliquet. Maecenas ut nibh sit amet mi scelerisque tempus in vehicula orci. Aliquam at metus in elit sodales viverra id et justo. Sed volutpat scelerisque velit ut faucibus.
+   eMolecules_ is a one-stop shop for suppliers and information for over 8 million chemical compounds. Under the hood is a chemical registration technology based on Open Babel.
 
 .. _eMolecules: http://www.emolecules.com
 
