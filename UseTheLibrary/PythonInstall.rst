@@ -12,12 +12,12 @@ Install the bindings
    `OpenBabelGUI </wiki/Install>`_ version 2.3.0
 #. Next, download and install the OpenBabel Python bindings
    (version 1.6) for your Python version, either
-   `2.5 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.6/openbabel-python-1.5.py25.exe/download>`_
+   `2.5 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.6/openbabel-python-1.6.py25.exe/download>`_
    or
-   `2.6 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.6/openbabel-python-1.5.py26.exe/download>`_,
-   `2.7 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.6/openbabel-python-1.5.py27.exe/download>`_
+   `2.6 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.6/openbabel-python-1.6.py26.exe/download>`_,
+   `2.7 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.6/openbabel-python-1.6.py27.exe/download>`_
    or
-   `3.1 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.6/openbabel-python-1.5.py31.exe/download>`_.
+   `3.1 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.6/openbabel-python-1.6.py31.exe/download>`_.
 
 **Note**: If you are **upgrading** from an earlier version of the
 Python bindings, you should uninstall that first (using Add/Remove
