@@ -7,7 +7,6 @@ Windows
 Install the bindings
 ^^^^^^^^^^^^^^^^^^^^
 
-
 #. First you need to download and install the
    `OpenBabelGUI <http://openbabel.org/wiki/Install>`_ version 2.3.0
 #. Next, download and install the OpenBabel Python bindings
