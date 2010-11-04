@@ -9,7 +9,7 @@ Install the bindings
 
 
 #. First you need to download and install the
-   `OpenBabelGUI </wiki/Install>`_ version 2.3.0
+   `OpenBabelGUI <http://openbabel.org/wiki/Install>`_ version 2.3.0
 #. Next, download and install the OpenBabel Python bindings
    (version 1.6) for your Python version, either
    `2.5 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.6/openbabel-python-1.6.py25.exe/download>`_
@@ -55,8 +55,7 @@ Test the installation
 Open a Windows command prompt, and type the following commands to
 make sure that everything is installed okay. If you get an error
 message, there's something wrong and you should email the mailing
-list (see the main `Python </wiki/Python>`_ page) with the output
-from these commands.
+list with the output from these commands.
 
 ::
 
@@ -118,41 +117,9 @@ from these commands.
 Linux and MacOSX
 ----------------
 
-The first step is to download and compile the latest version of
-OpenBabel. Follow the instructions on the
-`OpenBabel Install </wiki/Install_(source_code)>`_ page to install
-OpenBabel either globally or locally.
+See :ref:`Compile bindings` for information on how to configure CMake to compile the Python bindings. This can be done either globally or locally.
 
-Next, you need to compile and install the Python bindings. This can
-be done either globally or locally as described below. The
-following instructions refer to OpenBabel 2.1.0 and Python 2.4.
-Remember to correct the PATHs for your versions of OpenBabel and
-Python.
-
-Install the Python bindings globally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-(A1) Compiling the bindings may require an extra Python package
-depending on your Linux distribution. For example, for Debian you
-need the 'python-dev' package (installed using 'apt-get'); for
-SUSE, you need 'python-devel' (installed using YaST).
-
-Change directory to 'openbabel-2.1.0/scripts/python' and run:
-
-::
-
-    python setup.py build
-
-(A2) To install the python interface globally, as root type:
-
-::
-
-    python setup.py install
-
-(A3) You may need to add the location of libopenbabel.so (on my
-system, the location is /usr/local/lib) to the environment variable
-LD\_LIBRARY\_PATH if you get the following error when you try to
-import the OpenBabel library at the Python prompt:
+You may need to add the location of libopenbabel.so (on my system, the location is /usr/local/lib) to the environment variable LD\_LIBRARY\_PATH if you get the following error when you try to import the OpenBabel library at the Python prompt:
 
 ::
 
@@ -163,52 +130,6 @@ import the OpenBabel library at the Python prompt:
       File "/usr/lib/python2.4/site-packages/openbabel.py", line 9, in
        import _openbabel
     ImportError: libopenbabel.so.3: cannot open shared object file: No such file or directory
-
-Install the Python bindings locally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-(B1) To compile the Python extension, follow Step A1 above.
-
-(B2) To install the Python extension, instead of Step B2 above, use
-the 'prefix' option to setup.py:
-
-::
-
-    python setup.py install --prefix=/home/noel/tree
-
-This installs the Python extension into something like
-/home/noel/tree/lib/python2.4/site-packages, so you need to add
-this directory to your PYTHONPATH in your startup scripts (that is,
-.bashrc, or whatever):
-
-::
-
-    export PYTHONPATH=$PYTHONPATH:/home/noel/tree/lib/python2.4/site-packages
-
-(B3) As described in Step B3 above, you will probably also have to
-edit the variable LD\_LIBRARY\_PATH as follows:
-
-::
-
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/noel/tree/lib
-
-Advanced Notes
-^^^^^^^^^^^^^^
-
-
--  When compiling the Python extension, if you want to link to a
-   version of Open Babel that is not in ../../src (relative to
-   setup.py), /usr/local or /usr (this is the order in which these
-   locations are searched), you should set OPENBABEL\_INSTALL to point
-   to the alternative location. There should be an
-   "include/openbabel-2.0" and a "lib" directory at the location
-   pointed to by OPENBABEL\_INSTALL.
-
-
--  If you are compiling a development version of OpenBabel, then
-   you need to create the SWIG bindings yourself. Make sure you have
-   the latest version of SWIG installed, and at Step A2 above, run
-   configure as follows: ``./configure --enable-maintainer-mode``
 
 Install OASA (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^
