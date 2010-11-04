@@ -144,6 +144,8 @@ The GUI is built using the wxWidgets toolkit. Assuming that you have already ins
 
 When you run ``make`` and ``make install``, the GUI will be automatically built and installed alongside the main Open Babel library and tools.
  
+.. _Compile bindings:
+
 Compile language bindings
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
