@@ -56,8 +56,10 @@ Options
     allowed by a particular format
 --add <list>
     Add properties (for SDF, CML, etc.) from descriptors in list
+--addinindex
+    Append input index to title (that is, the index `before` any filtering)
 --addoutindex
-    Append output index to title
+    Append output index to title (that is, the index `after` any filtering)
 --addtotitle <text>
     Append the text after the each molecule title
 --append <list> 
