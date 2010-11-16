@@ -233,6 +233,17 @@ On platforms other than Windows, the output file can be compressed with gzip, bu
 
      babel   mymols.sdf  outputfile.sdf.gz   -z
 
+This example reads the first 50 molecules in a compressed dataset and prints out the SMILES of those containing a pyridine ring, together with the index in the file, the ID (taken from an SDF property) and the output index::
+  
+    obabel chembl_02.sdf.gz -osmi -l 50 -s c1ccccn1 --append chebi_id --addinindex --addoutindex
+
+For the test data (taken from ChEMBLdb), this gave::
+
+    N1(CCN(CC1)c1c(cc2c3c1OCC(n3cc(c2=O)C(=O)O)C)F)C        3 100146 1
+    c1(c(=O)c2c(n(c1)OC)c(c(N1CC(CC1)CNCC)c(c2)F)F)C(=O)O   6 100195 2
+    S(=O)(=O)(Nc1ncc(cc1)C)c1c2c(c(N(C)C)ccc2)ccc1          22 100589 3
+    c1([nH]c2c(c1)cccc2)C(=O)N1CCN(c2c(N(CC)CC)cccn2)CC1    46 101536 4
+
 .. _babel vs obabel:
 
 Differences between babel and obabel
