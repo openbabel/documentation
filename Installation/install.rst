@@ -208,7 +208,7 @@ The main Windows build used by Open Babel uses the Microsoft Visual C++ compiler
 
 3. Open a command prompt, and change directory to the :file:`windows-vc2008` subdirectory. To configure :program:`cmake`, and generate the VC++ project files, run :file:`default_build.bat`.
 
-4. Double-click on :file:`windows-vc2008\build\openbabel.sln` to start MSVC++. At the top of the window just below the menu bar, choose `Release` in the drop-down box.
+4. Double-click on :file:`windows-vc2008/build/openbabel.sln` to start MSVC++. At the top of the window just below the menu bar, choose `Release` in the drop-down box.
 
 5. On the left-hand side, right-click on the ``ALL_BUILD`` target, and choose :guilabel:`Build`.
 
