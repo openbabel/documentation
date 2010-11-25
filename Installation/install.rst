@@ -182,26 +182,35 @@ If you get an error about ``undefined reference to '_xmlFreeTextReader'``, you n
 
 The language bindings don't seem to work under Cygwin. If you can get them to work, let us know. Also remember that anything that uses Cygwin runs slower than a native build using MinGW or MSVC++, so if speed is an issue you might prefer to compile with MinGW or MSVC++.
 
-Mingw
+MinGW
 ~~~~~
 Open Babel builds out of the box with MinGW. It's an awkward system to set up though, so here are some step-by-step instructions...TODO
 
 .. todo:: MinGW
 
 
-Windows
-~~~~~~~
+Windows (MSVC)
+~~~~~~~~~~~~~~
+The main Windows build used by Open Babel uses the Microsoft Visual C++ compiler (MSVC).
 
-1. Install the Microsoft Visual C++ 2008 (or newer) compiler.
+1. Set up the following environment variables:
+    a. Add the CMake :file:`bin` directory to the PATH
+
+    b. (Optional, see :ref:`requirements` above) Set EIGEN2_INCLUDE_DIR to the location of the top level Eigen directory
+
+    c. (Optional, required for GUI) Set WXWIN to the top level directory of wxWidgets
+
+
+2. Install the Microsoft Visual C++ 2008 (or newer) compiler.
      We use the Visual C++ 2008 (9.0) `Express Edition`_ (available for free).
 
 .. _Express Edition: http://www.microsoft.com/Express/VC/
 
-2. Open a command prompt, and change directory to the :file:`windows-vc2008` subdirectory. To configure :program:`cmake`, and generate the VC++ project files, run :file:`default_build.bat`.
+3. Open a command prompt, and change directory to the :file:`windows-vc2008` subdirectory. To configure :program:`cmake`, and generate the VC++ project files, run :file:`default_build.bat`.
 
-3. Double-click on :file:`windows-vc2008\build\openbabel.sln` to start MSVC++. At the top of the window just below the menu bar, choose `Release` in the drop-down box.
+4. Double-click on :file:`windows-vc2008\build\openbabel.sln` to start MSVC++. At the top of the window just below the menu bar, choose `Release` in the drop-down box.
 
-4. On the left-hand side, right-click on the ``ALL_BUILD`` target, and choose :guilabel:`Build`.
+5. On the left-hand side, right-click on the ``ALL_BUILD`` target, and choose :guilabel:`Build`.
 
 .. todo:: How to build the GUI
 
