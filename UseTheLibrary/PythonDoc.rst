@@ -180,6 +180,37 @@ returned by OBMol.GetData using the *toPairData()* or
     unitcell = openbabel.toUnitCell(obMol.GetData(openbabel.UnitCell))
     print unitcell.GetAlpha(), unitcell.GetSpaceGroup()
 
+Using FastSearch from Python
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Rather than use the :obapi:`FastSearch` class directly, it's easiest to use the OpenInAndOutFiles method as follows::
+
+ >>> import openbabel
+ >>> conv=openbabel.OBConversion()
+ >>> conv.OpenInAndOutFiles("1200mols.smi","index.fs")
+True
+ >>> conv.SetInAndOutFormats("smi","fs")
+True
+ >>> conv.Convert()
+This will prepare an index of 1200mols.smi and may take some time...
+ It took 6 seconds
+1192
+ >>> conv.CloseOutFile()
+ >>> conv.OpenInAndOutFiles("index.fs","results.smi")
+True
+ >>> conv.SetInAndOutFormats("fs","smi")
+True
+ >>> conv.AddOption("s",conv.GENOPTIONS,"C=CC#N")
+ >>> conv.Convert()
+10 candidates from fingerprint search phase
+1202
+ >>> f=open("results.smi")
+ >>> f.read()
+'OC(=O)C(=Cc1ccccc1)C#N\t298\nN#CC(=Cc1ccccc1)C#N\t490\nO=N(=O)c1cc(ccc1)C=C(C#N
+)C#N\t491\nClc1ccc(cc1)C=C(C#N)C#N\t492\nClc1ccc(c(c1)Cl)C=C(C#N)C#N\t493\nClc1c
+cc(cc1Cl)C=C(C#N)C#N\t494\nBrc1ccc(cc1)C=C(C#N)C#N\t532\nClc1ccccc1C=C(C#N)C#N\t
+542\nN#CC(=CC=Cc1occc1)C#N\t548\nCCOC(=O)C(C#N)=C(C)C\t1074\n'
+
 Combining numpy with Open Babel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
