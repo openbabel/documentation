@@ -1,33 +1,39 @@
 CSharp and OBDotNet
 ===================
 
-**OBDotNet** is a compiled assembly that allows OpenBabel to be used from the various .NET  languages (e.g. Visual Basic, C#, IronPython, IronRuby, and J#) on Windows, Linux and MacOSX. The current version is OBDotNet 0.3. 
+**OBDotNet** is a compiled assembly that allows OpenBabel to be used from the various .NET  languages (e.g. Visual Basic, C#, IronPython, IronRuby, and J#) on Windows, Linux and MacOSX. The current version is OBDotNet 0.4. 
 
 Installation
 ------------
 
-C# and Visual Basic
-~~~~~~~~~~~~~~~~~~~
+Windows
+~~~~~~~
 
-The following instructions describe how to use OBDotNet in a C# project using Microsoft Visual C# 2008 Express Edition. You should be able to apply these instructions to more recent compilers, and also to Visual Basic projects.
+The OBDotNet.dll assembly provided on Windows was compiled using the .NET framework v3.5 for the x86 platform. To use it, you will need to compile your code using .NET v3.5 or newer and you will also need to target x86 (``/platform:x86``).
 
-   1. First you need to download and install the :program:`OpenBabelGUI version 2.2.3`
-   2. Download and extract OBDotNet-0.3.zip_
-   3. Start :program:`Microsoft Visual C# Express Edition` and create a new new project, for example a console application
-   4. Replace the code in :file:`Program.cs` by this `example program`_ and save the project somewhere
-   5. Copy and paste the entire contents of the extracted :file:`OBDotNet-0.3.zip` folder into the project directory in :file:`bin/Debug`
-   6. Right click on References in the right hand pane and choose the Browse Tab to add a reference to :file:`OBDotNet.dll` in the :file:`bin/Debug` directory.
-   7. If you build the project now, it should work.
-   8. Uncomment the final line, and run it under :guilabel:`Debug`/:guilabel:`Start Debugging`. You should see the output of 44.0952, the molecular weight of propane.
-   9. To run the program at the command line, you just type the full path to the exe located in the :file:`Debug` folder. 
+The following instructions describe how to compile a simple C# program that uses OBDotNet:
 
-.. _OBDotNet-0.3.zip : http://sf.net/projects/openbabel/files/OBDotNet/0.3/OBDotNet-0.3.zip/download
+   1. First you need to download and install the :program:`OpenBabelGUI version 2.3.0`
+   2. Download and extract OBDotNet-0.4.zip_. There should be an example CSharp program included, :program:`example.cs`.
+   3. Open a command prompt wherever you unzipped OBDotNet and compile :program:`example.cs` as follows::
+
+              C:\Tools\OBDotNet-0.4> C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe /reference:OBDotNet.dll /platform:x86 example.cs
+
+   4. Run the created executable, :program:`example.exe`, to discover the molecule weight of propane::
+
+              C:\Tools\OBDotNet-0.4> example.exe
+              44.09562
+
+If you prefer to use the MSVC# GUI, note that the Express edition does not have the option to choose x86 as a target. This will be a problem if you are using a 64-bit operating system. There's some information at `Coffee Driven Development`_ on how to get around this.
+
+.. _OBDotNet-0.4.zip : http://sf.net/projects/openbabel/files/OBDotNet/0.4/OBDotNet-0.4.zip/download
 .. _example program: http://openbabel.svn.sf.net/viewvc/openbabel/openbabel/tags/openbabel-2-2-1/scripts/csharp/example.cs?revision=2910
+.. _Coffee Driven Development: http://coffeedrivendevelopment.blogspot.com/2008/06/hacking-vs-c-2008-express.html
 
 Running under Mono
 ~~~~~~~~~~~~~~~~~~
 
-For Linux or MacOSX follow the instructions in the :file:`README` file in :file:`scripts/csharp`.
+For Linux or MacOSX, instructions will one day appear here. **TODO**
 
 OBDotNet API
 ------------
