@@ -41,9 +41,9 @@ Kosata. This is installed as follows:
 -  Download and unzip the Windows package of
    `OASA <http://bkchem.zirael.org/oasa_en.html>`_. There is a version for
    Python 2.5 and 2.6.
--  Copy the two folders 'oasa' and 'cairo' to the site-packages
+-  Copy the two folders :file:`oasa` and :file:`cairo` to the :file:`site-packages`
    folder of your Python distribution (on my system, this is
-   C:\\Program Files\\Python25\\Lib\\site-packages)
+   :file:`C:\\Program Files\\Python25\\Lib\\site-packages`)
 
 Test the installation
 ^^^^^^^^^^^^^^^^^^^^^
@@ -55,9 +55,6 @@ list with the output from these commands.
 
 ::
 
-    Microsoft Windows XP [Version 5.1.2600]
-    (C) Copyright 1985-2001 Microsoft Corp.
-    
     C:\Documents and Settings\Noel> babel -V
     Open Babel 2.2.1 -- Dec 31 2008 -- 12:51:03
     
@@ -135,8 +132,8 @@ If you wish to draw 2D depictions using Pybel, you need the
 Kosata. This is installed as follows:
 
 
--  Download `OASA 0.12.1 <http://bkchem.zirael.org/oasa_en.html>`_,
-   unzip it, and add the oasa-0.12.1 directory to the PYTHONPATH.
+-  Download `OASA <http://bkchem.zirael.org/oasa_en.html>`_,
+   unzip it, and add the resulting oasa directory to the PYTHONPATH.
 -  OASA requires Cairo and its Python bindings which are included
    in Debian as 'libcairo2' and 'python-cairo' respectively.
 -  To display images on the screen (rather than just writing to a
