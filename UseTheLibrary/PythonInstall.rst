@@ -21,8 +21,8 @@ Install the bindings
 **Note**: If you are **upgrading** from an earlier version of the
 Python bindings, you should uninstall that first (using Add/Remove
 Programs) and then follow steps 1 and 2 above. You should also make
-sure that BABEL\_DATADIR is set correctly to the directory of the
-OpenBabelGUI (at a command prompt, type *echo %BABEL\_DATADIR%*).
+sure that BABEL\_DATADIR is set correctly to the :file:`data` folder of the
+Open Babel installation (at a command prompt, type *echo %BABEL\_DATADIR%*).
 If not, carefully delete any existing System environment variables
 with the name BABEL\_DATADIR, and correct the value of the User
 environment variable BABEL\_DATADIR (if necessary).
@@ -36,17 +36,14 @@ Kosata. This is installed as follows:
 
 
 -  Install
-   `Python Imaging Library (PIL) <http://www.pythonware.com/products/pil/#pil116>`_
+   `Python Imaging Library (PIL) <http://www.pythonware.com/products/pil/#pil117>`_
    for your version of Python
 -  Download and unzip the Windows package of
-   `OASA <http://bkchem.zirael.org/oasa_en.html>`_
+   `OASA <http://bkchem.zirael.org/oasa_en.html>`_. There is a version for
+   Python 2.5 and 2.6.
 -  Copy the two folders 'oasa' and 'cairo' to the site-packages
    folder of your Python distribution (on my system, this is
    C:\\Program Files\\Python25\\Lib\\site-packages)
--  If you are using Python 2.5, you are finished!
--  If you are using Python 2.4, go into the 'site-packages/cairo'
-   folder, delete '\_cairo.pyd', and rename '\_cairo.pyd2.4' to
-   '\_cairo.pyd'
 
 Test the installation
 ^^^^^^^^^^^^^^^^^^^^^
@@ -73,15 +70,15 @@ list with the output from these commands.
     
     Specification at: http://www.mdl.com/downloads/public/ctfile/ctfile.jsp
     
-    C:\Documents and Settings\Noel>dir "%BABEL_DATADIR%"\OBGUI.exe
+    C:\Documents and Settings\Noel>dir "%BABEL_DATADIR%"\mr.txt
      Volume in drive C has no label.
      Volume Serial Number is 68A3-3CC9
     
-     Directory of C:\Program Files\OpenBabel-2.2.1
-    
-    31/12/2008  12:53         1,253,376 OBGUI.exe
-                   1 File(s)      1,253,376 bytes
-                   0 Dir(s)  39,672,901,632 bytes free
+     Directory of C:\Program Files (x86)\OpenBabel-2.3.0\data
+
+    26/10/2010  16:37             4,295 mr.txt
+                   1 File(s)          4,295 bytes
+                   0 Dir(s)  58,607,575,040 bytes free
     
     C:\Documents and Settings\Noel> C:\Python24\python
     Python 2.4.3 - Enthought Edition 1.0.0 (#69, Aug  2 2006, 12:09:59) [MSC v.1310
