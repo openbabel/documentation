@@ -230,8 +230,8 @@ and find anything that contains them. For example:
 | Query    | Database | Matches?                                      |
 +==========+==========+===============================================+
 | |image0| | |image1| | **YES** (matched portion highlighted in blue) |
-|          +----------+-----------------------------------------------+
-|          | |image2| | **NO** (double bond indicated doesn't match)  |
++----------+----------+-----------------------------------------------+
+| |image0| | |image2| | **NO** (double bond indicated doesn't match)  |
 +----------+----------+-----------------------------------------------+
 
 .. sidebar:: eMolecules, Inc.
