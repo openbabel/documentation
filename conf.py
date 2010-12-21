@@ -180,7 +180,7 @@ htmlhelp_basename = 'OpenBabeldoc'
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'OpenBabel.tex', u'Open Babel Documentation',
-   u'Geoff Hutchison et al.', 'manual'),
+   u'Open Babel community', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -200,6 +200,6 @@ latex_logo = "babel130.png"
 # If false, no module index is generated.
 latex_use_modindex = False
 
-latex_show_pagerefs = True
-latex_show_urls = True
+latex_show_pagerefs = False
+latex_show_urls = False
 
