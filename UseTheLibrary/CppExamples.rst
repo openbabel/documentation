@@ -4,17 +4,9 @@ C++
 How to use Open Babel from C++
 ------------------------------
 
-**TODO**
-
-Examples
---------
-
-Here are a couple of examples of how to use the Open Babel toolkit from C++.
+Here's an example C++ program that uses the Open Babel toolkit to convert between two chemical file formats:
 
 .. highlight:: c++
-
-Simple conversion between chemical formats
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -54,7 +46,31 @@ Simple conversion between chemical formats
     return 0;
   }
 
-Notice that just to convert molecules (without manipulating them), :file:`mol.h` does not have to be included.
+Next, we'll look at how to compile this on different platforms...
+
+Compiling using Makefiles
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following Makefile shows how to compile the above examples. Open Babel needs to be installed somewhere. If the include files or the library are not automatically found when running make, you can specify the location as shown by the commented out statements in CFLAGS and LDFLAGS below.
+
+.. highlight-code:: makefile
+
+::
+
+  CC = g++
+  CFLAGS = -c # -I /home/user/Tools/openbabel/install/include/openbabel-2.0
+  LDFLAGS = -lopenbabel # -L /home/user/Tools/openbabel/install/lib
+
+  all: example
+
+  example: example.o
+	$(CC) $(LDFLAGS) example.o -o example
+
+  example.o: example.cpp
+	$(CC) $(CFLAGS) $(LDFLAGS) example.cpp
+
+  clean:
+	rm -rf *.o example
 
 Output Molecular Weight for a Multi-Molecule SDF File
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
