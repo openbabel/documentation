@@ -1,3 +1,5 @@
+.. _pybel module:
+
 Pybel
 =====
 

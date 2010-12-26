@@ -1,3 +1,5 @@
+.. _openbabel python module:
+
 The openbabel module
 ====================
 
