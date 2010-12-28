@@ -4,6 +4,7 @@ Open Babel, or how I learned to love the chemistry file format
 .. toctree::
    :maxdepth: 2
 
+   Introduction/meta.rst
    Introduction/intro.rst
    Installation/install.rst
    Command-line_tools/babel.rst
