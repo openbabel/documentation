@@ -46,16 +46,17 @@ Here's an example C++ program that uses the Open Babel toolkit to convert betwee
     return 0;
   }
 
-Next, we'll look at how to compile this on different platforms...
+Next, we'll look at how to compile this.
 
-Compiling using Makefiles
-~~~~~~~~~~~~~~~~~~~~~~~~~
+How to compile against the Open Babel library
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following Makefile shows how to compile the above examples. Open Babel needs to be installed somewhere. If the include files or the library are not automatically found when running make, you can specify the location as shown by the commented out statements in CFLAGS and LDFLAGS below.
+Using Makefiles
+***************
 
-.. highlight-code:: makefile
+The following Makefile can be used to compile the above example, assuming that it's saved as :file:`example.cpp`. You need to have already installed Open Babel somewhere. If the include files or the library are not automatically found when running :command:`make`, you can specify the location as shown by the commented out statements in CFLAGS and LDFLAGS below.
 
-::
+.. code-block:: makefile
 
   CC = g++
   CFLAGS = -c # -I /home/user/Tools/openbabel/install/include/openbabel-2.0
@@ -70,10 +71,26 @@ The following Makefile shows how to compile the above examples. Open Babel needs
 	$(CC) $(CFLAGS) $(LDFLAGS) example.cpp
 
   clean:
-	rm -rf *.o example
+	rm -rf example.o example
+
+Using CMake
+***********
+
+Rather than create a Makefile yourself, you can get CMake to do it for you. The nice thing about using CMake is that it can generate not only Makefiles, but also project files for MSVC++, KDevelop and Eclipse (among others). The following :file:`CMakeLists.txt` can be used to generate any of these. The commented out lines can be used to specify the location of the Open Babel library and include files if necessary.
+
+.. code-block:: cmake
+
+  cmake_minimum_required(VERSION 2.6)
+  add_executable(example example.cpp)
+  target_link_libraries(example openbabel)
+  # target_link_libraries(example /home/user/Tools/openbabel/install/lib/libopenbabel.so)
+  # include_directories(/home/user/Tools/openbabel/install/include/openbabel-2.0)
+
+Further examples
+~~~~~~~~~~~~~~~~
 
 Output Molecular Weight for a Multi-Molecule SDF File
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*****************************************************
 
 Let's say we want to print out the molecular weights of every molecule in an SD file. Why? Well, we might want to plot a histogram of the distribution, or see whether the average of the distribution is significantly different (in the statistical sense) compared to another SD file.
 
@@ -103,7 +120,7 @@ Let's say we want to print out the molecular weights of every molecule in an SD 
   }
 
 Properties from SMARTS Matches
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************
 
 Let's say that we want to get the average bond length or dihedral angle over particular types of atoms in a large molecule. So we'll use SMARTS to match a set of atoms and loop through the matches. The following example does this for sulfur-carbon-carbon-sulfur dihedral angles in a polymer and the carbon-carbon bond lengths between the monomer units::
 
