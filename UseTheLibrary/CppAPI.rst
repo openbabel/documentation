@@ -7,13 +7,14 @@ The API documentation is automatically generated from the source code using the 
 
 * API for the `current release`_
 * API for the `development version`_ (updated nightly, with `error report`_ showing errors in documentation)
-* API for specific versions: `2.0.2`_, `2.1.0`_, `2.2.0`_
+* API for specific versions: `2.0`_, `2.1`_, `2.2`_, `2.3`_
 
 .. _current release: http://openbabel.org/api/
 .. _development version: http://openbabel.org/dev-api/
-.. _2.2.0: http://openbabel.org/api/2.2.0/
-.. _2.1.0: http://openbabel.org/api/2.1.0/
-.. _2.0.2: http://openbabel.org/api/2.0.2/
+.. _2.3: http://openbabel.org/api/2.3/
+.. _2.2: http://openbabel.org/api/2.2/
+.. _2.1: http://openbabel.org/api/2.1/
+.. _2.0: http://openbabel.org/api/2.0/
 .. _error report: http://openbabel.org/dev-api/docbuild.out
 
 The Open Babel toolkit uses a version numbering that indicates how the API has changed over time:
