@@ -9,7 +9,7 @@ Installation
 Windows
 ~~~~~~~
 
-The OBDotNet.dll assembly provided on Windows was compiled using the .NET framework v3.5 for the x86 platform. To use it, you will need to compile your code using .NET v3.5 or newer and you will also need to target x86 (``/platform:x86``).
+The :file:`OBDotNet.dll` assembly provided on Windows was compiled using the .NET framework v3.5 for the x86 platform. To use it, you will need to compile your code using .NET v3.5 or newer and you will also need to target x86 (``/platform:x86``).
 
 The following instructions describe how to compile a simple C# program that uses OBDotNet:
 
@@ -30,10 +30,23 @@ If you prefer to use the MSVC# GUI, note that the Express edition does not have 
 .. _example program: http://openbabel.svn.sf.net/viewvc/openbabel/openbabel/tags/openbabel-2-2-1/scripts/csharp/example.cs?revision=2910
 .. _Coffee Driven Development: http://coffeedrivendevelopment.blogspot.com/2008/06/hacking-vs-c-2008-express.html
 
-Running under Mono
-~~~~~~~~~~~~~~~~~~
+MacOSX and Linux
+~~~~~~~~~~~~~~~~
 
-For Linux or MacOSX, instructions will one day appear here. **TODO**
+On Linux and MacOSX you need to use Mono, the open source implementation of the .NET framework, to compile the bindings. The following instructions describe how to compile and use these bindings:
+
+  1. :file:`OBDotNet.dll` is included in the Open Babel source distribution in :file:`scripts/csharp`. To compile a CSharp application that uses this (e.g. the example program shown below), use a command similar to the following::
+
+       gmcs example.cs /reference:../openbabel-2.3.0/scripts/csharp/OBDotNet.dll
+     
+  2. To run this on MacOSX or Linux you need to compile the CSharp bindings as described in the section :ref:`Compile bindings`. This creates :file:`lib/libopenbabel_csharp.so` in the build directory. You should rename this file to :file:`lib/libopenbabelcsharp.so` to work around a minor bug in the 2.3.0 release.
+
+  3. Add the location of :file:`OBDotNet.dll` to the environment variable MONO_PATH. Add the location of :file:`libopenbabelcsharp.so` to the environment variable LD_LIBRARY_PATH. Additionally, if you have not installed Open Babel globally you should set BABEL_LIBDIR to the location of the Open Babel library and BABEL_DATADIR to the :file:`data` directory.
+
+  4. Run :file:`example.exe`::
+
+       $ ./example.exe
+       44.09562 
 
 OBDotNet API
 ------------
@@ -46,8 +59,8 @@ The API is almost identical to the Open Babel `C++ API`_. Differences are descri
 
 In OBDotNet, iterators are provided as methods of the relevant class. The full list is as follows:
 
-* **OBMol** has ``.Atoms()``, ``.Bonds()``, ``.Residues()``, and ``.Fragments()``. These correspond to :obapi:`OBMolAtomIter`, :obapi:`OBMolBondIter`, :obapi:`OBMolResidueIter` and :obapi:`OBMolAtomDFSIter` respectively.
-* **OBAtom** has :obapi:`.Bonds()` and :obapi:`.Neighbours()`. These correspond to :obapi:`OBAtomBondIter` and :obapi:`OBAtomAtomIter` respectively. 
+* **OBMol** has ``.Atoms()``, ``.Bonds()``, ``.Residues()``, and ``.Fragments()``. These correspond to :obapi:`OBMolAtomIter`, :obapi:`OBMolBondIter`, :obapi:`OBResidueIter` and :obapi:`OBMolAtomDFSIter` respectively.
+* **OBAtom** has ``.Bonds()`` and ``.Neighbours()``. These correspond to :obapi:`OBAtomBondIter` and :obapi:`OBAtomAtomIter` respectively. 
 
 .. highlight:: c#
 
