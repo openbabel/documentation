@@ -112,7 +112,7 @@ Linux and MacOSX
 
 See :ref:`Compile bindings` for information on how to configure CMake to compile the Python bindings. This can be done either globally or locally.
 
-You may need to add the location of libopenbabel.so (on my system, the location is /usr/local/lib) to the environment variable LD\_LIBRARY\_PATH if you get the following error when you try to import the OpenBabel library at the Python prompt:
+You may need to add the location of :file:`libopenbabel.so` (on my system, the location is :file:`/usr/local/lib`) to the environment variable LD\_LIBRARY\_PATH if you get the following error when you try to import the OpenBabel library at the Python prompt:
 
 ::
 
