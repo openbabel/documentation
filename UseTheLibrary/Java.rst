@@ -41,7 +41,7 @@ Let's begin by looking at an example program that uses OpenBabel. The following 
                acidpattern.Init("C(=O)Cl");
                acidpattern.Match(mol);
              
-               vvInt matches = acidpattern.GetUMapList();
+               vectorvInt matches = acidpattern.GetUMapList();
                System.out.println("There are " + matches.size() +
                                   " acid chloride groups");
                System.out.print("Their C atoms have indices: ");
@@ -75,9 +75,9 @@ Windows
 
 .. highlight:: bat
 
-openbabel.jar is installed along with the OpenBabelGUI on Windows, typically in :file:`C:\Program Files\OpenBabel-2.2.1`. As an example of how to use openbabel.jar, download OBTest.java_ and compile and run it as follows::
+:file:`openbabel.jar` is installed along with the OpenBabelGUI on Windows, typically in :file:`C:/Program Files/OpenBabel-2.3.0`. As an example of how to use :file:`openbabel.jar`, download OBTest.java_ and compile and run it as follows::
 
-        C:\> set CLASSPATH=C:\Program Files\OpenBabel-2.2.1\openbabel.jar;.
+        C:\> set CLASSPATH=C:\Program Files\OpenBabel-2.3.0\openbabel.jar;.
         C:\> "C:\Program Files\Java\jdk1.5.0_16\bin\javac.exe" OBTest.java
         C:\> "C:\Program Files\Java\jdk1.5.0_16\bin\java.exe" OBTest
         Running OBTest...
@@ -86,39 +86,24 @@ openbabel.jar is installed along with the OpenBabelGUI on Windows, typically in 
 
 .. _OBTest.java: http://openbabel.svn.sf.net/viewvc/openbabel/openbabel/tags/openbabel-2-2-1/scripts/java/OBTest.java?revision=2910
 
-Linux
-~~~~~
+MacOSX and Linux
+~~~~~~~~~~~~~~~~
 
-.. highlight:: bash
+The following instructions describe how to compile and use these bindings on MacOSX and Linux:
 
-::
+  1. :file:`openbabel.jar` is included in the Open Babel source distribution in :file:`scripts/java`. To compile a Java application that uses this (e.g. the example program shown above), use a command similar to the following::
 
-        % javac *.java
-        # assuming that jni.h is found in /usr/include/java
-        % g++ -c -fpic openbabel_java.cpp -I../../include -I/usr/include/java
-        # assuming that the C++ libopenbabel is in /usr/local/lib
-        % g++ -shared -L/usr/local/lib openbabel_java.o -lopenbabel -o libopenbabel.so
+       javac Test.java -cp ../openbabel-2.3.0/scripts/java/openbabel.jar
+     
+  2. To run the resulting :file:`Test.class` on MacOSX or Linux you first need to compile the Java bindings as described in the section :ref:`Compile bindings`. This creates :file:`lib/libopenbabel_java.so` in the build directory.
 
-To run Java programs, try::
+  3. Add the location of :file:`openbabel.jar` to the environment variable CLASSPATH, not forgetting to append the location of :file:`Test.class` (typically ".")::
 
-        LD_PRELOAD=/usr/local/lib/libopenbabel.so java OBTest
+       export CLASSPATH=/home/user/Tools/openbabel-2.3.0/scripts/java/openbabel.jar:.
+     
+  4. Add the location of :file:`libopenbabel_java.so` to the environment variable LD_LIBRARY_PATH. Additionally, if you have not installed Open Babel globally you should set BABEL_LIBDIR to the location of the Open Babel library and BABEL_DATADIR to the :file:`data` directory.
 
-Mac OS X
-~~~~~~~~
-
-::
-
-        % javac *.java
-        % g++ -c -I/System/Library/Frameworks/JavaVM.framework/Headers openbabel_java.cpp
-        % g++ -dynamiclib -o libopenbabel.jnilib openbabel_java.o -framework JavaVM -L/usr/local/lib -lopenbabel
-
-To run the OBTest program, try::
-
-        % java OBTest
-
-More information on compiling JNI libraries on Mac OS X can be found at the `Apple developer website`_.
-
-.. _Apple developer website: http://developer.apple.com/documentation/Java/Conceptual/Java14Development/05-CoreJavaAPIs/CoreJavaAPIs.html#//apple_ref/doc/uid/TP40001902-210780-TPXREF144
+  5. Now, run the example application. The output should be as shown above.
 
 API
 ---
