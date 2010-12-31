@@ -162,7 +162,7 @@ Compile language bindings
 
 5. With Java and CSharp, the bindings will be installed by default to the same location as the Open Babel libraries.
   
-6. For Ruby, Python and Perl, the library files are installed to a subdirectory of wherever the Open Babel libraries are installed: something like :file:`python2.6/site-packages/` or `dist-packages` in the case of Python, :file:`perl/5.8.7` for Perl, and :file:`site_ruby/1.8/linux-i486` for Ruby. If you wish to install the Python bindings somewhere else, configure CMake with the option ``-DPYTHON_PREFIX=wherever``, or something similar for Perl and Ruby.
+6. For Ruby, Python and Perl, the library files are installed to a subdirectory of wherever the Open Babel libraries are installed: something like :file:`python2.6/site-packages/` or `dist-packages` in the case of Python, :file:`perl/5.8.7` for Perl, and :file:`site_ruby/1.8/linux-i486` for Ruby. If you wish to install the bindings somewhere else, configure CMake with the option ``-DPYTHON_PREFIX=wherever`` for Python, or something similar for Perl (``OBPERL_PREFIX``) or Ruby (``RUBY_PREFIX``).
 
 7. To tell Python where to find the bindings, add the directory containing ``openbabel.py`` to the front of your PYTHONPATH environment variable (if it is not there already). Similarly add the ``perl`` subdirectory (where the bindings were installed) to the front of your PERL5LIB directory; for Java, add the location of ``openbabel.jar`` to your CLASSPATH.
 
