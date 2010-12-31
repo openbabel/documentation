@@ -1,17 +1,17 @@
-babel and obabel - Convert, Filter and Manipulate Chemical Data
+obabel and babel - Convert, Filter and Manipulate Chemical Data
 ===============================================================
 
-:command:`babel` and :command:`obabel` are cross-platform programs designed to interconvert between many file formats used in molecular modeling and computational chemistry and related areas. They can also be used for filtering molecules and for simple manipulation of chemical data.
+:command:`obabel` and :command:`babel` are cross-platform programs designed to interconvert between many file formats used in molecular modeling and computational chemistry and related areas. They can also be used for filtering molecules and for simple manipulation of chemical data.
 
 Synopsis
 --------
 
 .. hlist::
 
-   * ``babel [-H <help-options>]``
    * ``obabel [-H <help-options>]`` 
-   * ``babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
+   * ``babel [-H <help-options>]``
    * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]``
+   * ``babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
 
 :command:`obabel` is recommended over :command:`babel` (see :ref:`babel vs obabel`).
 
@@ -22,8 +22,8 @@ Options
 
 .. rubric:: Information and help
 
-*  ``babel  [-H <help-options>]``
 *  ``obabel [-H <help-options>]``
+*  ``babel  [-H <help-options>]``
 
 -H 
     Output usage information
@@ -44,8 +44,8 @@ Options
 
 .. rubric:: Conversion options
 
-* ``babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
 * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]`` 
+* ``babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
 
 .. note::
 
@@ -157,81 +157,83 @@ The examples below assume the files are in the current directory. Otherwise you 
 
 Standard conversion::
 
+    obabel ethanol.xyz -O ethanol.pdb
     babel ethanol.xyz ethanol.pdb
 
 Conversion if the files do not have an extension that describes their format::
   
+    obabel -ixyz ethanol.aa -opdb -O ethanol.bb
     babel -ixyz ethanol.aa -opdb ethanol.bb
 
 Molecules from multiple input files (which can have different formats) are normally combined in the output file:: 
 
-    babel ethanol.xyz acetal.sdf benzene.cml allmols.smi
+    obabel ethanol.xyz acetal.sdf benzene.cml -O allmols.smi
 
 Conversion from a SMI file in STDIN to a Mol2 file written to STDOUT::
 
-    babel -ismi -omol2
+    obabel -ismi -omol2
 
 Split a multi-molecule file into new1.smi, new2.smi, etc.::
 
-    babel infile.mol new.smi -m
+    obabel infile.mol -O new.smi -m
 
 In Windows this can also be written::
 
-    babel infile.mol new*.smi
+    obabel infile.mol -O new*.smi
 
 Multiple input files can be converted in batch format too. To convert all files ending in .xyz (\*.xyz) to PDB files, you can type::
 
-    babel *.xyz -opdb -m
+    obabel *.xyz -opdb -m
 
 Open Babel will not generate coordinates unless asked, so while a conversion from SMILES to SDF will generate a valid SDF file, the resulting file will not contain coordinates. To generate coordinates, use either the ``--gen3d`` or  the ``--gen2d`` option::
 
-     babel infile.smi out.sdf --gen3d
+     obabel infile.smi -O out.sdf --gen3d
 
 If you want to remove all hydrogens, i.e. make them all implicit, when doing the conversion the command would be::
 
-     babel mymols.sdf -osmi outputfile.smi -d
+     obabel mymols.sdf -osmi -O outputfile.smi -d
 
 If you want to add hydrogens, i.e. make thenm all explicit, when doing the conversion the command would be::
 
-     babel  mymols.sdf outputfile.smi  -h
+     obabel mymols.sdf -O outputfile.smi -h
 
 If you want to add hydrogens appropriate for pH7.4 when doing the conversion the command would be::
 
-     babel  mymols.sdf outputfile.smi' -p
+     obabel mymols.sdf -O outputfile.smi -p
 
-The protonation is done an atom-by-atom basis so molecules with multiple ionizable centers will have all centers ionized.
+The protonation is done on an atom-by-atom basis so molecules with multiple ionizable centers will have all centers ionized.
 
 Of course you don't actually need to change the file type to modify the hydrogens. If you want to add all hydrogens the command would be::
 
-     babel  mymols.sdf mymols_H.sdf -h
+     obabel mymols.sdf -O mymols_H.sdf -h
 
 Some functional groups e.g. nitro or sulphone can be represented either as ``[N+]([O-])=O`` or ``N(=O)=O``. To convert all to the dative bond form::
 
-     babel  mymols.sdf outputfile.smi  -b
+     obabel mymols.sdf -O outputfile.smi -b
 
 If you only want to convert a subset of molecules you can define them using -f and -l, so to convert molecules 2-4 of the file mymols.sdf type::
 
-     babel  mymols.sdf -f 2 -l 4 -osdf  outputfile.sdf 
+     obabel mymols.sdf -f 2 -l 4 -osdf -O outputfile.sdf 
 
 Alternatively you can select a subset matching a SMARTS pattern, so to select all molecules containing bromobenzene use::
 
-     babel   mymols.sdf   selected.sdf  -s "c1ccccc1Br"
+     obabel mymols.sdf -O selected.sdf -s "c1ccccc1Br"
 
 You can select a subset that do not match a SMARTS pattern, so to select all molecules not containing bromobenzene use::
 
-     babel   mymols.sdf   selected.sdf    -v "c1ccccc1Br"
+     obabel mymols.sdf -O selected.sdf -v "c1ccccc1Br"
 
 You can of course combine options, so to join molecules and add hydrogens type::
 
-     babel   mymols.sdf  myjoined.sdf -h   -j
+     obabel mymols.sdf -O myjoined.sdf -h -j
 
 Files compressed with gzip are read transparently, whether or not they have a .gz suffix::
 
-     babel  compressed.sdf.gz  expanded.smi
+     obabel compressed.sdf.gz -O expanded.smi
 
 On platforms other than Windows, the output file can be compressed with gzip, but note if you don't specify the ".gz" suffix it will not be added automatically, which could cause problems when you try to open the file::
 
-     babel   mymols.sdf  outputfile.sdf.gz   -z
+     obabel mymols.sdf -O outputfile.sdf.gz -z
 
 This example reads the first 50 molecules in a compressed dataset and prints out the SMILES of those containing a pyridine ring, together with the index in the file, the ID (taken from an SDF property) and the output index::
   
@@ -257,11 +259,11 @@ Specifically, the differences are as follows:
 
 * :command:`obabel` is more flexible when the user needs to specify parameter values on options. For instance,  the ``--unique`` option can be used with or without a parameter (specifying the criteria used).  With :command:`babel`, this only works when the option is the last on the line; with :command:`obabel`, no such restriction applies. Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
 
-* :command:`obabel` has a shortcut for entering SMILES strings. Preceed the SMILES by -: and use in place of an input file. For example::
+* :command:`obabel` has a shortcut for entering SMILES strings. Preceed the SMILES by -: and use in place of an input file. The SMILES string should be enclosed in quotation marks. For example::
 
-     obabel -:O=C(O)c1ccccc1OC(=O)C -ocan
+     obabel -:"O=C(O)c1ccccc1OC(=O)C" -ocan
 
-More than one can be used, and a molecule title can be included if enclosed in quotes::
+  More than one can be used, and a molecule title can be included if enclosed in quotes::
 
      obabel "-:O=C(O)c1ccccc1OC(=O)C aspirin" "-:Oc1ccccc1C(=O)O salicylic acid" -ofpt
  
