@@ -10,8 +10,8 @@ Synopsis
 
    * ``obabel [-H <help-options>]`` 
    * ``babel [-H <help-options>]``
-   * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]``
-   * ``babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
+   * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]`` 
+   * ``babel [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
 
 :command:`obabel` is recommended over :command:`babel` (see :ref:`babel vs obabel`).
 
@@ -45,7 +45,8 @@ Options
 .. rubric:: Conversion options
 
 * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]`` 
-* ``babel  [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
+* ``obabel -:"<SMILES string>"    [-o <output-ID>] [-O outfile] [OPTIONS]`` 
+* ``babel  [-i <input-ID>] infile [-o <output-ID>]    [outfile] [OPTIONS]``
 
 .. note::
 
@@ -104,9 +105,9 @@ Options
 -j, --join 
     Join all input molecules into a single output molecule entry
 -k 
-    Translate computational chemistry modeling keywords (e.g.,
-    `GAMESS </w/index.php?title=GAMESS&action=edit&redlink=1>`_ and
-    `Gaussian </w/index.php?title=Gaussian&action=edit&redlink=1>`_)
+    Translate computational chemistry modeling keywords. See
+    the computational chemistry formats (:ref:`Computational chemistry`),
+    for example :ref:`GAMESS_Input` and :ref:`Gaussian_98_or_03_Input`.
 -m 
     Produce multiple output files, to allow:    
 
