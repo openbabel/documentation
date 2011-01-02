@@ -1,3 +1,5 @@
+.. _Pybel API:
+
 Pybel API
 =========
 

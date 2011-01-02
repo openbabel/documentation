@@ -16,8 +16,8 @@ below.
 The rationale and technical details behind Pybel are described in O'Boyle et al [omh2008]_. To support further development of Pybel, please cite this paper if you use Pybel to obtain results for publication.
 
 Information on the Pybel API can be found at the interactive Python
-prompt using the ``help()`` function, and is also available in 
-Appendix 1 (see :ref:`Pybel API`).
+prompt using the ``help()`` function. The full API is also listed in  
+the next section (see :ref:`Pybel API`).
 
 To use Pybel, use ``import pybel`` or ``from pybel import *``.
 
@@ -101,8 +101,7 @@ The :func:`~pybel.Molecule.draw()`
 method of a Molecule generates 2D coordinates and a 2D depiction of
 a molecule. It uses the
 `OASA library <http://bkchem.zirael.org/oasa_en.html>`_ by Beda
-Kosata to do this (see the section below on
-`Installing OASA </wiki/Python#Installing_OASA>`_). The default
+Kosata to do this. The default
 options are to show the image on the screen (``show=True``), not to
 write to a file (``filename=None``), to calculate 2D coordinates
 (``usecoords=False``) but not to store them (``update=False``).
@@ -349,6 +348,3 @@ Pybel:
     
     pybelmol = pybel.Molecule(mol)
     pybelmol.write("sdf", "outputfile.sdf")
-
-For more examples of using Open Babel from Python, see the links on
-the main `Python </wiki/Python>`_ page.
