@@ -1,3 +1,5 @@
+.. _error handling:
+
 Errors and Warnings
 ===================
 

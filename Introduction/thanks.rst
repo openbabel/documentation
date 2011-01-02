@@ -1,5 +1,7 @@
 .. include:: <isolat1.txt>
 
+.. _Thanks:
+
 Thanks
 ======
 

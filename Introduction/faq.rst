@@ -119,7 +119,9 @@ Once licensed under the GPL, the code must remain free to interested parties. If
 
 .. rubric:: What's in it for an open-source software project?
 
-Certainly the answers for closed-source software and academics also apply for you. Beyond that, if your code is compatible with the GPL, you can directly use Open Babel and all of the API. This is already happening with the Ghemical molecular editor, available under the GPL and many others (see :ref:`related projects`). There's a lot of code in Open Babel beyond file translation and more to come. Why reinvent the wheel?
+Certainly the answers for closed-source software and academics also apply for you. Beyond that, if your code is compatible with the GPL, you can directly use Open Babel and all of the API. This is already happening with the Ghemical molecular editor, available under the GPL and many others (see `related projects`_). There's a lot of code in Open Babel beyond file translation and more to come. Why reinvent the wheel?
+
+.. _related projects: http://openbabel.org/wiki/Related
 
 .. rubric:: Why is this covered under the GPL instead of license X?
 

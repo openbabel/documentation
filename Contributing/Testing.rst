@@ -11,7 +11,7 @@ Types of Tests
 * Unit tests - These are run under the UNIX build environment by calling make check and include a variety of tests
    * Ideally these tests should cover every public function in the Open Babel API_. Adding more tests to provide greater coverage is a high priority.
    * The tests attempt to show that functions work as indicated (i.e. pass) and fail properly on unacceptable input. 
-* Roundtrip tests - These are run from the test file repository (see :ref:`repository`) and test file translation to/from all file formats.
+* Roundtrip tests - These are run from the test file repository and test file translation to/from all file formats.
 * "Dogfood" tests - Many of the developers use the current development snapshots for their daily use. This is sometimes called eating your dog food and ensures that bugs which impact common functionality are caught quickly.
 * Scripting language tests -- Both the Perl and Python language bindings have additional tests to ensure that these scripting language modules work.
    * These tests not only stress the scripting modules themselves, but also the underlying library. 

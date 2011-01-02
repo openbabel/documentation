@@ -1,7 +1,7 @@
 Developing Open Babel
 =====================
 
-Due to its open nature of its development, Open Babel contains code contributed by a wide variety of developers (see :ref:`contributors`). This section describes some general guidelines and "best practices" for code developers.
+Due to its open nature of its development, Open Babel contains code contributed by a wide variety of developers (see :ref:`Thanks`). This section describes some general guidelines and "best practices" for code developers.
 
 Grabbing the Development Code
 -----------------------------
@@ -10,7 +10,7 @@ The source code for Open Babel is maintained via the Subversion version control 
 
 .. _SourceForge: http://www.sf.net/projects/openbabel
 
-To download and update the source code itself, please see the instructions on using Subversion with Open Babel (:ref:`subversion`).
+To download and update the source code itself, please see the instructions on using Subversion with Open Babel (:ref:`version control`).
 
 Monitoring Progress
 -------------------
@@ -55,7 +55,7 @@ Error Handling
 
 The general philosophy of the Open Babel project is to attempt to gracefully recover from error conditions. Depending on the severity of the error, a message may or may not be sent to the user -- users can filter out developer debugging messages and minor errors, but should be notified of significant problems.
 
-For more information, please see :ref:`handling_errors`.
+For more information, please see :ref:`error handling`.
 
 Patches and Changesets
 ----------------------
