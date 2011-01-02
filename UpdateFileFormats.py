@@ -89,6 +89,10 @@ seen = set()
 for name, codes in sections:
     print >> indexfile, "   %s.rst" % name.replace(" ", "_")
     sectionfile = open(os.path.join("FileFormats", "%s.rst" % name.replace(" ", "_")), "w")
+
+    sectionref = ".. _%s:\n" % name
+    print >> sectionfile, sectionref
+
     print >> sectionfile, heading(name, "~")
     print >> sectionfile, "\n.. toctree::\n"
 
