@@ -31,7 +31,7 @@ Instead of indexing words, cheminformatics systems index
 cheminformatics systems all use the same fundamental principle:
 they *decompose the molecule* into smaller bits, and index those.
 
-.. figure:: ../_static/steroid_substruct_keys.gif
+.. figure:: ../_static/steroid_substruct_keys.png
 
 Roughly speaking, a cheminformatics system will index each of the
 substructures (fragments) above, so that every molecule that

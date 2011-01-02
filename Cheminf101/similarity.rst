@@ -82,5 +82,5 @@ There are many ways to measure similarity.
 Many cheminformatics databases have one or more similarity searches
 available.
 
-.. |image0| image:: ../_static/steroid1.gif
-.. |image1| image:: ../_static/steroid3.gif
+.. |image0| image:: ../_static/steroid1.png
+.. |image1| image:: ../_static/steroid3.png

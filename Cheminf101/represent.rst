@@ -290,6 +290,6 @@ Chemistry also has three other important name systems:
   Names such as "aspirin" or "alcohol" for
   substances that are in widespread use.
 
-.. |image0| image:: ../_static/steroid1.gif
-.. |image1| image:: ../_static/steroid2_matched.gif
-.. |image2| image:: ../_static/steroid3.gif
+.. |image0| image:: ../_static/steroid1.png
+.. |image1| image:: ../_static/steroid2_matched.png
+.. |image2| image:: ../_static/steroid3.png

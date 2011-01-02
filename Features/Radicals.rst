@@ -167,4 +167,4 @@ recognizes ``c1ccccc1c`` as the benzyl radical, but it doesn't like
 ``c1cc(c)ccc1``. Radical centres should not be involved in ring
 closure: for cyclohexyl radical ``C1cCCCC1`` is ok, ``c1CCCCC1`` is not.
 
-.. |3-pentyl radical| image:: ../_static/Zigzag.gif
+.. |3-pentyl radical| image:: ../_static/Zigzag.png
