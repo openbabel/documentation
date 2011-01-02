@@ -1,3 +1,5 @@
+.. _101 Molecular Similarity:
+
 Molecular Similarity
 ====================
 

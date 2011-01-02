@@ -1,7 +1,11 @@
 .. include:: <xhtml1-symbol.txt>
 
+.. _101 Representing Molecules:
+
 Representing Molecules
 ======================
+
+.. _What is a molecule:
 
 What is a Molecule?
 ^^^^^^^^^^^^^^^^^^^
@@ -146,8 +150,8 @@ characters.
         InChI is the latest and most modern of the line notations. It
         resolves many of the chemical ambiguities not addressed by SMILES,
         particularly with respect to stereo centers, tautomers and other of
-        the "valence model problems" discussed in the
-        `opening section <cheminformatics-101.htm#A1>`_ of this document.
+        the "valence model problems" mentioned
+        :ref:`above <What is a molecule>`.
 
         You can read more about InChI at the
         `Official Web Site <http://www.iupac.org/projects/2000/2000-025-1-800.html>`_,

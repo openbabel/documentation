@@ -28,9 +28,6 @@ designed to give examples of common Perl syntax for
 Chemistry::OpenBabel and pointers to the appropriate sections of
 the `API documentation <http://openbabel.sourceforge.net/api/>`_.
 
-For more examples of using Open Babel inside Perl, see the
-`developer Perl tutorial </wiki/Developer:Perl_Tutorial>`_.
-
 The example script below creates atoms and bonds one-by-one using
 the OBMol, OBAtom, and OBBond classes.
 
