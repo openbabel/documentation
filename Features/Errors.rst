@@ -27,7 +27,8 @@ A global error handler :obapi:`obErrorLog` (an instance of :obapi:`OBMessageHand
         obErrorLog.ThrowError(__FUNCTION__, "Requested Atom Out of Range", obDebug);
 
      stringstream errorMsg;
-     errorMsg << " Could not parse line in type translation table types.txt -- incorect number of columns";
+     errorMsg << " Could not parse line in type translation table types.txt"
+              << " -- incorrect number of columns";
      errorMsg << " found " << vc.size() << " expected " << _ncols << ".";
      obErrorLog.ThrowError(__FUNCTION__, errorMsg.str(), obInfo);
 

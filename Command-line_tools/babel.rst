@@ -238,7 +238,8 @@ On platforms other than Windows, the output file can be compressed with gzip, bu
 
 This example reads the first 50 molecules in a compressed dataset and prints out the SMILES of those containing a pyridine ring, together with the index in the file, the ID (taken from an SDF property) and the output index::
   
-    obabel chembl_02.sdf.gz -osmi -l 50 -s c1ccccn1 --append chebi_id --addinindex --addoutindex
+    obabel chembl_02.sdf.gz -osmi -l 50 -s c1ccccn1 --append chebi_id
+           --addinindex --addoutindex
 
 For the test data (taken from ChEMBLdb), this gave::
 
@@ -266,7 +267,8 @@ Specifically, the differences are as follows:
 
   More than one can be used, and a molecule title can be included if enclosed in quotes::
 
-     obabel "-:O=C(O)c1ccccc1OC(=O)C aspirin" "-:Oc1ccccc1C(=O)O salicylic acid" -ofpt
+     obabel -:"O=C(O)c1ccccc1OC(=O)C aspirin" -:"Oc1ccccc1C(=O)O salicylic acid"
+            -ofpt
  
 * :command:`obabel` cannot use concatenated single-character options. 
 

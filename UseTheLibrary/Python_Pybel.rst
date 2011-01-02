@@ -85,7 +85,8 @@ values in the data fields:
     >>> print len(mol.atoms)
     16
     >>> print mol.data.keys()
-    {'Comment': 'Created by CDK', 'NSC': 1, 'Hydrogen Bond Donors': 3, 'Surface Area': 342.43, .... }
+    {'Comment': 'Created by CDK', 'NSC': 1, 'Hydrogen Bond Donors': 3,
+     'Surface Area': 342.43, .... }
     >>> print mol.data['Hydrogen Bond Donors']
     3
     >>> mol.data['Random Value'] = random.randint(0,1000) # Add a descriptor containing noise
@@ -264,7 +265,7 @@ Here is an example of its use:
 
     >>> import pybel
     >>> smiles = ['CCCC', 'CCCN']
-    >>> mols = [pybel.readstring("smi", x) for x in smiles] # Create two molecules from the SMILES
+    >>> mols = [pybel.readstring("smi", x) for x in smiles] # Create a list of two molecules
     >>> fps = [x.calcfp() for x in mols] # Calculate their fingerprints
     >>> print fps[0].bits, fps[1].bits
     [261, 385, 671] [83, 261, 349, 671, 907]

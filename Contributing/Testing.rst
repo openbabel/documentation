@@ -8,12 +8,24 @@ Testing is another important ongoing task for any large code base such as Open B
 Types of Tests
 --------------
 
-* Unit tests - These are run under the UNIX build environment by calling make check and include a variety of tests
-   * Ideally these tests should cover every public function in the Open Babel API_. Adding more tests to provide greater coverage is a high priority.
-   * The tests attempt to show that functions work as indicated (i.e. pass) and fail properly on unacceptable input. 
-* Roundtrip tests - These are run from the test file repository and test file translation to/from all file formats.
-* "Dogfood" tests - Many of the developers use the current development snapshots for their daily use. This is sometimes called eating your dog food and ensures that bugs which impact common functionality are caught quickly.
-* Scripting language tests -- Both the Perl and Python language bindings have additional tests to ensure that these scripting language modules work.
+Unit tests
+  These tests cover specific functionality of the library.
+  
+  Unit tests attempt to show that functions work as indicated (i.e. pass) and fail properly on unacceptable input. They are run after building the code by calling ``make test``. Ideally these tests should cover every public function in the Open Babel API_. Adding more tests to provide greater coverage is a high priority.
+Roundtrip tests
+  Test file translation.
+
+  These are run from the test file repository and test file translation to/from file formats.
+
+"Dogfood" tests
+   Using the development code.
+
+   Many of the developers use the current development snapshots for their daily use. This is sometimes called eating your dog food and ensures that bugs which impact common functionality are caught quickly.
+
+Scripting language tests
+   Perl and Python unit tests
+
+   Both the Perl and Python language bindings have additional tests to ensure that these scripting language modules work.
    * These tests not only stress the scripting modules themselves, but also the underlying library. 
 
 .. _API: http://openbabel.org/api
@@ -24,7 +36,7 @@ UNIX/Linux/Mac OS X
 A variety of tools can be used to help diagnose problems and debug errors:
 Debuggers
 
-* gdb_ - the GNU project debugger is a basic debugger on UNIX systems.
+* gdb_ (the GNU project debugger) is a basic debugger on UNIX systems.
    * GDB can be run on the babel program like so: ``./libtool gdb src/babel``
    * Several GDB commands are highly useful, including bt which gives a full backtrace of program execution upon error.
    * The use of code optimization when compiling can make debugging with GDB and other debuggers extremely difficult. If needed, make sure Open Babel has been compiled, e.g. with ``CXXFLAGS="-g -O0"`` on UNIX. 
@@ -38,9 +50,9 @@ Unlike languages like Java, which handle memory allocation and deletion, C++ req
 
 Several tools can help find such errors:
 
-* Valgrind_ - Works on several platforms by carefully monitoring each memory access and allocation.
-* LeakTracer_ - Works on a range of platforms by using C++ operator overloading.
-* MallocDebug_ (Mac OS X only) - Graphic front-end to monitor memory use and incorrect memory usage. 
+* Valgrind_ works on several platforms by carefully monitoring each memory access and allocation.
+* LeakTracer_ works on a range of platforms by using C++ operator overloading.
+* MallocDebug_ (Mac OS X only) is a graphic front-end to monitor memory use and incorrect memory usage. 
 
 .. _Valgrind: http://www.valgrind.org/
 .. _LeakTracer: http://www.andreasen.org/LeakTracer/
@@ -51,9 +63,9 @@ Code Profiling
 
 To improve the speed of execution, it is often helpful to rely on tools which can
 
-* gprof_ - Used with the GCC compilers to produce profiling data including the number of calls to routines and the amount of time spent executing.
-* Shark/Saturn (Mac OS X only) - Graphical front-ends to gprof and can sample programs while running. 
-* callgrind - this is run through the valgrind virtual machine using ``valgrind --tool=callgrind ./myexe``. This works best (although slower) if the executable is compiled with debugging information (I think!).
+* gprof_ is used with the GCC compilers to produce profiling data including the number of calls to routines and the amount of time spent executing.
+* Shark/Saturn (Mac OS X only) is a graphical front-ends to gprof and can sample programs while running. 
+* callgrind is run through the valgrind virtual machine using ``valgrind --tool=callgrind ./myexe``. This works best (although slower) if the executable is compiled with debugging information (I think!).
 
 .. _gprof: http://www.gnu.org/software/gprof/
 

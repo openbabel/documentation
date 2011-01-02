@@ -17,7 +17,8 @@ The following instructions describe how to compile a simple C# program that uses
    2. Download and extract OBDotNet-0.4.zip_. There should be an example CSharp program included, :program:`example.cs`.
    3. Open a command prompt wherever you unzipped OBDotNet and compile :program:`example.cs` as follows::
 
-              C:\Tools\OBDotNet-0.4> C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe /reference:OBDotNet.dll /platform:x86 example.cs
+              C:\Tools\OBDotNet-0.4> C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe
+                                         /reference:OBDotNet.dll /platform:x86 example.cs
 
    4. Run the created executable, :program:`example.exe`, to discover the molecule weight of propane::
 

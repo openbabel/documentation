@@ -176,7 +176,8 @@ returned by OBMol.GetData using the *toPairData()* or
 
 ::
 
-    pairdata = [openbabel.toPairData(x) for x in obMol.GetData() if x.GetDataType()==openbabel.PairData]
+    pairdata = [openbabel.toPairData(x) for x in obMol.GetData() 
+                if x.GetDataType()==openbabel.PairData]
     print pairdata[0].GetAttribute(), pairdata[0].GetValue()
     
     unitcell = openbabel.toUnitCell(obMol.GetData(openbabel.UnitCell))

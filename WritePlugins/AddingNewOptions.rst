@@ -35,7 +35,8 @@ or in the plugins menu item in the GUI. An example is the ``--gen3D`` option, wh
           OpGen3D(const char* ID) : OBOp(ID, false){};                  
           const char* Description(){ return "Generate 3D coordinates"; }
 
-          virtual bool WorksWith(OBBase* pOb)const{ return dynamic_cast<OBMol*>(pOb)!=NULL; }
+          virtual bool WorksWith(OBBase* pOb)const
+            { return dynamic_cast<OBMol*>(pOb)!=NULL; }
           virtual bool Do(OBBase* pOb, OpMap* pmap, const char* OptionText);
         };
 
@@ -64,11 +65,13 @@ Line **7**: *WorksWith()* identifies the type of object. Usually this is a molec
 
   The *OBOp* base class doesn't know about *OBMol* or *OBConversion* and so it can be used with any kind of object derived from *OBBase* (essentially anything). Although this means that the dependencies between one bit of the program and another are reduced, it does lead to some compromises, such as having to code *WorksWith()* explicitly rather than as a base class default.
 
-Line **11**: This is a global instance which defines the Id of the class. This is the option name used on the command line, preceded by ``--``.
+Line **12**: This is a global instance which defines the Id of the class. This is the option name used on the command line, preceded by ``--``.
 
-Line **13**: The *Do()* function carries out the operation on the target object. It should normally return ``true``. Returning ``false`` prevents the molecule being sent to the output format. Although this means that it is possible to use an *OBOp* class as a filter, it is better to do this using the ``--filter`` option.
+Line **14**: The *Do()* function carries out the operation on the target object. It should normally return ``true``. Returning ``false`` prevents the molecule being sent to the output format. Although this means that it is possible to use an *OBOp* class as a filter, it is better to do this using the ``--filter`` option.
 
-Any other general options specified on the command line (or the GUI) can be accessed by calling *find* on the parameter *pmap*. For example, to determine whether the ``-c`` option was also specified::
+Any other general options specified on the command line (or the GUI) can be accessed by calling *find* on the parameter *pmap*. For example, to determine whether the ``-c`` option was also specified:
+
+.. code-block:: c++
 
   OpMap::const_iterator iter = pmap->find("c");
   if(iter!=pmap->end())

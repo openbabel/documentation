@@ -19,10 +19,6 @@ The latest version of this documentation is available from http://openbabel.org/
    WritePlugins/index.rst
    FileFormats/Overview.rst
 
-Errors and additions should be reported to the Open Babel developers mailing list or fixed yourself by forking the documentation on Github (http://github.com/baoilleach/Open-Babel-user-docs). This documentation was generated using another Open Source project, Sphinx_. Thanks Sphinx!
-
-.. _Sphinx: http://sphinx.pocoo.org
-
 .. The following lines are commented out...
    Indices and tables
    ------------------

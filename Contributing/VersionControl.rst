@@ -15,13 +15,13 @@ Keeping up to date with the latest Open Babel code with Subversion
 
 (1) Check out the latest development version::
 
-      svn co https://openbabel.svn.sourceforge.net/svnroot/openbabel/openbabel/trunk openbabel 
+      svn co https://openbabel.svn.sourceforge.net/svnroot/openbabel/openbabel/trunk 
 
-This creates a directory called :file:`openbabel`, which contains the latest source code from OpenBabel.
+This creates a directory called :file:`trunk`, which contains the latest source code from OpenBabel.
 
 (2) Configure and compile this using CMake, as described on the CMake page.
 
-(3) After some time passes, and you want the latest bug fixes or new features, you may want to update your source code. To do this, go into the :file:`openbabel` directory you created above, and type::
+(3) After some time passes, and you want the latest bug fixes or new features, you may want to update your source code. To do this, go into the :file:`trunk` directory you created above, and type::
 
       svn update
 
@@ -46,7 +46,7 @@ The following table suggests Subversion commands useful for Open Babel contribut
 =================================   ============
 Subversion Command                  What it does
 =================================   ============
-``svn co repo/trunk openbabel``     Check out the latest development version of Open Babel
+``svn co repo/trunk``     Check out the latest development version of Open Babel
 ``svn update``                      Update the current directory and subdirectories with any new changes
 ``svn add filename``                Add the file :file:`filename` to the repository
 ``svn remove filename``             Remove the file :file:`filename` (before a commit)
