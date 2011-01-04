@@ -34,11 +34,11 @@ Options
     Output formatting information and options for all
     formats
 -L  
-    List plugin types (formats, descriptors, ops, etc.)
+    List plugin types (charges, descriptors, fingerprints, forcefields, formats, loaders and ops)
 -L <plugin type>
-    List plugins of this type
+    List plugins of this type. For example, ``obabel -L formats`` gives the list of file formats.
 -L <plugin-ID>
-    Details of a plugin of any type
+    Details of a particular plugin (of any plugin type). For example, ``obabel -L cml`` gives details on the CML file format.
 -V 
     Output version number
 
@@ -121,7 +121,10 @@ Options
 -o <format-ID> 
     Specifies output format. See :ref:`file formats`.
 -p <pH> 
-    Add hydrogens appropriate for pH (use transforms in phmodel.txt)
+    Add hydrogens appropriate for pH (use transforms in :file:`phmodel.txt`)
+--partialcharge <charge-method>
+    Calculate partial charges by the specified method. List available methods
+    using ``obabel -L charges``.
 --property <name  value>
     Add or replace a property (for example, in an SD file, :ref:`MDL_MOL_format`)
 -r 
