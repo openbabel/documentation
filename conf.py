@@ -69,9 +69,9 @@ release = '2.3.0'
 # List of documents that shouldn't be included in the build.
 unused_docs = ["README"]
 
-# List of directories, relative to source directory, that shouldn't be searched
-# for source files.
-exclude_trees = ['_build']
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+exclude_patterns = ['_build']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -145,7 +145,7 @@ html_static_path = ['_static']
 #html_additional_pages = {}
 
 # If false, no module index is generated.
-#html_use_modindex = True
+#html_domain_indices = True
 
 # If false, no index is generated.
 #html_use_index = True
@@ -156,13 +156,19 @@ html_static_path = ['_static']
 # If true, links to the reST sources are added to the pages.
 #html_show_sourcelink = True
 
+# If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
+#html_show_sphinx = True
+
+# If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
+#html_show_copyright = True
+
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
 # base URL from which the finished HTML is served.
 #html_use_opensearch = ''
 
-# If nonempty, this is the file name suffix for HTML files (e.g. ".xhtml").
-#html_file_suffix = ''
+# This is the file name suffix for HTML files (e.g. ".xhtml").
+#html_file_suffix = None
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'OpenBabeldoc'
@@ -191,6 +197,12 @@ latex_logo = "babel130.png"
 # not chapters.
 #latex_use_parts = False
 
+# If true, show page references after internal links.
+#latex_show_pagerefs = False
+
+# If true, show URL addresses after external links.
+#latex_show_urls = False
+
 # Additional stuff for the LaTeX preamble.
 #latex_preamble = ''
 
@@ -198,8 +210,14 @@ latex_logo = "babel130.png"
 #latex_appendices = []
 
 # If false, no module index is generated.
-latex_use_modindex = False
+latex_domain_indices = False
 
-latex_show_pagerefs = False
-latex_show_urls = False
 
+# -- Options for manual page output --------------------------------------------
+
+# One entry per manual page. List of tuples
+# (source start file, name, description, authors, manual section).
+#man_pages = [
+#    ('index', 'openbabel', u'Open Babel Documentation',
+#     [u'Open Babel community'], 1)
+#]
