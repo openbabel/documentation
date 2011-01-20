@@ -1,4 +1,9 @@
 import os
+import sys
+
+if os.path.isfile("pybel.py") or os.path.isfile("pybel.pyc"):
+    sys.exit("Delete pybel.pyc and move pybel.py to oldpybel.py")
+
 import pybel
 import pdb
 import collections
@@ -6,13 +11,15 @@ import collections
 def heading(text, symbol):
     return text + "\n" + symbol*len(text)
 
+
 compchem = ("Computational chemistry", ['POSCAR', 'tmol', 't41', 'tmol', 'zin', 'moo', 'mop',
             'mopcrt', 'mopin', 'mopout', 'mp', 'mpo', 'mpc', 'nw', 'nwo',
             'outmol', 'mpqc', 'mpqcin', 'CONTCAR', 'pqs', 'hin',
             'adf', 'adfout', 'com', 'g03', 'g09', 'g92', 'g98', 'gal',
             'dmol', 'fch', 'fck', 'fh', "gzmat", "caccrt", "cacint",
             'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout',
-            'fhiaims', 'got', 'pwscf' ,'gukin', 'gukout', 'cache'])
+            'fhiaims', 'got', 'pwscf' ,'gukin', 'gukout', 'cache',
+            'castep'])
 viewers = ("3D viewers", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
                           "unixyz", "c3d1", "c3d2", "bs", "crk3d"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
@@ -29,7 +36,7 @@ utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        "mpd", "k"])
 md_and_dock = ('Molecular dynamics and docking',
                       ['gr96', 'txyz', "prep", "mmod", "box", "xtc",
-                       "pdbqt", "CONFIG"])
+                       "pdbqt", "CONFIG", "HISTORY"])
 thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
 reactions = ("Reactions", ["cmlr", "rxn", "rsmi"])
 biology = ("Biological data", ["fasta", "pqr"])

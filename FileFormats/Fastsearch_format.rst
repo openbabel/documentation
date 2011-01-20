@@ -50,7 +50,7 @@ The datafile plus the ``-ifs`` option can be used instead of the index file.
 Read Options
 ~~~~~~~~~~~~ 
 
--t <num>  *Do similarity search: <num>mols or <num> as min Tanimoto*
+-t <num>  *Do similarity search:<num>mols or <num> as min Tanimoto*
 -a  *Add Tanimoto coeff to title in similarity search*
 -l <num>  *Maximum number of candidates. Default<4000>*
 -e  *Exact match*

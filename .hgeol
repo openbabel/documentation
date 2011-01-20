@@ -1,0 +1,4 @@
+[patterns]
+**.py = native
+**.rst = native
+**.txt = native

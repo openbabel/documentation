@@ -1,3 +1,5 @@
+.. _Kinetics and Thermodynamics:
+
 Kinetics and Thermodynamics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

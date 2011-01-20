@@ -1,3 +1,5 @@
+.. _Common cheminformatics:
+
 Common cheminformatics
 ~~~~~~~~~~~~~~~~~~~~~~
 

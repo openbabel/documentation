@@ -1,3 +1,5 @@
+.. _Other cheminformatics:
+
 Other cheminformatics
 ~~~~~~~~~~~~~~~~~~~~~
 

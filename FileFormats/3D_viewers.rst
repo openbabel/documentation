@@ -1,3 +1,5 @@
+.. _3D viewers:
+
 3D viewers
 ~~~~~~~~~~
 

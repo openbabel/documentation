@@ -1,3 +1,5 @@
+.. _Computational chemistry:
+
 Computational chemistry
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -7,6 +9,7 @@ Computational chemistry
    ADF_cartesian_input_format.rst
    ADF_output_format.rst
    CAChe_MolStruct_format.rst
+   CASTEP_format.rst
    Cacao_Cartesian_format.rst
    Cacao_Internal_format.rst
    DMol3_coordinates_format.rst

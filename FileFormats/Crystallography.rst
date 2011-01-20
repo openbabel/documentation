@@ -1,3 +1,5 @@
+.. _Crystallography:
+
 Crystallography
 ~~~~~~~~~~~~~~~
 
@@ -7,5 +9,5 @@ Crystallography
    CSD_CSSR_format.rst
    Crystallographic_Information_File.rst
    Free_Form_Fractional_format.rst
-   Macromolecular_Crystallographic_Information.rst
+   Macromolecular_Crystallographic_Info.rst
    ShelX_format.rst

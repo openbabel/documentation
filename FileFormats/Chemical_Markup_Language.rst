@@ -12,9 +12,6 @@ specify all hydrogens using the hydrogenCount attribute on atoms use -xh.
 Crystal structures are written using the <crystal>, <xfract>) etc., elements
 if the OBMol has a OBGenericDataType::UnitCell data.
 
-If the OBMol has no bonds, a <formula> element is written instead of the
-normal <atomArray> and <atom> elements.
-
 All these forms are handled transparently during reading. Only a subset of
 CML elements and attributes are recognised, but these include most of those
 which define chemical structure, see below.

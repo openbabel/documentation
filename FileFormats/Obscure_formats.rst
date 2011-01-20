@@ -1,3 +1,5 @@
+.. _Obscure formats:
+
 Obscure formats
 ~~~~~~~~~~~~~~~
 

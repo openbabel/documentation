@@ -1,3 +1,5 @@
+.. _2D drawing:
+
 2D drawing
 ~~~~~~~~~~
 
