@@ -11,6 +11,7 @@ The latest version of this documentation is available from http://openbabel.org/
    Command-line_tools/babel.rst
    GUI/GUI.rst
    Fingerprints/intro.rst
+   Command-line_tools/Rosetta.rst
    UseTheLibrary/intro.rst
    Cheminf101/index.rst
    Features/Radicals.rst
