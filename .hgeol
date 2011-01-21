@@ -1,4 +1,4 @@
 [patterns]
-**.py = native
-**.rst = native
-**.txt = native
+make.bat = CRLF
+Makefile = LF
+** = native
