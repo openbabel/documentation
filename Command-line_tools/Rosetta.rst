@@ -235,10 +235,10 @@ This exercise is a bit of a stretch for the Open Babel command-line. However, th
          PUBCHEM_XLOGP3<=5"
          --property "RULE5" "1"
 
-  obabel benzodiazepine.sdf.gz -O out2.sdf --filter "!PUBCHEM_XLOGP3"u
+  obabel benzodiazepine.sdf.gz -O out2.sdf --filter "!PUBCHEM_XLOGP3"
          --property "RULE5" "no logP"
 
-  obabel benzodiazepine.sdf.gz -O out3.sdf --filter "!(PUBCHEM_XLOGP3 &
+  obabel benzodiazepine.sdf.gz -O out3.sdf --filter "!PUBCHEM_XLOGP3 &
          !(PUBCHEM_CACTVS_HBOND_DONOR<=5 & PUBCHEM_CACTVS_HBOND_ACCEPTOR<=10 &
          PUBCHEM_MOLECULAR_WEIGHT<=500 & PUBCHEM_XLOGP3<=5)"
          --property "RULE5" "0"
