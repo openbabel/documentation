@@ -192,12 +192,25 @@ htmlhelp_basename = 'OpenBabeldoc'
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'OpenBabel.tex', u'Open Babel Documentation',
-   u'Open Babel community', 'manual'),
+   "Geoffrey R Hutchison \\and Chris Morley \\and Craig James \\and Chris Swain "
+   "\\and Craig James \\and Hans De Winter \\and Tim Vandermeersch \\and "
+   "Noel M O'Boyle (Ed.)", 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 latex_logo = "babel130.png"
+
+latex_elements = {'printindex':"", # No index please
+                  'fncychap':'\\usepackage[Lenny]{fncychap}',
+    # We can abuse the maketitle to add in some configuration of the chapter
+    # titles as taken from the fancychp documentation for lenny
+    # http://www.ctan.org/tex-archive/macros/latex/contrib/fncychap/fncychap.pdf
+                  'maketitle': """\\ChNameVar{\\fontsize{14}{16}\\usefont{OT1}{phv}{m}{n}\\selectfont}
+\\ChNumVar{\\fontsize{60}{62}\\usefont{OT1}{ptm}{m}{n}\\selectfont}
+\\ChTitleVar{\\Huge\\bfseries\\rm} \\ChRuleWidth{1pt}
+\\maketitle"""
+                  }
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
