@@ -1,7 +1,7 @@
 Install Open Babel
 ==================
 
-Open Babel runs on Windows, Linux and MacOSX. You can either :ref:`install a binary package <Install binaries>` (the easiest option) or :ref:`compile OpenBabel yourself <Compiling Open Babel>` (also easy, but much more geek cred).
+Open Babel runs on Windows, Linux and MacOSX. You can either :ref:`install a binary package <Install binaries>` (the easiest option) or :ref:`compile Open Babel yourself <Compiling Open Babel>` (also easy, but much more geek cred).
 
 .. _Install binaries:
 
@@ -15,23 +15,23 @@ Open Babel is available as a `binary installer`_ for Windows. It includes severa
 
 .. _binary installer: http://sourceforge.net/projects/openbabel/files/openbabel/2.3.3/OpenBabel2.3.3_Windows_Installer.exe/download
 
-Advanced users may be interested in compiling OpenBabel themselves (see :ref:`Compiling Open Babel`).
+Advanced users may be interested in compiling Open Babel themselves (see :ref:`Compiling Open Babel`).
 
 Linux
 ~~~~~
 
 Open Babel binary packages are available from many Linux distributions including Ubuntu, OpenSUSE and Fedora.
 
-In general, we recommend using the latest release of Open Babel (currently |release|). If this is not available for your Linux distribution, you should :ref:`compile OpenBabel yourself <Compiling Open Babel>`.
+In general, we recommend using the latest release of Open Babel (currently |release|). If this is not available for your Linux distribution, you should :ref:`compile Open Babel yourself <Compiling Open Babel>`.
 
 .. _Compiling Open Babel:
 
 Compiling Open Babel
 --------------------
 
-OpenBabel is written in C++. Compiling is the process of turning this C++ into instructions that the computer's processor can understand, machine code.
+Open Babel is written in C++. Compiling is the process of turning this C++ into instructions that the computer's processor can understand, machine code.
 
-Although pre-compiled (or "binary") packages are available for several platforms, there several reasons you might want to compile OpenBabel yourself:
+Although pre-compiled (or "binary") packages are available for several platforms, there several reasons you might want to compile Open Babel yourself:
 
 - The current release (|release|) of Open Babel is not available for your platform. We recommend always using the latest release.
 - You want more control over the features available. For example, perhaps you want the Python bindings but these were not included in your distribution.
