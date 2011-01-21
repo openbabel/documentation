@@ -121,13 +121,15 @@ Highlight a substructure in the depiction
 
 ::
 
-  obabel benzodiazepine.sdf.gz -O out.svg --filter "title=3016" -s "c1ccc2c(c1)C(=NCCN2)c3ccccc3 red" -xu -d
+  obabel benzodiazepine.sdf.gz -O out.svg --filter "title=3016"
+         -s "c1ccc2c(c1)C(=NCCN2)c3ccccc3 red" -xu -d
 
 Since version 2.3.0, Open Babel can output 2D structures as SVG, but not at present as PNG or GIF. The compressed data file can be used as input. The ``-d`` makes hydrogen implicit and the ``-xu`` removes the element-specific coloring.
 
 This is slow (about a minute) because each molecule is fully interpreted, although in most cases only the title is required. The task can be done 10 times faster by using the uncompressed file, converting only the title (the ``-aT`` option) and copying the sd text to standard out when a match occurs. This is piped to a second command which outputs the structure.::
 
-  obabel benzodiazepine.sdf -ocopy --filter "title=3016" -aT | obabel -isdf -O out.svg -s "c1ccc2c(c1)C(=NCCN2)c3ccccc3 red" -xu -d
+  obabel benzodiazepine.sdf -ocopy --filter "title=3016" -aT | 
+         obabel -isdf -O out.svg -s "c1ccc2c(c1)C(=NCCN2)c3ccccc3 red" -xu -d
 
 
 Align the depiction using a fixed substructure
@@ -139,7 +141,8 @@ Align the depiction using a fixed substructure
 
 In Open Babel 2.3.1 this can be done in one line::
 
-  obabel benzodiazepine.sdf.gz -O out.svg -s"[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12 green" --align -d -xu
+  obabel benzodiazepine.sdf.gz -O out.svg --align -d -xu
+         -s"[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12 green"
 
 The depiction has some cosmetic tweaks: the substructure is highlighted in green; ``-d`` removes hydrogen; ``-xu`` removes the element specific coloring.
 
@@ -150,7 +153,8 @@ In earlier versions the :command:`obfit` program can be used. First extract the 
 
 Then use the program :command:`obfit`, which is distributed with Open Babel::
 
-  obfit "[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12" firstbenzo.sdf  sixteenbenzo.sdf > 16out.sdf
+  obfit "[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12" 
+        firstbenzo.sdf  sixteenbenzo.sdf > 16out.sdf
 
 Display the 16 molecules (with implicit hydrogens):: 
 
@@ -226,11 +230,18 @@ Working with SD tag data
 This exercise is a bit of a stretch for the Open Babel command-line. However, the individual lines may be instructional, since they are more like the sort of task that would normally be attempted. 
 ::
 
-  obabel benzodiazepine.sdf.gz -O out1.sdf --filter "PUBCHEM_CACTVS_HBOND_DONOR<=5 & PUBCHEM_CACTVS_HBOND_ACCEPTOR<=10 & PUBCHEM_MOLECULAR_WEIGHT<=500 & PUBCHEM_XLOGP3<=5" --property "RULE5" "1"
+  obabel benzodiazepine.sdf.gz -O out1.sdf --filter "PUBCHEM_CACTVS_HBOND_DONOR<=5 & 
+         PUBCHEM_CACTVS_HBOND_ACCEPTOR<=10 & PUBCHEM_MOLECULAR_WEIGHT<=500 &
+         PUBCHEM_XLOGP3<=5"
+         --property "RULE5" "1"
 
-  obabel benzodiazepine.sdf.gz -O out2.sdf --filter "!PUBCHEM_XLOGP3" --property "RULE5" "no logP"
+  obabel benzodiazepine.sdf.gz -O out2.sdf --filter "!PUBCHEM_XLOGP3"u
+         --property "RULE5" "no logP"
 
-  obabel benzodiazepine.sdf.gz -O out3.sdf --filter "!(PUBCHEM_XLOGP3 & !(PUBCHEM_CACTVS_HBOND_DONOR<=5 & PUBCHEM_CACTVS_HBOND_ACCEPTOR<=10 & PUBCHEM_MOLECULAR_WEIGHT<=500 & PUBCHEM_XLOGP3<=5)" --property "RULE5" "0"
+  obabel benzodiazepine.sdf.gz -O out3.sdf --filter "!(PUBCHEM_XLOGP3 &
+         !(PUBCHEM_CACTVS_HBOND_DONOR<=5 & PUBCHEM_CACTVS_HBOND_ACCEPTOR<=10 &
+         PUBCHEM_MOLECULAR_WEIGHT<=500 & PUBCHEM_XLOGP3<=5)"
+         --property "RULE5" "0"
 
 The first command converts only molecules passing Lipinski's rule, putting them in :file:`out1.sdf`, and adding an additional property, *RULE5*, with a value of ``1``.
 
@@ -242,7 +253,9 @@ Use :command:`cat` or :command:`type` at the command prompt to concatenate the t
 
 These operations are slow because the chemistry of each molecule is fully converted. As illustrated below, the filtering alone could have been done more quickly using the uncompressed file and the ``-aP`` option, which restricts the reading of the sdf file to the title and properties only, and then copying the molecule's sd text verbatim with ``-o copy``. But adding the additional property is not then possible::
 
-  obabel benzodiazepine.sdf -o copy -O out1.sdf -aP --filter "PUBCHEM_CACTVS_HBOND_DONOR<=5 & PUBCHEM_CACTVS_HBOND_ACCEPTOR<=10 & PUBCHEM_MOLECULAR_WEIGHT<=500 & PUBCHEM_XLOGP3<=5"
+  obabel benzodiazepine.sdf -o copy -O out1.sdf -aP --filter
+         "PUBCHEM_CACTVS_HBOND_DONOR<=5 & PUBCHEM_CACTVS_HBOND_ACCEPTOR<=10 &
+         PUBCHEM_MOLECULAR_WEIGHT<=500 & PUBCHEM_XLOGP3<=5"
 
 Unattempted tasks
 ~~~~~~~~~~~~~~~~~
