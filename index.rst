@@ -19,7 +19,7 @@ The latest version of this documentation is available from http://openbabel.org/
    WritePlugins/index.rst
    FileFormats/Overview.rst
 
-.. The following lines are commented out...
+.. The following lines are commented out ...
    Indices and tables
    ------------------
    * :ref:`genindex`
