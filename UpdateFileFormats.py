@@ -143,7 +143,7 @@ for name, codes in sections:
             flags.append("This is a write-only format.")
 ##        print flags
         
-
+        # Read in the parts of the description
         INTRO, WRITE, READ, COMMENTS = range(4)
         data = [[] for i in range(4)]
         N = INTRO
@@ -157,11 +157,23 @@ for name, codes in sections:
                 options = True
             elif N != INTRO and line and line[0]!=" ":
                 N = COMMENTS
-##            print "Line", N, line                
             data[N].append(line)
             emptyline = line.strip()==""
-##            if N==INTRO and emptyline:
-##                data[N].append("\n\n")
+
+        # Check for problems with the GUI
+
+        for section in [READ, WRITE]:
+            emptyline = problem = False
+            for line in data[section]:
+                if line == "":
+                    emptyline = True
+                elif emptyline:
+                    problem = True
+                    break
+            if problem:
+                print "    **** This format will have problems with the GUI ****"
+
+        # Handle the parts of the description
         if data[INTRO]:
             print >> output, "\n**%s**\n" % data[INTRO][0]
             
@@ -210,13 +222,13 @@ for name, codes in sections:
                         broken[0] = broken[0][:-1] + ">"
 
                     print >> output, "-%s  *%s*" % (broken[0], " ".join(broken[start:]))
-                    print  "-%s  %s" % (broken[0], " ".join(broken[start:]))
+                    if False:
+                        print  "-%s  %s" % (broken[0], " ".join(broken[start:]))
 
         if data[COMMENTS]:
             print >> output, heading("Comments", "~")
             for line in data[COMMENTS]:
                 print >> output, line.rstrip()
-##            print >> output, "\n%s\n" % " ".join(data[COMMENTS])
        
         output.close()
     sectionfile.close()
