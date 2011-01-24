@@ -69,8 +69,10 @@ The following are **optional** when compiling Open Babel, but if not available s
 
 * :program:`libxml2` development headers are required to read/write CML files and other XML formats (the *libxml2-dev* package in Ubuntu) 
 * :program:`zlib` development libraries are required to support reading gzipped files (the *zlib1g-dev* package in Ubuntu) 
-* Eigen version 2 is **required** if using the language bindings in the release. In addition, if it not present, some API classes (OBAlign, OBConformerSearch) and plugins (the QEq and QTPIE charge models, the conformer operation) will not be available.
-    Eigen may be available through your package manager (the *libeigen2-dev* package in Ubuntu). Alternatively, Eigen is available from http://eigen.tuxfamily.org. It doesn't need to be compiled or installed. Just unzip it and specify its location when configuring :program:`cmake` (see below) using ``-DEIGEN2_INCLUDE_DIR=whereever``.
+* :program:`Eigen` version 2 is **required** if using the language bindings in the release. In addition, if it not present, some API classes (OBAlign, OBConformerSearch) and plugins (the QEq and QTPIE charge models, the conformer operation) will not be available.
+
+  Eigen may be available through your package manager (the *libeigen2-dev* package in Ubuntu). Alternatively, Eigen is available from http://eigen.tuxfamily.org. It doesn't need to be compiled or installed. Just unzip it and specify its location when configuring :program:`cmake` (see below) using ``-DEIGEN2_INCLUDE_DIR=whereever``.
+
 * If using GCC 3.x to compile (and not GCC 4.x), then the Boost headers are required for certain formats (CML, Chemkin, Chemdraw CDX, MDL RXN and RSMI) 
 
 If you want to use Open Babel using one of the supported **language bindings**, then the following notes may apply:

@@ -6,10 +6,12 @@ Open Babel is a project to facilitate the interconversion of chemical data from 
 * Multiple programs are often required in realistic workflows. These may include databases, modeling or computational programs, visualization programs, etc.
 * Many programs have individual data formats, and/or support only a small subset of other file types.
 * Chemical representations often vary considerably:
-   * Some programs are 2D. Some are 3D. Some use fractional k-space coordinates.
-   * Some programs use bonds and atoms of discrete types. Others use only atoms and electrons.
-   * Some programs use symmetric representations. Others do not.
-   * Some programs specify all atoms. Others use "residues" or omit hydrogen atoms. 
+
+  * Some programs are 2D. Some are 3D. Some use fractional k-space coordinates.
+  * Some programs use bonds and atoms of discrete types. Others use only atoms and electrons.
+  * Some programs use symmetric representations. Others do not.
+  * Some programs specify all atoms. Others use "residues" or omit hydrogen atoms. 
+
 * Individual implementations of even standardized file formats are often buggy, incomplete or do not completely match published standards. 
 
 As a free, and open source project, Open Babel improves by way of helping others. It gains by way of its users, contributors, developers, related projects, and the general chemical community. We must continually strive to support these constituencies.
