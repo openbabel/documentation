@@ -82,13 +82,14 @@ Write Options
     shorter, representation already present. This might have been input
     from an A or S superatom entry in an sd or mol file, or can be
     generated using the --genalias option. For example::
-
+ 
       obabel -:"c1cc(C=O)ccc1C(=O)O" -O out.svg --genalias -xA
-
+ 
     would add a aliases COOH and CHO to represent the carboxyl and
     aldehyde groups and would display them as such in the svg diagram.
     The aliases which are recognized are in data/superatom.txt, which
     can be edited.
+
 Comments
 ~~~~~~~~
 If the input molecule(s) contain explicit hydrogen, you could consider

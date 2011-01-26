@@ -9,8 +9,6 @@ Read Options
 
 -s  *Output single bonds only*
 -b  *Disable bonding entirely*
-
-
 -c  *Read multiple conformers*
 
 

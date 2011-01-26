@@ -15,8 +15,8 @@ Write Options
 -m <model-type>  *BAS (ball-and-stick), SPF (space-fill) or CST (capped sticks)*
 
     The default option is ball-and-stick. To choose space-fill, you would use the following command line::
-
+ 
       obabel aspirin.mol -O aspirin.pov -xm SPF
-
+ 
 -s  *Add a sky (with clouds)*
 -t  *Use transparent textures*

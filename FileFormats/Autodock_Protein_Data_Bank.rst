@@ -19,6 +19,6 @@ Write Options
 -r  *Outputs rigid molecule (no branches)*
 -s  *Outputs as a flexible residue*
 -p  *Preserves the atom indexes from the input file*
--(  *default is to renumber sequentially).*
 
+     (default is to renumber sequentially).
 
