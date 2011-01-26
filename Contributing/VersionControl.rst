@@ -46,7 +46,7 @@ The following table suggests Subversion commands useful for Open Babel contribut
 =================================   ============
 Subversion Command                  What it does
 =================================   ============
-``svn co repo/trunk``     Check out the latest development version of Open Babel
+``svn co repo/trunk``               Check out the latest development version of Open Babel
 ``svn update``                      Update the current directory and subdirectories with any new changes
 ``svn add filename``                Add the file :file:`filename` to the repository
 ``svn remove filename``             Remove the file :file:`filename` (before a commit)

@@ -25,7 +25,7 @@ When modifying old code, please take a little time to improve the documentation 
 
 Even an "obvious" function must be documented, if for no other reason than to say, "This function does what you think, and has no side effects."
 
-Take :obapi:`SetAtomicNum()` - should be "obvious", right? Wrong.
+Take :obapi:`OBAtom::SetAtomicNum() <OpenBabel::OBAtom::SetAtomicNum>` - should be "obvious", right? Wrong.
 
     * Does it affect the charge?
     * The spin multiplicity?

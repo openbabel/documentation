@@ -21,7 +21,7 @@ Documentation and Code Readability
    * The current accepted scheme for Open Babel is a default indent of two spaces, and use of spaces instead of tabs.
    * For tips on changing your editor to use this indentation style, please e-mail the openbabel-devel_ list. 
 * Delete code which is commented out. The SVN version control system maintains history, so if we need it later, we can go back and get that code. Dead code like this simply makes it harder to read the important code!
-* Marking areas of code which use :obapi:`OBAtom::GetIdx()` or other accesses to atom indexes, which may break when atom indexing changes. 
+* Marking areas of code which use :obapi:`OBAtom::GetIdx() <OpenBabel::OBAtom::GetIdx>` or other accesses to atom indexes, which may break when atom indexing changes. 
 
 Code Maintenance
 ----------------
