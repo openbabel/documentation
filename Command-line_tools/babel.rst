@@ -197,7 +197,7 @@ If you want to remove all hydrogens, i.e. make them all implicit, when doing the
 
      obabel mymols.sdf -osmi -O outputfile.smi -d
 
-If you want to add hydrogens, i.e. make thenm all explicit, when doing the conversion the command would be::
+If you want to add hydrogens, i.e. make them all explicit, when doing the conversion the command would be::
 
      obabel mymols.sdf -O outputfile.smi -h
 
@@ -264,7 +264,7 @@ Specifically, the differences are as follows:
 
 * :command:`obabel` is more flexible when the user needs to specify parameter values on options. For instance,  the ``--unique`` option can be used with or without a parameter (specifying the criteria used).  With :command:`babel`, this only works when the option is the last on the line; with :command:`obabel`, no such restriction applies. Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
 
-* :command:`obabel` has a shortcut for entering SMILES strings. Preceed the SMILES by -: and use in place of an input file. The SMILES string should be enclosed in quotation marks. For example::
+* :command:`obabel` has a shortcut for entering SMILES strings. Precede the SMILES by -: and use in place of an input file. The SMILES string should be enclosed in quotation marks. For example::
 
      obabel -:"O=C(O)c1ccccc1OC(=O)C" -ocan
 
@@ -284,7 +284,7 @@ Format Options
 
 Individual file formats may have additional formatting options. These are listed in the documentation for the individual formats (see :ref:`file formats`) or can be shown using the ``-H <format-Id>`` option, e.g. ``-H cml``.
 
-To use these additional options, input format options are preceded by ``-a``, e.g. ``-as``. Output format options, which are much more common, are preceded by ``-x``, e.g. ``-xn``. So to read the 2D coordinates rather than a from a molecule in a CML file and display it on a blackground::
+To use these additional options, input format options are preceded by ``-a``, e.g. ``-as``. Output format options, which are much more common, are preceded by ``-x``, e.g. ``-xn``. So to read the 2D coordinates rather than a from a molecule in a CML file and display it on a black background::
 
       babel mymol.cml out.svg -a2 -xb
 
@@ -361,7 +361,7 @@ converts only those molecules with a ROTATABLE_BOND property and a molecular wei
 
   babel filterset.sdf -osmi --filter "!ROTATABLE_BOND || (ROTATABLE_BOND & MW<130)"
 
-The ! means negate. AND can be & or &&, OR can be | or ||. The brackets are not strictly necessary here because & has precendent over | in the normal way. If the result of a test doesn't matter, it is parsed but not evaluated. In the example, the expression in the brackets is not evaluated for molecules without a ROTATABLE_BOND property. This doesn't matter here, but if evaluation of a descriptor involved a lot of computation, it would pay to include it late in the boolean expression so that there is a chance it is skipped for some molecules.
+The ! means negate. AND can be & or &&, OR can be | or ||. The brackets are not strictly necessary here because & has precedent over | in the normal way. If the result of a test doesn't matter, it is parsed but not evaluated. In the example, the expression in the brackets is not evaluated for molecules without a ROTATABLE_BOND property. This doesn't matter here, but if evaluation of a descriptor involved a lot of computation, it would pay to include it late in the boolean expression so that there is a chance it is skipped for some molecules.
 
 Descriptors must have a conditional test and it is an error if they don't. The default test, as used by MW or logP, is a numerical one, but the parsing of the text, and what the test does is defined in each descriptor's code (a virtual function in the OBDescriptor class). Three examples of this are described in the following sections.
 
@@ -395,7 +395,7 @@ String comparisons can use * as a wildcard. It can only be used as the first or 
 SMARTS descriptor
 ~~~~~~~~~~~~~~~~~
 
-This descriptor will do a SMARTS test (substructure and more) on the molecules. The smarts ID can be abreviated to s and the = is optional. More than one SMARTS test can be done::
+This descriptor will do a SMARTS test (substructure and more) on the molecules. The smarts ID can be abbreviated to s and the = is optional. More than one SMARTS test can be done::
 
   babel filterset.sdf -osmi --filter "s='CN' s!='[N+]'"
 

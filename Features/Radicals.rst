@@ -121,7 +121,7 @@ SMILES extensions for radicals
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Although radical structures can be represent in SMILES by
-specifying the hydrogens explicity, e.g. ``[CH3]`` is the methyl
+specifying the hydrogens explicitly, e.g. ``[CH3]`` is the methyl
 radical, some chemists have apparently felt the need to devise
 non-standard extensions which represent the radical centre
 explicitly. Open Babel will recognize ``C[O.]`` as well as ``C[O]`` as the
@@ -137,7 +137,7 @@ other programs may not interpret radicals correctly.
 Open Babel supports another SMILES extension for both input and
 output: the use of lower case atomic symbols to represent radical
 centres. (This is supported on the ACCORD Chemistry Control and
-maybe elewhere.) So the ethyl radical is ``Cc`` and the methoxy radical
+maybe elsewhere.) So the ethyl radical is ``Cc`` and the methoxy radical
 is ``Co``. This form is input transparently and can be output by using
 the ``-xr`` option "radicals lower case". It is a useful shorthand in
 writing radicals, and in many cases is easier to read since the

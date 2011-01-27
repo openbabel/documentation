@@ -38,7 +38,7 @@ Code a storm
 
 As an open source project, Open Babel has a very open development process. This means that many contributors  have helped with the project with a variety of help -- some for long periods of time, and some with small, single changes. All types of assistance has been valuable to the growth of the project over the years. 
 
-New developers are always very welcome to OpenBabel so if you're interested, just send an email to the developer list (`join here <http://lists.sourceforge.net/lists/listinfo/openbabel-devel>`_) about what you would like to work on, or else we can come up with some ideas for areas where you could contribute. Here are some possibilites:
+New developers are always very welcome to OpenBabel so if you're interested, just send an email to the developer list (`join here <http://lists.sourceforge.net/lists/listinfo/openbabel-devel>`_) about what you would like to work on, or else we can come up with some ideas for areas where you could contribute. Here are some possibilities:
 
 * Implement the latest algorithms described in the literature
 * Add a new file format (see :ref:`add-file-format`)

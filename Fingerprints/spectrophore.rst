@@ -114,7 +114,7 @@ The calculation of a |spec_tm| starts by calculating the atomic
 contributions of each property from which one wants to calculate a
 |spec| from. In the current implementation, four atomic properties are
 converted into a |spec|; these four properties include the atomic
-partial charges, the atomic lipohilicities, the atomic shape deviations and the
+partial charges, the atomic lipophilicities, the atomic shape deviations and the
 atomic electrophilicities. The atomic partial charges and atomic electrophilicity
 properties are calculated using the electronegativity equalisation method (EEM)
 as described by Bultinck and coworkers [bll2002]_ [blc2003]_.
@@ -252,7 +252,7 @@ Stereospecificity
 
 Some of the cages that are used to calculated |specs| have a
 stereospecific distribution of the interaction points. The resulting
-interaction valus resulting from these cages are therefore sensitive to the
+interaction values resulting from these cages are therefore sensitive to the
 enantiomeric configuration of the molecule within the cage. The fact that both
 stereoselective as well as stereo non-selective cages can be used makes it
 possible to include or exclude stereospecificity in the virtual screening

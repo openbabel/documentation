@@ -34,7 +34,7 @@ The separate parts of the OpenBabel program are:
 
 It is possible to build each box in the diagram as a separate DLL or shared library and the restricted dependencies can help to limit the amount of recompilation. For the formats or the fingerprints built in this way it may be possible to use only those whose DLL or so files are present when the program starts. Several formats or fingerprints may be present in a single dynamic library.
 
-Alternatively, and most commonly, the same source code can be built into a single executable. The restricted dependencies still provide easier progam maintainance.
+Alternatively, and most commonly, the same source code can be built into a single executable. The restricted dependencies still provide easier program maintenance.
 
 This segregation means that a module can directly call code only in other modules connected to it by forward arrows. So some discipline is needed when adding new code, and sometimes non-obvious work-arounds are necessary. For instance, since the user interface doesn't know about the Chemical Core, if it were necessary to set any parameters in it, then this would have to be done through a pseudo format OBAPIInterface.
 

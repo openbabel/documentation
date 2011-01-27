@@ -142,7 +142,7 @@ This case study uses a combination of the techniques described above for similar
 
 (3) Let's use the first molecule in the sdf file as a query. Using Notepad (or on Linux, ``head -79 chembl_02.sdf``) extract the first molecule and save it as :file:`first.sdf`. Note that the molecules in the ChEMBL sdf do not have titles; instead, their IDs are stored in the "chebi_id" property field.
 
-(4) This first molecule is 100183. Check its `ChEMBL page`_. It's pretty weird, but is there anything similiar in ChEMBLdb? Let's find the 5 most similar molecules::
+(4) This first molecule is 100183. Check its `ChEMBL page`_. It's pretty weird, but is there anything similar in ChEMBLdb? Let's find the 5 most similar molecules::
 
         babel chembl_02.fs mostsim.sdf -s first.sdf -at5
 
@@ -179,7 +179,7 @@ This case study uses a combination of the techniques described above for similar
         6 molecules converted
         76 audit log messages
 
-(7) Here are the ChEMBL pages for these molecules: 100183_, 124893_, 206983_, 207022_, 607087_. I think it is fair to say that they are pretty similiar. In particular, the output states that 206983 and 207022 are possible superstructures of the query molecule, and that is indeed true. 
+(7) Here are the ChEMBL pages for these molecules: 100183_, 124893_, 206983_, 207022_, 607087_. I think it is fair to say that they are pretty similar. In particular, the output states that 206983 and 207022 are possible superstructures of the query molecule, and that is indeed true. 
 
 .. _100183: http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/100183
 .. _124893: http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/124893

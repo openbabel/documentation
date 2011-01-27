@@ -113,7 +113,7 @@ If you're an academic developer, you certainly should read the previous answer t
 
 But even if you're just an academic user, there's a lot of reasons to contribute. Most of us deal with a variety of file formats in our work. So it's useful to translate these cleanly. If a format isn't currently supported by Open Babel, see question 2.1 above. If you find bugs please report them. Since it's open source, you can patch the code yourself, recompile and have the problem fixed very quickly.
 
-If you're inclined to write code, the GPL is an excellent option for the academic. You're the original copyright holder, so you can do whatever you want with the code, in addition to selling it. But if you've also licensed it under the GPL, no one can distribute it proprietarily (i.e., closed-source) without your agreement. Fellow acadmics can use it directly, learn from it, improve it and contribute back to you. Isn't that why many of us went into science?
+If you're inclined to write code, the GPL is an excellent option for the academic. You're the original copyright holder, so you can do whatever you want with the code, in addition to selling it. But if you've also licensed it under the GPL, no one can distribute it as proprietary (i.e., closed-source) software without your agreement. Fellow academics can use it directly, learn from it, improve it and contribute back to you. Isn't that why many of us went into science?
 
 Once licensed under the GPL, the code must remain free to interested parties. If someone modifies it, that code must still remain under the GPL, free for all.
 

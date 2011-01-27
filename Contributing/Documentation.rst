@@ -44,7 +44,7 @@ A standard ChangeLog file is used to track changes to files by different users o
 User documentation
 ------------------
 
-The documentation you are reading right now is automatically generated from text files in a simple markup language (*reStructuredText*) using the Sphinx_ documenatation system. If you notice any errors or feel there are any missing sections, please let us know at openbabel-devel_.
+The documentation you are reading right now is automatically generated from text files in a simple markup language (*reStructuredText*) using the Sphinx_ documentation system. If you notice any errors or feel there are any missing sections, please let us know at openbabel-devel_.
 
 .. _Sphinx: http://sphinx.pocoo.org/
 .. _openbabel-devel: https://lists.sourceforge.net/lists/listinfo/openbabel-devel

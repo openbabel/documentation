@@ -100,7 +100,7 @@ The similarity search of the index file for the 10 most similar molecules is don
   3016 0.978873
   10 molecules converted
 
-The Tanimoto coefficient comes second, rather than first as requested and is not formtted to two decimal places, but the information is still there.
+The Tanimoto coefficient comes second, rather than first as requested and is not formatted to two decimal places, but the information is still there.
 
 Depict a compound as an image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
