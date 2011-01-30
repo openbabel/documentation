@@ -287,7 +287,7 @@ Format Options
 
 Individual file formats may have additional formatting options. These are listed in the documentation for the individual formats (see :ref:`file formats`) or can be shown using the ``-H <format-Id>`` option, e.g. ``-H cml``.
 
-To use these additional options, input format options are preceded by ``-a``, e.g. ``-as``. Output format options, which are much more common, are preceded by ``-x``, e.g. ``-xn``. So to read the 2D coordinates rather than a from a molecule in a CML file and display it on a black background::
+To use these additional options, input format options are preceded by ``-a``, e.g. ``-as``. Output format options, which are much more common, are preceded by ``-x``, e.g. ``-xn``. So to read the 2D coordinates (rather than the 3D) from a :ref:`CML file <Chemical_Markup_Language>` and generate an :ref:`SVG file <SVG_2D_depiction>` displaying the molecule on a black background, the relevant options are used as follows::
 
       babel mymol.cml out.svg -a2 -xb
 
@@ -298,17 +298,17 @@ Append property values to the title
 
 The command line option ``--append`` adds extra information to the title of the molecule.
 
-The information can be calculated from the structure of the molecule or can originate from a property attached to the molecule, usually from an sdf or cml input file. It is used as follows::
+The information can be calculated from the structure of the molecule or can originate from a property attached to the molecule (in the case of CML and SDF input files). It is used as follows::
 
  babel infile.sdf -osmi --append "MW CAT_NO"
 
-``MW`` is the ID of a descriptor which calculates the molecular weight of the molecule, and ``CAT_NO`` is a property of the molecule from the sdf input file. The values of these are added to the title of the molecule. For input files with many molecules these additions are specific to each molecule. (The option ``--addtotitle`` adds the same text to every title.)
+``MW`` is the ID of a descriptor which calculates the molecular weight of the molecule, and ``CAT_NO`` is a property of the molecule from the SDF input file. The values of these are added to the title of the molecule. For input files with many molecules these additions are specific to each molecule. (Note that the related option ``--addtotitle`` simply adds the same text to every title.)
 
 The append option only takes one parameter, which means that all of the descriptor IDs or property names must be enclosed together in a single set of quotes.
 
-If the name of the property in the sdf file (internally the Attribute in OBPairData) contains spaces, these spaces should be replaced by underscore characters, '_'. So the example above would also work for a property named ``CAT NO``.
+If the name of the property in the SDF file (internally the Attribute in OBPairData) contains spaces, these spaces should be replaced by underscore characters, '_'. So the example above would also work for a property named ``CAT NO``.
 
-By default, the extra items are added to the title separated by spaces. But if the first character in the parameter is a whitespace or punctuation character other than '_', it is used as the separator instead. In the GUI, because tab is used to move between controls, if a tab character was required it would have to be pasted in. 
+By default, the extra items are added to the title separated by spaces. But if the first character in the parameter is a whitespace or punctuation character other than '_', it is used as the separator instead. Note that in the GUI, because Tab is used to move between controls, if a Tab character is required it has to be pasted in. 
 
 .. _filter options:
 
@@ -331,12 +331,12 @@ You use it like this::
 
   babel filterset.sdf -osmi --filter "MW<130 ROTATABLE_BOND > 2"
 
-It takes one parameter which probably needs to be enclosed in double quotes to avoid confusing the shell or operating system. (You don't need the quotes with the Windows GUI.) It contains one or more conditional tests. By default, these have all to be true for the molecule to be converted. As well as this implicit AND behaviour, you can write a full Boolean expression, see below. As you can see, there can be spaces or not in sensible places and the conditional tests could be separated by a comma or semicolon.
+It takes one parameter which probably needs to be enclosed in double quotes to avoid confusing the shell or operating system. (You don't need the quotes with the Windows GUI.) The parameter contains one or more conditional tests. By default, these have all to be true for the molecule to be converted. As well as this implicit AND behaviour, you can write a full Boolean expression (see below). As you can see, there can be spaces or not in sensible places and the conditional tests could be separated by a comma or semicolon.
 
 You can filter on two types of property:
 
-* An SDF property, as the identifier ROTATABLE_BOND could be. There is no need for it to be previously known to OpenBabel.
-* An ID of an OBDescriptor object. This is a plug-in class so that new objects can easily be added. MW is the ID of a descriptor which calculates molecular weight. You can see a list of available descriptors by::
+* An SDF property, as the identifier ROTATABLE_BOND could be. There is no need for it to be previously known to Open Babel.
+* A descriptor name (internally, an ID of an OBDescriptor object). This is a plug-in class so that new objects can easily be added. MW is the ID of a descriptor which calculates molecular weight. You can see a list of available descriptors using::
 
     babel -L descriptors
 
@@ -350,11 +350,13 @@ You can filter on two types of property:
 
 The descriptor names are case-insensitive. With the property names currently, you need to get the case right. Both types of identifier can contain letters, numbers and underscores, '_'. Properties can contain spaces, but then when writing the name in the filter parameter, you need to replace them with underscores. So in the example above, the test would also be suitable for a property 'ROTATABLE BOND'.
 
-OpenBabel uses a SDF-like property (which is held internally in the class OBPairData) in preference to a descriptor if one exists in the molecule. So with the example file, which can be found here::
+Open Babel uses a SDF-like property (internally this is stored in the class OBPairData) in preference to a descriptor if one exists in the molecule. So with the example file, which can be found here_::
 
   babel filterset.sdf -osmi --filter "logP>5"
 
 converts only a molecule with a property logP=10.900, since the others do not have this property and logP, being also a descriptor, is calculated and is always much less than 5.
+
+.. _here: http://openbabel.svn.sourceforge.net/viewvc/openbabel/openbabel/trunk/test/files/filterset.sdf?revision=1955
 
 If a property does not have a conditional test, then it returns true only if it exists. So::
 
@@ -375,7 +377,7 @@ String descriptors
 
   babel filterset.sdf -osmi --filter "title='Ethanol'"
 
-The descriptor, title, when followed by a string, here enclosed by single quotes, does a case-sensitive string comparison. ('ethanol' wouldn't match anything in the example file.) The comparison does not have to be just equality::
+The descriptor *title*, when followed by a string (here enclosed by single quotes), does a case-sensitive string comparison. ('ethanol' wouldn't match anything in the example file.) The comparison does not have to be just equality::
 
   babel filterset.sdf -osmi --filter "title>='D'"
 
@@ -402,7 +404,7 @@ This descriptor will do a SMARTS test (substructure and more) on the molecules. 
 
   babel filterset.sdf -osmi --filter "s='CN' s!='[N+]'"
 
-This provides a more flexible alternative to the existing ``-s`` and ``-v`` options, since the descriptor versions can be combined with other tests.
+This provides a more flexible alternative to the existing ``-s`` and ``-v`` options, since the SMARTS descriptor test can be combined with other tests.
 
 InChI descriptor
 ~~~~~~~~~~~~~~~~
@@ -440,7 +442,7 @@ The ``--sort`` option is used to output molecules ordered by the value of a desc
 
  babel  infile.xxx  outfile.xxx  --sort desc
 
-If the descriptor desc provides a numerical value, the molecule with the smallest value is output first. For descriptors which provide a string output the order is alphabetical, but for the inchi descriptor a more chemically informed order is used (e.g. "CH4" is before than "C2H6", "CH4" is less than "ClH" hydrogen chloride).
+If the descriptor desc provides a numerical value, the molecule with the smallest value is output first. For descriptors that provide a string output the order is alphabetical, but for the InChI descriptor a more chemically informed order is used (e.g. "CH4" is before than "C2H6", "CH4" is less than "ClH" hydrogen chloride).
 
 The order can be reversed by preceding the descriptor name with ``~``, e.g.::
 
@@ -462,7 +464,7 @@ The ``--unique`` option is used to remove, i.e. not output, any chemically ident
 
  babel  infile.xxx  outfile.yyy  --unique [param]
 
-The optional parameter param defines what is regarded as "chemically identical". It can be the name of any descriptor, although not many are likely to be useful. If param is omitted, the InChI descriptor is used. Other useful descriptors are 'cansmi' and 'cansmiNS' (canonical SMILES, with and without stereochemical information),'title' and truncated InChI, see below.
+The optional parameter *param* defines what is regarded as "chemically identical". It can be the name of any descriptor, although not many are likely to be useful. If *param* is omitted, the InChI descriptor is used. Other useful descriptors are 'cansmi' and 'cansmiNS' (canonical SMILES, with and without stereochemical information),'title' and truncated InChI (see below).
 
 Note that if you want to use ``--unique`` without a parameter with :command:`babel`, it needs to be last on the line. With the alternative commandline interface, :command:`obabel`, it can be anywhere after the output file.
 
@@ -470,20 +472,20 @@ A message is output for each duplicate found::
 
       Removed methyl benzene - a duplicate of toluene (#1)
 
-Clearly, this is more useful if each molecule has a title. The (#1) is the number of duplicates found so far.
+Clearly, this is more useful if each molecule has a title. The ``(#1)`` is the number of duplicates found so far.
 
-If you wanted to identify duplicates but not output the unique molecules, you could use nulformat::
+If you wanted to identify duplicates but not output the unique molecules, you could use the :ref:`null format <Outputs_nothing>`::
 
  babel  infile.xxx  -onul  --unique    
 
 Truncated InChI
 ~~~~~~~~~~~~~~~
 
-It is possible to relax the criterion by which molecules are regarded as "chemically identical" by using a truncated InChI specification as param. This takes advantage of the layered structure of InChI. So to remove duplicates, treating stereoisomers as the same molecule::
+It is possible to relax the criterion by which molecules are regarded as "chemically identical" by using a truncated InChI specification as *param*. This takes advantage of the layered structure of InChI. So to remove duplicates, treating stereoisomers as the same molecule::
 
  babel  infile.xxx  outfile.yyy  --unique /nostereo
 
-Truncated InChI specifications start with '/' and are case-sensitive. param can be a concatenation of these e.g. /nochg/noiso ::
+Truncated InChI specifications start with ``/`` and are case-sensitive. *param* can be a concatenation of these e.g. ``/nochg/noiso``::
 
  /formula   formula only
  /connect   formula and connectivity only
@@ -496,7 +498,7 @@ Truncated InChI specifications start with '/' and are case-sensitive. param can 
 Multiple files
 ~~~~~~~~~~~~~~
 
-The input molecules do not have to be in a single file. So to collect all the unique molecules from a set of mol files::
+The input molecules do not have to be in a single file. So to collect all the unique molecules from a set of MOL files::
 
  babel  *.mol  uniquemols.sdf  --unique
 
@@ -515,7 +517,7 @@ The unique molecules will be in files with the original name prefixed by 'U'. Du
 Aliases for chemical groups
 ---------------------------------
 
-There is a limited amount of support for representing common chemical groups by an alias, e.g. benzoic acid as ``Ph-COOH``, with two alias groups. Internally in Open Babel, the molecule usually has a 'real' structure with the alias names present as only an alternative representation. For MDL mol and sd files alias names can be read from or written to an 'A' line. The more modern RGroup representations are not yet recognized. Reading is transparent; the alias group is expanded and the 'real' atoms given reasonable coordinates if the the molecule is 2D or 3D. Writing in alias form, rather than the 'real' structure, requires the use the ``-xA`` option.  SVGFormat will also display any aliases present in a molecule if the ``-xA`` option is set.
+There is a limited amount of support for representing common chemical groups by an alias, e.g. benzoic acid as ``Ph-COOH``, with two alias groups. Internally in Open Babel, the molecule usually has a 'real' structure with the alias names present as only an alternative representation. For MDL MOL and SD files alias names can be read from or written to an 'A' line. The more modern RGroup representations are not yet recognized. Reading is transparent; the alias group is expanded and the 'real' atoms given reasonable coordinates if the the molecule is 2D or 3D. Writing in alias form, rather than the 'real' structure, requires the use of the ``-xA`` option.  SVGFormat will also display any aliases present in a molecule if the ``-xA`` option is set.
 
 The alias names that are recognized are in the file :file:`superatoms.txt` which can be edited.
 

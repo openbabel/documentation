@@ -1,9 +1,11 @@
 The Open Babel GUI
 ------------------
 
-Open Babel converts chemical objects (currently molecules or
-reactions) from one file format to another. The GUI interface is an
+The :command:`obabel` command line program converts chemical objects (currently molecules or reactions) from one file format to another. The GUI interface is an
 alternative to using the command line and has the same capabilities. Since Open Babel 2.3, the GUI is available cross-platform on Windows, Linux and MacOSX.
+
+Since the functionality of the GUI mirrors that of :command:`obabel`, you should consult the previous chapter to learn about available features and how to use them. This chapter describes the general use of the GUI and then focuses on features that are specific to the GUI.
+
 
 Basic operation
 ~~~~~~~~~~~~~~~
@@ -30,7 +32,7 @@ The options in the middle are those appropriate for the type of
 chemical object being converted (molecule or reaction) and the
 input and output formats. They are derived from the description
 text that is displayed with the ``-Hxxx`` option in the command line
-interface and with the "Format info" buttons here. You can switch
+interface and with the ":guilabel:`Format info`" buttons here. You can switch
 off the display of any of the various types of option using the
 :guilabel:`View` menu if the screen is getting too cluttered.
 
@@ -64,19 +66,19 @@ all input molecules...`"
 Wildcards in filenames
 ~~~~~~~~~~~~~~~~~~~~~~
 
-When an input filenames are typed in directly, any of them can
+When input filenames are typed in directly, any of them can
 contain the wildcard characters ``*`` and ``?``. Typing Enter will replace
 these by a list of the matching files. The wildcarded names can be
 restored by typing Enter while holding down the Shift key. The
 original or the expanded versions will behave the same when the
 ":guilabel:`Convert`" button is pressed.
 
-By including the wildcard ``*`` in the both the input and output
+By including the wildcard ``*`` in both the input and output
 filenames you can carry out batch conversion. Suppose there were
 files :file:`first.smi`, :file:`second.smi`, :file:`third.smi`. Using ``*.smi`` as the input
 filename and ``*.mol`` as the output filename would produce three
 files :file:`first.mol`, :file:`second.mol` and :file:`third.mol`. If the output filename
-was ``NEW_*.mol`` the output files would be :file:`NEW_first.mol`, etc.
+was ``NEW_*.mol``, then the output files would be :file:`NEW_first.mol`, etc.
 
 Local input
 ~~~~~~~~~~~
@@ -98,8 +100,8 @@ Graphical display
 
 The chemical structures being converted can be displayed (as SVG)
 in an external program. By default this is Firefox but it can be
-changed from an item on the :guilabel:`View` menu. (For instance, Opera and
-Chrome work ok.) When ":guilabel:`Display in firefox`" (under the output file
+changed from an item on the :guilabel:`View` menu (for instance, Opera and
+Chrome work fine). When ":guilabel:`Display in firefox`" (under the output file
 name) is checked, the structures will be shown in a new Firefox
 tab. With multiple molecules the display can be zoomed (mousewheel)
 and panned (dragging with mouse button depressed). Up to 100
@@ -130,7 +132,7 @@ Other features
 ~~~~~~~~~~~~~~
 
 Most of the interface parameters, such as the selected format and
-the window size and position are remembered between sessions.
+the window size and position, are remembered between sessions.
 
 Using the :guilabel:`View` menu, the input and output text boxes can be set not
 to wrap the text. At present you have to restart the program for
@@ -144,11 +146,11 @@ the windows.
 Example files
 ~~~~~~~~~~~~~
 
-There are three chemical files in the executable folder to try out:
+In the Windows distribution, there are three chemical files included to try out:
 
 * **serotonin.mol** which has 3D atom coordinates
-* **oxamide.cml** which is 2D and has a large number of properties that will be seen when converting to sdf
+* **oxamide.cml** which is 2D and has a large number of properties that will be seen when converting to SDF
 * **FourSmallMols.cml** which (unsurprisingly) contains four molecules with no atom coordinates and can be used to illustrate the handling of multiple molecules:
 
-    Setting the output format to smi (which is easy to see), you can convert only the second and third molecules by entering ``2`` and ``3`` in the appropriate option boxes. Or convert only molecules with C-O single bonds by entering ``CO`` in the SMARTS option box.
+  Setting the output format to SMI (which is easy to see), you can convert only the second and third molecules by entering ``2`` and ``3`` in the appropriate option boxes. Or convert only molecules with C-O single bonds by entering ``CO`` in the SMARTS option box.
 
