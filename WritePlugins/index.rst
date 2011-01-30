@@ -1,3 +1,5 @@
+.. _Add plugins:
+
 Adding plugins
 ==============
 

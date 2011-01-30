@@ -34,7 +34,7 @@ Options
     Output formatting information and options for all
     formats
 -L  
-    List plugin types (charges, descriptors, fingerprints, forcefields, formats, loaders and ops)
+    List plugin types (``charges``, ``descriptors``, ``fingerprints``, ``forcefields``, ``formats``, ``loaders`` and ``ops``)
 -L <plugin type>
     List plugins of this type. For example, ``obabel -L formats`` gives the list of file formats.
 -L <plugin-ID>
@@ -53,16 +53,18 @@ Options
   If only input and output files are given, Open Babel will guess the file type from the filename extension. For information on the file formats supported by Open Babel, please see :ref:`file formats`.
 
 -a <options>
-    Format-specific input options. See ``-H <format-ID>`` for options
-    allowed by a particular format
+    Format-specific input options. Use ``-H <format-ID>`` to see options
+    allowed by a particular format, or see the appropriate section in
+    :ref:`file formats`.
 --add <list>
-    Add properties (for SDF, CML, etc.) from descriptors in list
+    Add properties (for SDF, CML, etc.) from descriptors in list. Use
+    ``-L descriptors`` to see available descriptors.
 --addinindex
     Append input index to title (that is, the index `before` any filtering)
 --addoutindex
     Append output index to title (that is, the index `after` any filtering)
 --addtotitle <text>
-    Append the text after the each molecule title
+    Append the text after each molecule title
 --append <list> 
     Append properties or descriptor values appropriate for a molecule to its title. For more
     information, see :ref:`append option`.
@@ -126,7 +128,7 @@ Options
     Calculate partial charges by the specified method. List available methods
     using ``obabel -L charges``.
 --property <name  value>
-    Add or replace a property (for example, in an SD file, :ref:`MDL_MOL_format`)
+    Add or replace a property (for example, in an SD file)
 -r 
     Remove all but the largest contiguous fragment (strip salts)
 --readconformers
@@ -146,8 +148,9 @@ Options
 --writeconformers 
     Output multiple conformers as separate molecules
 -x <options> 
-    Format-specific output options. See ``-H <format-ID>`` for options
-    allowed by a particular format
+    Format-specific output options. use ``-H <format-ID>`` to see options
+    allowed by a particular format, or see the appropriate section in
+    :ref:`file formats`.
 -v <SMARTS>
     Convert only molecules **NOT** matching the SMARTS pattern specified
 -z 
@@ -177,7 +180,7 @@ Conversion from a SMI file in STDIN to a Mol2 file written to STDOUT::
 
     obabel -ismi -omol2
 
-Split a multi-molecule file into new1.smi, new2.smi, etc.::
+Split a multi-molecule file into :file:`new1.smi`, :file:`new2.smi`, etc.::
 
     obabel infile.mol -O new.smi -m
 
@@ -185,7 +188,7 @@ In Windows this can also be written::
 
     obabel infile.mol -O new*.smi
 
-Multiple input files can be converted in batch format too. To convert all files ending in .xyz (\*.xyz) to PDB files, you can type::
+Multiple input files can be converted in batch format too. To convert all files ending in .xyz (``*.xyz``) to PDB files, you can type::
 
     obabel *.xyz -opdb -m
 
@@ -193,11 +196,11 @@ Open Babel will not generate coordinates unless asked, so while a conversion fro
 
      obabel infile.smi -O out.sdf --gen3d
 
-If you want to remove all hydrogens, i.e. make them all implicit, when doing the conversion the command would be::
+If you want to remove all hydrogens (i.e. make them all implicit) when doing the conversion the command would be::
 
      obabel mymols.sdf -osmi -O outputfile.smi -d
 
-If you want to add hydrogens, i.e. make them all explicit, when doing the conversion the command would be::
+If you want to add hydrogens (i.e. make them all explicit) when doing the conversion the command would be::
 
      obabel mymols.sdf -O outputfile.smi -h
 
@@ -215,7 +218,7 @@ Some functional groups e.g. nitro or sulphone can be represented either as ``[N+
 
      obabel mymols.sdf -O outputfile.smi -b
 
-If you only want to convert a subset of molecules you can define them using -f and -l, so to convert molecules 2-4 of the file mymols.sdf type::
+If you only want to convert a subset of molecules you can define them using ``-f`` and ``-l``. To convert molecules 2-4 of the file :file:`mymols.sdf` type::
 
      obabel mymols.sdf -f 2 -l 4 -osdf -O outputfile.sdf 
 
@@ -223,7 +226,7 @@ Alternatively you can select a subset matching a SMARTS pattern, so to select al
 
      obabel mymols.sdf -O selected.sdf -s "c1ccccc1Br"
 
-You can select a subset that do not match a SMARTS pattern, so to select all molecules not containing bromobenzene use::
+You can also select the subset that do *not* match a SMARTS pattern, so to select all molecules not containing bromobenzene use::
 
      obabel mymols.sdf -O selected.sdf -v "c1ccccc1Br"
 
@@ -235,11 +238,11 @@ Files compressed with gzip are read transparently, whether or not they have a .g
 
      obabel compressed.sdf.gz -O expanded.smi
 
-On platforms other than Windows, the output file can be compressed with gzip, but note if you don't specify the ".gz" suffix it will not be added automatically, which could cause problems when you try to open the file::
+On platforms other than Windows, the output file can be compressed with gzip, but note if you don't specify the .gz suffix it will not be added automatically, which could cause problems when you try to open the file::
 
      obabel mymols.sdf -O outputfile.sdf.gz -z
 
-This example reads the first 50 molecules in a compressed dataset and prints out the SMILES of those containing a pyridine ring, together with the index in the file, the ID (taken from an SDF property) and the output index::
+This next example reads the first 50 molecules in a compressed dataset and prints out the SMILES of those containing a pyridine ring, together with the index in the file, the ID (taken from an SDF property) as well as the output index::
   
     obabel chembl_02.sdf.gz -osmi -l 50 -s c1ccccn1 --append chebi_id
            --addinindex --addoutindex

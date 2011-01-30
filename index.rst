@@ -1,7 +1,7 @@
 Open Babel, or how I learned to love the chemistry file format
 ==============================================================
 
-The latest version of this documentation is available from http://openbabel.org/docs/dev/ (or as a PDF from http://openbabel.org/docs/dev/OpenBabel.pdf).
+The latest version of this documentation is available in several formats from http://openbabel.org/docs/dev/.
 
 .. toctree::
    :maxdepth: 2

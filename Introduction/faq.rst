@@ -57,7 +57,7 @@ If you would like to reference Open Babel in an academic paper, we suggest using
    *J. Chem. Inf. Model.* **2006**, *46*, 991-998.
    [`Link <http://dx.doi.org/10.1021/ci050400b>`_] 
 
-* The Open Babel Package, version 2.2.3 http://openbabel.org (accessed Feb 2010) 
+* Open Babel, version 2.3.0, http://openbabel.org (accessed Feb 2011) 
 
 The first is a paper on the `Blue Obelisk`_ initiative, which includes Open Babel and other open source chemistry projects, and the second is one way to cite a software package at a particular URL. Obviously, you should include the version number of Open Babel you used, and the date you downloaded the software or installed Open Babel.
 
@@ -65,6 +65,8 @@ The first is a paper on the `Blue Obelisk`_ initiative, which includes Open Babe
 
 Features, Formats, Roadmap
 --------------------------
+
+.. _why no support:
 
 .. rubric:: Why don't you support file format X?
 
@@ -79,12 +81,6 @@ The latter obviously is the easiest with text file formats. Binary files take so
 .. rubric:: When I convert from SMILES to MOL2/PDB/etc., why are all of the coordinates zero?
 
 The SMILES format contains 2D information on the molecule. That is, it says which atoms are connected to which other atoms, and what type of bonds are present. MOL2, PDB and several other formats contain 3D coordinate information not present in the SMILES format. Since Open Babel does not attempt to generate 3D structure by default, all of the coordinates are set to zero. However, it is possible to generate 3D structure with the release of Open Babel 2.2.0 using the ``--gen3d`` option.
-
-.. rubric:: What doesn't Open Babel support yet?
-
-A couple of things. See the proposed roadmap (**TODO**) for examples of things we'd like to see in future versions.
-
-.. todo:: Need to add the roadmap, or else remove this comment.
 
 .. rubric:: What sorts of features will be added in the future?
 
@@ -111,7 +107,7 @@ It's a win-win for everyone. The community benefits by having feature-rich trans
 
 If you're an academic developer, you certainly should read the previous answer too. It takes little work on your part to interface with Open Babel and you get a lot in return.
 
-But even if you're just an academic user, there's a lot of reasons to contribute. Most of us deal with a variety of file formats in our work. So it's useful to translate these cleanly. If a format isn't currently supported by Open Babel, see question 2.1 above. If you find bugs please report them. Since it's open source, you can patch the code yourself, recompile and have the problem fixed very quickly.
+But even if you're just an academic user, there's a lot of reasons to contribute. Most of us deal with a variety of file formats in our work. So it's useful to translate these cleanly. If a format isn't currently supported by Open Babel, see :ref:`above <why no support>`. If you find bugs please report them. Since it's open source, you can patch the code yourself, recompile and have the problem fixed very quickly.
 
 If you're inclined to write code, the GPL is an excellent option for the academic. You're the original copyright holder, so you can do whatever you want with the code, in addition to selling it. But if you've also licensed it under the GPL, no one can distribute it as proprietary (i.e., closed-source) software without your agreement. Fellow academics can use it directly, learn from it, improve it and contribute back to you. Isn't that why many of us went into science?
 
@@ -119,7 +115,7 @@ Once licensed under the GPL, the code must remain free to interested parties. If
 
 .. rubric:: What's in it for an open-source software project?
 
-Certainly the answers for closed-source software and academics also apply for you. Beyond that, if your code is compatible with the GPL, you can directly use Open Babel and all of the API. This is already happening with the Ghemical molecular editor, available under the GPL and many others (see `related projects`_). There's a lot of code in Open Babel beyond file translation and more to come. Why reinvent the wheel?
+Certainly the answers for closed-source software and academics also apply for you. Beyond that, if your code is compatible with the GPL, you can directly use Open Babel and all of the API. This is already happening with the Avogadro molecular editor, available under the GPL, and many others (see `related projects`_). There's a lot of code in Open Babel beyond file translation and more to come. Why reinvent the wheel?
 
 .. _related projects: http://openbabel.org/wiki/Related
 

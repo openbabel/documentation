@@ -31,12 +31,12 @@ Compiling Open Babel
 
 Open Babel is written in C++. Compiling is the process of turning this C++ into instructions that the computer's processor can understand, machine code.
 
-Although pre-compiled (or "binary") packages are available for several platforms, there several reasons you might want to compile Open Babel yourself:
+Although pre-compiled (or "binary") packages are available for several platforms, there are several reasons you might want to compile Open Babel yourself:
 
 - The current release (|release|) of Open Babel is not available for your platform. We recommend always using the latest release.
 - You want more control over the features available. For example, perhaps you want the Python bindings but these were not included in your distribution.
 - You want to use the latest development code.
-- You want to add a new feature. It is easy to add new formats or operations to Open Babel as it has a plugin architecture.
+- You want to add a new feature. It is easy to add new formats or operations to Open Babel as it has a plugin architecture (see :ref:`Add plugins`).
 - You just want to compile stuff yourself. We understand.
 
 Open Babel can be compiled on Linux, MacOSX, BSDs and other Unixes, and also on Windows (with Cygwin, MinGW or MSVC).
@@ -55,7 +55,7 @@ To build Open Babel, you **need** the following:
 
 * CMake 2.4 or newer
 
-    Open Babel uses CMake as its build system. CMake is a open source cross-platform build system from KitWare.
+    Open Babel uses CMake as its build system. CMake is an open source cross-platform build system from KitWare.
 
     You need to install CMake 2.4 or newer. This is available as a binary package from the KitWare website; alternatively, it may be available through your package manager (on Linux). If necessary, you can also compile it yourself from the source code.
 
@@ -154,7 +154,7 @@ Compile language bindings
 
   If you wish to compile the language bindings supplied in the release, Eigen2 is required (see :ref:`requirements` above).
 
-1. When configuring CMake, include options such as ``-DPYTHON_BINDINGS=ON -DRUBY_BINDINGS=ON`` for whichever bindings you wish to build (valid names are ``PYTHON``, ``CSHARP``, ``PERL``, ``JAVA`` or ``RUBY``). The bindings will then be built and installed along with rest of Open Babel. You should note any warning messages in the CMake output.
+1. When configuring CMake, include options such as ``-DPYTHON_BINDINGS=ON -DRUBY_BINDINGS=ON`` for whichever bindings you wish to build (valid names are ``PYTHON``, ``CSHARP``, ``PERL``, ``JAVA`` or ``RUBY``). The bindings will then be built and installed along with the rest of Open Babel. You should note any warning messages in the CMake output.
 
 2. If CMake cannot find Java, you should set the value of the environment variable ``JAVA_HOME`` to the directory containing the Java :file:`bin` and :file:`lib`  directories. For example, if you download the JDK from Sun and run the self-extracting .bin file, it creates a directory :file:`jdk1.6.0_21` (or similar); you should set ``JAVA_HOME`` to the full path to this directory.
 
@@ -197,15 +197,17 @@ Windows (MSVC)
 The main Windows build used by Open Babel uses the Microsoft Visual C++ compiler (MSVC).
 
 1. Set up the following environment variables:
-    a. Add the CMake :file:`bin` directory to the PATH
 
-    b. (Optional, see :ref:`requirements` above) Set EIGEN2_INCLUDE_DIR to the location of the top level Eigen directory
+    a. Add the CMake :file:`bin` directory to the PATH.
 
-    c. (Optional, required for GUI) Set WXWIN to the top level directory of wxWidgets
+    b. (Optional, see :ref:`requirements` above) Set EIGEN2_INCLUDE_DIR to the location of the top level Eigen directory (if installed).
+
+    c. (Optional, required for GUI) Set WXWIN to the top level directory of wxWidgets (if installed).
 
 
 2. Install the Microsoft Visual C++ 2008 (or newer) compiler.
-     We use the Visual C++ 2008 (9.0) `Express Edition`_ (available for free). If you use MSVC++ 2010, open :file:`windows-vc2008/default_build.bat` in a text editor and change the ``2008`` to ``2010``.
+
+   We use the Visual C++ 2008 (9.0) `Express Edition`_ (available for free). If you use MSVC++ 2010, open :file:`windows-vc2008/default_build.bat` in a text editor and change the ``2008`` to ``2010``.
 
 .. _Express Edition: http://www.microsoft.com/Express/VC/
 
@@ -221,7 +223,7 @@ Troubleshooting build problems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. rubric:: CMake caches some variables from run-to-run. How can I wipe the cache to start from scratch?
 
-Delete :file:`CMakeCache.txt`. This is also a very useful file to look into if you have any problems.
+Delete :file:`CMakeCache.txt` in the build directory. This is also a very useful file to look into if you have any problems.
 
 .. rubric:: How do I specify the location of the XML libraries?
 
@@ -236,11 +238,11 @@ CMake should find these automatically if they are installed system-wide. If you 
 .. rubric:: What environment variables affect how Open Babel finds formats, plugins and libraries?
 
 **LD_LIBRARY_PATH** - Used to find the location of the :file:`libopenbabel.so` file.
-  You should set this if you get error messages about not being about to find :file:`libopenbabel.so`.
+  You should set this if you get error messages about not being able to find :file:`libopenbabel.so`.
 **BABEL_LIBDIR** - Used to find plugins such as the file formats
   If ``obabel -L formats`` does not list any file formats, then you need to set this environment variable to the directory where the file formats were installed, typically :file:`/usr/local/lib/openbabel/`.
 **BABEL_DATADIR** - Used to find the location of the data files used for fingerprints, forcefields, etc.
-  If you get errors about not being able to initialise ??? (TODO), then you should set this to the name of the folder containing files such as :file:`patterns.txt` and :file:`MACCS.txt`. These are typically installed to :file:`/usr/local/share/openbabel`.
+  If you get errors about not being able to find some .txt files, then you should set this to the name of the folder containing files such as :file:`patterns.txt` and :file:`MACCS.txt`. These are typically installed to :file:`/usr/local/share/openbabel`.
 
 Advanced build options
 ~~~~~~~~~~~~~~~~~~~~~~

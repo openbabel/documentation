@@ -193,7 +193,7 @@ htmlhelp_basename = 'OpenBabeldoc'
 latex_documents = [
   ('index', 'OpenBabel.tex', u'Open Babel Documentation',
    "Geoffrey R Hutchison \\and Chris Morley \\and Craig James \\and Chris Swain "
-   "\\and Craig James \\and Hans De Winter \\and Tim Vandermeersch \\and "
+   "\\and Hans De Winter \\and Tim Vandermeersch \\and "
    "Noel M O'Boyle (Ed.)", 'manual'),
 ]
 
