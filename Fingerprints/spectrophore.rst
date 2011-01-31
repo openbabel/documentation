@@ -15,7 +15,7 @@ Introduction
 ------------
 
 |specs|\ [#trademark]_ are one-dimensional descriptors generated from the property
-fields surrounding the molecules. The technology allows the accurate description
+fields surrounding the molecules. This technology allows the accurate description
 of molecules in terms of their surface properties or fields. Comparison of
 molecules' property fields provides a robust structure-independent method of
 aligning actives from different chemical classes. When applied to molecules such
@@ -83,8 +83,7 @@ obspectrophore
 
 -a <accuracy>  *The required accuracy expressed as the angular stepsize*
 
-    Only the following discrete values are allowed:
-        1, 2, 5, 10, 15, 20 (default), 30, 36, 45, 60
+    Only the following discrete values are allowed: 1, 2, 5, 10, 15, 20 (default), 30, 36, 45, 60
 
 -s <type>  *The kind of cages that should be used*
         
@@ -98,8 +97,8 @@ obspectrophore
 
 -r <resolution>  *The required resolution expressed as a real positive number*
 
-    The default value is 3.0 Angstrom. Negative values or a value equal
-    to 0 generates an error message
+    The default value is 3.0 Angstrom. Negative values or a value of
+    0 generates an error message.
 
 -h  *Displays help*
 
@@ -112,7 +111,7 @@ Atomic properties
 
 The calculation of a |spec_tm| starts by calculating the atomic
 contributions of each property from which one wants to calculate a
-|spec| from. In the current implementation, four atomic properties are
+|spec|. In the current implementation, four atomic properties are
 converted into a |spec|; these four properties include the atomic
 partial charges, the atomic lipophilicities, the atomic shape deviations and the
 atomic electrophilicities. The atomic partial charges and atomic electrophilicity
@@ -228,9 +227,11 @@ molecule, and the amount of detail that needs to be captured can be regulated by
 the user. This is done by altering the minimal distance between the molecule and
 the surrounding cage. The resolution can be specified by the user with the
 ``-r`` option. The default distance along all dimensions is 3.0 Angstrom.
-The larger the distance, the lower the resolution. With a higher resolution,
+The larger the distance, the lower the resolution.
+
+With a higher resolution,
 more details of the property fields surrounding the molecule are contained by
-the |spec|. On the contrary, low resolution settings may lead to a more
+the |spec|. On the other hand, low resolution settings may lead to a more
 general representation of the property fields, with little or no emphasis on
 small local variations within the fields. Using a low resolution can be the
 method of choice during the initial virtual screening experiments in order to get
@@ -238,14 +239,15 @@ an initial, but not so discriminative, first selection. This initial selection
 can then further be refined during subsequent virtual screening steps using a
 higher resolution. In this setting, small local differences in the fields between
 pairs of molecules will be picked up much more easily.
+
 The absolute values of the individual |spec| data points are dependent
 on the used resolution. Low resolution values lead to small values of the
 calculated individual |spec| data points, while high resolutions will
 lead to larger data values. It is therefore only meaningful to compare only
 |specs| that have been generated using the same resolution settings or
 after some kind of normalization is performed.
-Computation time is not influenced by the specified resolution, hence the
-computation time is identical for all different resolution settings.
+Computation time is not influenced by the specified resolution and hence
+is identical for all different resolution settings.
 
 Stereospecificity
 ~~~~~~~~~~~~~~~~~
@@ -259,20 +261,25 @@ possible to include or exclude stereospecificity in the virtual screening
 search. Depending on the desired output, the stereospecificity of
 |specs| can be specified by the user using the ``-s`` option:
 
-- No stereospecificity (default). |specs| are generated using cages
-  that are not stereospecific. For most applications, these |specs|
-  will suffice.
-- Unique stereospecificity. |specs| are generated using unique
-  stereospecific cages.
-- Mirror stereospecificity. Mirror stereospecific |specs| are
-  |specs| resulting from the mirror enantiomeric form of the input
-  molecules.
+- No stereospecificity (default):
+    |specs| are generated using cages
+    that are not stereospecific. For most applications, these |specs|
+    will suffice.
+
+- Unique stereospecificity:
+    |specs| are generated using unique
+    stereospecific cages.
+
+- Mirror stereospecificity:
+    Mirror stereospecific |specs| are
+    |specs| resulting from the mirror enantiomeric form of the input
+    molecules.
 
 The differences between the corresponding data points of unique and mirror
 stereospecific |specs| are very small and require very long
 calculation times to obtain a sufficiently high quality level. This increased
 quality level is triggered by the accuracy setting and will result in
-calculation times being increased by at least a factor 100. As a consequence, it
+calculation times being increased by at least a factor of 100. As a consequence, it
 is recommended to apply this increased accuracy only in combination with a
 limited number of molecules, and when the small differences between the
 stereospecific |specs| are really critical. However, for the vast
@@ -290,10 +297,10 @@ In these cases, normalization of |specs| may be required. The current
 implementation offers with the ``-n`` option the possibility to normalize in four
 different ways:
 
-- No normalization (default);
-- Normalization towards zero mean;
-- Normalization towards standard deviation;
-- Normalization towards zero mean and unit standard deviation.
+- No normalization (default)
+- Normalization towards zero mean
+- Normalization towards standard deviation
+- Normalization towards zero mean and unit standard deviation
 
 In all these cases, normalization is performed on a 'per-property' basis, which
 means that the data points belonging to the same property set are treated as a

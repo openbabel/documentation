@@ -29,6 +29,10 @@ At present there are four types of fingerprints:
 
         Note that you can tailor the latter three fingerprints to your own needs by adding your own SMARTS queries to these files. On UNIX and Mac systems, these files are frequently found in :file:`/usr/local/share/openbabel` under a directory for each version of Open Babel. 
 
+.. seealso::
+
+   The sections on the :ref:`fingerprint <Fingerprint_format>` and :ref:`fastsearch <Fastsearch_format>` formats contain additional detail.
+        
 Similarity searching
 --------------------
 
@@ -37,7 +41,7 @@ Small datasets
 
 For relatively small datasets (<10,000's) it is possible to do similarity searches without the need to build a similarity index, however larger datasets (up to a few million) can be searched rapidly once a fastsearch index has been built.
 
-On small datasets these fingerprints can be used in a variety of ways. The following command gives you the Tanimoto coefficient between a SMILES string in mysmiles.smi and all the molecules in mymols.sdf::
+On small datasets these fingerprints can be used in a variety of ways. The following command gives you the Tanimoto coefficient between a SMILES string in :file:`mysmiles.smi` and all the molecules in :file:`mymols.sdf`::
 
         babel  mysmiles.smi  mymols.sdf -ofpt
 
@@ -57,7 +61,7 @@ The default fingerprint used is the FP2 fingerprint. You change the fingerprint 
 
         babel mymols.sdf -ofpt -xfFP3
 
-The ``-s`` option of babel is used to filter by SMARTS string (see Babel). If you wanted to know the similarity only to the substituted bromobenzenes in mymols.sdf then you might combine commands like this (note: if the query molecule does not match the SMARTS string this will not work as expected, as the first molecule in the database that matches the SMARTS string will instead be used as the query)::
+The ``-s`` option of :command:`babel` is used to filter by SMARTS string. If you wanted to know the similarity only to the substituted bromobenzenes in :file:`mymols.sdf` then you might combine commands like this (note: if the query molecule does not match the SMARTS string this will not work as expected, as the first molecule in the database that matches the SMARTS string will instead be used as the query)::
 
         babel mysmiles.smi mymols.sdf -ofpt -s c1ccccc1Br
 
@@ -65,7 +69,7 @@ The ``-s`` option of babel is used to filter by SMARTS string (see Babel). If yo
         MOL_00000083   Tanimoto from first mol = 0.0869565
         MOL_00000105   Tanimoto from first mol = 0.0888889
 
-If you don't specify a query file, babel will just use the first molecule in the database as the query::
+If you don't specify a query file, :command:`babel` will just use the first molecule in the database as the query::
 
         babel mymols.sdf  -ofpt
 
@@ -84,11 +88,11 @@ If you don't specify a query file, babel will just use the first molecule in the
 Large datasets
 ~~~~~~~~~~~~~~
 
-On larger datasets it is necessary to first build a fastsearch index. This is an new file that stores a database of fingerprints for the files indexed. You will still need to keep both the new .fs fastsearch index and the original files. However, the new index will allow significantly faster searching and similarity comparisons. The index is created with the following command::
+On larger datasets it is necessary to first build a fastsearch index. This is a new file that stores a database of fingerprints for the files indexed. You will still need to keep both the new .fs fastsearch index and the original files. However, the new index will allow significantly faster searching and similarity comparisons. The index is created with the following command::
 
         babel mymols.sdf -ofs
 
-This builds mymols.fs with the default fingerprint (unfolded). The following command uses the index to find the 5 most similar molecules to the molecule in query.mol::
+This builds :file:`mymols.fs` with the default fingerprint (unfolded). The following command uses the index to find the 5 most similar molecules to the molecule in :file:`query.mol`::
 
         babel mymols.fs results.sdf -squery.mol -at5
 
@@ -110,7 +114,7 @@ If all you want output are the molecule names then adding ``-xt`` will return ju
 
         babel mymols.sdf -sN#Cc1ccccc1C#N results.smi -xt
 
-The parameter of the ``-s`` option in these examples is actually SMARTS, which allows a richer matching specification, if required. It does mean that the aromaticity of atoms and bonds is significant; use `[#6]` rather than `C` to match both aliphatic and aromatic carbon.
+The parameter of the ``-s`` option in these examples is actually SMARTS, which allows a richer matching specification, if required. It does mean that the aromaticity of atoms and bonds is significant; use ``[#6]`` rather than ``C`` to match both aliphatic and aromatic carbon.
 
 The ``-s`` option's parameter can also be a file name with an extension. The file must contain a molecule, which means only substructure matching is possible (rather than full SMARTS). The matching is also slightly more relaxed with respect to aromaticity.
 
@@ -136,7 +140,7 @@ This case study uses a combination of the techniques described above for similar
 
 (1) Download Version 2 of ChEMBLdb from ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/.
 
-(2) After unzipping it, make a fastsearch index (this took 18 minutes on my machine, for the 500K+ molecules)::
+(2) After unzipping it, make a fastsearch index (this took 18 minutes on my machine for the 500K+ molecules)::
 
         babel chembl_02.sdf -ofs
 
@@ -187,7 +191,7 @@ This case study uses a combination of the techniques described above for similar
 .. _207022: http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/207022
 .. _607087: http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/607087
 
-(8) How many of the molecules in the dataset are superstructures of the molecule in :file:`first.sdf`? To do this and to visualize the large numbers of molecules produced, we can output to SVG format (see :ref:`SVG_depiction`)::
+(8) How many of the molecules in the dataset are superstructures of the molecule in :file:`first.sdf`? To do this and to visualize the large numbers of molecules produced, we can output to SVG format (see :ref:`SVG_2D_depiction`)::
 
         obabel chembl_02.fs  -O out.svg  -s first.sdf
 
