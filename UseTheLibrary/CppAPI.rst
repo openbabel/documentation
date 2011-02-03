@@ -1,3 +1,5 @@
+.. _API:
+
 The Open Babel API
 ==================
 

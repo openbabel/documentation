@@ -26,7 +26,7 @@ As such, essentially any call in the C++ API is available to Perl
 access with very little difference in syntax. This guide is
 designed to give examples of common Perl syntax for
 Chemistry::OpenBabel and pointers to the appropriate sections of
-the `API documentation <http://openbabel.sourceforge.net/api/>`_.
+the :ref:`API documentation <API>`.
 
 The example script below creates atoms and bonds one-by-one using
 the OBMol, OBAtom, and OBBond classes.
@@ -55,7 +55,7 @@ the OBMol, OBAtom, and OBBond classes.
 
 More commonly, Open Babel can be used to read in molecules using
 the OBConversion framework. The following script reads in molecular
-information (a SMI file) from a string, adds hydrogens, and writes
+information from a SMILES string, adds hydrogens, and writes
 out an MDL file as a string.
 
 ::

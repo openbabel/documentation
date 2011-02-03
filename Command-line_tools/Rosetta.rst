@@ -1,13 +1,13 @@
-obabel vs. Chemistry Toolkit Rosetta
-------------------------------------
+obabel vs Chemistry Toolkit Rosetta
+-----------------------------------
 
 The `Chemistry Toolkit Rosetta`_ is the brainchild of Andrew Dalke. It is a website that illustrates how to program various chemical toolkits to do a set of tasks. To make it easily understandable, these tasks are probably on the simpler side of those in the real world. The Rosetta already contains several examples of using the Open Babel Python bindings to carry out tasks.
 
-Here we focus on the use of the command line application, :command:`obabel`, to accomplish the tasks listed in the Rosetta. Inevitably we will struggle with more complicated tasks; however this section is intended to show how far it can go and to illustrate some of its less common features. Some of the tasks cannot be done exactly as specified, but they are are usually close enough to useful.
+Here we focus on the use of the command line application :command:`obabel` to accomplish the tasks listed in the Rosetta. Inevitably we will struggle with more complicated tasks; however this section is intended to show how far you can go simply using :command:`obabel`, and to illustrate some of its less common features. Some of the tasks cannot be done exactly as specified, but they are are usually close enough to useful.
 
 .. _Chemistry Toolkit Rosetta: http://ctr.wikia.com/wiki/Chemistry_Toolkit_Rosetta_Wiki
 
-Note that except for the examples involving piping, the GUI can also be used. Also the copy output format at present works only for files with Unix line endings.
+Note that except for the examples involving piping, the GUI could also be used. Also the copy output format at present works only for files with Unix line endings.
 
 Heavy atom counts from an SD file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -18,7 +18,7 @@ Heavy atom counts from an SD file
 
   obabel benzodiazepine.sdf.gz -otxt --title "" --append atoms -d -l5
 
-The txt format outputs only the title but we set that to nothing and then append the result. The descriptor counts the number of atoms after the ``-d`` option has removed the hydrogens. The ``-l5`` limits the output to the first 5 molecules, in case you really didn't want to print out results for all 12386 molecules.
+The :ref:`txt format <Title_format>` outputs only the title but we set that to nothing and then append the result. The *atoms* descriptor counts the number of atoms after the ``-d`` option has removed the hydrogens. The ``-l5`` limits the output to the first 5 molecules, in case you really didn't want to print out results for all 12386 molecules.
 
 Convert a SMILES string to canonical SMILES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,7 +27,7 @@ Convert a SMILES string to canonical SMILES
 
 ::
 
-  obabel -:CN2C(=O)N(C)C(=O)C1=C2N=CN1C -:CN1C=NC2=C1C(=O)N(C)C(=O)N2C -ocan
+  obabel -:"CN2C(=O)N(C)C(=O)C1=C2N=CN1C" -:"CN1C=NC2=C1C(=O)N(C)C(=O)N2C" -ocan
 
 giving::
 
@@ -64,10 +64,11 @@ Report the similarity between two structures
 
 Two types of fingerprint are used: the default FP2 path-based one, and FP4 which is structure key based::
 
-  obabel -:CC(C)C=CCCCCC(=O)NCc1ccc(c(c1)OC)O -:COC1=C(C=CC(=C1)C=O)O -ofpt
+  obabel -:"CC(C)C=CCCCCC(=O)NCc1ccc(c(c1)OC)O" -:"COC1=C(C=CC(=C1)C=O)O" -ofpt
   Tanimoto from first mol = 0.360465
 
-  obabel -:CC(C)C=CCCCCC(=O)NCc1ccc(c(c1)OC)O -:COC1=C(C=CC(=C1)C=O)O -ofpt -xfFP4
+  obabel -:"CC(C)C=CCCCCC(=O)NCc1ccc(c(c1)OC)O" -:"COC1=C(C=CC(=C1)C=O)O" -ofpt
+         -xfFP4
   Tanimoto from first mol = 0.277778
 
                                   
@@ -109,7 +110,7 @@ Depict a compound as an image
 
 Open Babel does not at present output as PNG or GIF, but does as SVG::
 
-  obabel "-:CN1C=NC2=C1C(=O)N(C(=O)N2C)C Caffeine" -O out.svg   
+  obabel -:"CN1C=NC2=C1C(=O)N(C(=O)N2C)C Caffeine" -O out.svg   
 
  
 Highlight a substructure in the depiction
@@ -124,9 +125,9 @@ Highlight a substructure in the depiction
   obabel benzodiazepine.sdf.gz -O out.svg --filter "title=3016"
          -s "c1ccc2c(c1)C(=NCCN2)c3ccccc3 red" -xu -d
 
-Since version 2.3.0, Open Babel can output 2D structures as SVG, but not at present as PNG or GIF. The compressed data file can be used as input. The ``-d`` makes hydrogen implicit and the ``-xu`` removes the element-specific coloring.
+Since version 2.3.0, Open Babel can output 2D structures as :ref:`SVG <SVG_2D_depiction>`, but not yet as PNG or GIF. The compressed data file can be used as input. The ``-d`` makes hydrogen implicit and the ``-xu`` removes the element-specific coloring.
 
-This is slow (about a minute) because each molecule is fully interpreted, although in most cases only the title is required. The task can be done 10 times faster by using the uncompressed file, converting only the title (the ``-aT`` option) and copying the sd text to standard out when a match occurs. This is piped to a second command which outputs the structure.::
+This is slow (about a minute) because each molecule is fully interpreted, although in most cases only the title is required. The task can be done 10 times faster by using the uncompressed file, converting only the title (the ``-aT`` option) and copying the SD text to standard out when a match occurs. This is piped to a second command which outputs the structure.::
 
   obabel benzodiazepine.sdf -ocopy --filter "title=3016" -aT | 
          obabel -isdf -O out.svg -s "c1ccc2c(c1)C(=NCCN2)c3ccccc3 red" -xu -d
@@ -161,7 +162,7 @@ Display the 16 molecules (with implicit hydrogens)::
   obabel 16out.sdf -O out.svg -d
   
 
-Perform a substructure search on SDF file and report the number of false positives
+Perform a substructure search on an SDF file and report the number of false positives
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   *The sample database will be gzip'ed SD file of the benzodiazepine data set. The query structure will be defined as "C1C=C(NC=O)C=CC=1".*
@@ -172,7 +173,7 @@ Prepare an index (of the unzipped data file)::
 
   obabel benzodiazepine.sdf -ofs
 
-Do the substructure search. A very large number of molecules match the query, so the maximum number of hits has to be increased with the ``-al 9000`` option. By virtue of the ``~`` it is the false positives are output (to nowhere) but their number is reported::
+Do the substructure search. A very large number of molecules match the query, so the maximum number of hits has to be increased with the ``-al 9000`` option. By virtue of the ``~`` it is the false positives that are output (to nowhere) but their number is reported::
 
   obabel benzodiazepine.fs -onul -s ~substruct.smi -al 9000 
   8531 candidates from fingerprint search phase
@@ -251,7 +252,7 @@ The third command converts only molecules that do have a *PUBCHEM_XLOGP3* and wh
 
 Use :command:`cat` or :command:`type` at the command prompt to concatenate the three files :file:`out1.sdf`, :file:`out2.sdf`, :file:`out3.sdf`.
 
-These operations are slow because the chemistry of each molecule is fully converted. As illustrated below, the filtering alone could have been done more quickly using the uncompressed file and the ``-aP`` option, which restricts the reading of the sdf file to the title and properties only, and then copying the molecule's sd text verbatim with ``-o copy``. But adding the additional property is not then possible::
+These operations are slow because the chemistry of each molecule is fully converted. As illustrated below, the filtering alone could have been done more quickly using the uncompressed file and the ``-aP`` option, which restricts the reading of the SDF file to the title and properties only, and then copying the molecule's SDF text verbatim with ``-o copy``. But adding the additional property is not then possible::
 
   obabel benzodiazepine.sdf -o copy -O out1.sdf -aP --filter
          "PUBCHEM_CACTVS_HBOND_DONOR<=5 & PUBCHEM_CACTVS_HBOND_ACCEPTOR<=10 &
@@ -260,7 +261,7 @@ These operations are slow because the chemistry of each molecule is fully conver
 Unattempted tasks
 ~~~~~~~~~~~~~~~~~
 
-A number of the Chemical Toolkit Rosetta tasks can not be attempted as the :command:`obabel` tool does not (currently!) have the necessary functionality. These include the following:
+A number of the Chemical Toolkit Rosetta tasks cannot be attempted as the :command:`obabel` tool does not (currently!) have the necessary functionality. These include the following:
 
 * Detect and report SMILES and SDF parsing errors
 * Ring counts in a SMILES file
@@ -268,3 +269,5 @@ A number of the Chemical Toolkit Rosetta tasks can not be attempted as the :comm
 * Find the graph diameter
 * Break rotatable bonds and report the fragments
 * Change stereochemistry of certain atoms in SMILES file
+
+To handle these tasks, you need to use the Open Babel library directly. This is the subject of the next section.

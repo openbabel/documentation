@@ -11,9 +11,7 @@ OBBond, and OBResidue, as well as the conversion framework
 OBConversion. As such, essentially any call in the C++ API is
 available to Python scripts with very little difference in syntax.
 As a result, the principal documentation is the
-`Open Babel C++ API documentation`_.
-
-.. _`Open Babel C++ API documentation`: http://openbabel.org/api
+:ref:`C++ API documentation <API>`.
 
 Examples
 ^^^^^^^^
@@ -165,14 +163,14 @@ you need to first explicitly create a C array using the
     obMol.Rotate(myarray)
     # Works!
 
-Accessing OBPairData and OBUnitCell
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Accessing OBPairData, OBUnitCell and other OBGenericData
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to access any :obapi:`OBPairData`
-or :obapi:`OBUnitCell`
-associated with a molecule, you need to 'cast' the OBGenericData
-returned by OBMol.GetData using the *toPairData()* or
-*toUnitCell()* functions:
+If you want to access any subclass of OBGenericData (such as :obapi:`OBPairData`
+or :obapi:`OBUnitCell`)
+associated with a molecule, you need to 'cast' the :obapi:`OBGenericData`
+returned by :obapi:`OBMol.GetData() <OpenBabel::OBMol::GetData>` using the *toPairData()*, *toUnitCell()* (etc.)
+functions:
 
 ::
 
@@ -186,7 +184,7 @@ returned by OBMol.GetData using the *toPairData()* or
 Using FastSearch from Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Rather than use the :obapi:`FastSearch` class directly, it's easiest to use the OpenInAndOutFiles method as follows::
+Rather than use the :obapi:`FastSearch` class directly, it's easiest to use the :obapi:`OpenInAndOutFiles() <OpenBabel::OBConversion::OpenInAndOutFiles>` method as follows::
 
  >>> import openbabel
  >>> conv=openbabel.OBConversion()

@@ -1,7 +1,7 @@
 CSharp and OBDotNet
 ===================
 
-**OBDotNet** is a compiled assembly that allows OpenBabel to be used from the various .NET  languages (e.g. Visual Basic, C#, IronPython, IronRuby, and J#) on Windows, Linux and MacOSX. The current version is OBDotNet 0.4. 
+**OBDotNet** is a compiled assembly that allows Open Babel to be used from the various .NET  languages (e.g. Visual Basic, C#, IronPython, IronRuby, and J#) on Windows, Linux and MacOSX. The current version is OBDotNet 0.4. 
 
 Installation
 ------------
@@ -14,8 +14,8 @@ The :file:`OBDotNet.dll` assembly provided on Windows was compiled using the .NE
 The following instructions describe how to compile a simple C# program that uses OBDotNet:
 
    1. First you need to download and install the :program:`OpenBabelGUI version 2.3.0`
-   2. Download and extract OBDotNet-0.4.zip_. There should be an example CSharp program included, :program:`example.cs`.
-   3. Open a command prompt wherever you unzipped OBDotNet and compile :program:`example.cs` as follows::
+   2. Download and extract OBDotNet-0.4.zip_. There should be an example CSharp program included, :file:`example.cs`.
+   3. Open a command prompt wherever you unzipped OBDotNet and compile :file:`example.cs` as follows::
 
               C:\Tools\OBDotNet-0.4> C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe
                                          /reference:OBDotNet.dll /platform:x86 example.cs
@@ -52,9 +52,7 @@ On Linux and MacOSX you need to use Mono, the open source implementation of the 
 OBDotNet API
 ------------
 
-The API is almost identical to the Open Babel `C++ API`_. Differences are described here.
-
-.. _C++ API: http://openbabel.org/api
+The API is almost identical to the Open Babel :ref:`C++ API <API>`. Differences are described here.
 
 .. rubric:: Using iterators
 
@@ -78,7 +76,7 @@ To cast :obapi:`OBGenericData` to a specific subclass, you should use the ``.Dow
 
 .. rubric:: Open Babel Constants
 
-OpenBabel constants are available in the class ``openbabelcsharp``.
+Open Babel constants are available in the class ``openbabelcsharp``.
 
 Examples
 --------

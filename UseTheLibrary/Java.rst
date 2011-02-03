@@ -110,9 +110,7 @@ API
 
 :file:`openbabel.jar` provides direct access to the C++ Open Babel library from Java through the namespace **org.openbabel**. This binding is generated using the SWIG package and provides access to almost all of the Open Babel interfaces from Java, including the base classes :obapi:`OBMol`, :obapi:`OBAtom`, :obapi:`OBBond`, and :obapi:`OBResidue`, as well as the conversion framework :obapi:`OBConversion`.
 
-Essentially any call in the C++ API is available to Java programs with very little difference in syntax. As a result, the principal documentation is the `Open Babel C++ API documentation`_. A few differences exist, however:
-
-.. _Open Babel C++ API documentation: http://openbabel.org/api
+Essentially any call in the C++ API is available to Java programs with very little difference in syntax. As a result, the principal documentation is the :ref:`Open Babel C++ API documentation <API>`. A few differences exist, however:
 
 .. highlight:: java
 
@@ -124,7 +122,7 @@ Essentially any call in the C++ API is available to Java programs with very litt
             System.out.println(atom.GetAtomicNum());
         }
 
-* To facilitate use of the :obapi:`OBMolAtomBFSIter`, *OBAtom* has been extended to incorporate a *CurrentDepth* value, accessible through *Get*::
+* To facilitate use of the :obapi:`OBMolAtomBFSIter`, *OBAtom* has been extended to incorporate a *CurrentDepth* value, accessible through a get method::
 
         for(OBAtom atom : new OBMolAtomBFSIter(mol)) {
             System.out.println(atom.GetCurrentDepth());

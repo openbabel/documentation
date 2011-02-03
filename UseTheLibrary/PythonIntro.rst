@@ -1,7 +1,7 @@
 Introduction
 ~~~~~~~~~~~~
 
-The Python interface to OpenBabel is perhaps the most popular of the several languages that OpenBabel supports. We provide two Python modules that can be used to access the functionality of Open Babel toolkit:
+The Python interface to Open Babel is perhaps the most popular of the several languages that Open Babel supports. We provide two Python modules that can be used to access the functionality of Open Babel toolkit:
 
 1. The *openbabel* module:
    

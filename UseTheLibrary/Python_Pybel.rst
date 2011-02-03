@@ -10,7 +10,7 @@ simpler to use the Open Babel libraries from Python, especially for
 file input/output and for accessing the attributes of atoms and
 molecules. The Atom and Molecule classes used by Pybel can be
 converted to and from the OBAtom and OBMol used by the
-``openbabel`` module. These features are discussed in more detail
+:file:`openbabel` module. These features are discussed in more detail
 below.
 
 The rationale and technical details behind Pybel are described in O'Boyle et al [omh2008]_. To support further development of Pybel, please cite this paper if you use Pybel to obtain results for publication.
@@ -47,7 +47,7 @@ be created in two different ways:
 #. From an :obapi:`OBAtom`, using ``Atom(myOBAtom)``
 #. By accessing the :attr:`~pybel.Molecule.atoms` attribute of a :class:`~pybel.Molecule`
 
-.. sidebar:: Using Pybel with openbabel.py 
+.. sidebar:: Using Pybel with :file:`openbabel.py`
 
         It is always possible to access the OBMol or OBAtom on which a
         Molecule or Atom is based, by accessing the appropriate attribute,
@@ -294,18 +294,18 @@ Here is an example of its use:
 
 .. _Combining:
 
-Combining Pybel with openbabel.py
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Combining Pybel with :file:`openbabel.py`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It is easy to combine the ease of use of Pybel, with the
+It is easy to combine the ease of use of Pybel with the
 comprehensive coverage of the Open Babel toolkit that
-``openbabel.py`` provides. Pybel is really a wrapper around
-``openbabel.py``, with the result that the OBAtom and OBMol used by
-openbabel.py can be interconverted to the Atom and Molecule used by
+:file:`openbabel.py` provides. Pybel is really a wrapper around
+:file:`openbabel.py`, with the result that the OBAtom and OBMol used by
+:file:`openbabel.py` can be interconverted to the Atom and Molecule used by
 Pybel.
 
 The following example shows how to read a molecule from a PDB file
-using Pybel, and then how to use openbabel.py to add hydrogens. It
+using Pybel, and then how to use :file:`openbabel.py` to add hydrogens. It
 also illustrates how to find out information on what methods and
 classes are available, while at the interactive Python prompt.
 
@@ -331,9 +331,9 @@ classes are available, while at the interactive Python prompt.
     >>> print len(mol.atoms), mol.molwt
     7244 49406.0
 
-The next example is an extension of one of the ``openbabel.py``
+The next example is an extension of one of the :file:`openbabel.py`
 examples at the top of this page. It shows how a molecule could be
-created using ``openbabel.py``, and then written to a file using
+created using :file:`openbabel.py`, and then written to a file using
 Pybel:
 
 ::

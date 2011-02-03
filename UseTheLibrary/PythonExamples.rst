@@ -38,7 +38,7 @@ compared to another SD file.
 Find information on all of the atoms and bonds connected to a particular atom
 -----------------------------------------------------------------------------
 
-First of all, look at all of the Classes in the Open Babel API that
+First of all, look at all of the classes in the :ref:`Open Babel API <API>` that
 end with "Iter". You should use these whenever you need to do
 something like iterate over all of the atoms or bonds connected to
 a particular atom, iterate over all the atoms in a molecule,
@@ -81,41 +81,43 @@ Examples from around the web
 -  Florian Nigsch wrote an implementation of `Murcko fragments <http://flo.nigsch.com/?p=29>`_ using Pybel
 -  Andrew Dalke's `Chemical Toolkit Rosetta <http://ctr.wikia.com/wiki/Chemistry_Toolkit_Rosetta_Wiki>`_ contains several examples of Python code using openbabel.py and pybel
 
-Invert a particular stereocenter in a series of molecules
----------------------------------------------------------
+.. Comment out this section for the moment until rewritten
 
-The following was a request on the
-`CCL.net <http://www.ccl.net/cgi-bin/ccl/message-new?2008+03+20+005>`__
-list:
+   Invert a particular stereocenter in a series of molecules
+   ---------------------------------------------------------
 
-    I am looking for any program which can specifically change or
-    invert the stereocenter. I have a lot of compounds to work with.
-    All those compounds have more than one stereocenters. I want to
-    invert one stereocenter which is common in all compounds. So,
-    precisely, my problem is to change a carbon's stereocenter from "S"
-    to "R" and need to do this thing for all of compounds in database.
+   The following was a request on the
+   `CCL.net <http://www.ccl.net/cgi-bin/ccl/message-new?2008+03+20+005>`__
+   list:
 
-OBAtom has methods to interrogate and alter an atom's
-stereochemistry. If you use a SMARTS query to find the target atom,
-it's easy to change it.:
+       I am looking for any program which can specifically change or
+       invert the stereocenter. I have a lot of compounds to work with.
+       All those compounds have more than one stereocenters. I want to
+       invert one stereocenter which is common in all compounds. So,
+       precisely, my problem is to change a carbon's stereocenter from "S"
+       to "R" and need to do this thing for all of compounds in database.
 
-::
+   OBAtom has methods to interrogate and alter an atom's
+   stereochemistry. If you use a SMARTS query to find the target atom,
+   it's easy to change it.:
 
-    import pybel
-    
-    smarts = pybel.Smarts("C[C@](O)CC(=O)O")
-    inverse = pybel.Smarts("C[C@@](O)CC(=O)O")
-    
-    outputfile = pybel.Outputfile("sdf", "output.sdf")
-    for mol in pybel.readfile("smi", "3_p0.smi"):
-       matches = smarts.findall(mol)
-       if matches:
-           firstmatch = matches[0]
-           matchingatom = firstmatch[1]
-           mol.OBMol.GetAtom(matchingatom).SetClockwiseStereo()
-           assert inverse.findall(mol), "Hasn't been inverted!"
-           outputfile.write(mol)
-    outputfile.close()
+   ::
+
+       import pybel
+       
+       smarts = pybel.Smarts("C[C@](O)CC(=O)O")
+       inverse = pybel.Smarts("C[C@@](O)CC(=O)O")
+       
+       outputfile = pybel.Outputfile("sdf", "output.sdf")
+       for mol in pybel.readfile("smi", "3_p0.smi"):
+          matches = smarts.findall(mol)
+          if matches:
+              firstmatch = matches[0]
+              matchingatom = firstmatch[1]
+              mol.OBMol.GetAtom(matchingatom).SetClockwiseStereo()
+              assert inverse.findall(mol), "Hasn't been inverted!"
+              outputfile.write(mol)
+       outputfile.close()
 
 Split an SDF file using the molecule titles
 -------------------------------------------
