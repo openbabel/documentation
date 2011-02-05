@@ -5,7 +5,6 @@ Contributing to Open Babel
 
     Overview.rst
     DevBestPractices.rst
-    DeveloperResources.rst
     Documentation.rst
     Testing.rst
     SoftwareArchaeology.rst

@@ -15,7 +15,6 @@ The latest version of this documentation is available in several formats from ht
    UseTheLibrary/intro.rst
    Cheminf101/index.rst
    Features/Radicals.rst
-   Features/Misc.rst
    Contributing/Contributing.rst
    WritePlugins/index.rst
    FileFormats/Overview.rst
