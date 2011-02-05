@@ -36,7 +36,7 @@ There are four key problems a cheminformatics system solves:
 1. **Store a Molecule**
 
    Computer scientists usually use the *valence model* of chemistry to
-   represent compounds. Section 2,
+   represent compounds. The next section
    :ref:`101 Representing Molecules`,
    discusses this at length.
 
@@ -66,8 +66,7 @@ There are four key problems a cheminformatics system solves:
 
    Some databases can find similar-sounding or misspelled words, such as "Find Lincon" or "find Cincinati", which respectively might find
    Abraham Lincoln and Cincinnati. Many chemical information systems can find molecules similar to a given molecule, ranked by
-   similarity. There are several ways to measure molecular similarity, discussed further in Section 4,
-   :ref:`101 Molecular Similarity`.
+   similarity. There are several ways to measure molecular similarity, discussed further in the section on :ref:`101 Molecular Similarity`.
 
 .. |image0| image:: ../_static/steroid2.png
 .. |image2| image:: ../_static/steroid1.png

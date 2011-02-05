@@ -52,7 +52,7 @@ value of spinmultiplicity (C atom has spin multiplicity of 5).
 
 If the spin multiplicity of an atom is not input explicitly, it is
 set (in :obapi:`OBMol::AssignSpinMultiplicity() <OpenBabel::OBMol::AssignSpinMultiplicity>`) when the input format is
-mol, smi, cml or therm. This routine is called after all the atoms
+MOL, SMI, CML or Therm. This routine is called after all the atoms
 and bonds of the molecule are known. It detects hydrogen deficiency
 in an atom and assigns spin multiplicity appropriately. But because
 hydrogen may be implicit it only does this for atoms which have at
@@ -68,7 +68,7 @@ In deciding which atoms should be have spin multiplicity assigned,
 hydrogen atoms which have an isotope specification (D,T or even 1H)
 do not count. So SMILES ``N[2H]`` is NH\ :sub:`2`\ D (spin multiplicity
 left at 0, so with a full content of implicit hydrogens), whereas
-``N[H]`` is NH (spinmultiplicity=3). A deuterated radical like NHD is
+``N[H]`` is NH (spin multiplicity=3). A deuterated radical like NHD is
 represented by ``[NH][2H]``.
 
 In radicals either the hydrogen or the spin multiplicity can be implicit
@@ -120,12 +120,12 @@ representation is produced:
 SMILES extensions for radicals
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Although radical structures can be represent in SMILES by
+Although radical structures can be represented in SMILES by
 specifying the hydrogens explicitly, e.g. ``[CH3]`` is the methyl
 radical, some chemists have apparently felt the need to devise
-non-standard extensions which represent the radical centre
+non-standard extensions that represent the radical centre
 explicitly. Open Babel will recognize ``C[O.]`` as well as ``C[O]`` as the
-methoxy radical CH\ :sub:`3`\ O, during input, but the non-standard
+methoxy radical CH\ :sub:`3`\ O during input, but the non-standard
 form is not supported in output.
 
 By default, radical centres are output in explict hydrogen form,
@@ -146,25 +146,25 @@ hydrogens which is less chemically significant.
 
 In addition, this extension interprets multiple lower case ``c``
 without ring closure as a conjugated carbon chain, so that ``cccc`` is
-input as 1,3 butadiene. Lycopene (the red in tomatoes) is
+input as 1,3-butadiene. Lycopene (the red in tomatoes) is
 ``Cc(C)cCCc(C)cccc(C)cccc(C)ccccc(C)cccc(C)cccc(C)CCcc(C)C`` (without
-the stereo chemical specifications). This conjugated chain form is
+the stereochemical specifications). This conjugated chain form is
 not used on output - except in the standard SMILES aromatic form,
 ``c1ccccc1`` benzene.
 
-It is interesting that the lower case extension actually improve
-the chemical representation in a few cases. The allyl radical C3H5
+It is interesting to note that the lower case extension actually improves
+the chemical representation in a few cases. The allyl radical C\ :sub:`3`\ H\ :sub:`5`
 would be conventionally ``[CH2]=[CH][CH2]`` (in its explict H form),
 but could be represented as ``ccc`` with the extended syntax. The
 latter more accurately represents the symmetry of the molecule
 caused by delocalisation.
 
-This extension is not as robust or carefully considered as standard
-SMILES and should be used with restraint. A structure which used c
+This extension is not as robust or as carefully considered as standard
+SMILES and should be used with restraint. A structure that uses ``c``
 as a radical centre close to aromatic carbons can be confusing to
-read, and Open Babel's SMILES parser can also be confused. It
+read, and Open Babel's SMILES parser can also be confused. For example, it
 recognizes ``c1ccccc1c`` as the benzyl radical, but it doesn't like
 ``c1cc(c)ccc1``. Radical centres should not be involved in ring
-closure: for cyclohexyl radical ``C1cCCCC1`` is ok, ``c1CCCCC1`` is not.
+closure: for cyclohexyl radical ``C1cCCCC1`` is ok, but ``c1CCCCC1`` is not.
 
 .. |3-pentyl radical| image:: ../_static/Zigzag.png

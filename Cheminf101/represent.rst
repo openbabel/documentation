@@ -77,18 +77,20 @@ for their various CTFile formats if you are interested in the
 details.
 
 Connection tables can capture the valence model of chemistry fairly
-well, but they suffer from two problems:
+well, but they suffer from three problems:
 
-They are very inefficient, taking on the order of a dozen or two of
+1. They are very inefficient, taking on the order of a dozen or two of
 bytes of data per atom and per bond. Newer line notations
 (discussed below) represent a molecules with an average of 1.2 to
 1.5 bytes per atom, or 6-8 bytes per atom if coordinates are added.
-Many suffered from lack of specificity. For example, since
+
+2. Many suffered from lack of specificity. For example, since
 hydrogens are often not specified, there can be ambiguity as to the
 electronic state of some molecules, because the connection-table
 format does not explicitly state the valence assumptions.
-Most mix the concept of *connectivity* (what are the atoms and how
-are they connected?) with other data such as 2D and 3D coordinates.
+
+3. Most mix the concept of *connectivity* (what the atoms are and how
+they are connected) with other data such as 2D and 3D coordinates.
 For example, if you had two different conformers of a molecule,
 most connection tables would require you to specify the entire
 molecule twice, even though the connection table is identical in
@@ -207,14 +209,14 @@ nitrogen in a SMILES file, I can simply:
 
 ::
 
-    grep N <file.smi | wc
+    grep N file.smi | wc
 
-("grep" looks for a particular expression, in this case "N", and
-prints any line that contains it, and wc ("word count") counts the
+(:command:`grep` looks for a particular expression, in this case ``N``, and
+prints any line that contains it, and :command:`wc` ("word count") counts the
 number of words and lines.)
 
 This is just a simple example of the power available via "script"
-programs using "filters" on Unix-like systems. Unix "filters" are
+programs using "filters" on Unix-like systems. Unix filters are
 much less useful for connection-table formats, because each
 molecule is spread over many lines.
 
@@ -250,7 +252,7 @@ and find anything that contains them. For example:
 The simplest query language for chemistry is SMILES itself: Just
 specify a structure, such as ``Oc1ccccc1``, and search. This is how
 eMolecules' basic searching works (see Sidebar). It's simple and, because of the
-high-performance indexes in eMolecules, it is very fast.
+high-performance indexes in eMolecules, is also very fast.
 
 However, for general-purpose cheminformatics, one needs more power.
 What if the substructure you're looking for isn't a valid molecule?

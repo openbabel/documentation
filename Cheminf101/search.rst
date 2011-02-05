@@ -6,7 +6,7 @@ What is Indexing?
 
 Indexing is pre-computing the answers to portions of expected
 questions *before* they're asked, so that when the question comes,
-it's quick to answer it.
+it can be answered quickly.
 
 Take your favorite search engine (AOL, Yahoo!, Google, MSN, ...)
 for example. Without indexing, they might wait until you ask for
@@ -70,7 +70,7 @@ present.
 NP-Complete - A Little about Computability
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Searching through a page of text for the words, "John Hartford" is
+Searching through a page of text for the words "John Hartford" is
 pretty easy for a modern computer. Although false positives
 returned by the index are a nuisance and impair performance, they
 are not a catastrophe. Not so for substructure matching.
