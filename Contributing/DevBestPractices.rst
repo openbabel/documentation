@@ -3,14 +3,75 @@ Developing Open Babel
 
 Due to its open nature of its development, Open Babel contains code contributed by a wide variety of developers (see :ref:`Thanks`). This section describes some general guidelines and "best practices" for code developers.
 
+.. _version control:
+
+Developer Resources
+-------------------
+
+For new and existing developers here are some useful resources:
+
+- SourceForge `project page <http://www.sf.net/projects/openbabel>`_
+- Development version `API documentation <http://openbabel.org/dev-api>`_ and `documentation bugs <http://openbabel.org/dev-api/docbuild.out>`_
+- Nightly build and test `dashboard <http://my.cdash.org/index.php?project=Open%20Babel>`_
+- RSS feed for SVN commits at `CIA.vc <http://cia.vc/stats/project/OpenBabel>`_
+
 Grabbing the Development Code
 -----------------------------
 
-The source code for Open Babel is maintained via the Subversion version control system. You can browse the latest source code at Open Babel's SourceForge_ site.
+To download and update the latest version of the Open Babel source code, you need Subversion. Subversion_  (or SVN) is the name of the project used to maintain the Open Babel version control repository. There are many clients for Subversion, including command-line and GUI applications (for example, on Windows, TortoiseSVN_). For more links, see the Subversion website_. There's also a great book about using Subversion, which is available online_.
 
-.. _SourceForge: http://www.sf.net/projects/openbabel
+.. _Subversion: http://subversion.tigris.org/ 
+.. _online: http://svnbook.red-bean.com/
+.. _website: http://subversion.tigris.org/links.html
+.. _TortoiseSVN: http://tortoisesvn.tigris.org/
 
-To download and update the source code itself, please see the instructions on using Subversion with Open Babel (:ref:`version control`).
+Keeping up to date with the latest Open Babel code with Subversion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+(1) Check out the latest development version::
+
+      svn co https://openbabel.svn.sourceforge.net/svnroot/openbabel/openbabel/trunk 
+
+    This creates a directory called :file:`trunk`, which contains the latest source code from Open Babel.
+
+(2) Configure and compile this using CMake, as described on the CMake page.
+
+(3) After some time passes, and you want the latest bug fixes or new features, you may want to update your source code. To do this, go into the :file:`trunk` directory you created above, and type::
+
+      svn update
+
+(4) Do step (2) again.
+
+(5) If, after updating, the compilation fails please report it to the Open Babel mailing list. In the meanwhile, if you want to go back to a particular revision (that is, if you don't want to use the latest one), just use ``svn info`` to find the number of the current revision, and update to an earlier revision either by date or by revision number::
+
+      $ svn info
+      ...
+      Revision: 1740
+      ...
+      $ svn update -r 1735
+      (or)
+      $ svn update -r {2007-01-01}
+
+
+Useful Subversion Commands
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following table suggests Subversion commands useful for Open Babel contributors. More documentation can be found in the Official SVN Manual. In the following examples, *repo* should be replaced by the full URL to the Open Babel subversion repository (https://openbabel.svn.sourceforge.net/svnroot/openbabel/openbabel).
+
+=================================   ============
+Subversion Command                  What it does
+=================================   ============
+``svn co repo/trunk``               Check out the latest development version of Open Babel
+``svn update``                      Update the current directory and subdirectories with any new changes
+``svn add filename``                Add the file :file:`filename` to the repository
+``svn remove filename``             Remove the file :file:`filename` (before a commit)
+``svn mv filename newname``         Move/rename the file :file:`filename` to :file:`newname`
+``svn commit``                      Commit the changes to the central repository
+``svn diff``                        Return a diff set of differences between the working copy and the central repository
+``svn switch repo/branches/foo``    Switch the current working copy to a branch named foo
+``svn copy repo/branches/foo``      Create a branch named foo with the current working copy 
+=================================   ============
+
 
 Monitoring Progress
 -------------------
@@ -20,35 +81,10 @@ Developers should keep track of changes made by others. Like most open source pr
     * `CIA Stats`_ on Open Babel (provides a webpage and RSS feed for every change)
     * OpenBabel-Updates_ mailing list (receives an e-mail message on every change) 
 
-.. _CIA Stats: http://cia.navi.cx/stats/project/OpenBabel
+.. _CIA Stats: http://cia.vc/stats/project/openbabel
 .. _OpenBabel-Updates: http://lists.sourceforge.net/lists/listinfo/openbabel-updates
 
 In general, if you find that a recent update by another developer has introduced bugs or broken the code, please bring it up with them ASAP. We have a policy of "if you break it, you fix it" to keep the source code repository always in a working state.
-
-Many of the developers use the current development snapshots for their daily use. This is sometimes called `eating your dog food`_ and is part of the general testing procedures for Open Babel.
-
-.. _eating your dog food: http://en.wikipedia.org/wiki/Eat_one%27s_own_dog_food
-
-Documentation
--------------
-
-As an open source project, code must be documented, both for other developers to use the API and for others to follow your code.
-
-For more information, please see :ref:`documentation`.
-
-Testing
--------
-
-Testing is extremely important. New functions should have individual unit tests as older code is slowly added to the test suite. Because of the wide use of Open Babel, code is (and should be) thoroughly tested before release.
-
-Releases may be imperfect and will likely contain bugs. However, increased testing improves code quality and makes life easier for everyone. For more information, see :ref:`testing`.
-
-Code Formatting
----------------
-
-It seems like a minor point, but the format of your code is important. As open source software, your code is read by many, many people.
-
-Different contributions have often had different indentation styles. Simply making the code indentation consistent across an entire file makes the code easier to read.
 
 Error Handling
 --------------
@@ -63,13 +99,3 @@ Patches and Changesets
 We're human--it's much easier to understand exactly what a patch is doing if it's not trying to add 20 features or fix 20 bugs at once. (Hopefully there won't be a need to fix 20 bugs!) If you want to add several features or fix several bugs, break the patch up into one for each request. The faster someone can understand your patch, the faster it will go into the source. Everyone benefits from faster, quality development.
 
 Similarly, it's sometimes necessary to revert the code to an older version because of bugs. Each set of changes should only touch as few files as are needed. This makes it easier for others to review your changes and undo them if necessarily. (Again, hopefully there's never a need, but this is certainly a "best practice" to make life easier for everyone.)
-
-The ChangeLog
--------------
-
-The ChangeLog file is used to maintain an abbreviated history of changes to the code by all users. Please add a ChangeLog entry to any patch and make sure to keep it up to date as you commit changes to the source code. The format_ should be mostly self-explanatory.
-
-.. _format: http://www.gnu.org/software/guile/changelogs/guile-changelogs_3.html|format
-
-In particular, please include a notation of any file you have changed. This makes it easy for others to track which changes may have added new functionality, fixed bugs, or inadvertently caused errors. 
-

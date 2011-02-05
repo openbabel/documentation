@@ -5,8 +5,7 @@ Open Babel is developed using open, community-oriented development made possible
 
 Not sure where to start? This section aims to give you some ideas.
 
-Provide input
--------------
+.. rubric:: Provide input
 
 You can help us by:
 
@@ -15,8 +14,7 @@ You can help us by:
 * suggesting needed `file formats`_
 * reporting bugs_
 
-Spread the word
----------------
+.. rubric:: Spread the word
 
 If you find Open Babel useful, there's a chance that others will also. You can help us by:
 
@@ -33,8 +31,7 @@ If you find Open Babel useful, there's a chance that others will also. You can h
 
 To get started, just send an email to our `mailing list`_.
 
-Code a storm
-------------
+.. rubric:: Code a storm
 
 As an open source project, Open Babel has a very open development process. This means that many contributors  have helped with the project with a variety of help -- some for long periods of time, and some with small, single changes. All types of assistance has been valuable to the growth of the project over the years. 
 

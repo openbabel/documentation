@@ -14,9 +14,12 @@ Documentation and Code Readability
 
 * Add clear documentation for every public function (see :ref:`documentation`).
 * Add clear comments on the internal operation of functions so that anyone can read through the code quickly.
+
    * If you're not sure what a function does, e-mail the openbabel-devel_ list and it can be worked out. 
 * Mark functions which should be publicly visible and functions which are only useful internally. Many methods are not particularly useful except inside the library itself.
 * Improve code indentation
+
+   * It seems like a minor point, but the format of your code is important. As open source software, your code is read by many, many people.
    * Different contributions have often had different indentation styles. Simply making the code indentation consistent across an entire file makes the code easier to read.
    * The current accepted scheme for Open Babel is a default indent of two spaces, and use of spaces instead of tabs.
    * For tips on changing your editor to use this indentation style, please e-mail the openbabel-devel_ list. 

@@ -3,7 +3,7 @@
 Documentation
 =============
 
-Documenting Open Babel is an important and ongoing task. This includes clear documentation on the interfaces of particular classes and methods (that is, the API_ documentation) but also tutorials and examples of using the Open Babel library to accomplish clear tasks.
+Documenting Open Babel is an important and ongoing task. As an open source project, code must be documented, both for other developers to use the API and for others to follow your code. This includes clear documentation on the interfaces of particular classes and methods (that is, the API_ documentation) but also tutorials and examples of using the Open Babel library to accomplish clear tasks.
 
 .. _API: http://openbabel.org/api
 
@@ -39,12 +39,21 @@ Take :obapi:`OBAtom::SetAtomicNum() <OpenBabel::OBAtom::SetAtomicNum>` - should 
 ChangeLog entries
 -----------------
 
-A standard ChangeLog file is used to track changes to files by different users over time. Whenever a change is made to a file, please add a ChangeLog entry -- the format should be self-explanatory from other entries. 
+The ChangeLog file is used to maintain an abbreviated history of changes to the code by all users. Please add a ChangeLog entry to any patch and make sure to keep it up to date as you commit changes to the source code. The format_ should be mostly self-explanatory.
 
-User documentation
-------------------
+.. _format: http://www.gnu.org/software/guile/changelogs/guile-changelogs_3.html|format
 
-The documentation you are reading right now is automatically generated from text files in a simple markup language (*reStructuredText*) using the Sphinx_ documentation system. If you notice any errors or feel there are any missing sections, please let us know at openbabel-devel_.
+In particular, please include a notation of any file you have changed. This makes it easy for others to track which changes may have added new functionality, fixed bugs, or inadvertently caused errors. 
+
+User documentation and tutorials
+--------------------------------
+
+There's no point spending time adding new features to Open Babel unless you describe how to use them and give examples. The best place to do this is in the user documentation...which you're reading right now.
+
+This documentation is automatically generated from text files in a simple markup language (*reStructuredText*) using the Sphinx_ documentation system. This allows us to generate web pages, PDF files, and even ePub eBooks all from the same source (which is currently maintained at BitBucket_).
+
+If you notice any errors or feel like adding a section, please let us know at openbabel-devel_.
 
 .. _Sphinx: http://sphinx.pocoo.org/
 .. _openbabel-devel: https://lists.sourceforge.net/lists/listinfo/openbabel-devel
+.. _BitBucket: http://bitbucket.org/baoilleach/openbabel-user-docs
