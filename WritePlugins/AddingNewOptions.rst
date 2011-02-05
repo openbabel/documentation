@@ -1,19 +1,20 @@
 Adding new operations and options
 =================================
 
-The babel command line has the form::
+The :command:`babel` command line has the form::
 
   babel inputfile [outputfile] [options]
 
 There are several types of options:
 
-* Options that control the conversion process:
-  For example ``-i``, ``-o`` and ``-m``
-* Options specific to particular input or output formats
-  These are specified with the ``-a`` and ``-x`` prefixes
-* General options. These usually operate on a molecule after it has been read by the input format and before it has been written by the output format.
+  Options that control the conversion process
+    For example ``-i``, ``-o`` and ``-m``
+  Options specific to particular input or output formats
+    These are specified with the ``-a`` and ``-x`` prefixes
+  General options
+    These usually operate on a molecule after it has been read by the input format and before it has been written by the output format.
 
-The ones of interest here are the general options. These can be single letter options like ``-c`` (which centers coordinates), or multi-character options like ``--separate`` (which makes separate molecules from disconnected fragments). The ones mentioned are hardwired into the code, but it is possible to define new options which work in a similar way. This is done using the :obapi:`OBOp` class.
+The ones of interest here are the general options. These can be single letter options like ``-c`` (which centers coordinates), or multi-character options like ``--separate`` (which makes separate molecules from disconnected fragments). The ones mentioned are hardwired into the code, but it is possible to define new options that work in a similar way. This is done using the :obapi:`OBOp` class.
 
 The OBOp class
 --------------

@@ -87,7 +87,4 @@ To improve the speed of execution, it is often helpful to rely on tools which ca
 
 .. rubric:: C++ Unscrambler
 
-The symbols used by C++ compilers and exposed by debugging, profiling, and memory tools are "scrambled." The `c++filt <cppfilt>`_ program can be used to decode the symbol to a human-readable form.
-
-.. _cppfilt: http://sources.redhat.com/binutils/docs-2.15/binutils/c--filt.html
-
+The symbols used by C++ compilers and exposed by debugging, profiling, and memory tools are "scrambled." The `c++filt <http://sources.redhat.com/binutils/docs-2.15/binutils/c--filt.html>`_ program can be used to decode the symbol to a human-readable form.
