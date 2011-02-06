@@ -12,7 +12,7 @@ def heading(text, symbol):
     return text + "\n" + symbol*len(text)
 
 
-compchem = ("Computational chemistry", ['POSCAR', 'tmol', 't41', 'tmol', 'zin', 'moo', 'mop',
+compchem = ("Computational chemistry", ['POSCAR', 'tmol', 'tmol', 'zin', 'moo', 'mop',
             'mopcrt', 'mopin', 'mopout', 'mp', 'mpo', 'mpc', 'nw', 'nwo',
             'outmol', 'mpqc', 'mpqcin', 'CONTCAR', 'pqs', 'hin',
             'adf', 'adfout', 'com', 'g03', 'g09', 'g92', 'g98', 'gal',
@@ -30,7 +30,7 @@ crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
                                "fract", "cssr"])
 twoD_drawing = ("2D drawing", ["ct", "cdxml", "cdx", "ct", "crk2d", "cht"])
 images = ("Images", ['png', 'svg', 'pov'])
-volume_data = ("Volume data", ["cube", "dx"])
+volume_data = ("Volume data", ["cube", "dx", 't41'])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        'nul', 'xyz', 'xml', "mna", "fpt", "fs", "dat",
                        "mpd", "k"])

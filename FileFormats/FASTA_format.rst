@@ -3,9 +3,9 @@
 FASTA format (fasta, fa, fsa)
 =============================
 
-**A file format used to exchange information between**
+**A file format used to exchange information between genetic sequence databases**
 
-genetic sequence databases
+
 
 
 Read Options

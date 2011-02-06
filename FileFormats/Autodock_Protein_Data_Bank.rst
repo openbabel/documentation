@@ -5,6 +5,9 @@ Autodock Protein Data Bank (pdbqt)
 
 **Q (Partial Charge) & Type**
 
+
+
+
 Read Options
 ~~~~~~~~~~~~ 
 
@@ -20,5 +23,5 @@ Write Options
 -s  *Outputs as a flexible residue*
 -p  *Preserves the atom indexes from the input file*
 
-     (default is to renumber sequentially).
+       The default is to renumber sequentially.
 

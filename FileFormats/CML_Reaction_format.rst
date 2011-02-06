@@ -32,7 +32,7 @@ upon (the last through CML). The molecules can be collected together
 in a list at the start of the file and referenced in the reactant and
 product via e.g. <molecule ref="mol1">.
 
-On writing, the list format can be specified with the -xl option. The
+On writing, the list format can be specified with the ``-xl`` option. The
 list containers are <moleculeList> and <reactionList> and the overall
 wrapper is <mechanism>. These are non-standard CMLReact element names
 and would have to be changed (in the code) to <list>,<list> and <cml>

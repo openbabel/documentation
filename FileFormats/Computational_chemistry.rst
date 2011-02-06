@@ -5,7 +5,6 @@ Computational chemistry
 
 .. toctree::
 
-   ADF_TAPE41_format.rst
    ADF_cartesian_input_format.rst
    ADF_output_format.rst
    CAChe_MolStruct_format.rst
