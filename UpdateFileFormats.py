@@ -145,6 +145,7 @@ for name, codes in sections:
         
         # Read in the parts of the description
         INTRO, WRITE, READ, COMMENTS = range(4)
+        symbols = {READ: "a", WRITE: "x"}
         data = [[] for i in range(4)]
         N = INTRO
         emptyline = False
@@ -175,7 +176,8 @@ for name, codes in sections:
 
         # Handle the parts of the description
         if data[INTRO]:
-            print >> output, "\n**%s**\n" % data[INTRO][0]
+            if data[INTRO][0].replace("No comments yet", "").strip():
+                print >> output, "\n**%s**\n" % data[INTRO][0].strip()
             
             if len(data[INTRO]) > 1:
                 for line in data[INTRO][1:]:

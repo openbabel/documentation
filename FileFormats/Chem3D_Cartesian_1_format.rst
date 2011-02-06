@@ -2,6 +2,3 @@
 
 Chem3D Cartesian 1 format (c3d1)
 ================================
-
-**No comments yet**
-

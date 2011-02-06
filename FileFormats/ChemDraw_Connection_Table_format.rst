@@ -2,6 +2,3 @@
 
 ChemDraw Connection Table format (ct)
 =====================================
-
-**No comments yet**
-

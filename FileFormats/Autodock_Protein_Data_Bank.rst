@@ -3,7 +3,7 @@
 Autodock Protein Data Bank (pdbqt)
 ==================================
 
-** Q (Partial Charge) & Type**
+**Q (Partial Charge) & Type**
 
 Read Options
 ~~~~~~~~~~~~ 

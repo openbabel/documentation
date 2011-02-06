@@ -2,6 +2,3 @@
 
 MacroModel format (mmod, mmd)
 =============================
-
-**No comments yet**
-

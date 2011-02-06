@@ -2,6 +2,3 @@
 
 Chem3D Cartesian 2 format (c3d2)
 ================================
-
-**No comments yet**
-

@@ -2,6 +2,3 @@
 
 HyperChem HIN format (hin)
 ==========================
-
-**No comments yet**
-

@@ -2,6 +2,3 @@
 
 MSI BGF format (bgf)
 ====================
-
-**No comments yet**
-

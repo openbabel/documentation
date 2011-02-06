@@ -2,6 +2,3 @@
 
 Chemical Resource Kit 3D format (crk3d)
 =======================================
-
-**No comments yet**
-

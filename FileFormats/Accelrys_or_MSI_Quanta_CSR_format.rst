@@ -2,8 +2,5 @@
 
 Accelrys/MSI Quanta CSR format (csr)
 ====================================
-
-**No comments yet**
-
 .. note:: This is a write-only format.
 

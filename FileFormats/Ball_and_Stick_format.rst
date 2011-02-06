@@ -2,6 +2,3 @@
 
 Ball and Stick format (bs)
 ==========================
-
-**No comments yet**
-

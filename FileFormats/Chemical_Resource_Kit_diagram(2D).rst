@@ -2,6 +2,3 @@
 
 Chemical Resource Kit diagram(2D) (crk2d)
 =========================================
-
-**No comments yet**
-
