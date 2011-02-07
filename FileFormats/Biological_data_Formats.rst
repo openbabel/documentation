@@ -1,7 +1,7 @@
 .. _Biological data:
 
-Biological data
-~~~~~~~~~~~~~~~
+Biological data formats
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
 

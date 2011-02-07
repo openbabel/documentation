@@ -1,7 +1,7 @@
 .. _Volume data:
 
-Volume data
-~~~~~~~~~~~
+Volume data formats
+~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
 

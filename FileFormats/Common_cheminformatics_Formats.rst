@@ -1,7 +1,7 @@
 .. _Common cheminformatics:
 
-Common cheminformatics
-~~~~~~~~~~~~~~~~~~~~~~
+Common cheminformatics formats
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
 

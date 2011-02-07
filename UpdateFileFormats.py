@@ -20,7 +20,7 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 'tmol', 'zin', 'moo', 
             'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout',
             'fhiaims', 'got', 'pwscf' ,'gukin', 'gukout', 'cache',
             'castep'])
-viewers = ("3D viewers", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
+viewers = ("3D viewer", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
                           "unixyz", "c3d1", "c3d2", "bs", "crk3d"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
                  'inchi', 'mol2', 'mol', 'cml'])
@@ -29,7 +29,7 @@ cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
                                "fract", "cssr"])
 twoD_drawing = ("2D drawing", ["ct", "cdxml", "cdx", "ct", "crk2d", "cht"])
-images = ("Images", ['png', 'svg', 'pov'])
+images = ("Image", ['png', 'svg', 'pov'])
 volume_data = ("Volume data", ["cube", "dx", 't41'])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        'nul', 'xyz', 'xml', "mna", "fpt", "fs", "dat",
@@ -38,10 +38,10 @@ md_and_dock = ('Molecular dynamics and docking',
                       ['gr96', 'txyz', "prep", "mmod", "box", "xtc",
                        "pdbqt", "CONFIG", "HISTORY"])
 thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
-reactions = ("Reactions", ["cmlr", "rxn", "rsmi"])
+reactions = ("Reaction", ["cmlr", "rxn", "rsmi"])
 biology = ("Biological data", ["fasta", "pqr"])
 misc = ("Miscellaneous", ["msms"])
-unknown = ("Obscure formats", ["feat", "fix", "xed", "alc",
+unknown = ("Obscure", ["feat", "fix", "xed", "alc",
                                            "ccc"])
 # 'test' format does not appear to exist (although it's on the wiki)
 # fastsearch, cml format - added some markup
@@ -94,13 +94,13 @@ print >> indexfile, "\n.. toctree::\n   :maxdepth: 2\n"
 
 seen = set()
 for name, codes in sections:
-    print >> indexfile, "   %s.rst" % name.replace(" ", "_")
-    sectionfile = open(os.path.join("FileFormats", "%s.rst" % name.replace(" ", "_")), "w")
+    print >> indexfile, "   %s_Formats.rst" % name.replace(" ", "_")
+    sectionfile = open(os.path.join("FileFormats", "%s_Formats.rst" % name.replace(" ", "_")), "w")
 
     sectionref = ".. _%s:\n" % name
     print >> sectionfile, sectionref
 
-    print >> sectionfile, heading(name, "~")
+    print >> sectionfile, heading(name + " formats", "~")
     print >> sectionfile, "\n.. toctree::\n"
 
     names = set()

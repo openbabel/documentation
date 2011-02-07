@@ -2,6 +2,12 @@
 
 ADF TAPE41 format (t41)
 =======================
+Currently the ADF Tape41 support reads grids from
+TAPE41 text files. To generate an ASCII version from
+the default binary, use the dmpkf program.
+
+
+
 .. note:: This is a read-only format.
 
 Read Options
@@ -10,10 +16,4 @@ Read Options
 -s  *Output single bonds only*
 -b  *Disable bonding entirely*
 
-
-Comments
-~~~~~~~~
-Currently the ADF Tape41 support reads grids from
-TAPE41 text files. To generate an ASCII version from
-the default binary, use the dmpkf program.
 

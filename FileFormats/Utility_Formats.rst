@@ -1,7 +1,7 @@
 .. _Utility:
 
-Utility
-~~~~~~~
+Utility formats
+~~~~~~~~~~~~~~~
 
 .. toctree::
 

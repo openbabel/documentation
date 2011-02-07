@@ -1,7 +1,7 @@
 .. _Crystallography:
 
-Crystallography
-~~~~~~~~~~~~~~~
+Crystallography formats
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
 

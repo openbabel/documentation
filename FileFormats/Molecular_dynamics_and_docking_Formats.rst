@@ -1,7 +1,7 @@
 .. _Molecular dynamics and docking:
 
-Molecular dynamics and docking
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Molecular dynamics and docking formats
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
 

@@ -1,7 +1,7 @@
 .. _Other cheminformatics:
 
-Other cheminformatics
-~~~~~~~~~~~~~~~~~~~~~
+Other cheminformatics formats
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
 

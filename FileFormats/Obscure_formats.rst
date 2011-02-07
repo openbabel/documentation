@@ -1,4 +1,4 @@
-.. _Obscure formats:
+.. _Obscure:
 
 Obscure formats
 ~~~~~~~~~~~~~~~

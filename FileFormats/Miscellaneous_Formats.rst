@@ -1,7 +1,7 @@
 .. _Miscellaneous:
 
-Miscellaneous
-~~~~~~~~~~~~~
+Miscellaneous formats
+~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
 

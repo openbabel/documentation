@@ -1,7 +1,7 @@
-.. _Images:
+.. _Image:
 
-Images
-~~~~~~
+Image formats
+~~~~~~~~~~~~~
 
 .. toctree::
 

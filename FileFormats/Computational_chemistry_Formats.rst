@@ -1,7 +1,7 @@
 .. _Computational chemistry:
 
-Computational chemistry
-~~~~~~~~~~~~~~~~~~~~~~~
+Computational chemistry formats
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
 

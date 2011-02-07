@@ -1,7 +1,7 @@
 .. _Kinetics and Thermodynamics:
 
-Kinetics and Thermodynamics
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Kinetics and Thermodynamics formats
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
 

@@ -1,7 +1,7 @@
-.. _3D viewers:
+.. _3D viewer:
 
-3D viewers
-~~~~~~~~~~
+3D viewer formats
+~~~~~~~~~~~~~~~~~
 
 .. toctree::
 

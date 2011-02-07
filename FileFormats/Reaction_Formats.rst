@@ -1,7 +1,7 @@
-.. _Reactions:
+.. _Reaction:
 
-Reactions
-~~~~~~~~~
+Reaction formats
+~~~~~~~~~~~~~~~~
 
 .. toctree::
 
