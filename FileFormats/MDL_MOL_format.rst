@@ -5,6 +5,9 @@ MDL MOL format (mol, mdl, sdf, sd)
 
 **Reads and writes V2000 and V3000 versions**
 
+
+
+
 Read Options
 ~~~~~~~~~~~~ 
 
@@ -18,7 +21,8 @@ Read Options
 
        When filtering an sdf file on title or properties
        only, avoid lengthy chemical interpretation by
-       using the T or P option together with copy format.
+       using the ``T`` or ``P`` option together with the
+       :ref:`copy format <Copy_raw_text>`.
 
 Write Options
 ~~~~~~~~~~~~~ 

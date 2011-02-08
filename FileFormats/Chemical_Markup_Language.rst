@@ -3,14 +3,16 @@
 Chemical Markup Language (cml, mrv)
 ===================================
 
-**An XML format.**
+**An XML format for interchange of chemical information.**
+
 
 This format writes and reads CML XML files. To write CML1 format rather than
-the default CML2, use the -x1 option. To write the array form use -xa and to
-specify all hydrogens using the hydrogenCount attribute on atoms use -xh.
+the default CML2, use the ``-x1`` option. To write the array form use ``-xa``
+and to specify all hydrogens using the hydrogenCount attribute on atoms use
+``-xh``.
 
-Crystal structures are written using the <crystal>, <xfract>) etc., elements
-if the OBMol has a OBGenericDataType::UnitCell data.
+Crystal structures are written using the <crystal>, <xfract> (,...etc.)
+elements if the OBMol has a OBGenericDataType::UnitCell data.
 
 All these forms are handled transparently during reading. Only a subset of
 CML elements and attributes are recognised, but these include most of those
@@ -71,8 +73,8 @@ React file using CML. Each format has an element which is regarded as
 defining the object that OpenBabel will convert. For CML this is
 <molecule>. Files can have multiple objects and these can be treated
 the same as with other multiple object formats like SMILES and MDL
-Molfile. So conversion can start at the nth object using the -fn option
-and finish before the end using the -ln option. Multiple object XML files
+Molfile. So conversion can start at the nth object using the ``-fn`` option
+and finish before the end using the ``-ln`` option. Multiple object XML files
 also can be indexed and searched using FastSearch, although this has
 not yet been extensively tested.
 

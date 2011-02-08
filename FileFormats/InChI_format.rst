@@ -21,6 +21,7 @@ Write Options
 
 
     Standard InChI is written unless certain InChI options are used
+ 
 -K  *output InChIKey only*
 -t  *add molecule name after InChI*
 -w  *ignore less important warnings*
@@ -34,18 +35,19 @@ Write Options
 -l  *display InChI log*
 -s  *recalculate wedge and hash bonds(2D structures only)*
 
+ 
     **Uniqueness options** (see also ``--unique`` and ``--sort`` which are more versatile)
 -u  *output only unique molecules*
 -U  *output only unique molecules and sort them*
 -e  *compare first molecule to others*
 
     This can also be done with :ref:`InChICompare format <Compare_molecules_using_InChI>`::
+ 
       babel first.smi second.mol third.cml -ok
  
 -T <param>  *truncate InChI according to various parameters*
 
     See below for possible truncation parameters.
-    These can be combined, e.g. ``/nochg/noiso``
 -X <Option string>  *Additional InChI options*
 
     See InChI documentation.
@@ -56,6 +58,7 @@ Write Options
       ``SUCF``, ``ChiralFlagON``, ``ChiralFlagOFF``
     - InChI creation options (produces non-standard InChI): ``SUU``, ``SLUUD``,
       ``FixedH``, ``RecMet``, ``KET``, ``15T``
+ 
     The following options are for convenience, e.g. ``-xF``
     but produce non-standard InChI.
 -F  *include fixed hydrogen layer*
@@ -74,3 +77,4 @@ Truncation parameters used with ``-xT``:
 /nochg     ignore charge and protonation
 /noiso     ignore isotopes
 
+Note that these can also be combined, e.g. ``/nochg/noiso``

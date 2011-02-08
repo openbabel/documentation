@@ -16,7 +16,7 @@ since no format conversion is carried out.
 Example:
 
   Extract only structures that include at least one aromatic carbon
-  (by matching the SMARTS pattern `[c]`)::
+  (by matching the SMARTS pattern ``[c]``)::
 
    babel -s '[c]' database.sdf -ocopy new.sd
 
