@@ -13,7 +13,7 @@ Windows
 
 Open Babel is available as a `binary installer`_ for Windows. It includes several command-line tools as well as a graphical user interface (GUI).
 
-.. _binary installer: http://sourceforge.net/projects/openbabel/files/openbabel/2.3.3/OpenBabel2.3.3_Windows_Installer.exe/download
+.. _binary installer: http://sourceforge.net/projects/openbabel/files/openbabel/2.3.0/OpenBabel2.3.0a_Windows_Installer.exe/download
 
 Advanced users may be interested in compiling Open Babel themselves (see :ref:`Compiling Open Babel`).
 
