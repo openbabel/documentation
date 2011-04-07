@@ -77,7 +77,7 @@ Several tools can help find such errors:
 
 .. rubric:: Code Profiling
 
-To improve the speed of execution, it is often helpful to rely on tools which can
+To improve the speed of execution, it is often helpful to rely on tools that monitor the frequency and duration of function calls. This information can help to identify performance bottlenecks.
 
 * gprof_ is used with the GCC compilers to produce profiling data including the number of calls to routines and the amount of time spent executing.
 * Shark/Saturn (Mac OS X only) is a graphical front-ends to gprof and can sample programs while running. 
