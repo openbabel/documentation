@@ -5,6 +5,7 @@ Computational chemistry formats
 
 .. toctree::
 
+   ABINIT_Output_Format.rst
    ADF_cartesian_input_format.rst
    ADF_output_format.rst
    CAChe_MolStruct_format.rst

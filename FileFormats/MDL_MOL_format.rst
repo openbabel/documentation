@@ -13,9 +13,9 @@ Read Options
 
 -s  *determine chirality from atom parity flags*
 
-       This is valid only for 0D information. Atom
-       parity is always ignored on reading for MOL files
-       containing 2D or 3D information.
+       The default setting is to ignore atom parity and
+       work out the chirality based on the bond
+       stereochemistry.
 -T  *read title only*
 -P  *read title and properties only*
 
@@ -29,7 +29,7 @@ Write Options
 
 -3  *output V3000 not V2000 (used for >999 atoms/bonds)*
 -m  *write no properties*
--w  *recalculate wedge and hash bonds(2D structures only)*
+-w  *use wedge and hash bonds from input (2D structures only)*
 -A  *output in Alias form, e.g. Ph, if present*
 
 

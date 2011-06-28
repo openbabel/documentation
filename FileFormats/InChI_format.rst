@@ -31,7 +31,7 @@ Write Options
     'Charges were rearranged'
     'Proton(s) added/removed'
     'Metal was disconnected'
--a  *output auxilliary information*
+-a  *output auxiliary information*
 -l  *display InChI log*
 -s  *recalculate wedge and hash bonds(2D structures only)*
 

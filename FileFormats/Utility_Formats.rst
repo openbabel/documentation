@@ -16,6 +16,6 @@ Utility formats
    Open_Babel_molecule_report.rst
    Open_Babel_report_format.rst
    Outputs_nothing.rst
-   Reads_raw_text.rst
+   Read_and_write_raw_text.rst
    Title_format.rst
    XYZ_cartesian_coordinates_format.rst

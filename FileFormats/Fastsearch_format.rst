@@ -41,6 +41,8 @@ Several types of searches are possible:
 
 The datafile plus the ``-ifs`` option can be used instead of the index file.
 
+NOTE that the datafile MUST NOT be larger than 4GB. (A 32 pointer is used.)
+
 .. seealso::
 
     :ref:`fingerprints`

@@ -19,7 +19,7 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 'tmol', 'zin', 'moo', 
             'dmol', 'fch', 'fck', 'fh', "gzmat", "caccrt", "cacint",
             'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout',
             'fhiaims', 'got', 'pwscf' ,'gukin', 'gukout', 'cache',
-            'castep'])
+            'castep', "abinit"])
 viewers = ("3D viewer", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
                           "unixyz", "c3d1", "c3d2", "bs", "crk3d"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
@@ -29,14 +29,14 @@ cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
                                "fract", "cssr"])
 twoD_drawing = ("2D drawing", ["ct", "cdxml", "cdx", "ct", "crk2d", "cht"])
-images = ("Image", ['png', 'svg', 'pov'])
+images = ("Image", ['png', "png2", 'svg', 'pov'])
 volume_data = ("Volume data", ["cube", "dx", 't41'])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        'nul', 'xyz', 'xml', "mna", "fpt", "fs", "dat",
                        "mpd", "k"])
 md_and_dock = ('Molecular dynamics and docking',
                       ['gr96', 'txyz', "prep", "mmod", "box", "xtc",
-                       "pdbqt", "CONFIG", "HISTORY"])
+                       "pdbqt", "CONFIG", "HISTORY", "txyz"])
 thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
 reactions = ("Reaction", ["cmlr", "rxn", "rsmi"])
 biology = ("Biological data", ["fasta", "pqr"])

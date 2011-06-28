@@ -6,9 +6,14 @@ SVG 2D depiction (svg)
 **Scalable Vector Graphics 2D rendering of molecular structure.**
 
 
-Single molecules are displayed at a fixed scale, as in normal diagrams,
+When called from commandline or GUI or otherwise via Convert(),
+single molecules are displayed at a fixed scale, as in normal diagrams,
 but multiple molecules are displayed in a table which expands to fill
 the containing element, such as a browser window.
+When WriteMolecule() is called directly, without going through
+WriteChemObject, e.g. via OBConversion::Write(), a fixed size image by
+default 200 x 200px containing a single molecule is written. The size
+can be specified by the P output option.
 
 Multiple molecules are displayed in a grid of dimensions specified by
 the ``-xr`` and ``-xc`` options (number of rows and columns respectively
@@ -53,11 +58,15 @@ Write Options
 
     So propane would display as H3C-CH2-CH3
 -d  *do not display molecule name*
+-s  *use asymmetric double bonds*
+-t  *use thicker lines*
 -e  *embed molecule as CML*
 
     OpenBabel can read the resulting svg file as a cml file.
--p <num>  *scale to bondlength in pixels(single mol only)*
--p  *x<num> scale to bondlength in pixels(single mol only)(not displayed in GUI)*
+-p <num>  *px Scale to bond length(single mol only)*
+-P <num>  *px Single mol in defined size image*
+
+    The General option --px # is an alternative to the above.
 -c <num>  *number of columns in table*
 -c  *ols<num> number of columns in table(not displayed in GUI)*
 -r <num>  *number of rows in table*
@@ -72,7 +81,6 @@ Write Options
 
     Javascript is not usually embedded if there is only one molecule,
     but it is if the rows and columns have been specified as 1: ``-xr1 -xc1``
--w  *generate wedge/hash bonds(experimental)*
 -x  *omit XML declaration (not displayed in GUI)*
 
     Useful if the output is to be embedded in another xml file.
