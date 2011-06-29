@@ -12,7 +12,7 @@ Read Options
 ~~~~~~~~~~~~ 
 
 -1  *Output single-stranded DNA*
--t <<turns>>  *Use the specified number of base pairs per turn (e.g., 10)*
+-t <turns>  *Use the specified number of base pairs per turn (e.g., 10)*
 -s  *Output single bonds only*
 -b  *Disable bonding entirely*
 

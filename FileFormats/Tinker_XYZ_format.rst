@@ -8,10 +8,13 @@ Tinker XYZ format (txyz)
 By default, the MM2 atom types are used for writiting files.
 
 
+
 Read Options
 ~~~~~~~~~~~~ 
 
 -s  *Output single bonds only*
+
+
 Write Options
 ~~~~~~~~~~~~~ 
 

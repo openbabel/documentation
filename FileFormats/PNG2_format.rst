@@ -6,8 +6,8 @@ PNG2 format (png2)
 **2D depiction of a single molecule as a .png file**
 
 
-The PNG2 format is used 'behind the scenes' by the PNG format
-if generating image files, but the best way to use it is
+The PNG2 format is used 'behind the scenes' by the :ref:`PNG format<PNG_2D_depiction>`
+if generating image files, and the best way to use it is
 actually through the PNG format. While it possible to generate
 a :file:`.png` file directly using the PNG2 format as follows...::
 
@@ -28,6 +28,10 @@ this format will be unavailable. However, it will still be possible
 to use the PNG format to read :file:`.png` files if they contain
 embedded information.
 
+.. seealso::
+
+    :ref:`PNG_2D_depiction`
+
 
 
 .. note:: This is a write-only format.
@@ -36,3 +40,5 @@ Write Options
 ~~~~~~~~~~~~~ 
 
 -p <pixels>  *image size, default 300*
+
+
