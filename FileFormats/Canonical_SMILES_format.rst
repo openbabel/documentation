@@ -9,6 +9,11 @@ The SMILES format is a linear text format which can describe the
 connectivity and chirality of a molecule. Canonical SMILES gives a single
 'canonical' form for any particular molecule.
 
+.. seealso::
+
+  The "regular" :ref:`SMILES_format` gives faster
+  output, since no canonical numbering is performed.
+
 
 
 Write Options
@@ -20,10 +25,12 @@ Write Options
 -n  *No molecule name*
 -r  *Radicals lower case eg ethyl is Cc*
 -t  *Molecule name only*
+-f <atomno>  *Specify the first atom*
 
+     This atom will be used to begin the SMILES string.
+-l <atomno>  *Specify the last atom*
 
-Comments
-~~~~~~~~
-See also, the "regular" SMILES format, which results in faster
-output, since no canonical numbering is performed.
+     The output will be rearranged so that any additional
+     SMILES added to the end will be attached to this atom.
+     See the :ref:`SMILES_format` for more information.
 
