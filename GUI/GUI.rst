@@ -1,10 +1,10 @@
 The Open Babel GUI
 ------------------
 
-The :command:`obabel` command line program converts chemical objects (currently molecules or reactions) from one file format to another. The GUI interface is an
-alternative to using the command line and has the same capabilities. Since Open Babel 2.3, the GUI is available cross-platform on Windows, Linux and MacOSX.
+The :command:`obabel` command line program converts chemical objects (currently molecules or reactions) from one file format to another. The Open Babel graphical user interface (GUI) is an
+alternative to using the command line and has the same capabilities. Since Open Babel 2.3, the GUI is available cross-platform on Windows, Linux and MacOSX. On Windows, you can find it in the Start Menu in the Open Babel folder; on Linux and MacOSX, the GUI can be started with the :command:`obgui` command.
 
-Since the functionality of the GUI mirrors that of :command:`obabel`, you should consult the previous chapter to learn about available features and how to use them. This chapter describes the general use of the GUI and then focuses on features that are specific to the GUI.
+Since the functionality of the GUI mirrors that of :command:`obabel`, you should consult the :ref:`previous chapter <obabel>` to learn about available features and how to use them. This chapter describes the general use of the GUI and then focuses on features that are specific to the GUI.
 
 
 Basic operation
@@ -24,6 +24,11 @@ converted, and the contents of the output file are displayed.
 
 By default, all the molecules in an input file are converted if the
 output format allows multiple molecules.
+
+.. figure:: ../_static/ScreenshotOfGui-BioLinux6.0-Ubuntu10.04deriv.png
+   :align: center
+
+   **Screenshot of GUI running on BioLinux 6.0, an Ubuntu derivative**
 
 Options
 ~~~~~~~

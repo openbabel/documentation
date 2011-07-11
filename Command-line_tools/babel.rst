@@ -1,3 +1,5 @@
+.. _obabel:
+
 obabel and babel - Convert, Filter and Manipulate Chemical Data
 ===============================================================
 
