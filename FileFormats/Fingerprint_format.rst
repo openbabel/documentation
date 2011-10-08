@@ -57,10 +57,11 @@ instead a list of the chemical fragments used to set bits, e.g.::
  0 8 2 6 <623>
  ...etc
 
-where the first digit indicates whether the fragment is linear (0) or cyclic
-(1) and remaining digits indicate the atomic number and bond order
-alternatively. For example, bit 623 above is the linear fragment O=C (8 for
-oxygen, 2 for double bond and 6 for carbon).
+where the first digit is 0 for linear fragments but is a bond order
+for cyclic fragments. The remaining digits indicate the atomic number
+and bond order alternatively. Note that a bond order of 5 is used for
+aromatic bonds. For example, bit 623 above is the linear fragment O=C
+(8 for oxygen, 2 for double bond and 6 for carbon).
 
 
 

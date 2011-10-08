@@ -33,6 +33,7 @@ Write Options
     'Metal was disconnected'
 -a  *output auxiliary information*
 -l  *display InChI log*
+-r  *recalculate InChI; normally an input InChI is reused*
 -s  *recalculate wedge and hash bonds(2D structures only)*
 
  

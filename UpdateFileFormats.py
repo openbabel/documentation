@@ -21,9 +21,10 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 'tmol', 'zin', 'moo', 
             'fhiaims', 'got', 'pwscf' ,'gukin', 'gukout', 'cache',
             'castep', "abinit"])
 viewers = ("3D viewer", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
-                          "unixyz", "c3d1", "c3d2", "bs", "crk3d"])
+                          "unixyz", "c3d1", "c3d2", "bs", "crk3d",
+                          "xsf"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
-                 'inchi', 'mol2', 'mol', 'cml'])
+                 'inchi', 'inchikey', 'mol2', 'mol', 'cml'])
 cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
                                      'mcdl', "car", "csr"])
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
@@ -36,7 +37,7 @@ utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        "mpd", "k"])
 md_and_dock = ('Molecular dynamics and docking',
                       ['gr96', 'txyz', "prep", "mmod", "box", "xtc",
-                       "pdbqt", "CONFIG", "HISTORY", "txyz"])
+                       "gro", "pdbqt", "CONFIG", "HISTORY", "txyz"])
 thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
 reactions = ("Reaction", ["cmlr", "rxn", "rsmi"])
 biology = ("Biological data", ["fasta", "pqr"])

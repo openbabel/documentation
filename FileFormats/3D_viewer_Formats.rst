@@ -14,4 +14,5 @@
    PCModel_Format.rst
    UniChem_XYZ_format.rst
    ViewMol_format.rst
+   XCrySDen_Structure_Format.rst
    YASARA.org_YOB_format.rst
