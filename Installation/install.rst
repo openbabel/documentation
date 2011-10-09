@@ -207,7 +207,7 @@ The main Windows build used by Open Babel uses the Microsoft Visual C++ compiler
 
 2. Install the Microsoft Visual C++ 2008 (or newer) compiler.
 
-   We use the Visual C++ 2008 (9.0) `Express Edition`_ (available for free). If you use MSVC++ 2010, open :file:`windows-vc2008/default_build.bat` in a text editor and change the ``Visual Studio 9 2008`` to ``Visual Studio 10 2010``.
+   We use the Visual C++ 2008 (9.0) `Express Edition`_ (available for free). If you use MSVC++ 2010, open :file:`windows-vc2008/default_build.bat` in a text editor and change the ``Visual Studio 9 2008`` to ``Visual Studio 10``.
 
 .. _Express Edition: http://www.microsoft.com/Express/VC/
 
