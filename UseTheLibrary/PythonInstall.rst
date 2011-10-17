@@ -8,7 +8,7 @@ Install the bindings
 ^^^^^^^^^^^^^^^^^^^^
 
 #. First you need to download and install the
-   `OpenBabelGUI <http://openbabel.org/wiki/Install>`_ version 2.3.0
+   `OpenBabelGUI <http://openbabel.org/wiki/Install>`_ version 2.3.1
 #. Next, download and install the OpenBabel Python bindings
    (version 1.6) for your Python version, either
    `2.5 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.6/openbabel-python-1.6.py25.exe/download>`_
@@ -71,7 +71,7 @@ list with the output from these commands.
      Volume in drive C has no label.
      Volume Serial Number is 68A3-3CC9
     
-     Directory of C:\Program Files (x86)\OpenBabel-2.3.0\data
+     Directory of C:\ProgramData\OpenBabel-2.3.1\data
 
     26/10/2010  16:37             4,295 mr.txt
                    1 File(s)          4,295 bytes

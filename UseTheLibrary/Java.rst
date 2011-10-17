@@ -1,12 +1,12 @@
 Java
 ====
 
-The :file:`openbabel.jar` file in the OpenBabel distribution allows you to use the OpenBabel C++ library from Java or any of the other JVM languages (Jython, JRuby, BeanShell, etc.). 
+The :file:`openbabel.jar` file in the Open Babel distribution allows you to use the Open Babel C++ library from Java or any of the other JVM languages (Jython, JRuby, BeanShell, etc.). 
 
 Quickstart Example
 ------------------
 
-Let's begin by looking at an example program that uses OpenBabel. The following program carries out file format conversion, iteration over atoms and SMARTS pattern matching:
+Let's begin by looking at an example program that uses Open Babel. The following program carries out file format conversion, iteration over atoms and SMARTS pattern matching:
 
 .. code-block:: java
 
@@ -75,9 +75,9 @@ Windows
 
 .. highlight:: bat
 
-:file:`openbabel.jar` is installed along with the OpenBabelGUI on Windows, typically in :file:`C:/Program Files/OpenBabel-2.3.0`. As an example of how to use :file:`openbabel.jar`, download OBTest.java_ and compile and run it as follows::
+:file:`openbabel.jar` is installed along with the OpenBabelGUI on Windows, typically in :file:`C:/Program Files (x86)/OpenBabel-2.3.1`. As an example of how to use :file:`openbabel.jar`, download OBTest.java_ and compile and run it as follows::
 
-        C:\> set CLASSPATH=C:\Program Files\OpenBabel-2.3.0\openbabel.jar;.
+        C:\> set CLASSPATH=C:\Program Files (x86)\OpenBabel-2.3.1\openbabel.jar;.
         C:\> "C:\Program Files\Java\jdk1.5.0_16\bin\javac.exe" OBTest.java
         C:\> "C:\Program Files\Java\jdk1.5.0_16\bin\java.exe" OBTest
         Running OBTest...
@@ -93,13 +93,13 @@ The following instructions describe how to compile and use these bindings on Mac
 
   1. :file:`openbabel.jar` is included in the Open Babel source distribution in :file:`scripts/java`. To compile a Java application that uses this (e.g. the example program shown above), use a command similar to the following::
 
-       javac Test.java -cp ../openbabel-2.3.0/scripts/java/openbabel.jar
+       javac Test.java -cp ../openbabel-2.3.1/scripts/java/openbabel.jar
      
   2. To run the resulting :file:`Test.class` on MacOSX or Linux you first need to compile the Java bindings as described in the section :ref:`Compile bindings`. This creates :file:`lib/libopenbabel_java.so` in the build directory.
 
   3. Add the location of :file:`openbabel.jar` to the environment variable CLASSPATH, not forgetting to append the location of :file:`Test.class` (typically ".")::
 
-       export CLASSPATH=/home/user/Tools/openbabel-2.3.0/scripts/java/openbabel.jar:.
+       export CLASSPATH=/home/user/Tools/openbabel-2.3.1/scripts/java/openbabel.jar:.
      
   4. Add the location of :file:`libopenbabel_java.so` to the environment variable LD_LIBRARY_PATH. Additionally, if you have not installed Open Babel globally you should set BABEL_LIBDIR to the location of the Open Babel library and BABEL_DATADIR to the :file:`data` directory.
 

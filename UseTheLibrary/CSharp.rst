@@ -13,22 +13,22 @@ The :file:`OBDotNet.dll` assembly provided on Windows was compiled using the .NE
 
 The following instructions describe how to compile a simple C# program that uses OBDotNet:
 
-   1. First you need to download and install the :program:`OpenBabelGUI version 2.3.0`
-   2. Download and extract OBDotNet-0.4.zip_. There should be an example CSharp program included, :file:`example.cs`.
-   3. Open a command prompt wherever you unzipped OBDotNet and compile :file:`example.cs` as follows::
+   1. First you need to download and install the :program:`OpenBabelGUI version 2.3.1`
+   2. Next create an example CSharp program that uses the Open Babel API (see below for one or use `this link`_). Let's call this :file:`example.cs`.
+   3. Copy :file:`OBDotNet.dll` from the Open Babel installation into the same folder as :file:`example.cs`.
+   4. Open a command prompt at the location of :file:`example.cs` and compile it as follows::
 
-              C:\Tools\OBDotNet-0.4> C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe
+              C:\Work> C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe
                                          /reference:OBDotNet.dll /platform:x86 example.cs
 
-   4. Run the created executable, :program:`example.exe`, to discover the molecule weight of propane::
+   5. Run the created executable, :program:`example.exe`, to discover the molecule weight of propane::
 
-              C:\Tools\OBDotNet-0.4> example.exe
+              C:\Work> example.exe
               44.09562
 
 If you prefer to use the MSVC# GUI, note that the Express edition does not have the option to choose x86 as a target. This will be a problem if you are using a 64-bit operating system. There's some information at `Coffee Driven Development`_ on how to get around this.
 
-.. _OBDotNet-0.4.zip : http://sf.net/projects/openbabel/files/OBDotNet/0.4/OBDotNet-0.4.zip/download
-.. _example program: http://openbabel.svn.sf.net/viewvc/openbabel/openbabel/tags/openbabel-2-2-1/scripts/csharp/example.cs?revision=2910
+.. _this link: http://openbabel.svn.sf.net/viewvc/openbabel/openbabel/tags/openbabel-2-2-1/scripts/csharp/example.cs?revision=2910
 .. _Coffee Driven Development: http://coffeedrivendevelopment.blogspot.com/2008/06/hacking-vs-c-2008-express.html
 
 MacOSX and Linux
@@ -38,11 +38,11 @@ On Linux and MacOSX you need to use Mono, the open source implementation of the 
 
   1. :file:`OBDotNet.dll` is included in the Open Babel source distribution in :file:`scripts/csharp`. To compile a CSharp application that uses this (e.g. the example program shown below), use a command similar to the following::
 
-       gmcs example.cs /reference:../openbabel-2.3.0/scripts/csharp/OBDotNet.dll
+       gmcs example.cs /reference:../openbabel-2.3.1/scripts/csharp/OBDotNet.dll
      
-  2. To run this on MacOSX or Linux you need to compile the CSharp bindings as described in the section :ref:`Compile bindings`. This creates :file:`lib/libopenbabel_csharp.so` in the build directory. You should rename this file to :file:`lib/libopenbabelcsharp.so` to work around a minor bug in the 2.3.0 release.
+  2. To run this on MacOSX or Linux you need to compile the CSharp bindings as described in the section :ref:`Compile bindings`. This creates :file:`lib/libopenbabel_csharp.so` in the build directory.
 
-  3. Add the location of :file:`OBDotNet.dll` to the environment variable MONO_PATH. Add the location of :file:`libopenbabelcsharp.so` to the environment variable LD_LIBRARY_PATH. Additionally, if you have not installed Open Babel globally you should set BABEL_LIBDIR to the location of the Open Babel library and BABEL_DATADIR to the :file:`data` directory.
+  3. Add the location of :file:`OBDotNet.dll` to the environment variable MONO_PATH. Add the location of :file:`libopenbabel_csharp.so` to the environment variable LD_LIBRARY_PATH. Additionally, if you have not installed Open Babel globally you should set BABEL_LIBDIR to the location of the Open Babel library and BABEL_DATADIR to the :file:`data` directory.
 
   4. Run :file:`example.exe`::
 

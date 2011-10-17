@@ -48,7 +48,7 @@ Requirements
 
 To build Open Babel, you **need** the following:
 
-* The `source code <http://sourceforge.net/project/showfiles.php?group_id=40728&package_id=32894>`__ for the latest release of Open Babel
+* The `source code <http://sourceforge.net/projects/openbabel/files/openbabel/2.3.1/openbabel-2.3.1.tar.gz/download>`__ for the latest release of Open Babel
 * A C++ compiler
 
     Open Babel is written in standards-compliant C++. The best-supported compilers are GCC 4 and MSVC++ 2008, but it also compiles with Clang and Intel Compiler 11. 
