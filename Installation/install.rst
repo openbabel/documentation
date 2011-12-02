@@ -73,6 +73,7 @@ The following are **optional** when compiling Open Babel, but if not available s
 
   Eigen may be available through your package manager (the *libeigen2-dev* package in Ubuntu). Alternatively, Eigen is available from http://eigen.tuxfamily.org. It doesn't need to be compiled or installed. Just unzip it and specify its location when configuring :program:`cmake` (see below) using ``-DEIGEN2_INCLUDE_DIR=whereever``.
 
+* :program:`Cairo` development libraries are required to support PNG depiction (the *libcairo2-dev* package in Ubuntu)
 * If using GCC 3.x to compile (and not GCC 4.x), then the Boost headers are required for certain formats (CML, Chemkin, Chemdraw CDX, MDL RXN and RSMI) 
 
 If you want to use Open Babel using one of the supported **language bindings**, then the following notes may apply:
