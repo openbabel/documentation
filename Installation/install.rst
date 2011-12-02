@@ -63,7 +63,7 @@ If you want to build the GUI (Graphical User Interface), you **need** the follow
 
 * wxWidgets 2.8 (or newer)
   
-    Binary packages may be available through your package manager (*wx-common* and *wx2.8-headers* on Ubuntu) or from http://www.wxwidgets.org/downloads/. Otherwise, you could try compiling it yourself from the source code.
+    Binary packages may be available through your package manager (*wx-common*, *wx2.8-headers* and *libwxbase2.8-dev* on Ubuntu) or from http://www.wxwidgets.org/downloads/. Otherwise, you could try compiling it yourself from the source code.
 
 The following are **optional** when compiling Open Babel, but if not available some features will be missing:
 
