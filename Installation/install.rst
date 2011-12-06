@@ -155,26 +155,24 @@ Compile language bindings
 
   If you wish to compile the language bindings supplied in the release, Eigen2 is required (see :ref:`requirements` above).
 
-1. When configuring CMake, include options such as ``-DPYTHON_BINDINGS=ON -DRUBY_BINDINGS=ON`` for whichever bindings you wish to build (valid names are ``PYTHON``, ``CSHARP``, ``PERL``, ``JAVA`` or ``RUBY``). The bindings will then be built and installed along with the rest of Open Babel. You should note any warning messages in the CMake output.
+1. When configuring CMake, include options such as ``-DPYTHON_BINDINGS=ON -DRUBY_BINDINGS=ON`` for whichever bindings you wish to build (valid names are ``PYTHON``, ``CSHARP``, ``PERL``, ``JAVA`` or ``RUBY``) or ``-DALL_BINDINGS=ON`` to build them all. The bindings will then be built and installed along with the rest of Open Babel. You should note any warning messages in the CMake output.
 
 2. If CMake cannot find Java, you should set the value of the environment variable ``JAVA_HOME`` to the directory containing the Java :file:`bin` and :file:`lib`  directories. For example, if you download the JDK from Sun and run the self-extracting .bin file, it creates a directory :file:`jdk1.6.0_21` (or similar); you should set ``JAVA_HOME`` to the full path to this directory.
 
-3. If CMake cannot find the Perl libraries (which happens on Ubuntu 9.10, surprisingly), you need to configure CMake with something like ``-DPERL_LIBRARY=/usr/lib/libperl.so -DPERL_INCLUDE_PATH=/usr/lib/perl/5.10.0/CORE``.
+3. If CMake cannot find the Perl libraries (which happens on Ubuntu 10.10, surprisingly), you need to configure CMake with something like ``-DPERL_LIBRARY=/usr/lib/libperl.so.5.10 -DPERL_INCLUDE_PATH=/usr/lib/perl/5.10.1/CORE``.
 
 4. If you are compiling the CSharp bindings, you should specify the CSharp compiler to use with something like ``-DCSHARP_EXECUTABLE=C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe``.
 
-5. With Java and CSharp, the bindings will be installed by default to the same location as the Open Babel libraries.
+5. When you run ``make install``, all of the bindings will be installed to the same location as the Open Babel libraries (typically ``/usr/local/lib``).
   
-6. For Ruby, Python and Perl, the library files are installed to a subdirectory of wherever the Open Babel libraries are installed: something like :file:`python2.6/site-packages/` or `dist-packages` in the case of Python, :file:`perl/5.8.7` for Perl, and :file:`site_ruby/1.8/linux-i486` for Ruby. If you wish to install the bindings somewhere else, configure CMake with the option ``-DPYTHON_PREFIX=wherever`` for Python, or something similar for Perl (``OBPERL_PREFIX``) or Ruby (``RUBY_PREFIX``).
-
-7. To tell Python where to find the bindings, add the directory containing ``openbabel.py`` to the front of the PYTHONPATH environment variable (if it is not there already). Similarly add the ``perl`` subdirectory (where the bindings were installed) to the front of the PERL5LIB variable; for Ruby add the directory containing :file:`openbabel.so` to RUBYLIB; for Java, add the location of ``openbabel.jar`` to the CLASSPATH.
-
+6. To prepare to use the bindings, add the install directory to the front of the appropriate environment variable: PYTHONPATH for Python, PERL5LIB for Perl, RUBYLIB for Ruby, CLASSPATH for Java, and MONO_PATH for Mono.
+   
 For example, for Python::
 
         $ cmake ../openbabel-2.3.1 -DPYTHON_BINDINGS=ON
         $ make
         # make install
-        $ export PYTHONPATH=/usr/local/lib/python2.6/site-packages:$PYTHONPATH
+        $ export PYTHONPATH=/usr/local/lib:$PYTHONPATH
 
 Cygwin
 ~~~~~~
