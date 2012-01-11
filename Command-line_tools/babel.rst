@@ -10,9 +10,9 @@ Synopsis
 
 .. hlist::
 
-   * ``obabel [-H <help-options>]`` 
+   * ``obabel [-H <help-options>]``
    * ``babel [-H <help-options>]``
-   * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]`` 
+   * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]``
    * ``babel [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
 
 :command:`obabel` is recommended over :command:`babel` (see :ref:`babel vs obabel`).
@@ -27,27 +27,27 @@ Options
 *  ``obabel [-H <help-options>]``
 *  ``babel  [-H <help-options>]``
 
--H 
+-H
     Output usage information
--H <format-ID> 
+-H <format-ID>
     Output formatting information and options for
     the format specified
--Hall 
+-Hall
     Output formatting information and options for all
     formats
--L  
+-L
     List plugin types (``charges``, ``descriptors``, ``fingerprints``, ``forcefields``, ``formats``, ``loaders`` and ``ops``)
 -L <plugin type>
     List plugins of this type. For example, ``obabel -L formats`` gives the list of file formats.
 -L <plugin-ID>
     Details of a particular plugin (of any plugin type). For example, ``obabel -L cml`` gives details on the CML file format.
--V 
+-V
     Output version number
 
 .. rubric:: Conversion options
 
-* ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]`` 
-* ``obabel -:"<SMILES string>"    [-o <output-ID>] [-O outfile] [OPTIONS]`` 
+* ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]``
+* ``obabel -:"<SMILES string>"    [-o <output-ID>] [-O outfile] [OPTIONS]``
 * ``babel  [-i <input-ID>] infile [-o <output-ID>]    [outfile] [OPTIONS]``
 
 .. note::
@@ -67,95 +67,98 @@ Options
     Append output index to title (that is, the index `after` any filtering)
 --addtotitle <text>
     Append the text after each molecule title
---append <list> 
+--append <list>
     Append properties or descriptor values appropriate for a molecule to its title. For more
     information, see :ref:`append option`.
--b 
+-b
     Convert dative bonds (e.g. ``[N+]([O-])=O`` to ``N(=O)=O``)
--c 
+-c
     Center atomic coordinates at (0,0,0)
--C 
+--conformer <options>
+    Conformer searching to generate low-energy or diverse
+    conformers. For more nformation, see :ref:`conformers`.
+-C
     Combine molecules in first file with others having the same name
--d 
+-d
     Delete hydrogens (make all hydrogen implicit)
---delete <list> 
+--delete <list>
     Delete properties in list
--e 
+-e
     Continue to convert molecules after errors
 --errorlevel <N>
     Filter the level of errors and warnings displayed:
-    
+
     -  1 = critical errors only
     -  2 = include warnings too (**default**)
     -  3 = include informational messages too
     -  4 = include "audit log" messages of changes to data
     -  5 = include debugging messages too
 
--f <#> 
+-f <#>
     For multiple entry input, start import with molecule # as the first
     entry
---filter <criteria> 
+--filter <criteria>
     Filter based on molecular properties. See
     :ref:`filter options` for examples and a list of
     criteria.
---gen2d 
+--gen2d
     Generate 2D coordinates
---gen3d 
+--gen3d
     Generate 3D coordinates
--h 
+-h
     Add hydrogens (make all hydrogen explicit)
--i <format-ID> 
+-i <format-ID>
     Specifies input format. See :ref:`file formats`.
--j, --join 
+-j, --join
     Join all input molecules into a single output molecule entry
--k 
+-k
     Translate computational chemistry modeling keywords. See
     the computational chemistry formats (:ref:`Computational chemistry`),
     for example :ref:`GAMESS_Input` and :ref:`Gaussian_98_or_03_Input`.
--m 
-    Produce multiple output files, to allow:    
+-m
+    Produce multiple output files, to allow:
 
     -  Splitting one input file - put each molecule into consecutively
        numbered output files
     -  Batch conversion - convert each of multiple input files into a
        specified output format
--l <#> 
+-l <#>
     For multiple entry input, stop import with molecule # as the last
     entry
--o <format-ID> 
+-o <format-ID>
     Specifies output format. See :ref:`file formats`.
--p <pH> 
+-p <pH>
     Add hydrogens appropriate for pH (use transforms in :file:`phmodel.txt`)
 --partialcharge <charge-method>
     Calculate partial charges by the specified method. List available methods
     using ``obabel -L charges``.
 --property <name  value>
     Add or replace a property (for example, in an SD file)
--r 
+-r
     Remove all but the largest contiguous fragment (strip salts)
 --readconformers
     Combine adjacent conformers in multi-molecule input into a single molecule
--s <SMARTS> 
+-s <SMARTS>
     Convert only molecules matching the SMARTS pattern specified
 -s <filename.xxx>
     Convert only molecules with the molecule in the file as a substructure
---separate 
+--separate
     Separate disconnected fragments into individual molecular records
 --sort
     Output molecules ordered by the value of a descriptor. See :ref:`sorting option`.
---title <title> 
+--title <title>
     Add or replace molecular title
 --unique, --unique <param>
     Do not convert duplicate molecules. See :ref:`removing duplicates`.
---writeconformers 
+--writeconformers
     Output multiple conformers as separate molecules
--x <options> 
+-x <options>
     Format-specific output options. use ``-H <format-ID>`` to see options
     allowed by a particular format, or see the appropriate section in
     :ref:`file formats`.
 -v <SMARTS>
     Convert only molecules **NOT** matching the SMARTS pattern specified
--z 
+-z
     Compress the output with gzip (not on Windows)
 
 
@@ -170,11 +173,11 @@ Standard conversion::
     babel ethanol.xyz ethanol.pdb
 
 Conversion if the files do not have an extension that describes their format::
-  
+
     obabel -ixyz ethanol.aa -opdb -O ethanol.bb
     babel -ixyz ethanol.aa -opdb ethanol.bb
 
-Molecules from multiple input files (which can have different formats) are normally combined in the output file:: 
+Molecules from multiple input files (which can have different formats) are normally combined in the output file::
 
     obabel ethanol.xyz acetal.sdf benzene.cml -O allmols.smi
 
@@ -222,7 +225,7 @@ Some functional groups e.g. nitro or sulphone can be represented either as ``[N+
 
 If you only want to convert a subset of molecules you can define them using ``-f`` and ``-l``. To convert molecules 2-4 of the file :file:`mymols.sdf` type::
 
-     obabel mymols.sdf -f 2 -l 4 -osdf -O outputfile.sdf 
+     obabel mymols.sdf -f 2 -l 4 -osdf -O outputfile.sdf
 
 Alternatively you can select a subset matching a SMARTS pattern, so to select all molecules containing bromobenzene use::
 
@@ -245,7 +248,7 @@ On platforms other than Windows, the output file can be compressed with gzip, bu
      obabel mymols.sdf -O outputfile.sdf.gz -z
 
 This next example reads the first 50 molecules in a compressed dataset and prints out the SMILES of those containing a pyridine ring, together with the index in the file, the ID (taken from an SDF property) as well as the output index::
-  
+
     obabel chembl_02.sdf.gz -osmi -l 50 -s c1ccccn1 --append chebi_id
            --addinindex --addoutindex
 
@@ -261,7 +264,7 @@ For the test data (taken from ChEMBLdb), this gave::
 Differences between babel and obabel
 ------------------------------------
 
-Essentially :command:`obabel` is a modern version of :command:`babel` with additional capabilities and a more standard interface. Over time, :command:`obabel` will replace :command:`babel` and so we recommend that you start using :command:`obabel` now. 
+Essentially :command:`obabel` is a modern version of :command:`babel` with additional capabilities and a more standard interface. Over time, :command:`obabel` will replace :command:`babel` and so we recommend that you start using :command:`obabel` now.
 
 Specifically, the differences are as follows:
 
@@ -277,8 +280,8 @@ Specifically, the differences are as follows:
 
      obabel -:"O=C(O)c1ccccc1OC(=O)C aspirin" -:"Oc1ccccc1C(=O)O salicylic acid"
             -ofpt
- 
-* :command:`obabel` cannot use concatenated single-character options. 
+
+* :command:`obabel` cannot use concatenated single-character options.
 
 .. tip::
 
@@ -310,7 +313,42 @@ The append option only takes one parameter, which means that all of the descript
 
 If the name of the property in the SDF file (internally the Attribute in OBPairData) contains spaces, these spaces should be replaced by underscore characters, '_'. So the example above would also work for a property named ``CAT NO``.
 
-By default, the extra items are added to the title separated by spaces. But if the first character in the parameter is a whitespace or punctuation character other than '_', it is used as the separator instead. Note that in the GUI, because Tab is used to move between controls, if a Tab character is required it has to be pasted in. 
+By default, the extra items are added to the title separated by spaces. But if the first character in the parameter is a whitespace or punctuation character other than '_', it is used as the separator instead. Note that in the GUI, because Tab is used to move between controls, if a Tab character is required it has to be pasted in.
+
+.. _conformers:
+
+Generating conformers for structures
+---------------------------------------------
+
+The command line option ``--conformer`` allows performing conformer
+searches using a range of different algorithms and options:
+
+* ``--log`` -           output a log of the energies (default = no log)
+* ``--nconf #`` -       number of conformers to generate
+
+Forcefield-based methods for finding stable conformers:
+
+* ``--systematic`` - systematically (exhaustively) generate all conformers
+* ``--random`` - randomly generate conformers
+* ``--weighted`` - weighted rotor search for lowest energy conformer
+* ``--ff <name>`` - select a forcefield (default = MMFF94)
+
+Genetic algorithm based methods (default):
+
+* ``--children #``     number of children to generate for each parent (default = 5)
+* ``--mutability #``   mutation frequency (default = 5)
+* ``--converge #``     number of identical generations before convergence is reached
+* ``--score #``        scoring function [rmsd|energy] (default = rmsd)
+
+You can use them like this (to generate 50 conformers, scoring with
+MMFF94 energies but default genetic algorithm options)::
+
+  obabel EtOT5D.cml -O EtOT5D0.xyz --conformer --nconf 50 --score energy
+
+or if you also wish to generate 3D coordinates, followed by conformer
+searching try something like this::
+
+  obabel ligand.babel.smi -O ligand.babel.sdf --gen3d --conformer --nconf 20 --weighted
 
 .. _filter options:
 
@@ -428,14 +466,14 @@ The comparison of the InChI string is done only as far as the parameter's length
 
   babel filterset.sdf -osmi --filter "inchi=C2H6O"
 
-will convert both Ethanol and Dimethyl Ether. 
+will convert both Ethanol and Dimethyl Ether.
 
 Substructure and similarity searching
 -------------------------------------
 
 For information on using :command:`babel` for substructure searching and similarity searching, see :ref:`fingerprints`.
 
-.. _sorting option: 
+.. _sorting option:
 
 Sorting molecules
 -----------------
@@ -478,7 +516,7 @@ Clearly, this is more useful if each molecule has a title. The ``(#1)`` is the n
 
 If you wanted to identify duplicates but not output the unique molecules, you could use the :ref:`null format <Outputs_nothing>`::
 
- babel  infile.xxx  -onul  --unique    
+ babel  infile.xxx  -onul  --unique
 
 Truncated InChI
 ~~~~~~~~~~~~~~~
@@ -525,8 +563,8 @@ The alias names that are recognized are in the file :file:`superatoms.txt` which
 
 Normal molecules can have certain common groups given alternative alias representation using the ``--genalias`` option. The groups that are recognized and converted are a subset of those that are read. Displaying or writing them still requires the ``-xA`` option. For example, if :file:`aspirin.smi` contained ``O=C(O)c1ccccc1OC(=O)C``, it could be displayed with the  aliases ``COOH`` and ``OAc`` by::
 
-  obabel aspirin.smi  -O out.svg  --genalias  -xA 
-  
+  obabel aspirin.smi  -O out.svg  --genalias  -xA
 
- 
+
+
 
