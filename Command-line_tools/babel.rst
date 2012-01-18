@@ -76,7 +76,7 @@ Options
     Center atomic coordinates at (0,0,0)
 --conformer <options>
     Conformer searching to generate low-energy or diverse
-    conformers. For more nformation, see :ref:`conformers`.
+    conformers. For more information, see :ref:`conformers`.
 -C
     Combine molecules in first file with others having the same name
 -d
@@ -318,7 +318,7 @@ By default, the extra items are added to the title separated by spaces. But if t
 .. _conformers:
 
 Generating conformers for structures
----------------------------------------------
+------------------------------------
 
 The command line option ``--conformer`` allows performing conformer
 searches using a range of different algorithms and options:
@@ -335,10 +335,10 @@ Forcefield-based methods for finding stable conformers:
 
 Genetic algorithm based methods (default):
 
-* ``--children #``     number of children to generate for each parent (default = 5)
-* ``--mutability #``   mutation frequency (default = 5)
-* ``--converge #``     number of identical generations before convergence is reached
-* ``--score #``        scoring function [rmsd|energy] (default = rmsd)
+* ``--children #`` - number of children to generate for each parent (default = 5)
+* ``--mutability #`` - mutation frequency (default = 5)
+* ``--converge #`` - number of identical generations before convergence is reached
+* ``--score #`` - scoring function [rmsd|energy] (default = rmsd)
 
 You can use them like this (to generate 50 conformers, scoring with
 MMFF94 energies but default genetic algorithm options)::
