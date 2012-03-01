@@ -40,3 +40,4 @@ The following sections describe in depth how to add support for a new file forma
 
    AddFileFormat.rst
    AddingNewOptions.rst
+   AddNewDescriptor.rst
