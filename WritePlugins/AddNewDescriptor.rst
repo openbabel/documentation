@@ -57,7 +57,7 @@ Now let's test it. Open a command prompt, and change directory to the working di
 An easy way to test the descriptor is to use the title output format, and append the descriptor value to the title::
 
         C:\Work>obabel -:C(Cl)(Cl)I -otxt --append hellohalo
-        4
+        8
         1 molecule converted
 
 There are a couple of points to note about the pattern file:
