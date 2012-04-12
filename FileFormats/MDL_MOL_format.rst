@@ -29,7 +29,7 @@ Write Options
 
 -3  *output V3000 not V2000 (used for >999 atoms/bonds)*
 -m  *write no properties*
--w  *use wedge and hash bonds from input (2D structures only)*
+-w  *use wedge and hash bonds from input (2D only)*
 -A  *output in Alias form, e.g. Ph, if present*
 
 

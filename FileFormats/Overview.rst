@@ -9,7 +9,7 @@ Supported File Formats and Options
 
 Chemists are a very imaginative group. They keep thinking of new file formats.
 
-OpenBabel has support for 118 formats in total. It can read 88 formats and can write 89 formats. These formats are identified by a name (for example, ``ShelX format``) and one or more short codes (in this case, ``ins`` or ``res``). The titles of each section provide this information (for example, :ref:`ShelX_format`).
+OpenBabel has support for 124 formats in total. It can read 89 formats and can write 95 formats. These formats are identified by a name (for example, ``ShelX format``) and one or more short codes (in this case, ``ins`` or ``res``). The titles of each section provide this information (for example, :ref:`ShelX_format`).
 
 The short code is used when using :command:`obabel` or :command:`babel` to convert files from one format to another::
 
@@ -56,3 +56,4 @@ More than one read (or write) option can be specified (e.g. ``-ax -ay -az``). :c
    Miscellaneous_Formats.rst
    Biological_data_Formats.rst
    Obscure_Formats.rst
+   Unclassified_Formats.rst
