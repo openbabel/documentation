@@ -19,7 +19,7 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 'tmol', 'zin', 'moo', 
             'dmol', 'fch', 'fck', 'fh', "gzmat", "caccrt", "cacint",
             'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout',
             'fhiaims', 'got', 'pwscf' ,'gukin', 'gukout', 'cache',
-            'castep', "abinit"])
+            'castep', "abinit", "c09out"])
 viewers = ("3D viewer", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
                           "unixyz", "c3d1", "c3d2", "bs", "crk3d",
                           "xsf"])

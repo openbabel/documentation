@@ -12,6 +12,7 @@ Computational chemistry formats
    CASTEP_format.rst
    Cacao_Cartesian_format.rst
    Cacao_Internal_format.rst
+   Crystal_09_output_format.rst
    DMol3_coordinates_format.rst
    FHIaims_XYZ_format.rst
    Fenske-Hall_Z-Matrix_format.rst
