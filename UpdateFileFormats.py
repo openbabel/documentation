@@ -34,7 +34,7 @@ images = ("Image", ['png', "png2", 'svg', 'pov', "paint", "ascii"])
 volume_data = ("Volume data", ["cube", "dx", 't41'])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        'nul', 'xyz', 'xml', "mna", "fpt", "fs", "dat",
-                       "mpd", "k"])
+                       "mpd", "k", "fps"])
 md_and_dock = ('Molecular dynamics and docking',
                       ['gr96', 'txyz', "prep", "mmod", "box", "xtc",
                        "gro", "pdbqt", "CONFIG", "HISTORY", "txyz",

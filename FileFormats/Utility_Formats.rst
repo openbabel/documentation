@@ -7,6 +7,7 @@ Utility formats
 
    Compare_molecules_using_InChI.rst
    Copy_raw_text.rst
+   FPS_text_fingerprint_format_(Dalke).rst
    Fastsearch_format.rst
    Fingerprint_format.rst
    General_XML_format.rst

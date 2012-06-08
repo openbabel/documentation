@@ -56,4 +56,3 @@ More than one read (or write) option can be specified (e.g. ``-ax -ay -az``). :c
    Miscellaneous_Formats.rst
    Biological_data_Formats.rst
    Obscure_Formats.rst
-   Unclassified_Formats.rst
