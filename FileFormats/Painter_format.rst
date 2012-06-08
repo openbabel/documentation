@@ -6,9 +6,10 @@ Painter format (paint)
 **Commands used to generate a 2D depiction of a molecule**
 
 
-This is a utility format that may be useful for those who wish to
-generate depictions of molecules themselves, using their own
-software. The format writes out a list of commands as shown
+This is a utility format that is useful if you want to
+generate a depiction of a molecule yourself, for example
+by drawing on a Graphics2D canvas in Java. The format
+writes out a list of drawing commands as shown
 in the following example::
 
   obabel -:CC(=O)Cl -opaint
@@ -36,6 +37,12 @@ in the following example::
   DrawText 40.0 100.0 "Cl"
 
 Note that the origin is considered to be in the top left corner.
+
+The following image was drawn using the information
+in this format as described at
+http://baoilleach.blogspot.co.uk/2012/04/painting-molecules-your-way-introducing.html:
+
+.. image:: ../_static/bananamol.png
 
 
 

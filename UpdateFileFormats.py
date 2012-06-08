@@ -30,7 +30,7 @@ cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
                                "fract", "cssr"])
 twoD_drawing = ("2D drawing", ["ct", "cdxml", "cdx", "ct", "crk2d", "cht"])
-images = ("Image", ['png', "png2", 'svg', 'pov'])
+images = ("Image", ['png', "png2", 'svg', 'pov', "paint", "ascii"])
 volume_data = ("Volume data", ["cube", "dx", 't41'])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        'nul', 'xyz', 'xml', "mna", "fpt", "fs", "dat",

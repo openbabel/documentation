@@ -28,6 +28,8 @@ Write Options
 
 -a  *Output atomclass like [C:2], if available*
 -c  *Output in canonical form*
+-U  *Universal SMILES*
+-I  *Inchified SMILES*
 -h  *Output explicit hydrogens as such*
 -i  *Do not include isotopic or chiral markings*
 -n  *No molecule name*
@@ -35,6 +37,13 @@ Write Options
 -t  *Molecule name only*
 -x  *append X/Y coordinates in canonical-SMILES order*
 -C  *'anti-canonical' random order (mostly for testing)*
+-o <ordering>  *Output in user-specified order*
+
+     Ordering should be specified like 4-2-1-3 for a 4-atom molecule.
+     This gives canonical labels 1,2,3,4 to atoms 4,2,1,3 respectively,
+     so that atom 4 will be visited first and the remaining atoms
+     visited in a depth-first manner following the lowest canonical labels.
+-R  *Do not reuse bond closure symbols*
 -f <atomno>  *Specify the first atom*
 
      This atom will be used to begin the SMILES string.
