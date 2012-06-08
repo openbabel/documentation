@@ -19,7 +19,7 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 'tmol', 'zin', 'moo', 
             'dmol', 'fch', 'fck', 'fh', "gzmat", "caccrt", "cacint",
             'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout',
             'fhiaims', 'got', 'pwscf' ,'gukin', 'gukout', 'cache',
-            'castep', "abinit", "c09out"])
+            'castep', "abinit", "c09out", "acesin", "acesout"])
 viewers = ("3D viewer", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
                           "unixyz", "c3d1", "c3d2", "bs", "crk3d",
                           "xsf"])
@@ -37,7 +37,8 @@ utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        "mpd", "k"])
 md_and_dock = ('Molecular dynamics and docking',
                       ['gr96', 'txyz', "prep", "mmod", "box", "xtc",
-                       "gro", "pdbqt", "CONFIG", "HISTORY", "txyz"])
+                       "gro", "pdbqt", "CONFIG", "HISTORY", "txyz",
+                       "lmpdat"])
 thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
 reactions = ("Reaction", ["cmlr", "rxn", "rsmi"])
 biology = ("Biological data", ["fasta", "pqr"])
