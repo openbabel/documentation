@@ -12,6 +12,7 @@ The latest version of this documentation is available in several formats from ht
    GUI/GUI.rst
    Fingerprints/intro.rst
    Command-line_tools/Rosetta.rst
+   Depiction/depiction.rst
    UseTheLibrary/intro.rst
    Cheminf101/index.rst
    Features/Radicals.rst
