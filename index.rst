@@ -10,6 +10,7 @@ The latest version of this documentation is available in several formats from ht
    Installation/install.rst
    Command-line_tools/babel.rst
    GUI/GUI.rst
+   GUITutorial/GUITutorial.rst
    Fingerprints/intro.rst
    Command-line_tools/Rosetta.rst
    Depiction/depiction.rst
