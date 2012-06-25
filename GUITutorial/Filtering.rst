@@ -39,7 +39,7 @@ Q. Are any of the other descriptors useful for removing duplicates?
 
 Q. How many of the molecules contain the following substructure?
 
-.. figure:: ../_static/BenzoF.png
+.. figure:: ../_static/benzoF.png
 
 The SMILES string for this molecule is ``c1ccccc1F``. This is also a valid SMARTS string.
 
