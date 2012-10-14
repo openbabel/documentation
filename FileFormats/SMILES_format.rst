@@ -43,6 +43,9 @@ Write Options
      This gives canonical labels 1,2,3,4 to atoms 4,2,1,3 respectively,
      so that atom 4 will be visited first and the remaining atoms
      visited in a depth-first manner following the lowest canonical labels.
+-F <atom numbers>  *Generate SMILES for a fragment*
+
+     The atom numbers should be specified like "1 2 4 7".
 -R  *Do not reuse bond closure symbols*
 -f <atomno>  *Specify the first atom*
 

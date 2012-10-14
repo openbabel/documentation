@@ -25,6 +25,9 @@ Write Options
 -n  *No molecule name*
 -r  *Radicals lower case eg ethyl is Cc*
 -t  *Molecule name only*
+-F <atom numbers>  *Generate Canonical SMILES for a fragment*
+
+     The atom numbers should be specified like "1 2 4 7".
 -f <atomno>  *Specify the first atom*
 
      This atom will be used to begin the SMILES string.

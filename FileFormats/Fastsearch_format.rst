@@ -43,6 +43,9 @@ The datafile plus the ``-ifs`` option can be used instead of the index file.
 
 NOTE that the datafile MUST NOT be larger than 4GB. (A 32 pointer is used.)
 
+Dative bonds like -[N+][O-](=O) are indexed as -N(=O)(=O), and when searching
+the target molecule should be in the second form.
+
 .. seealso::
 
     :ref:`fingerprints`

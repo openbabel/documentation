@@ -5,4 +5,4 @@ Unclassified formats
 
 .. toctree::
 
-   FPS_text_fingerprint_format_(Dalke).rst
+   POS_cartesian_coordinates_format.rst
