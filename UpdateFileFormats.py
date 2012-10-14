@@ -28,9 +28,9 @@ common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
 cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
                                      'mcdl', "car", "csr"])
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
-                               "fract", "cssr"])
+                               "fract", "cssr", "pos"])
 twoD_drawing = ("2D drawing", ["ct", "cdxml", "cdx", "ct", "crk2d", "cht"])
-images = ("Image", ['png', 'svg', 'pov', "paint", "ascii"])
+images = ("Image", ['png', 'svg', 'pov', "ascii"]) # 'paint'
 volume_data = ("Volume data", ["cube", "dx", 't41'])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        'nul', 'xyz', 'xml', "mna", "fpt", "fs", "dat",

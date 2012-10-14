@@ -1,6 +1,6 @@
-.. _AutoDock_PDBQT_format:
+.. _AutoDock_PDQBT_format:
 
-AutoDock PDBQT format (pdbqt)
+AutoDock PDQBT format (pdbqt)
 =============================
 
 **Reads and writes AutoDock PDBQT (Protein Data Bank, Partial Charge (Q), & Atom Type (T)) format**
