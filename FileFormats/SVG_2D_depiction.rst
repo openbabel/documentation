@@ -120,7 +120,7 @@ For example, if input.smi had 10 molecules::
 
       obabel input.smi -O out.svg -xb -xC -xe
 
-would produce a svg file with a black background, with no explict
+would produce a svg file with a black background, with no explicit
 terminal carbon, and with an embedded cml representation of each
 molecule. The structures would be in two rows of four and one row
 of two.
