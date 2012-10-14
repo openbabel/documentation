@@ -294,7 +294,7 @@ Individual file formats may have additional formatting options. These are listed
 
 To use these additional options, input format options are preceded by ``-a``, e.g. ``-as``. Output format options, which are much more common, are preceded by ``-x``, e.g. ``-xn``. So to read the 2D coordinates (rather than the 3D) from a :ref:`CML file <Chemical_Markup_Language>` and generate an :ref:`SVG file <SVG_2D_depiction>` displaying the molecule on a black background, the relevant options are used as follows::
 
-      babel mymol.cml out.svg -a2 -xb
+      obabel mymol.cml out.svg -a2 -xb
 
 .. _append option:
 
@@ -369,7 +369,7 @@ The aim has been to make the option flexible and intuitive to use; don't be put 
 
 You use it like this::
 
-  babel filterset.sdf -osmi --filter "MW<130 ROTATABLE_BOND > 2"
+  obabel filterset.sdf -osmi --filter "MW<130 ROTATABLE_BOND > 2"
 
 It takes one parameter which probably needs to be enclosed in double quotes to avoid confusing the shell or operating system. (You don't need the quotes with the Windows GUI.) The parameter contains one or more conditional tests. By default, these have all to be true for the molecule to be converted. As well as this implicit AND behaviour, you can write a full Boolean expression (see below). As you can see, there can be spaces or not in sensible places and the conditional tests could be separated by a comma or semicolon.
 
@@ -378,7 +378,7 @@ You can filter on two types of property:
 * An SDF property, as the identifier ROTATABLE_BOND could be. There is no need for it to be previously known to Open Babel.
 * A descriptor name (internally, an ID of an OBDescriptor object). This is a plug-in class so that new objects can easily be added. MW is the ID of a descriptor which calculates molecular weight. You can see a list of available descriptors using::
 
-    babel -L descriptors
+    obabel -L descriptors
 
   or from a menu item in the GUI.
 
@@ -392,7 +392,7 @@ The descriptor names are case-insensitive. With the property names currently, yo
 
 Open Babel uses a SDF-like property (internally this is stored in the class OBPairData) in preference to a descriptor if one exists in the molecule. So with the example file, which can be found here_::
 
-  babel filterset.sdf -osmi --filter "logP>5"
+  obabel filterset.sdf -osmi --filter "logP>5"
 
 converts only a molecule with a property logP=10.900, since the others do not have this property and logP, being also a descriptor, is calculated and is always much less than 5.
 
@@ -400,11 +400,11 @@ converts only a molecule with a property logP=10.900, since the others do not ha
 
 If a property does not have a conditional test, then it returns true only if it exists. So::
 
-  babel filterset.sdf -osmi --filter "ROTATABLE_BOND MW<130"
+  obabel filterset.sdf -osmi --filter "ROTATABLE_BOND MW<130"
 
 converts only those molecules with a ROTATABLE_BOND property and a molecular weight less than 130. If you wanted to also include all the molecules without ROTATABLE_BOND defined, use::
 
-  babel filterset.sdf -osmi --filter "!ROTATABLE_BOND || (ROTATABLE_BOND & MW<130)"
+  obabel filterset.sdf -osmi --filter "!ROTATABLE_BOND || (ROTATABLE_BOND & MW<130)"
 
 The ! means negate. AND can be & or &&, OR can be | or ||. The brackets are not strictly necessary here because & has precedent over | in the normal way. If the result of a test doesn't matter, it is parsed but not evaluated. In the example, the expression in the brackets is not evaluated for molecules without a ROTATABLE_BOND property. This doesn't matter here, but if evaluation of a descriptor involved a lot of computation, it would pay to include it late in the boolean expression so that there is a chance it is skipped for some molecules.
 
@@ -415,34 +415,34 @@ String descriptors
 
 ::
 
-  babel filterset.sdf -osmi --filter "title='Ethanol'"
+  obabel filterset.sdf -osmi --filter "title='Ethanol'"
 
 The descriptor *title*, when followed by a string (here enclosed by single quotes), does a case-sensitive string comparison. ('ethanol' wouldn't match anything in the example file.) The comparison does not have to be just equality::
 
-  babel filterset.sdf -osmi --filter "title>='D'"
+  obabel filterset.sdf -osmi --filter "title>='D'"
 
 converts molecules with titles Dimethyl Ether and Ethanol in the example file.
 
 It is not always necessary to use the single quotes when the meaning is unambiguous: the two examples above work without them. But a numerical, rather than a string, comparison is made if both operands can be converted to numbers. This can be useful::
 
-  babel filterset.sdf -osmi --filter "title<129"
+  obabel filterset.sdf -osmi --filter "title<129"
 
 will convert the molecules with titles 56 123 and 126, which is probably what you wanted.
 
 ::
 
-  babel filterset.sdf -osmi --filter "title<'129'"
+  obabel filterset.sdf -osmi --filter "title<'129'"
 
 converts only 123 and 126 because a string comparison is being made.
 
-String comparisons can use * as a wildcard. It can only be used as the first or last character of the string. So ``--filter "title='*ol'`` will match molecules with titles 'methanol', 'ethanol' etc. and ``--filter "title='eth*'`` will match 'ethanol', 'ethyl acetate', 'ethical solution' etc.
+String comparisons can use ``*`` as a wildcard if used as the first or last character of the string (anywhere else a ``*`` is a normal character). So ``--filter "title='*ol'"`` will match molecules with titles ‘methanol’, ‘ethanol’ etc. and ``--filter "title='eth*'`` will match ‘ethanol’, ‘ethyl acetate’, ‘ethical solution’ etc. Use a ``*`` at both the first and last characters to test for the occurrence of a string, so ``--filter "title='*ol*'"`` will match 'oleum', 'polonium' and 'ethanol'.
 
 SMARTS descriptor
 ~~~~~~~~~~~~~~~~~
 
 This descriptor will do a SMARTS test (substructure and more) on the molecules. The smarts ID can be abbreviated to s and the = is optional. More than one SMARTS test can be done::
 
-  babel filterset.sdf -osmi --filter "s='CN' s!='[N+]'"
+  obabel filterset.sdf -osmi --filter "s='CN' s!='[N+]'"
 
 This provides a more flexible alternative to the existing ``-s`` and ``-v`` options, since the SMARTS descriptor test can be combined with other tests.
 
@@ -451,20 +451,20 @@ InChI descriptor
 
 ::
 
-  babel filterset.sdf -osmi --filter "inchi='InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3'"
+  obabel filterset.sdf -osmi --filter "inchi='InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3'"
 
 will convert only ethanol. It uses the default parameters for InChI comparison, so there may be some messages from the InChI code. There is quite a lot of flexibility on how the InChI is presented (you can miss out the non-essential bits)::
 
-  babel filterset.sdf -osmi --filter "inchi='1/C2H6O/c1-2-3/h3H,2H2,1H3'"
-  babel filterset.sdf -osmi --filter "inchi='C2H6O/c1-2-3/h3H,2H2,1H3'"
-  babel filterset.sdf -osmi --filter "inchi=C2H6O/c1-2-3/h3H,2H2,1H3"
-  babel filterset.sdf -osmi --filter "InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3"
+  obabel filterset.sdf -osmi --filter "inchi='1/C2H6O/c1-2-3/h3H,2H2,1H3'"
+  obabel filterset.sdf -osmi --filter "inchi='C2H6O/c1-2-3/h3H,2H2,1H3'"
+  obabel filterset.sdf -osmi --filter "inchi=C2H6O/c1-2-3/h3H,2H2,1H3"
+  obabel filterset.sdf -osmi --filter "InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3"
 
 all have the same effect.
 
 The comparison of the InChI string is done only as far as the parameter's length. This means that we can take advantage of InChI's layered structure::
 
-  babel filterset.sdf -osmi --filter "inchi=C2H6O"
+  obabel filterset.sdf -osmi --filter "inchi=C2H6O"
 
 will convert both Ethanol and Dimethyl Ether.
 
@@ -480,17 +480,17 @@ Sorting molecules
 
 The ``--sort`` option is used to output molecules ordered by the value of a descriptor::
 
- babel  infile.xxx  outfile.xxx  --sort desc
+ obabel  infile.xxx  outfile.xxx  --sort desc
 
 If the descriptor desc provides a numerical value, the molecule with the smallest value is output first. For descriptors that provide a string output the order is alphabetical, but for the InChI descriptor a more chemically informed order is used (e.g. "CH4" is before than "C2H6", "CH4" is less than "ClH" hydrogen chloride).
 
 The order can be reversed by preceding the descriptor name with ``~``, e.g.::
 
- babel  infile.xxx  outfile.yyy  --sort ~logP
+ obabel  infile.xxx  outfile.yyy  --sort ~logP
 
 As a shortcut, the value of the descriptor can be appended to the molecule name by adding a ``+`` to the descriptor, e.g.::
 
- babel  aromatics.smi  -osmi  --sort ~MW+
+ obabel  aromatics.smi  -osmi  --sort ~MW+
   c1ccccc1C=C	styrene 104.149
   c1ccccc1C	toluene 92.1384
   c1ccccc1	benzene 78.1118
@@ -502,11 +502,9 @@ Remove duplicate molecules
 
 The ``--unique`` option is used to remove, i.e. not output, any chemically identical molecules during conversion::
 
- babel  infile.xxx  outfile.yyy  --unique [param]
+ obabel  infile.xxx  outfile.yyy  --unique [param]
 
 The optional parameter *param* defines what is regarded as "chemically identical". It can be the name of any descriptor, although not many are likely to be useful. If *param* is omitted, the InChI descriptor is used. Other useful descriptors are 'cansmi' and 'cansmiNS' (canonical SMILES, with and without stereochemical information),'title' and truncated InChI (see below).
-
-Note that if you want to use ``--unique`` without a parameter with :command:`babel`, it needs to be last on the line. With the alternative commandline interface, :command:`obabel`, it can be anywhere after the output file.
 
 A message is output for each duplicate found::
 
@@ -516,14 +514,14 @@ Clearly, this is more useful if each molecule has a title. The ``(#1)`` is the n
 
 If you wanted to identify duplicates but not output the unique molecules, you could use the :ref:`null format <Outputs_nothing>`::
 
- babel  infile.xxx  -onul  --unique
+ obabel  infile.xxx  -onul  --unique
 
 Truncated InChI
 ~~~~~~~~~~~~~~~
 
 It is possible to relax the criterion by which molecules are regarded as "chemically identical" by using a truncated InChI specification as *param*. This takes advantage of the layered structure of InChI. So to remove duplicates, treating stereoisomers as the same molecule::
 
- babel  infile.xxx  outfile.yyy  --unique /nostereo
+ obabel  infile.xxx  outfile.yyy  --unique /nostereo
 
 Truncated InChI specifications start with ``/`` and are case-sensitive. *param* can be a concatenation of these e.g. ``/nochg/noiso``::
 
@@ -540,15 +538,15 @@ Multiple files
 
 The input molecules do not have to be in a single file. So to collect all the unique molecules from a set of MOL files::
 
- babel  *.mol  uniquemols.sdf  --unique
+ obabel  *.mol  uniquemols.sdf  --unique
 
 If you want the unique molecules to remain in individual files::
 
- babel  *.mol  U.mol  -m  --unique
+ obabel  *.mol  U.mol  -m  --unique
 
 On the GUI use the form::
 
- babel  *.mol  U*.mol  --unique
+ obabel  *.mol  U*.mol  --unique
 
 Either form is acceptable on the Windows command line.
 
