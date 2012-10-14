@@ -8,7 +8,7 @@ Install the bindings
 ^^^^^^^^^^^^^^^^^^^^
 
 #. First you need to download and install the
-   `OpenBabelGUI <http://openbabel.org/wiki/Install>`_ version 2.3.1
+   `OpenBabelGUI <http://openbabel.org/wiki/Install>`_ version 2.3.2
 #. Next, download and install the OpenBabel Python bindings
    (version 1.7) for your Python version, either
    `2.5 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.7/openbabel-python-1.7.py25.exe/download>`_
@@ -46,7 +46,7 @@ list with the output from these commands.
 ::
 
     C:\Documents and Settings\Noel> obabel -V
-    Open Babel 2.3.1 -- Oct  9 2011 -- 17:57:01
+    Open Babel 2.3.2 -- Oct 13 2012 -- 17:57:01
     
     C:\Documents and Settings\Noel> obabel -Hsdf
     sdf  MDL MOL format
@@ -61,7 +61,7 @@ list with the output from these commands.
      Volume in drive C has no label.
      Volume Serial Number is 68A3-3CC9
     
-     Directory of C:\ProgramData\OpenBabel-2.3.1\data
+     Directory of C:\Users\Noel\AppData\Roaming\OpenBabel-2.3.2\data
 
     26/10/2010  16:37             4,295 mr.txt
                    1 File(s)          4,295 bytes

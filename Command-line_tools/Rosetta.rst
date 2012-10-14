@@ -140,7 +140,7 @@ Align the depiction using a fixed substructure
 
   *Use "[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12" as the common SMARTS substructure. This is the fused ring of the benzodiazepine system but without bond type or atom aromaticity information. Use the first molecule as the reference depiction. All other depictions must have the depiction of their common substructure aligned to the reference.*
 
-In Open Babel 2.3.1 this can be done in one line::
+Since Open Babel 2.3.1 this can be done in one line::
 
   obabel benzodiazepine.sdf.gz -O out.svg --align -d -xu
          -s"[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12 green"

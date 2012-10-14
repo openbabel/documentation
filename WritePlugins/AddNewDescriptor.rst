@@ -13,7 +13,7 @@ Group contribution descriptors are a common type of molecular descriptor whose v
 The following example shows how to add a new descriptor, *hellohalo*, whose value increments by 1, 2, 3 or 4 for each F, Cl, Br, and I (respectively) in the molecule.
 
 1. Create a working directory, for example :file:`C:\\Work`.
-2. Copy the plugin definition file, :file:`plugindefines.txt` to the working directory. This file can be found in the Open Babel data directory (typically in :file:`/usr/share/openbabel` on Linux systems, or :file:`C:\\ProgramData\\OpenBabel-2.3.1\\data` on Windows).
+2. Copy the plugin definition file, :file:`plugindefines.txt` to the working directory. This file can be found in the Open Babel data directory (typically in :file:`/usr/share/openbabel` on Linux systems, or :file:`C:\\Users\\username\\AppData\Roaming\\OpenBabel-2.3.2\\data` on Windows).
 3. For the *hellohalo* descriptor, add the following to the end of :file:`plugindefines.txt` (make sure to include a blank line between it and other descriptor definitions)::
 
         OBGroupContrib

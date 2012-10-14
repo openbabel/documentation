@@ -57,7 +57,7 @@ To support development of Open Babel, please cite:
    *J. Cheminf.* **2011**, *3*, 33.
    [`Link <http://dx.doi.org/10.1186/1758-2946-3-33>`_] 
 
-* Open Babel, version 2.3.1, http://openbabel.org (accessed Oct 2011) 
+* Open Babel, version 2.3.2, http://openbabel.org (accessed Oct 2012) 
 
 The first is a paper describing Open Babel; and the second is one way to cite a software package at a particular URL. Obviously, you should include the version number of Open Babel you used, and the date you downloaded the software or installed Open Babel.
 

@@ -13,7 +13,7 @@ The :file:`OBDotNet.dll` assembly provided on Windows was compiled using the .NE
 
 The following instructions describe how to compile a simple C# program that uses OBDotNet:
 
-   1. First you need to download and install the :program:`OpenBabelGUI version 2.3.1`
+   1. First you need to download and install the :program:`OpenBabelGUI version 2.3.2`
    2. Next create an example CSharp program that uses the Open Babel API (see below for one or use `this link`_). Let's call this :file:`example.cs`.
    3. Copy :file:`OBDotNet.dll` from the Open Babel installation into the same folder as :file:`example.cs`.
    4. Open a command prompt at the location of :file:`example.cs` and compile it as follows::
@@ -38,7 +38,7 @@ On Linux and MacOSX you need to use Mono, the open source implementation of the 
 
   1. :file:`OBDotNet.dll` is included in the Open Babel source distribution in :file:`scripts/csharp`. To compile a CSharp application that uses this (e.g. the example program shown below), use a command similar to the following::
 
-       gmcs example.cs /reference:../openbabel-2.3.1/scripts/csharp/OBDotNet.dll
+       gmcs example.cs /reference:../openbabel-2.3.2/scripts/csharp/OBDotNet.dll
      
   2. To run this on MacOSX or Linux you need to compile the CSharp bindings as described in the section :ref:`Compile bindings`. This creates :file:`lib/libopenbabel_csharp.so` in the build directory.
 

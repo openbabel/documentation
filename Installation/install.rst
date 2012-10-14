@@ -13,7 +13,7 @@ Windows
 
 Open Babel is available as a `binary installer`_ for Windows. It includes several command-line tools as well as a graphical user interface (GUI).
 
-.. _binary installer: http://sourceforge.net/projects/openbabel/files/openbabel/2.3.1/OpenBabel2.3.1_Windows_Installer.exe/download
+.. _binary installer: http://sourceforge.net/projects/openbabel/files/openbabel/2.3.2/OpenBabel2.3.2a_Windows_Installer.exe/download
 
 Advanced users may be interested in compiling Open Babel themselves (see :ref:`Compiling Open Babel`).
 
@@ -48,7 +48,7 @@ Requirements
 
 To build Open Babel, you **need** the following:
 
-* The `source code <http://sourceforge.net/projects/openbabel/files/openbabel/2.3.1/openbabel-2.3.1.tar.gz/download>`__ for the latest release of Open Babel
+* The `source code <http://sourceforge.net/projects/openbabel/files/openbabel/2.3.2/openbabel-2.3.2.tar.gz/download>`__ for the latest release of Open Babel
 * A C++ compiler
 
     Open Babel is written in standards-compliant C++. The best-supported compilers are GCC 4 and MSVC++ 2008, but it also compiles with Clang and Intel Compiler 11. 
@@ -89,19 +89,19 @@ The basic build procedure is the same for all platforms and will be described fi
 
 .. highlight:: console
 
-1. The recommended way to build Open Babel is to use a separate source and build directory; for example, :file:`openbabel-2.3.1` and :file:`build`. The first step is to create these directories::
+1. The recommended way to build Open Babel is to use a separate source and build directory; for example, :file:`openbabel-2.3.2` and :file:`build`. The first step is to create these directories::
 
-        $ tar zxf openbabel-2.3.1.tar.gz   # (this creates openbabel-2.3.1)
+        $ tar zxf openbabel-2.3.2.tar.gz   # (this creates openbabel-2.3.2)
         $ mkdir build
 
 2. Now you need to run :program:`cmake` to configure the build. The following will configure the build to use all of the default options::
 
         $ cd build
-        $ cmake ../openbabel-2.3.1
+        $ cmake ../openbabel-2.3.2
 
 3. If you need to specify an option, use the ``-D`` switch to :program:`cmake`. For example, the following line sets the value of ``CMAKE_INSTALL_PREFIX`` and ``CMAKE_BUILD_TYPE``::
 
-        $ cmake ../openbabel-2.3.1 -DCMAKE_INSTALL_PREFIX=~/Tools -DCMAKE_BUILD_TYPE=DEBUG
+        $ cmake ../openbabel-2.3.2 -DCMAKE_INSTALL_PREFIX=~/Tools -DCMAKE_BUILD_TYPE=DEBUG
 
    We will discuss various possible options later.
 
@@ -131,7 +131,7 @@ An additional advantage of a local install is that if you ever want to uninstall
 
 1. To configure :program:`cmake` to install into :file:`~/Tools/openbabel-install`, for example, you would do the following::
 
-        $ cmake ../openbabel-2.3.1 -DCMAKE_INSTALL_PREFIX=~/Tools/openbabel-install
+        $ cmake ../openbabel-2.3.2 -DCMAKE_INSTALL_PREFIX=~/Tools/openbabel-install
 
 2. Then you can run :command:`make` and :command:`make install` without needing root access::
 
@@ -142,7 +142,7 @@ Compile the GUI
 
 The GUI is built using the wxWidgets toolkit. Assuming that you have already installed this (see :ref:`requirements` above), you just need to configure :program:`cmake` as follows::
 
-        $ cmake ../openbabel-2.3.1 -DBUILD_GUI=ON
+        $ cmake ../openbabel-2.3.2 -DBUILD_GUI=ON
 
 When you run ``make`` and ``make install``, the GUI will be automatically built and installed alongside the main Open Babel library and tools.
  
@@ -169,7 +169,7 @@ Compile language bindings
    
 For example, for Python::
 
-        $ cmake ../openbabel-2.3.1 -DPYTHON_BINDINGS=ON
+        $ cmake ../openbabel-2.3.2 -DPYTHON_BINDINGS=ON
         $ make
         # make install
         $ export PYTHONPATH=/usr/local/lib:$PYTHONPATH
@@ -180,7 +180,7 @@ The basic build instructions up above work just fine so long as you use the CMak
 
 If you get an error about ``undefined reference to '_xmlFreeTextReader'``, you need to specify the location of the XML libraries with the ``-DLIBXML2_LIBRARIES`` option::
 
-        $ cmake ../openbabel-2.3.1 -DLIBXML2_LIBRARIES=/usr/lib/libxml2.dll.a
+        $ cmake ../openbabel-2.3.2 -DLIBXML2_LIBRARIES=/usr/lib/libxml2.dll.a
 
 The language bindings don't seem to work under Cygwin. If you can get them to work, let us know. Also remember that anything that uses Cygwin runs slower than a native build using MinGW or MSVC++, so if speed is an issue you might prefer to compile with MinGW or MSVC++.
 
@@ -204,9 +204,9 @@ The main Windows build used by Open Babel uses the Microsoft Visual C++ compiler
     c. (Optional, required for GUI) Set WXWIN to the top level directory of wxWidgets (if installed).
 
 
-2. Install the Microsoft Visual C++ 2008 (or newer) compiler.
+2. Install the Microsoft Visual C++ 2010 (or newer) compiler.
 
-   We use the Visual C++ 2008 (9.0) `Express Edition`_ (available for free). If you use MSVC++ 2010, open :file:`windows-vc2008/default_build.bat` in a text editor and change the ``Visual Studio 9 2008`` to ``Visual Studio 10``.
+   We use the Visual C++ 2010 (10.0) `Express Edition`_ (available for free).
 
 .. _Express Edition: http://www.microsoft.com/Express/VC/
 
