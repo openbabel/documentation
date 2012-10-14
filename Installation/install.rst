@@ -69,9 +69,9 @@ The following are **optional** when compiling Open Babel, but if not available s
 
 * :program:`libxml2` development headers are required to read/write CML files and other XML formats (the *libxml2-dev* package in Ubuntu) 
 * :program:`zlib` development libraries are required to support reading gzipped files (the *zlib1g-dev* package in Ubuntu) 
-* :program:`Eigen` version 2 is **required** if using the language bindings in the release. In addition, if it not present, some API classes (OBAlign, OBConformerSearch) and plugins (the QEq and QTPIE charge models, the conformer operation) will not be available.
+* :program:`Eigen` version 2 or newer is **required** if using the language bindings in the release. In addition, if it not present, some API classes (OBAlign, OBConformerSearch) and plugins (the QEq and QTPIE charge models, the ``--conformer`` and ``--align`` operations) will not be available.
 
-  Eigen may be available through your package manager (the *libeigen2-dev* package in Ubuntu). Alternatively, Eigen is available from http://eigen.tuxfamily.org. It doesn't need to be compiled or installed. Just unzip it and specify its location when configuring :program:`cmake` (see below) using ``-DEIGEN2_INCLUDE_DIR=whereever``.
+  Eigen may be available through your package manager (the *libeigen2-dev* package in Ubuntu). Alternatively, Eigen is available from http://eigen.tuxfamily.org. It doesn't need to be compiled or installed. Just unzip it and specify its location when configuring :program:`cmake` (see below) using ``-DEIGEN2_INCLUDE_DIR=whereever`` or ``-DEIGEN3_INCLUDE_DIR=wherever``.
 
 * :program:`Cairo` development libraries are required to support PNG depiction (the *libcairo2-dev* package in Ubuntu)
 * If using GCC 3.x to compile (and not GCC 4.x), then the Boost headers are required for certain formats (CML, Chemkin, Chemdraw CDX, MDL RXN and RSMI) 
