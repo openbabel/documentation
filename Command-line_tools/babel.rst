@@ -305,15 +305,15 @@ The command line option ``--append`` adds extra information to the title of the 
 
 The information can be calculated from the structure of the molecule or can originate from a property attached to the molecule (in the case of CML and SDF input files). It is used as follows::
 
- babel infile.sdf -osmi --append "MW CAT_NO"
+ obabel infile.sdf -osmi --append "MW CAT_NO"
 
 ``MW`` is the ID of a descriptor which calculates the molecular weight of the molecule, and ``CAT_NO`` is a property of the molecule from the SDF input file. The values of these are added to the title of the molecule. For input files with many molecules these additions are specific to each molecule. (Note that the related option ``--addtotitle`` simply adds the same text to every title.)
 
-The append option only takes one parameter, which means that all of the descriptor IDs or property names must be enclosed together in a single set of quotes.
+The append option only takes one parameter, which means that with ``babel`` all of the descriptor IDs or property names must be enclosed together in a single set of quotes. With ``obabel`` this is usually unnecessary.
 
 If the name of the property in the SDF file (internally the Attribute in OBPairData) contains spaces, these spaces should be replaced by underscore characters, '_'. So the example above would also work for a property named ``CAT NO``.
 
-By default, the extra items are added to the title separated by spaces. But if the first character in the parameter is a whitespace or punctuation character other than '_', it is used as the separator instead. Note that in the GUI, because Tab is used to move between controls, if a Tab character is required it has to be pasted in.
+By default, the extra items are added to the title separated by spaces. But if the first character in the parameter is a punctuation character other than '_', it is used as the separator instead. If the list starts with "\t", a tab character is used as a separator. 
 
 .. _conformers:
 
