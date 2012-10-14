@@ -61,10 +61,14 @@ Options
 --add <list>
     Add properties (for SDF, CML, etc.) from descriptors in list. Use
     ``-L descriptors`` to see available descriptors.
+--addfilename
+    Add the input filename to the title.
 --addinindex
     Append input index to title (that is, the index `before` any filtering)
 --addoutindex
     Append output index to title (that is, the index `after` any filtering)
+--addpolarh
+    Like ``-h``, but only adds hydrogens to polar atoms.
 --addtotitle <text>
     Append the text after each molecule title
 --append <list>
@@ -74,17 +78,22 @@ Options
     Convert dative bonds (e.g. ``[N+]([O-])=O`` to ``N(=O)=O``)
 -c
     Center atomic coordinates at (0,0,0)
+-C
+    Combine molecules in first file with others having the same name
+--canonical
+    Canonicalize the atom order. If generating canonical SMILES, do not use
+    this option. Instead use the :ref:`Canonical_SMILES_format`.
 --conformer <options>
     Conformer searching to generate low-energy or diverse
     conformers. For more information, see :ref:`conformers`.
--C
-    Combine molecules in first file with others having the same name
 -d
     Delete hydrogens (make all hydrogen implicit)
 --delete <list>
     Delete properties in list
 -e
     Continue to convert molecules after errors
+--energy <options>
+     Forcefield energy evaluation. See :ref:`minimize option`.
 --errorlevel <N>
     Filter the level of errors and warnings displayed:
 
@@ -97,6 +106,12 @@ Options
 -f <#>
     For multiple entry input, start import with molecule # as the first
     entry
+--fillUC <param>
+    For a crystal structure, add atoms to fill the entire unit cell based
+    on the unique positions, the unit cell and the spacegroup. The parameter
+    can either be ``strict`` (the default), which only keeps atoms inside the
+    unit cell, or ``keepconnect``, which fills the unit cell but keeps the
+    original connectivity.
 --filter <criteria>
     Filter based on molecular properties. See
     :ref:`filter options` for examples and a list of
@@ -107,6 +122,13 @@ Options
     Generate 3D coordinates
 -h
     Add hydrogens (make all hydrogen explicit)
+--highlight <substructure color>
+    Highlight substructures in 2D depictions. Valid 
+    colors are black, gray, white, red, green, blue, yellow,
+    cyan, purple, teal and olive. Additional colors may be
+    specified as hexadecimal RGB values preceded by ``#``.
+    Multiple substructures and corresponding colors may be
+    specified.
 -i <format-ID>
     Specifies input format. See :ref:`file formats`.
 -j, --join
@@ -115,6 +137,13 @@ Options
     Translate computational chemistry modeling keywords. See
     the computational chemistry formats (:ref:`Computational chemistry`),
     for example :ref:`GAMESS_Input` and :ref:`Gaussian_98_or_03_Input`.
+-l <#>
+    For multiple entry input, stop import with molecule # as the last
+    entry
+--largest <#N descriptor>
+    Only convert the N molecules which have the largest values of the
+    specified descriptor. Preceding the descriptor by ``~`` inverts
+    this filter.
 -m
     Produce multiple output files, to allow:
 
@@ -122,9 +151,8 @@ Options
        numbered output files
     -  Batch conversion - convert each of multiple input files into a
        specified output format
--l <#>
-    For multiple entry input, stop import with molecule # as the last
-    entry
+--minimize <options>
+     Forcefield energy minimization. See :ref:`minimize option`.
 -o <format-ID>
     Specifies output format. See :ref:`file formats`.
 -p <pH>
@@ -136,14 +164,23 @@ Options
     Add or replace a property (for example, in an SD file)
 -r
     Remove all but the largest contiguous fragment (strip salts)
---readconformers
-    Combine adjacent conformers in multi-molecule input into a single molecule
+--readconformer
+    Combine adjacent conformers in multi-molecule input into a single molecule.
+    If a molecule has the same structure as the preceding molecule, as
+    determined from its SMILES, it is not output but its coordinates are
+    added to the preceding molecule as an additional conformer. There can
+    be multiple groups of conformers, but the molecules in each group must
+    be adjacent.
 -s <SMARTS>
     Convert only molecules matching the SMARTS pattern specified
 -s <filename.xxx>
     Convert only molecules with the molecule in the file as a substructure
 --separate
     Separate disconnected fragments into individual molecular records
+--smallest <#N descriptor>
+    Only convert the N molecules which have the smallest values of the
+    specified descriptor. Preceding the descriptor by ``~`` inverts this
+    filter.
 --sort
     Output molecules ordered by the value of a descriptor. See :ref:`sorting option`.
 --title <title>
@@ -563,6 +600,85 @@ Normal molecules can have certain common groups given alternative alias represen
 
   obabel aspirin.smi  -O out.svg  --genalias  -xA
 
+.. _minimize option:
 
+Forcefield energy and minimization
+----------------------------------
 
+Open Babel supports a number of forcefields which can be used for energy evaluation as well as energy minimization. The available forcefields as listed as follows::
 
+  C:\>obabel -L forcefields
+  GAFF    General Amber Force Field (GAFF).
+  Ghemical    Ghemical force field.
+  MMFF94    MMFF94 force field.
+  MMFF94s    MMFF94s force field.
+  UFF    Universal Force Field.
+
+To evaluate a molecule's energy using a forcefield, use the ``--energy`` option. The energy is put in an OBPairData object "Energy" which is accessible via an SDF or CML property or ``--append`` (to title). Use ``--ff <forcefield_id>`` to select a forcefield (default is Ghemical) and ``--log`` for a log of the energy calculation. The simplest way to output the energy is as follows::
+
+   obabel infile.xxx -otxt --energy --append "Energy"
+
+To perform forcefield minimization, the ``--minimize`` option is used. The following shows typical usage::
+
+  obabel infile.xxx -O outfile.yyy --minimize --steps 1500 --sd
+
+The available options are as follows::
+
+--log        output a log of the minimization process (default= no log)
+--crit <converge>     set convergence criteria (default=1e-6)
+--sd         use steepest descent algorithm (default = conjugate gradient)
+--newton     use Newton2Num linesearch (default = Simple)
+--ff <forcefield-id>       select a forcefield (default = Ghemical)
+--steps <number>    specify the maximum number of steps (default = 2500)
+--cut        use cut-off (default = don't use cut-off)
+--rvdw <cutoff>     specify the VDW cut-off distance (default = 6.0)
+--rele <cutoff>     specify the Electrostatic cut-off distance (default = 10.0)
+--freq <steps>     specify the frequency to update the non-bonded pairs (default = 10)
+
+Note that for both ``--energy`` and ``--minimize``, hydrogens are made explicit before energy evaluation.
+
+Aligning molecules or substructures
+-----------------------------------
+
+The ``--align`` option aligns molecules to the first molecule provided. 
+It is typically used with the ``-s`` option to specify an alignment
+based on a substructure::
+
+    obabel pattern.www  dataset.xxx  -O outset.yyy  -s SMARTS  --align
+
+Here, only molecules matching the specified SMARTS pattern are converted
+and are aligned by
+having all their atom coordinates modified. The atoms that are
+used in the alignment are those matched by SMARTS in the first
+output molecule. The subsequent molecules are aligned so that
+the coordinates of atoms equivalent to these are as nearly as
+possible the same as those of the pattern atoms.
+The atoms in the various molecules can be in any order.
+Tha alignment ignores hydrogen atoms but includes symmetry.
+Note that the standalone program :program:`obfit` has similar functionality.
+
+The first input molecule could also be part of the data set::
+
+    obabel dataset.xxx  -O outset.yyy  -s SMARTS  --align
+
+This form is useful for ensuring that a particular substructure always
+has the same orientation in a 2D display of a set of molecules.
+0D molecules, for example from SMILES, are given 2D coordinates before
+alignment.
+
+See documentation for the ``-s`` option for its other possible
+parameters. For example, the matching atoms could be those
+of a molecule in a specified file.
+
+If the ``-s`` option is not used, all of the atoms in the first molecule
+are used as pattern atoms. The order of the atoms must be the same
+in all the molecules.
+
+The output molecules have a property (represented internally as
+OBPairData) called ``rmsd``, which is a measure of the quality
+of the fit. To attach it to the title of each molecule use
+``--append rmsd``.
+
+To output the two conformers closest to the first conformer in a dataset::
+
+    obabel dataset.xxx  -O outset.yyy  --align  --smallest 2 rmsd
