@@ -435,7 +435,7 @@ will convert the molecules with titles 56 123 and 126, which is probably what yo
 
 converts only 123 and 126 because a string comparison is being made.
 
-String comparisons can use ``*`` as a wildcard if used as the first or last character of the string (anywhere else a ``*`` is a normal character). So ``--filter "title='*ol'"`` will match molecules with titles ‘methanol’, ‘ethanol’ etc. and ``--filter "title='eth*'`` will match ‘ethanol’, ‘ethyl acetate’, ‘ethical solution’ etc. Use a ``*`` at both the first and last characters to test for the occurrence of a string, so ``--filter "title='*ol*'"`` will match 'oleum', 'polonium' and 'ethanol'.
+String comparisons can use ``*`` as a wildcard if used as the first or last character of the string (anywhere else a ``*`` is a normal character). So ``--filter "title='*ol'"`` will match molecules with titles 'methanol', 'ethanol' etc. and ``--filter "title='eth*'`` will match 'ethanol', 'ethyl acetate', 'ethical solution' etc. Use a ``*`` at both the first and last characters to test for the occurrence of a string, so ``--filter "title='*ol*'"`` will match 'oleum', 'polonium' and 'ethanol'.
 
 SMARTS descriptor
 ~~~~~~~~~~~~~~~~~
