@@ -58,7 +58,7 @@ forcefields = ['uff', 'mmff94', 'ghemical']
 operations = ['Gen3D']
 """A list of supported operations"""
 
-def readfile(format, filename):
+def readfile(format, filename, opt=None):
     """Iterate over the molecules in a file.
 
     Required parameters:
@@ -68,10 +68,16 @@ def readfile(format, filename):
                       
        **filename**
 
-    You can access the first molecule in a file using the :func:`next()` method
-    of the iterator::
-    
-        mol = readfile("smi", "myfile.smi").next()
+    Optional parameters:
+       **opt** -- a dictionary of format-specific options
+                   For format options with no parameters, specify the
+                   value as None.
+
+    You can access the first molecule in a file using the next() method
+    of the iterator (or the next() keyword in Python 3)::
+
+        mol = readfile("smi", "myfile.smi").next() # Python 2
+        mol = next(readfile("smi", "myfile.smi"))  # Python 3
         
     You can make a list of the molecules in a file using::
     
@@ -100,7 +106,7 @@ def readfile(format, filename):
         obmol = ob.OBMol()
         notatend = obconversion.Read(obmol)
 
-def readstring(format, string):
+def readstring(format, string, opt=None):
     """Read in a molecule from a string.
 
     Required parameters:
@@ -109,6 +115,11 @@ def readstring(format, string):
                       of available input formats
                       
        **string**
+
+   Optional parameters:
+       **opt** -- a dictionary of format-specific options
+                   For format options with no parameters, specify the
+                   value as None.
 
     Example::
     
@@ -148,11 +159,14 @@ class Outputfile(object):
     Optional parameters:
        **overwrite** -- overwrite the output file if it already exists?
                    Default is ``False``
+       **opt** -- a dictionary of format-specific options
+                   For format options with no parameters, specify the
+                   value as None.
                    
     Methods:
        :func:`write()`, :func:`close()`
     """
-    def __init__(self, format, filename, overwrite=False):
+    def __init__(self, format, filename, overwrite=False, opt=None):
         self.format = format
         self.filename = filename
         if not overwrite and os.path.isfile(self.filename):
@@ -750,7 +764,8 @@ class MoleculeData(object):
 
     Example:
     
-    >>> mol = readfile("sdf", 'head.sdf').next()
+    >>> mol = readfile("sdf", 'head.sdf').next() # Python 2
+    >>> # mol = next(readfile("sdf", 'head.sdf')) # Python 3
     >>> data = mol.data
     >>> print data
     {'Comment': 'CORINA 2.61 0041  25.10.2001', 'NSC': '1'}
@@ -759,7 +774,7 @@ class MoleculeData(object):
     >>> print data['Comment']
     CORINA 2.61 0041  25.10.2001
     >>> data['Comment'] = 'This is a new comment'
-    >>> for k,v in data.iteritems():
+    >>> for k,v in data.items():
     ...    print k, "-->", v
     Comment --> This is a new comment
     NSC --> 1
