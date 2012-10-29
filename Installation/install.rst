@@ -151,9 +151,9 @@ When you run ``make`` and ``make install``, the GUI will be automatically built 
 Compile language bindings
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. sidebar:: Eigen2 required
+.. sidebar:: Eigen required
 
-  If you wish to compile the language bindings supplied in the release, Eigen2 is required (see :ref:`requirements` above).
+  If you wish to compile the language bindings supplied in the release, Eigen version 2 or newer is required (see :ref:`requirements` above).
 
 1. When configuring CMake, include options such as ``-DPYTHON_BINDINGS=ON -DRUBY_BINDINGS=ON`` for whichever bindings you wish to build (valid names are ``PYTHON``, ``CSHARP``, ``PERL``, ``JAVA`` or ``RUBY``) or ``-DALL_BINDINGS=ON`` to build them all. The bindings will then be built and installed along with the rest of Open Babel. You should note any warning messages in the CMake output.
 
