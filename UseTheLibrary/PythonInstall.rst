@@ -10,13 +10,12 @@ Install the bindings
 #. First you need to download and install the
    `OpenBabelGUI <http://openbabel.org/wiki/Install>`_ version 2.3.2
 #. Next, download and install the OpenBabel Python bindings
-   (version 1.7) for your Python version, either
-   `2.5 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.7/openbabel-python-1.7.py25.exe/download>`_
-   `2.6 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.7/openbabel-python-1.7.py26.exe/download>`_,
-   `2.7 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.7/openbabel-python-1.7.py27.exe/download>`_
-   `3.1 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.7/openbabel-python-1.7.py31.exe/download>`_,
+   (version 1.8) for your Python version, either
+   `2.6 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.8/openbabel-python-1.8.py26.exe/download>`_,
+   `2.7 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.8/openbabel-python-1.8.py27.exe/download>`_
+   `3.2 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.8/openbabel-python-1.8.py32.exe/download>`_.
    or
-   `3.2 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.7/openbabel-python-1.7.py32.exe/download>`_.
+   `3.3 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.8/openbabel-python-1.8.py33.exe/download>`_.
 
 **Note**: If you are **upgrading** from an earlier version of the
 Python bindings, you should uninstall that first (using Add/Remove
