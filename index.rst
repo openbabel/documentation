@@ -14,7 +14,7 @@ The latest version of this documentation is available in several formats from ht
    Fingerprints/intro.rst
    Command-line_tools/Rosetta.rst
    Depiction/depiction.rst
-   3DStructureGen/conformersearching.rst
+   3DStructureGen/Overview.rst
    UseTheLibrary/intro.rst
    Cheminf101/index.rst
    Features/Radicals.rst
