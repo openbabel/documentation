@@ -41,6 +41,8 @@ which you are happy, and also on the number of rotatable bonds in the molecule.
 Are you looking for a reasonable structure for 3D display? Or are you looking
 for a structure close to the global minimum?
 
+To use from **obabel**, see the help for the conformer operation (``obabel -L conformer``). This operation is used both for conformer searching and for the genetic algorithm conformer generation described below.
+
 Here is an example of use from Python:
 
 ::

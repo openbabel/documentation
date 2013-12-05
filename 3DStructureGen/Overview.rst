@@ -10,3 +10,4 @@ Open Babel provides support for generating a reasonable 3D structure just given 
    OBBuilder.rst
    conformersearching.rst
    gen3d.rst
+   conformergen.rst
