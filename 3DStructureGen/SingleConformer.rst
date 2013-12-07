@@ -1,7 +1,7 @@
 Generate a single conformer
 ===========================
 
-Open Babel provides support for generating a reasonable 3D structure just given connectivity information. It provides geometry optimizers to energy minimize conformations. It also has the ability to generate multiple conformers for each molecule. These topics are discussed below.
+There are several steps involved in generating a low-energy conformer from a 0D or 2D structure.
 
 OBBuilder
 ---------

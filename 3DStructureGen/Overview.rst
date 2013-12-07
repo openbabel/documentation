@@ -5,6 +5,6 @@ Open Babel provides support for generating a reasonable 3D structure just given 
 
 .. toctree::
 
-   3DStructGen.rst
-   conformergen.rst
+   SingleConformer.rst
+   multipleconformers.rst
 
