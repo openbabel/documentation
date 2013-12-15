@@ -6,7 +6,9 @@ There are several steps involved in generating a low-energy conformer from a 0D 
 OBBuilder
 ---------
 
-The :obapi:`OBBuilder` class is the part of Open Babel that can take a 2D or 0D structure and generate a 3D structure. The 3D structure is made very quickly using a combination of rules (e.g. sp3 atoms should have four bonds arranged in a tetrahedron) and ring templates (e.g. cyclohexane is shaped like a chair).
+The :obapi:`OBBuilder` class is the part of Open Babel that can take a
+2D or 0D structure and generate a 3D structure. The 3D structure is
+made very quickly using a combination of rules (e.g. sp\ :sup:`3`\  atoms should have four bonds arranged in a tetrahedron) and ring templates (e.g. cyclohexane is shaped like a chair).
 
 The 3D structures that come straight out of OBBuilder may be useful for some purposes but most people will want to "clean them up". This is because they may have clashes or have high energy structures due to some strain. The conformer search or geometry optimization methods described below are typically used after calling OBBuilder.
 
@@ -88,5 +90,3 @@ To illustrate how some of the above methods might be used in practice, consider 
 4. Do 250 steps of a conjugate gradient geometry optimization
 
 Taken together, all of these steps ensure that the generated structure is likely to be the global minimum energy conformer. However, for many applications where 100s if not 1000s of molecules need to be processed, gen3d is rather slow. A future version of Open Babel will provide options for slow/medium/fast 3D structure generation which will involve different compromises between speed and finding the global energy minimum.
-
-
