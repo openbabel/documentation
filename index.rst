@@ -22,6 +22,7 @@ The latest version of this documentation is available in several formats from ht
    Contributing/Contributing.rst
    WritePlugins/index.rst
    FileFormats/Overview.rst
+   Descriptors/descriptors.rst
 
 .. The following lines are commented out ...
    Indices and tables
