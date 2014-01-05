@@ -12,41 +12,41 @@ def heading(text, symbol):
 def escape(text):
     return text.replace("*", "\*")
 
-# descriptors
-numerical = ["atoms", "bonds", "HBD", "HBA1", "HBA2", "nF", "logP",
-        "MW", "tbonds", "MR", "abonds", "sbonds", "dbonds", "TPSA"]
-textual = ["cansmi", "cansmiNS", "InChI", "InChIKey", "formula", "title"]
-filters = ["L5", "smarts", "s"]
-all = numerical + textual + filters
+chargenames = pybel._getpluginnames("charges")
+charge_dict = pybel._getplugins(pybel.ob.OBChargeModel.FindType, chargenames)
 
-unclassified = [desc for desc in pybel.descs if desc not in all]
+normal = ["gasteiger", "mmff94"]
+different = ["eem", "qeq", "qtpie"]
+none = ["none"]
+all = none + normal + different
+
+unclassified = [charge for charge in chargenames if charge not in all]
 if unclassified:
     print "UNCLASSIFIED: ", unclassified
 
-desc_sections = [("Numerical descriptors", numerical),
-                 ("Textual descriptors", textual),
-                 ("Descriptors for filtering", filters)]
+charge_sections = [("Cheminformatics charge models", normal),
+                   ("Special charge models", different)]
 
 text = []
-for section, descs in desc_sections:
+for section, charges in charge_sections:
     text.append(heading(section, "-"))
     text.append("")
-    for desc in descs:
-        description = pybel._descdict[desc].Description()
+    for charge in charges:
+        description = charge_dict[charge].Description()
         broken = [x.lstrip() for x in description.split("\n")]
         firstline = broken[0]
         maindescription = "\n".join(broken[1:-1]) if broken[-1].endswith("is definable") else "\n".join(broken[1:])
 
-        title = "%s (%s)" % (firstline, desc)
+        title = "%s (%s)" % (firstline, charge)
         text.append(".. rubric:: %s" % title)
         text.append("")
         text.append("%s" % escape(maindescription))
         text.append("")
 
-contents = open(os.path.join("Descriptors", "descriptors.rst"), "r").read()
+contents = open(os.path.join("Charges", "charges.rst"), "r").read()
 marker = "INSERT AUTOMATICALLY GENERATED CONTENT BELOW"
 idx = contents.find(marker) + len(marker)
 
 new_contents = contents[:idx] + "\n\n" + "\n".join(text)
-print >> open(os.path.join("Descriptors", "descriptors.rst"), "w"), new_contents
+print >> open(os.path.join("Charges", "charges.rst"), "w"), new_contents
 

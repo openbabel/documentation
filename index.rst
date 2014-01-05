@@ -23,6 +23,7 @@ The latest version of this documentation is available in several formats from ht
    WritePlugins/index.rst
    FileFormats/Overview.rst
    Descriptors/descriptors.rst
+   Charges/charges.rst
 
 .. The following lines are commented out ...
    Indices and tables
