@@ -23,6 +23,7 @@ Information about using this method is available at the command-line using: ``ob
 
 In this case ``--score rmsd`` was not strictly necessary as RMSD diversity was the default in any case.
 
+.. _Confab:
 
 Confab
 ------
