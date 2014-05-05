@@ -116,6 +116,6 @@ To check how many of the generated conformers are within 1.0 A RMSD of the origi
   ..less than cutoff(1) = 35
   52271 molecules converted
 
-.. _bostrom.sdf: _static/bostrom.sdf
+.. _bostrom.sdf: ../_static/bostrom.sdf
     
    
