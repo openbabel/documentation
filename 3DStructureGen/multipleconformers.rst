@@ -69,7 +69,7 @@ The example file, `bostrom.sdf`_, contains 36 molecules which have from 1 to 11 
 
 We can generate and test up to 100K conformers using Confab as follows::
 
-  > obabel bostrom.sdf -O confs.sdf --confab -nconfs 100000
+  > obabel bostrom.sdf -O confs.sdf --confab --conf 100000
 
   **Starting Confab 1.1.0
   **To support, cite Journal of Cheminformatics, 2011, 3, 8.
