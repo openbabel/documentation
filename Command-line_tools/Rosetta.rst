@@ -108,9 +108,11 @@ Depict a compound as an image
 
   *Depict the SMILES "CN1C=NC2=C1C(=O)N(C(=O)N2C)C" as an image of size 200x250 pixels. The image should be in PNG format if possible, otherwise in GIF format. If possible, give it the title "Caffeine". It should display the structure on a white background.*
 
-Open Babel does not at present output as PNG or GIF, but does as SVG::
+Open Babel can output PNG images::
 
-  obabel -:"CN1C=NC2=C1C(=O)N(C(=O)N2C)C Caffeine" -O out.svg   
+  obabel -:"CN1C=NC2=C1C(=O)N(C(=O)N2C)C Caffeine" -O out.png -xw 200 -xh 250 -d 
+  
+  Open Babel can output 2D structures as :ref:`PNG <PNG_2D_depiction>`. The ``-d`` makes hydrogen implicit. Width and height are set with the -xw and -xh options.
 
  
 Highlight a substructure in the depiction
@@ -122,15 +124,15 @@ Highlight a substructure in the depiction
 
 ::
 
-  obabel benzodiazepine.sdf.gz -O out.svg --filter "title=3016"
-         -s "c1ccc2c(c1)C(=NCCN2)c3ccccc3 red" -xu -d
+  obabel benzodiazepine.sdf.gz -O out.png --filter "title=3016"
+         -s "c1ccc2c(c1)C(=NCCN2)c3ccccc3 red" -xu -xw 200 -xh 250 -d
 
-Since version 2.3.0, Open Babel can output 2D structures as :ref:`SVG <SVG_2D_depiction>`, but not yet as PNG or GIF. The compressed data file can be used as input. The ``-d`` makes hydrogen implicit and the ``-xu`` removes the element-specific coloring.
+Open Babel can output 2D structures as :ref:`PNG <PNG_2D_depiction>`. The compressed data file can be used as input. The ``-d`` makes hydrogen implicit and the ``-xu`` removes the element-specific coloring. Width and height are set with the -xw and -xh options.
 
 This is slow (about a minute) because each molecule is fully interpreted, although in most cases only the title is required. The task can be done 10 times faster by using the uncompressed file, converting only the title (the ``-aT`` option) and copying the SD text to standard out when a match occurs. This is piped to a second command which outputs the structure.::
 
   obabel benzodiazepine.sdf -ocopy --filter "title=3016" -aT | 
-         obabel -isdf -O out.svg -s "c1ccc2c(c1)C(=NCCN2)c3ccccc3 red" -xu -d
+         obabel -isdf -O out.png -s "c1ccc2c(c1)C(=NCCN2)c3ccccc3 red" -xu -xw 200 -xh 250 -d
 
 
 Align the depiction using a fixed substructure
@@ -142,7 +144,7 @@ Align the depiction using a fixed substructure
 
 Since Open Babel 2.3.1 this can be done in one line::
 
-  obabel benzodiazepine.sdf.gz -O out.svg --align -d -xu
+  obabel benzodiazepine.sdf.gz -O out.png -l16 --align -d -xu -xw 400 -xh 400
          -s"[#7]~1~[#6]~[#6]~[#7]~[#6]~[#6]~2~[#6]~[#6]~[#6]~[#6]~[#6]12 green"
 
 The depiction has some cosmetic tweaks: the substructure is highlighted in green; ``-d`` removes hydrogen; ``-xu`` removes the element specific coloring.
@@ -159,7 +161,7 @@ Then use the program :command:`obfit`, which is distributed with Open Babel::
 
 Display the 16 molecules (with implicit hydrogens):: 
 
-  obabel 16out.sdf -O out.svg -d
+  obabel 16out.sdf -O out.png -d -xw 400 -xh 400
   
 
 Perform a substructure search on an SDF file and report the number of false positives
