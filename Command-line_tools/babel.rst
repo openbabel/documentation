@@ -202,7 +202,7 @@ Options
 Examples
 --------
 
-The examples below assume the files are in the current directory. Otherwise you may need to include the full path to the files e.g. :file:`/Users/username/Desktop/mymols.sdf` and you may need to put quotes around the filenames (especially in Windows when they can contain spaces).
+The examples below assume the files are in the current directory. Otherwise you may need to include the full path to the files e.g. :file:`/Users/username/Desktop/mymols.sdf` and you may need to put quotes around the filenames (especially on Windows, where they can contain spaces).
 
 Standard conversion::
 
