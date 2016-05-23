@@ -8,7 +8,7 @@ Fastsearch format (fs)
 
 Writing to the fs format makes an index of a multi-molecule datafile::
 
-      babel dataset.sdf -ofs
+      obabel dataset.sdf -ofs
 
 This prepares an index :file:`dataset.fs` with default parameters, and is slow
 (~30 minutes for a 250,000 molecule file).
@@ -24,19 +24,19 @@ Several types of searches are possible:
 
 - Identical molecule::
 
-      babel index.fs outfile.yyy -s SMILES exact
+      obabel index.fs -O outfile.yyy -s SMILES exact
 
 - Substructure::
 
-      babel index.fs outfile.yyy  -s SMILES   or
-      babel index.fs outfile.yyy  -s filename.xxx
+      obabel index.fs -O outfile.yyy  -s SMILES   or
+      obabel index.fs -O outfile.yyy  -s filename.xxx
 
   where ``xxx`` is a format id known to OpenBabel, e.g. sdf
 - Molecular similarity based on Tanimoto coefficient::
 
-      babel index.fs outfile.yyy -at15  -sSMILES  # best 15 molecules
-      babel index.fs outfile.yyy -at0.7 -sSMILES  # Tanimoto >0.7
-      babel index.fs outfile.yyy -at0.7,0.9 -sSMILES
+      obabel index.fs -O outfile.yyy -at15  -sSMILES  # best 15 molecules
+      obabel index.fs -O outfile.yyy -at0.7 -sSMILES  # Tanimoto >0.7
+      obabel index.fs -O outfile.yyy -at0.7,0.9 -sSMILES
       #     Tanimoto >0.7 && Tanimoto < 0.9
 
 The datafile plus the ``-ifs`` option can be used instead of the index file.

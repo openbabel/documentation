@@ -20,7 +20,6 @@ Ref: Int. Tables for Crystallography (2006), vol. B, sec 3.3.1.1.1
 Read Options
 ~~~~~~~~~~~~ 
 
--v  *Verbose CIF conversion*
 -s  *Output single bonds only*
 -b  *Disable bonding entirely*
 -B  *Use bonds listed in CIF file from _geom_bond_etc records (overrides option b)*

@@ -1,6 +1,6 @@
 .. _FASTA_format:
 
-FASTA format (fasta, fa, fsa)
+FASTA format (fa, fasta, fsa)
 =============================
 
 **A file format used to exchange information between genetic sequence databases**

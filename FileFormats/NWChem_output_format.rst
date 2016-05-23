@@ -8,6 +8,11 @@ Read Options
 ~~~~~~~~~~~~ 
 
 -s  *Output single bonds only*
--b  *Disable bonding entirely*
-
+-f  *Overwrite molecule if more than one*
+Comments
+~~~~~~~~
+calculations with different molecules
+input in one output file detected
+(last calculation will be prefered)
+ b  Disable bonding entirely
 

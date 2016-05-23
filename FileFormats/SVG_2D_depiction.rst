@@ -95,6 +95,9 @@ Write Options
 -x  *omit XML declaration (not displayed in GUI)*
 
     Useful if the output is to be embedded in another xml file.
+-X  *All atoms are explicitly declared*
+
+    Useful if we don't want any extra hydrogens drawn to fill the valence.
 -A  *display aliases, if present*
 
     This applies to structures which have an alternative, usually
@@ -109,6 +112,10 @@ Write Options
     aldehyde groups and would display them as such in the svg diagram.
     The aliases which are recognized are in data/superatom.txt, which
     can be edited.
+-S  *Ball and stick depiction of molecules*
+
+    Depicts the molecules as balls and sticks instead of the
+    normal line style.
 
 Comments
 ~~~~~~~~

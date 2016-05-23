@@ -45,9 +45,11 @@ Write Options
 ~~~~~~~~~~~~~ 
 
 -3  *output V3000 not V2000 (used for >999 atoms/bonds)*
+-a  *write atomclass if available*
 -m  *write no properties*
 -w  *use wedge and hash bonds from input (2D only)*
 -S  *do not store cis/trans stereochemistry in 0D MOL files*
 -A  *output in Alias form, e.g. Ph, if present*
+-H  *use HYD extension (always on if mol contains zero-order bonds)*
 
 

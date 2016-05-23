@@ -73,7 +73,7 @@ Truncation parameters used with ``-xT``:
 /formula   formula only
 /connect   formula and connectivity only
 /nostereo  ignore E/Z and sp3 stereochemistry
-/sp3       ignore sp3 stereochemistry
+/nosp3       ignore sp3 stereochemistry
 /noEZ      ignore E/Z steroeochemistry
 /nochg     ignore charge and protonation
 /noiso     ignore isotopes
