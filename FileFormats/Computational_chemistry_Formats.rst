@@ -10,12 +10,16 @@ Computational chemistry formats
    ACES_output_format.rst
    ADF_cartesian_input_format.rst
    ADF_output_format.rst
+   Aoforce_output_format.rst
    CAChe_MolStruct_format.rst
    CASTEP_format.rst
    Cacao_Cartesian_format.rst
    Cacao_Internal_format.rst
    Crystal_09_output_format.rst
+   DALTON_input_format.rst
+   DALTON_output_format.rst
    DMol3_coordinates_format.rst
+   Extended_XYZ_cartesian_coordinates_format.rst
    FHIaims_XYZ_format.rst
    Fenske-Hall_Z-Matrix_format.rst
    GAMESS_Input.rst
@@ -39,6 +43,8 @@ Computational chemistry formats
    Molpro_output_format.rst
    NWChem_input_format.rst
    NWChem_output_format.rst
+   ORCA_input_format.rst
+   ORCA_output_format.rst
    PWscf_format.rst
    Parallel_Quantum_Solutions_format.rst
    Q-Chem_input_format.rst

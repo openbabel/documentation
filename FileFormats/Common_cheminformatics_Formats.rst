@@ -12,4 +12,5 @@ Common cheminformatics formats
    MDL_MOL_format.rst
    Protein_Data_Bank_format.rst
    SMILES_format.rst
+   SMILES_format_using_Smiley_parser.rst
    Sybyl_Mol2_format.rst
