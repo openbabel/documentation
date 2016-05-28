@@ -24,6 +24,7 @@ The latest version of this documentation is available in several formats from ht
    FileFormats/Overview.rst
    Descriptors/descriptors.rst
    Charges/charges.rst
+   ReleaseNotes/index.rst
 
 .. The following lines are commented out ...
    Indices and tables
