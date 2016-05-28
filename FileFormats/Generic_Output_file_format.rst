@@ -7,7 +7,7 @@ Generic Output file format (dat, output, out, log)
 
 
 This format can be used to read ADF, Gaussian, GAMESS, PWSCF, Q-Chem,
-MOPAC, etc. output files by automatically detecting the file type.
+MOPAC, ORCA etc. output files by automatically detecting the file type.
 
 
 
