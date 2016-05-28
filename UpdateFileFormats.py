@@ -19,26 +19,29 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 'tmol', 'zin', 'moo', 
             'dmol', 'fch', 'fck', 'fh', "gzmat", "caccrt", "cacint",
             'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout',
             'fhiaims', 'got', 'pwscf' ,'gukin', 'gukout', 'cache',
-            'castep', "abinit", "c09out", "acesin", "acesout"])
+            'castep', "abinit", "c09out", "acesin", "acesout",
+            'orca', 'orcainp', 'dallog', 'dalmol', 'exyz', 'aoforce'])
 viewers = ("3D viewer", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
                           "unixyz", "c3d1", "c3d2", "bs", "crk3d",
                           "xsf"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
-                 'inchi', 'inchikey', 'mol2', 'mol', 'cml'])
+                 'inchi', 'inchikey', 'mol2', 'mol', 'cml', 'smy'])
 cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
                                      'mcdl', "car", "csr"])
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
                                "fract", "cssr", "pos"])
 twoD_drawing = ("2D drawing", ["ct", "cdxml", "cdx", "ct", "crk2d", "cht"])
-images = ("Image", ['png', 'svg', 'pov', "ascii"]) # 'paint'
-volume_data = ("Volume data", ["cube", "dx", 't41'])
+images = ("Image", ['png', 'svg', 'pov', "ascii", 'paint'])
+volume_data = ("Volume data", ["cube", "dx", 't41', 'pointcloud', 'stl'])
+json = ("JSON", ["cdjson", "pcjson"])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
-                       'nul', 'xyz', 'xml', "mna", "fpt", "fs", "dat",
-                       "mpd", "k", "fps"])
+                       'nul', 'xyz', 'xml', "mna", "dat",
+                       "mpd", "k", "confabreport"])
+fingerprint = ("Molecular fingerprints", ["fpt", "fs", "fps"])
 md_and_dock = ('Molecular dynamics and docking',
                       ['gr96', 'txyz', "prep", "mmod", "box", "xtc",
                        "gro", "pdbqt", "CONFIG", "HISTORY", "txyz",
-                       "lmpdat"])
+                       "lmpdat", "siesta", "lpmd", "MDFF"])
 thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
 reactions = ("Reaction", ["cmlr", "rxn", "rsmi"])
 biology = ("Biological data", ["fasta", "pqr"])
@@ -71,10 +74,9 @@ for format in allformats:
         out_exts.add(formatname)
     exts[formatname].append(format)
 
-sections = [common_cheminf, utility, cheminf, compchem, crystal, reactions,
+sections = [common_cheminf, utility, cheminf, compchem, fingerprint, crystal, reactions,
             images, twoD_drawing, viewers, thermo,
-            md_and_dock, volume_data, misc, biology, unknown]
-##sections = [utility]
+            md_and_dock, volume_data, json, misc, biology, unknown]
 classified = set()
 for x in sections:
     for y in x[1]:
