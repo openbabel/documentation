@@ -10,7 +10,6 @@ Computational chemistry formats
    ACES_output_format.rst
    ADF_cartesian_input_format.rst
    ADF_output_format.rst
-   Aoforce_output_format.rst
    CAChe_MolStruct_format.rst
    CASTEP_format.rst
    Cacao_Cartesian_format.rst
@@ -50,5 +49,6 @@ Computational chemistry formats
    Q-Chem_input_format.rst
    Q-Chem_output_format.rst
    TurboMole_Coordinate_format.rst
+   Turbomole_AOFORCE_output_format.rst
    VASP_format.rst
    ZINDO_input_format.rst

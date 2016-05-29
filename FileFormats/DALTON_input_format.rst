@@ -12,6 +12,6 @@ Write Options
 
 -a  *write input in atomic units instead of Angstrom*
 -b  *write input using the ATOMBASIS format*
--k  *specify basis set to use in .mol file, i.e. -xk STO-3G*
+-k  *specify basis set to use in .mol file, e.g. ``-xk STO-3G``*
 
 

@@ -45,7 +45,7 @@ More than one read (or write) option can be specified (e.g. ``-ax -ay -az``). :c
    Utility_Formats.rst
    Other_cheminformatics_Formats.rst
    Computational_chemistry_Formats.rst
-   Molecular_fingerprints_Formats.rst
+   Molecular_fingerprint_Formats.rst
    Crystallography_Formats.rst
    Reaction_Formats.rst
    Image_Formats.rst

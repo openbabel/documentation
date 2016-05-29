@@ -9,10 +9,10 @@ Read Options
 
 -s  *Output single bonds only*
 -f  *Overwrite molecule if more than one*
-Comments
-~~~~~~~~
-calculations with different molecules
-input in one output file detected
-(last calculation will be prefered)
- b  Disable bonding entirely
+
+    calculation with different molecules
+    is present in the output file
+    (last calculation will be prefered)
+-b  *Disable bonding entirely*
+
 
