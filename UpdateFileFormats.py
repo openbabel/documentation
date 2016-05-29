@@ -37,7 +37,7 @@ json = ("JSON", ["cdjson", "pcjson"])
 utility = ("Utility", ['report', 'copy', 'molreport', 'text', 'txt',
                        'nul', 'xyz', 'xml', "mna", "dat",
                        "mpd", "k", "confabreport"])
-fingerprint = ("Molecular fingerprints", ["fpt", "fs", "fps"])
+fingerprint = ("Molecular fingerprint", ["fpt", "fs", "fps"])
 md_and_dock = ('Molecular dynamics and docking',
                       ['gr96', 'txyz', "prep", "mmod", "box", "xtc",
                        "gro", "pdbqt", "CONFIG", "HISTORY", "txyz",
