@@ -1,0 +1,24 @@
+Open Babel 2.4.0
+================
+
+Released on the 201x/nn/nn.
+
+New file formats:
+
+* DALTON output files (read only) and DALTON input files (read/write)
+* ORCA output files (read only) and ORCA input files (write only)
+* ORCA-AICCM's extended XYZ format (read/write)
+* Turbomole AOFORCE output (read only)
+
+* JSON formats from PubChem and from ChemDoodle
+* LPMD
+* MDFF
+* "Painter" format for custom 2D depictions
+
+New features:
+
+* Confab, the systematic conformation generator
+
+
+
+

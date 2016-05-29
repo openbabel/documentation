@@ -6,4 +6,4 @@ Release Notes
 .. toctree::
    :maxdepth: 2
 
-   ob230.rst
+   ob240.rst
