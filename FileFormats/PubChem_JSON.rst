@@ -3,9 +3,10 @@
 PubChem JSON (pcjson)
 =====================
 
-**This is the format returned by the PubChem PUG REST service when**
+**The JSON format returned by the PubChem PUG REST service**
 
-requesting JSON. It closely resembles PubChem's internal data structure.
+
+The data contained in this format closely resembles PubChem's internal data structure.
 
 
 

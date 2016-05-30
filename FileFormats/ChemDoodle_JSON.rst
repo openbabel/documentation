@@ -3,9 +3,8 @@
 ChemDoodle JSON (cdjson)
 ========================
 
-**ChemDoodle JSON format is the native way to present data to**
+**The native way to present data to the ChemDoodle Web Components**
 
-the ChemDoodle Web Components.
 
 
 

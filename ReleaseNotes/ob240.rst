@@ -7,14 +7,15 @@ New file formats
 ~~~~~~~~~~~~~~~~
 
 * DALTON output files (read only) and DALTON input files (read/write) (Casper Steinmann)
+* JSON format used by PubChem (Matt Swain)
+* JSON format used by ChemDoodle (Matt Swain)
 * ORCA output files (read only) and ORCA input files (write only) (Dagmar Lenk)
 * ORCA-AICCM's extended XYZ format (read/write) (Dagmar Lenk)
+* Painter format for custom 2D depictions (Noel O'Boyle)
 * Turbomole AOFORCE output (read only) (Mathias Laurin)
 
-* JSON formats from PubChem and from ChemDoodle
 * LPMD
 * MDFF
-* "Painter" format for custom 2D depictions
 
 New features and improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
