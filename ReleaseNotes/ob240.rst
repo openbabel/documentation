@@ -6,31 +6,33 @@ Released on the 201x/nn/nn.
 New file formats
 ~~~~~~~~~~~~~~~~
 
-* DALTON output files (read only) and DALTON input files (read/write)
-* ORCA output files (read only) and ORCA input files (write only)
-* ORCA-AICCM's extended XYZ format (read/write)
-* Turbomole AOFORCE output (read only)
+* DALTON output files (read only) and DALTON input files (read/write) (Casper Steinmann)
+* ORCA output files (read only) and ORCA input files (write only) (Dagmar Lenk)
+* ORCA-AICCM's extended XYZ format (read/write) (Dagmar Lenk)
+* Turbomole AOFORCE output (read only) (Mathias Laurin)
 
 * JSON formats from PubChem and from ChemDoodle
 * LPMD
 * MDFF
 * "Painter" format for custom 2D depictions
 
-New features
-~~~~~~~~~~~~
+New features and improvements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Confab, the systematic conformation generator, has been incorporated into Open Babel
+* Confab, the systematic conformation generator, has been incorporated into Open Babel (Noel O'Boyle)
+* Faster ring-finding algorithm (Roger Sayle)
+* Faster fingerprint similarity calculations if compiled with -DOPTIMIZE_NATIVE=ON (Noel/James?)
 
-New capabilities or options for file formats
+New capabilities and options for file formats
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* AutoDock PDBQT: Options to preserve hydrogens and/or atom names
+* AutoDock PDBQT: Options to preserve hydrogens and/or atom names (MJ Harvey)
 * MDL Mol: Read in atom class information by default and optionally write it
-  out
-* MDL Mol: Support added for ZBO, ZCH and HYD extensions 
-* Mol2: Option to read UCSF Dock scores
-* NWChem: Support sequential calculations by optionally overwriting earlier ones
-* PNG: Options to crop the margin, and control the background and bond colors
-* SVG: Option to avoid addition of hydrogens to fill valence
-* SVG: Option to draw as ball-and-stick
+  out (Roger Sayle)
+* MDL Mol: Support added for ZBO, ZCH and HYD extensions (Matt Swain)
+* Mol2: Option to read UCSF Dock scores (Maciej Wójcikowski)
+* NWChem: Support sequential calculations by optionally overwriting earlier ones (Dmitriy Fomichev)
+* PNG: Options to crop the margin, and control the background and bond colors (Fredrik Wallner)
+* SVG: Option to avoid addition of hydrogens to fill valence (Lee-Ping)
+* SVG: Option to draw as ball-and-stick (Jean-Noël Avila)
 
