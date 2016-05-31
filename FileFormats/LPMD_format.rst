@@ -18,11 +18,13 @@ Read Options
 Write Options
 ~~~~~~~~~~~~~ 
 
+-f <num>  *Indicate the level of the output file: 0 (default), 1 or 2.*
+-m <num>  *Indicate the mode for level 2 output files*
 
-   f# Indicate the level of the ouput file 0 (default), 1 or 2.
-   m# Indicate the mode if ``-xl 1`` is used
-        0 (default) is for accelerations and 1 for forces.
-   c <vectorcells> Set the cell vectors if not present
+        0 (default) is for accelerations and 1 for forces
+-c <vectorcells>  *Set the cell vectors if not present*
+
         Example: ``-xc 10.0,0,0,0.0,10.0,0.0,0.0,0.0,20.0``
-   e Add the charge to the output file
+-e  *Add the charge to the output file*
+
 

@@ -3,12 +3,17 @@
 MDFF format (CONTFF, MDFF, POSFF)
 =================================
 
-**Reads in data from POSFF and CONTFF to obtain information from MDFF calculations.**
+**The format used in the POSFF and CONTFF files used by MDFF**
 
 
-. The program will try to read IONS.POT file if the name ofinput structure is POSFF or CONTFFWrite Options e.g. -xw
-  w Sort atoms by atomic number
-  u Sort atoms by list of element symbol provided in comma-separated string w/o spaces
-  i Write IONS.POT file
+POSFF and CONTFF are read to obtain information from MDFF calculations.
+The program will try to read the IONS.POT file if the name of the
+input file is POSFF or CONTFF.
 
 
+Write Options
+~~~~~~~~~~~~~ 
+
+-w  *Sort atoms by atomic number*
+-u <elementlist>  *Sort atoms by list of element symbols provided in comma-separated string w/o spaces*
+-i  *Write IONS.POT file*
