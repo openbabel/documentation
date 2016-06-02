@@ -37,7 +37,7 @@ Hydrogen with Hydrogen Count
 Hydrogen atoms can not have a hydrogen count. Hydrogen bound to a hydrogen
 atom should be specified by two bracket atom expressions.
 
-Eamples::
+Examples::
 
   [HH]        invalid
   [HH1]       invalid (same as [HH]
@@ -69,7 +69,7 @@ have the same two ring bonds. This would mean adding a parallel edge in the
 graph which is not allowed. The second type is similar but results in a
 self-loop by having a ring bond number twice.
 
-Eamples::
+Examples::
 
   C12CCCC12      parallel bond
   C11            self-loop bond

@@ -7,16 +7,17 @@ New file formats
 ~~~~~~~~~~~~~~~~
 
 * DALTON output files (read only) and DALTON input files (read/write) (Casper Steinmann)
-* JSON format used by ChemDoodle (Matt Swain)
-* JSON format used by PubChem (Matt Swain)
-* LPMD's atomic configuration file (Joaquin Peralta)
-* The format used by the CONTFF and POSFF files in MDFF (Kirill Okhotnikov)
+* JSON format used by ChemDoodle (read/write) (Matt Swain)
+* JSON format used by PubChem (read/write) (Matt Swain)
+* LPMD's atomic configuration file (read/write) (Joaquin Peralta)
+* The format used by the CONTFF and POSFF files in MDFF (read/write) (Kirill Okhotnikov)
 * ORCA output files (read only) and ORCA input files (write only) (Dagmar Lenk)
 * ORCA-AICCM's extended XYZ format (read/write) (Dagmar Lenk)
-* Painter format for custom 2D depictions (Noel O'Boyle)
-* Smiley parser for parsing SMILES according to the OpenSMILES specification (Tim Vandermeersch)
+* Painter format for custom 2D depictions (write only) (Noel O'Boyle)
+* Smiley parser for parsing SMILES according to the OpenSMILES specification (read only) (Tim Vandermeersch)
+* STL 3D-printing format (write only) (Matt Harvey)
 * Turbomole AOFORCE output (read only) (Mathias Laurin)
-* A representation of the VDW surface as a point cloud (Matt Harvey)
+* A representation of the VDW surface as a point cloud (write only) (Matt Harvey)
 
 New features and improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,8 +26,8 @@ New features and improvements
 * Faster ring-finding algorithm (Roger Sayle)
 * Faster fingerprint similarity calculations if compiled with -DOPTIMIZE_NATIVE=ON (Noel/James?)
 
-New capabilities and options for file formats
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+New file format capabilities and options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * AutoDock PDBQT: Options to preserve hydrogens and/or atom names (Matt Harvey)
 * MDL Mol: Read in atom class information by default and optionally write it
