@@ -11,8 +11,7 @@ the unit cell and virtual atoms.
 
 * Line one of the file contains the number of atoms in the file.
 * Line two of the file contains a title, comment, filename and/or the
-  following keywords:
-    ``%PBC`` or ``%VIRTUAL``
+  following keywords: ``%PBC`` or ``%VIRTUAL``
 
 Any remaining lines are parsed for atom information until a blank line. These
 lines start with the element symbol, followed by X, Y, and Z coordinates in
