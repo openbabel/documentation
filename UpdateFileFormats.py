@@ -117,7 +117,7 @@ for name, codes in sections:
     names = sorted(list(names))
         
     for formatname in names:
-        print formatname
+        print formatname,
 
         format = pybel.ob.OBFormat.FindType(exts[formatname][0])
         desc = format.Description()
@@ -191,12 +191,12 @@ for name, codes in sections:
         if len(flags) > 0:
             print >> output, ".. note:: " + " ".join(flags) + "\n"
 
+        params = set() # Store the list of options
         for x, y in ((READ, "Read"), (WRITE, "Write")):
             firstline = True
             if len("".join(data[x][1:]).strip()) > 0:
                 print >> output, heading("%s Options" % y, "~"), "\n"
                 for d in data[x][1:]:
-##                    if d.strip():
                     if d.startswith("   ") or not d.strip():
                         if firstline:
                             print >> output, ""
@@ -227,6 +227,7 @@ for name, codes in sections:
                         
                         broken[0] = broken[0][:-1] + ">"
 
+                    params.add(broken[0][0])
                     print >> output, "-%s  *%s*" % (broken[0], " ".join(broken[start:]))
                     if False:
                         print  "-%s  %s" % (broken[0], " ".join(broken[start:]))
@@ -235,6 +236,7 @@ for name, codes in sections:
             print >> output, heading("Comments", "~")
             for line in data[COMMENTS]:
                 print >> output, line.rstrip()
+        print list(params)
        
         output.close()
     sectionfile.close()
