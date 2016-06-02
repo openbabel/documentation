@@ -7,15 +7,16 @@ New file formats
 ~~~~~~~~~~~~~~~~
 
 * DALTON output files (read only) and DALTON input files (read/write) (Casper Steinmann)
-* JSON format used by PubChem (Matt Swain)
 * JSON format used by ChemDoodle (Matt Swain)
+* JSON format used by PubChem (Matt Swain)
+* LPMD's atomic configuration file (Joaquin Peralta)
+* The format used by the CONTFF and POSFF files in MDFF (Kirill Okhotnikov)
 * ORCA output files (read only) and ORCA input files (write only) (Dagmar Lenk)
 * ORCA-AICCM's extended XYZ format (read/write) (Dagmar Lenk)
 * Painter format for custom 2D depictions (Noel O'Boyle)
+* Smiley parser for parsing SMILES according to the OpenSMILES specification (Tim Vandermeersch)
 * Turbomole AOFORCE output (read only) (Mathias Laurin)
-
-* LPMD
-* MDFF
+* A representation of the VDW surface as a point cloud (Matt Harvey)
 
 New features and improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,7 +28,7 @@ New features and improvements
 New capabilities and options for file formats
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* AutoDock PDBQT: Options to preserve hydrogens and/or atom names (MJ Harvey)
+* AutoDock PDBQT: Options to preserve hydrogens and/or atom names (Matt Harvey)
 * MDL Mol: Read in atom class information by default and optionally write it
   out (Roger Sayle)
 * MDL Mol: Support added for ZBO, ZCH and HYD extensions (Matt Swain)
