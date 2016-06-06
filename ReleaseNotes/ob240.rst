@@ -27,8 +27,7 @@ New file format capabilities and options
 * CAR: Improved space group support in .car files (kartlee)
 * CIF: Extract charges (Kirill Okhotnikov)
 * DL_Poly: Cell information is now read (Kirill Okhotnikov)
-* MDL Mol: Read in atom class information by default and optionally write it
-  out (Roger Sayle)
+* MDL Mol: Read in atom class information by default and optionally write it out (Roger Sayle)
 * MDL Mol: Support added for ZBO, ZCH and HYD extensions (Matt Swain)
 * mmCIF: Improved mmCIF reading (Patrick Fuller)
 * Mol2: Option to read UCSF Dock scores (Maciej Wójcikowski)
@@ -38,17 +37,19 @@ New file format capabilities and options
 * SVG: Option to avoid addition of hydrogens to fill valence (Lee-Ping)
 * SVG: Option to draw as ball-and-stick (Jean-Noël Avila)
 * VASP: Vibration intensities are calculated (Christian Neiss, Mathias Laurin)
+* VASP: Custom atom element sorting on writing (Kirill Okhotnikov)
 
 Other new features and improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * 3D builder: Use bond length corrections based on bond order from Pyykko and Atsumi (http://dx.doi.org/10.1002/chem.200901472) (Geoff Hutchison)
 * Conformations: Confab, the systematic conformation generator, has been incorporated into Open Babel (Noel O'Boyle)
+* 3D builder, conformations: Initial support for ring rotamer sampling (Geoff Hutchison)
 * FillUnitCell operation: Improved behavior (Patrick Fuller)
 * New charge model: EQeq crystal charge equilibration method (a speed-optimized crystal-focused charge estimator, http://pubs.acs.org/doi/abs/10.1021/jz3008485) (David Lonie)
 * New conversion operation: "changecell", for changing cell dimensions (Kirill Okhotnikov)
 * Performance: Faster ring-finding algorithm (Roger Sayle)
-* Performance: Faster fingerprint similarity calculations if compiled with -DOPTIMIZE_NATIVE=ON (Noel/James?)
+* Performance: Faster fingerprint similarity calculations if compiled with -DOPTIMIZE_NATIVE=ON (Noel O'Boyle/Jeff Janes)
 
 Language bindings
 ~~~~~~~~~~~~~~~~~
@@ -59,6 +60,7 @@ Language bindings
 * PHP bindings: BaPHPel, a simplified interface (Maciej Wójcikowski)
 * Python bindings: Add 3D depiction support for Jupyter notebook  (Patrick Fuller)
 * Python bindings, Pybel: calccharges() and convertdbonds() added (Patrick Fuller, Björn Groening)
+* Python bindings, Pybel: compress output if filename ends with .gz (Maciej Wójcikowski)
 
 Development/Build/Install Improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
