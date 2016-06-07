@@ -14,11 +14,11 @@ New file formats
 * ORCA output files (read only) and ORCA input files (write only) (Dagmar Lenk)
 * ORCA-AICCM's extended XYZ format (read/write) (Dagmar Lenk)
 * Painter format for custom 2D depictions (write only) (Noel O'Boyle)
+* Siesta output files (read only) (Patrick Avery)
 * Smiley parser for parsing SMILES according to the OpenSMILES specification (read only) (Tim Vandermeersch)
 * STL 3D-printing format (write only) (Matt Harvey)
 * Turbomole AOFORCE output (read only) (Mathias Laurin)
 * A representation of the VDW surface as a point cloud (write only) (Matt Harvey)
-
 
 New file format capabilities and options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -30,10 +30,14 @@ New file format capabilities and options
 * MDL Mol: Read in atom class information by default and optionally write it out (Roger Sayle)
 * MDL Mol: Support added for ZBO, ZCH and HYD extensions (Matt Swain)
 * mmCIF: Improved mmCIF reading (Patrick Fuller)
+* mmCIF: Support for atom occupancy and atom_type (Kirill Okhotnikov)
 * Mol2: Option to read UCSF Dock scores (Maciej Wójcikowski)
 * NWChem: Support sequential calculations by optionally overwriting earlier ones (Dmitriy Fomichev)
+* NWChem: Extract info on MEP(IRC), NEB and quadrupole moments (Dmitriy Fomichev)
 * PNG: Options to crop the margin, and control the background and bond colors (Fredrik Wallner)
+* PQR: Use a stored atom radius (if present) in preference to the generic element radius (Zhixiong Zhao)
 * PWSCF: Extend parsing of lattice vectors (David Lonie)
+* PWSCF: Support newer versions, and the 'alat' term (Patrick Avery)
 * SVG: Option to avoid addition of hydrogens to fill valence (Lee-Ping)
 * SVG: Option to draw as ball-and-stick (Jean-Noël Avila)
 * VASP: Vibration intensities are calculated (Christian Neiss, Mathias Laurin)
@@ -44,10 +48,14 @@ Other new features and improvements
 
 * 3D builder: Use bond length corrections based on bond order from Pyykko and Atsumi (http://dx.doi.org/10.1002/chem.200901472) (Geoff Hutchison)
 * Conformations: Confab, the systematic conformation generator, has been incorporated into Open Babel (Noel O'Boyle)
-* 3D builder, conformations: Initial support for ring rotamer sampling (Geoff Hutchison)
+* Conformations: Initial support for ring rotamer sampling (Geoff Hutchison)
+* EEM charge model: Extend to use additional params from http://dx.doi.org/10.1186/s13321-015-0107-1 (Tomáš Raček)
 * FillUnitCell operation: Improved behavior (Patrick Fuller)
 * New charge model: EQeq crystal charge equilibration method (a speed-optimized crystal-focused charge estimator, http://pubs.acs.org/doi/abs/10.1021/jz3008485) (David Lonie)
+* New charge model: "fromfile" reads partial charges from a named file (Matt Harvey)
 * New conversion operation: "changecell", for changing cell dimensions (Kirill Okhotnikov)
+* New command-line utility: "obthermo", for extracting thermochemistry data from QM calculations (David van der Spoel)
+* OBConversion: Improvements and API changes to deal with a long-standing memory leak (David Koes)
 * Performance: Faster ring-finding algorithm (Roger Sayle)
 * Performance: Faster fingerprint similarity calculations if compiled with -DOPTIMIZE_NATIVE=ON (Noel O'Boyle/Jeff Janes)
 
