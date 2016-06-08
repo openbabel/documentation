@@ -25,12 +25,14 @@ New file format capabilities and options
 
 * AutoDock PDBQT: Options to preserve hydrogens and/or atom names (Matt Harvey)
 * CAR: Improved space group support in .car files (kartlee)
+* CDXML: Read/write isotopes (Roger Sayle)
 * CIF: Extract charges (Kirill Okhotnikov)
 * CIF: Improved support for space-groups and symmetries (Alexandr Fonari)
 * DL_Poly: Cell information is now read (Kirill Okhotnikov)
 * Gaussian FCHK: Parse alpha and beta orbitals (Geoff Hutchison)
 * MDL Mol: Read in atom class information by default and optionally write it out (Roger Sayle)
 * MDL Mol: Support added for ZBO, ZCH and HYD extensions (Matt Swain)
+* MDL Mol: Implement the MDL valence model on reading (Roger Sayle)
 * mmCIF: Improved mmCIF reading (Patrick Fuller)
 * mmCIF: Support for atom occupancy and atom_type (Kirill Okhotnikov)
 * Mol2: Option to read UCSF Dock scores (Maciej Wójcikowski)
@@ -50,20 +52,22 @@ Other new features and improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * 3D builder: Use bond length corrections based on bond order from Pyykko and Atsumi (http://dx.doi.org/10.1002/chem.200901472) (Geoff Hutchison)
-* Conformations: Confab, the systematic conformation generator, has been incorporated into Open Babel (Noel O'Boyle)
+* Conformations: Confab, the systematic conformation generator, has been incorporated into Open Babel (David Hall/Noel O'Boyle)
 * Conformations: Initial support for ring rotamer sampling (Geoff Hutchison)
 * EEM charge model: Extend to use additional params from http://dx.doi.org/10.1186/s13321-015-0107-1 (Tomáš Raček)
 * FillUnitCell operation: Improved behavior (Patrick Fuller)
+* Find duplicates: The "--duplicate" option can now return duplicates instead of just removing them (Chris Morley)
 * GAFF forcefield: Atom types updated to match Wang et al. J. Comp. Chem. 2004, 25, 1157 (mmghahremanpour)
 * New charge model: EQeq crystal charge equilibration method (a speed-optimized crystal-focused charge estimator, http://pubs.acs.org/doi/abs/10.1021/jz3008485) (David Lonie)
 * New charge model: "fromfile" reads partial charges from a named file (Matt Harvey)
 * New conversion operation: "changecell", for changing cell dimensions (Kirill Okhotnikov)
 * New command-line utility: "obthermo", for extracting thermochemistry data from QM calculations (David van der Spoel)
-* New fingerprnit: ECFP (Geoff Hutchison/Noel O'Boyle/Roger Sayle)
+* New fingerprint: ECFP (Geoff Hutchison/Noel O'Boyle/Roger Sayle)
 * OBConversion: Improvements and API changes to deal with a long-standing memory leak (David Koes)
 * OBAtom::IsHBondAcceptor(): Definition updated to take into account the atom environment (Stefano Forli)
 * Performance: Faster ring-finding algorithm (Roger Sayle)
 * Performance: Faster fingerprint similarity calculations if compiled with -DOPTIMIZE_NATIVE=ON (Noel O'Boyle/Jeff Janes)
+* SMARTS matching: The "-s" option now accepts an integer specifying the number of matches required (Chris Morley)
 
 Language bindings
 ~~~~~~~~~~~~~~~~~
@@ -75,6 +79,7 @@ Language bindings
 * Python bindings: Add 3D depiction support for Jupyter notebook  (Patrick Fuller)
 * Python bindings, Pybel: calccharges() and convertdbonds() added (Patrick Fuller, Björn Groening)
 * Python bindings, Pybel: compress output if filename ends with .gz (Maciej Wójcikowski)
+* Python bindings, Pybel: Residue support (Maciej Wójcikowski)
 
 Development/Build/Install Improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
