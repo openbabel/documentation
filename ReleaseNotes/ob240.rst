@@ -30,6 +30,7 @@ New file format capabilities and options
 * CIF: Improved support for space-groups and symmetries (Alexandr Fonari)
 * DL_Poly: Cell information is now read (Kirill Okhotnikov)
 * Gaussian FCHK: Parse alpha and beta orbitals (Geoff Hutchison)
+* Gaussian out: Extract true enthalpy of formation, quadrupole, polarizability tensor, electrostatic potential fitting points and potential values, and more (David van der Spoel)
 * MDL Mol: Read in atom class information by default and optionally write it out (Roger Sayle)
 * MDL Mol: Support added for ZBO, ZCH and HYD extensions (Matt Swain)
 * MDL Mol: Implement the MDL valence model on reading (Roger Sayle)
