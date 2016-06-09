@@ -90,3 +90,7 @@ Development/Build/Install Improvements
 * Python installer: Improvements to the Python setup.py installer and "pip install openbabel" (David Hall, Matt Swain, Joshua Swamidass)
 * Compilation speedup: Speed up compilation by combining the tests (Noel O'Boyle)
 * MacOSX: Support compiling with libc++ on MacOSX (Matt Swain)
+
+Cast of contributors
+~~~~~~~~~~~~~~~~~~~~
+Alexandr Fonari, Anders Steen Christensen, Andreas Kempe, arkose, Benoit Leblanc, Björn Grüning, Casper Steinmann, Chris Morley, Craig James, Dagmar Lenk, David Hall, David Koes, David Lonie, David van der Spoel, Fredrik Wallner, Geoff Hutchison, Heiko Becker, Itay Zandbank, Jean-Noel Avila, Jeff Janes, Julien Nabet, Karol Langner, Karthik Rajagopalan, Katsuhiko Nishimra, Kevin Horan, Kirill Okhotnikov, Lee-Ping, Matt Harvey, Maciej Wójcikowski, Marcus Hanwell, Mathias Laurin, Matt Swain, Mohamad Mohebifar, Mohammad Ghahremanpour, Noel O'Boyle, Patrick Avery, Patrick Fuller, Peng Bai, Zhixiong Zhao, Philipp Thiel, Reinis Danne, Ronald Cohen, Joshua Swamidass, Stefano Forli, Steve Roughley, Steffen Moeller, Tim Vandermeersch, Tomas Racek, Tomáš Trnka, Tor Colvin, Dmitriy Fomichev, Yi-Shu Tu
