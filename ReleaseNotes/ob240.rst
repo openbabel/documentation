@@ -85,14 +85,14 @@ Language bindings
 * New bindings: PHP (Maciej Wójcikowski)
 * PHP bindings: BaPHPel, a simplified interface (Maciej Wójcikowski)
 * Python bindings: Add 3D depiction support for Jupyter notebook  (Patrick Fuller)
-* Python bindings, Pybel: calccharges() and convertdbonds() added (Patrick Fuller, Björn Groening)
+* Python bindings, Pybel: calccharges() and convertdbonds() added (Patrick Fuller, Björn Grüning)
 * Python bindings, Pybel: compress output if filename ends with .gz (Maciej Wójcikowski)
 * Python bindings, Pybel: Residue support (Maciej Wójcikowski)
 
 Development/Build/Install Improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Version control: move to git and Github from subversion and SourceForge
+* Version control: move to git and GitHub from subversion and SourceForge
 * Continuous integration: Travis for Linux builds and Appveyor for Windows builds (David Lonie and Noel O'Boyle)
 * Python installer: Improvements to the Python setup.py installer and "pip install openbabel" (David Hall, Matt Swain, Joshua Swamidass)
 * Compilation speedup: Speed up compilation by combining the tests (Noel O'Boyle)
