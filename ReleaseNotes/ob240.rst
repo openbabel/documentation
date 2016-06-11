@@ -37,6 +37,7 @@ New file format capabilities and options
 * mmCIF: Improved mmCIF reading (Patrick Fuller)
 * mmCIF: Support for atom occupancy and atom_type (Kirill Okhotnikov)
 * Mol2: Option to read UCSF Dock scores (Maciej Wójcikowski)
+* MOPAC: Read z-matrix data and parse (and prefer) ESP charges (Geoff Hutchison)
 * NWChem: Support sequential calculations by optionally overwriting earlier ones (Dmitriy Fomichev)
 * NWChem: Extract info on MEP(IRC), NEB and quadrupole moments (Dmitriy Fomichev)
 * PDB: Read/write PDB insertion codes (Steffen Möller)
@@ -52,9 +53,14 @@ New file format capabilities and options
 Other new features and improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+* 2D layout: Improved the choice of which bonds to designate as hash/wedge bonds around a stereo center (Craig James)
 * 3D builder: Use bond length corrections based on bond order from Pyykko and Atsumi (http://dx.doi.org/10.1002/chem.200901472) (Geoff Hutchison)
+* 3D generation: "--gen3d", allow user to specify the desired speed/quality (Geoff Hutchison)
+* Aromaticity: Improved detection (Geoff Hutchison)
+* Canonicalisation: Changed behaviour for multi-molecule SMILES. Now each molecule is canonicalized individually and then sorted. (Geoff Hutchison/Tim Vandermeersch)
 * Conformations: Confab, the systematic conformation generator, has been incorporated into Open Babel (David Hall/Noel O'Boyle)
 * Conformations: Initial support for ring rotamer sampling (Geoff Hutchison)
+* Conformer searching: Performance improvement by avoiding gradient calculation and optimising the default parameters (Geoff Hutchison)
 * EEM charge model: Extend to use additional params from http://dx.doi.org/10.1186/s13321-015-0107-1 (Tomáš Raček)
 * FillUnitCell operation: Improved behavior (Patrick Fuller)
 * Find duplicates: The "--duplicate" option can now return duplicates instead of just removing them (Chris Morley)
@@ -69,6 +75,7 @@ Other new features and improvements
 * Performance: Faster ring-finding algorithm (Roger Sayle)
 * Performance: Faster fingerprint similarity calculations if compiled with -DOPTIMIZE_NATIVE=ON (Noel O'Boyle/Jeff Janes)
 * SMARTS matching: The "-s" option now accepts an integer specifying the number of matches required (Chris Morley)
+* UFF: Update to use traditional Rappe angle potential (Geoff Hutchison)
 
 Language bindings
 ~~~~~~~~~~~~~~~~~
@@ -93,4 +100,4 @@ Development/Build/Install Improvements
 
 Cast of contributors
 ~~~~~~~~~~~~~~~~~~~~
-Alexandr Fonari, Anders Steen Christensen, Andreas Kempe, arkose, Benoit Leblanc, Björn Grüning, Casper Steinmann, Chris Morley, Craig James, Dagmar Lenk, David Hall, David Koes, David Lonie, David van der Spoel, Fredrik Wallner, Geoff Hutchison, Heiko Becker, Itay Zandbank, Jean-Noel Avila, Jeff Janes, Julien Nabet, Karol Langner, Karthik Rajagopalan, Katsuhiko Nishimra, Kevin Horan, Kirill Okhotnikov, Lee-Ping, Matt Harvey, Maciej Wójcikowski, Marcus Hanwell, Mathias Laurin, Matt Swain, Mohamad Mohebifar, Mohammad Ghahremanpour, Noel O'Boyle, Patrick Avery, Patrick Fuller, Peng Bai, Zhixiong Zhao, Philipp Thiel, Reinis Danne, Ronald Cohen, Joshua Swamidass, Stefano Forli, Steve Roughley, Steffen Moeller, Tim Vandermeersch, Tomas Racek, Tomáš Trnka, Tor Colvin, Dmitriy Fomichev, Yi-Shu Tu
+Alexandr Fonari, Anders Steen Christensen, Andreas Kempe, arkose, Benoit Leblanc, Björn Grüning, Casper Steinmann, Chris Morley, Christoph Willing, Craig James, Dagmar Lenk, David Hall, David Koes, David Lonie, David van der Spoel, Dmitriy Fomichev, Fulvio Ciriaco, Fredrik Wallner, Geoff Hutchison, Heiko Becker, Itay Zandbank, Jean-Noel Avila, Jeff Janes, Joaquin Peralta, Joshua Swamidass, Julien Nabet, Karol Langner, Karthik Rajagopalan, Katsuhiko Nishimra, Kevin Horan, Kirill Okhotnikov, Lee-Ping, Matt Harvey, Maciej Wójcikowski, Marcus Hanwell, Mathias Laurin, Matt Swain, Mohamad Mohebifar, Mohammad Ghahremanpour, Noel O'Boyle, Patrick Avery, Patrick Fuller, Paul van Maaren, Peng Bai, Philipp Thiel, Reinis Danne, Ronald Cohen, Scott McKechnie, Stefano Forli, Steve Roughley, Steffen Moeller, Tim Vandermeersch, Tomas Racek, Tomáš Trnka, Tor Colvin, Torsten Sachse, Yi-Shu Tu, Zhixiong Zhao
