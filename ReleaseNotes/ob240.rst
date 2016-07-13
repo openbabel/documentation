@@ -68,7 +68,7 @@ Other new features and improvements
 * EEM charge model: Extend to use additional params from http://dx.doi.org/10.1186/s13321-015-0107-1 (Tomáš Raček)
 * FillUnitCell operation: Improved behavior (Patrick Fuller)
 * Find duplicates: The "--duplicate" option can now return duplicates instead of just removing them (Chris Morley)
-* GAFF forcefield: Atom types updated to match Wang et al. J. Comp. Chem. 2004, 25, 1157 (mmghahremanpour)
+* GAFF forcefield: Atom types updated to match Wang et al. J. Comp. Chem. 2004, 25, 1157 (Mohammad Ghahremanpour)
 * New charge model: EQeq crystal charge equilibration method (a speed-optimized crystal-focused charge estimator, http://pubs.acs.org/doi/abs/10.1021/jz3008485) (David Lonie)
 * New charge model: "fromfile" reads partial charges from a named file (Matt Harvey)
 * New conversion operation: "changecell", for changing cell dimensions (Kirill Okhotnikov)
