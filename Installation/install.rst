@@ -11,9 +11,10 @@ Install a binary package
 Windows
 ~~~~~~~
 
-Open Babel is available as a `binary installer`_ for Windows. It includes several command-line tools as well as a graphical user interface (GUI).
+Open Babel is available as a binary installer for Windows, both `64-bit`_ (preferred) or `32-bit`_. It includes several command-line tools as well as a graphical user interface (GUI).
 
-.. _binary installer: http://sourceforge.net/projects/openbabel/files/openbabel/2.3.2/OpenBabel2.3.2a_Windows_Installer.exe/download
+.. _64-bit: http://sourceforge.net/projects/openbabel/files/openbabel/2.4.0/OpenBabel-2.4.0.exe/download
+.. _32-bit: http://sourceforge.net/projects/openbabel/files/openbabel/2.4.0/OpenBabel-2.4.0-x86.exe/download
 
 Advanced users may be interested in compiling Open Babel themselves (see :ref:`Compiling Open Babel`).
 
@@ -48,7 +49,7 @@ Requirements
 
 To build Open Babel, you **need** the following:
 
-* The `source code <http://sourceforge.net/projects/openbabel/files/openbabel/2.3.2/openbabel-2.3.2.tar.gz/download>`__ for the latest release of Open Babel
+* The `source code <http://sourceforge.net/projects/openbabel/files/openbabel/2.4.0/openbabel-openbabel-2-4-0.tar.gz/download>`__ for the latest release of Open Babel
 * A C++ compiler
 
     Open Babel is written in standards-compliant C++. The best-supported compilers are GCC 4 and MSVC++ 2008, but it also compiles with Clang and Intel Compiler 11. 
