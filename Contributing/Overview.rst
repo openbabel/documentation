@@ -10,8 +10,7 @@ Not sure where to start? This section aims to give you some ideas.
 You can help us by:
 
 * helping to answer questions on our `mailing list`_
-* suggesting new features_
-* suggesting needed `file formats`_
+* suggesting new features_ or file formats
 * reporting bugs_
 
 .. rubric:: Spread the word
@@ -24,10 +23,9 @@ If you find Open Babel useful, there's a chance that others will also. You can h
 * building your own software on Open Babel
 
 .. _feature:
-.. _features: http://sourceforge.net/tracker/?atid=428743&group_id=40728&func=browse
+.. _features: https://github.com/openbabel/openbabel/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Afeature
 .. _mailing list: https://lists.sourceforge.net/lists/listinfo/openbabel-discuss
-.. _bugs: http://sourceforge.net/tracker/?atid=428740&group_id=40728&func=browse
-.. _file formats: http://sourceforge.net/tracker/?atid=447448&group_id=40728&func=browse
+.. _bugs: https://github.com/openbabel/openbabel/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+
 
 To get started, just send an email to our `mailing list`_.
 
@@ -42,9 +40,4 @@ New developers are always very welcome to OpenBabel so if you're interested, jus
 * Perform 'software archaeology' (see :ref:`software-archaeology`)
 * Fix some bugs_
 * Add a requested feature_
-* Add support for additional datatypes_
 * Implement a feature from our roadmap
-
-.. _datatypes: http://sourceforge.net/tracker/?atid=451585&group_id=40728&func=browse
-
-
