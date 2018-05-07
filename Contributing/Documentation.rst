@@ -36,15 +36,6 @@ Take :obapi:`OBAtom::SetAtomicNum() <OpenBabel::OBAtom::SetAtomicNum>` - should 
     * If the molecule is not in the modify state, is it put into the modify state by SetAtomicNum()?
     * Does SetAtomicNum() cause a recomputation of aromaticity? 
 
-ChangeLog entries
------------------
-
-The ChangeLog file is used to maintain an abbreviated history of changes to the code by all users. Please add a ChangeLog entry to any patch and make sure to keep it up to date as you commit changes to the source code. The format_ should be mostly self-explanatory.
-
-.. _format: http://www.gnu.org/software/guile/changelogs/guile-changelogs_3.html|format
-
-In particular, please include a notation of any file you have changed. This makes it easy for others to track which changes may have added new functionality, fixed bugs, or inadvertently caused errors. 
-
 User documentation and tutorials
 --------------------------------
 
