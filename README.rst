@@ -36,4 +36,4 @@ Automatic generation
 
 Within a few seconds, updated docs will be available at http://readthedocs.org/projects/baoilleach/open-babel/. Note that these docs are missing the links to the C++ documentation and to Pybel.
 
-The complete docs are automatically generated once an hour (on the hour) from the latest source, and are available at http:://openbabel.org/docs/dev.
+The complete docs are automatically generated once an hour (on the hour) from the latest source, and are available at http://openbabel.org/docs/dev.
