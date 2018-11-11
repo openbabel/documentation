@@ -325,12 +325,12 @@ should be taken into account to differentiate between molecules, unnormalized
                  Geerlings, C. Van Alsenoy, and J. P. Tollenaere.
                  **The Electronegativity Equalization Method II: Applicability of Different Atomic Charge Schemes.**
                  *J. Phys. Chem. A* **2002**, *106*, 7895-7901.
-                 [`Link <http://dx.doi.org/10.1021/jp020547v>`__]
+                 [`Link <https://doi.org/10.1021/jp020547v>`__]
 
 .. [blc2003] Patrick Bultinck, Wilfried Langenaeker, Ramon Carb\ |oacute|\ -Dorca, and Jan P. Tollenaere.
          **Fast Calculation of Quantum Chemical Molecular Descriptors from the Electronegativity Equalization Method.**
          *J. Chem. Inf. Comput. Sci.* **2003**, *43*, 422-428.
-         [`Link <http://dx.doi.org/10.1021/ci0255883>`__]
+         [`Link <https://doi.org/10.1021/ci0255883>`__]
 
 .. rubric:: Footnotes
 
