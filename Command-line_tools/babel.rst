@@ -119,7 +119,7 @@ Options
 --gen2d
     Generate 2D coordinates
 --gen3d
-    Generate 3D coordinates
+    Generate 3D coordinates. You can specify the speed of prediction. See :ref:`specify_speed`.
 -h
     Add hydrogens (make all hydrogen explicit)
 --highlight <substructure color>
@@ -682,3 +682,28 @@ of the fit. To attach it to the title of each molecule use
 To output the two conformers closest to the first conformer in a dataset::
 
     obabel dataset.xxx  -O outset.yyy  --align  --smallest 2 rmsd
+
+.. _specify_speed:
+
+Specifying the speed of 3D coordinate generation
+---------------------------------------------------
+When you use the ``--gen3d`` option, you can specify the speed and quality. The following shows typical usage::
+
+     obabel infile.smi -O out.sdf --gen3d fastest
+
+The available options are as follows:
+
+=================  ======================
+option             description
+=================  ======================
+``fastest``        No cleanup
+``fast``           Force field cleanup (100 cycles)
+``med`` (default)  Force field cleanup (100 cycles) + Fast rotor search (only one permutation)
+``slow``           Force field cleanup (250 cycles) + Fast rotor search (permute central rotors)            
+``slowest``        Force field cleanup (500 cycles) + Slow rotor search
+``better``         Same as ``slow``
+``best``           Same as ``slowest``
+``dist``, ``dg``   Use distance geometry method (unstable)
+=================  ======================
+
+You can also specify the speed by an integer from ``1`` (slowest) to ``5`` (fastest).
