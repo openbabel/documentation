@@ -21,7 +21,7 @@ Example for the SMILES string ``CC(=O)Cl``::
              Similarity Searching Using Atom Environments, Information-Based
              Feature Selection, and a Naive Bayesian Classifier.**
              *J. Chem. Inf. Comput. Sci.* **2004**, *44*, 170-178.
-             [`Link <http://dx.doi.org/10.1021/ci034207y>`_]
+             [`Link <https://doi.org/10.1021/ci034207y>`_]
 
 
 

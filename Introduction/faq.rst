@@ -55,7 +55,7 @@ To support development of Open Babel, please cite:
 .. [obj2011] Noel M. O'Boyle, Michael Banck, Craig A. James, Chris Morley, Tim Vandermeersch, Geoffrey R. Hutchison
    **Open Babel: An open chemical toolbox.**
    *J. Cheminf.* **2011**, *3*, 33.
-   [`Link <http://dx.doi.org/10.1186/1758-2946-3-33>`_] 
+   [`Link <https://doi.org/10.1186/1758-2946-3-33>`_] 
 
 * Open Babel, version 2.3.2, http://openbabel.org (accessed Oct 2012) 
 

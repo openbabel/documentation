@@ -76,7 +76,7 @@ represented by the SMILES string CC(=O)Cl::
             Tatyana Gloriozova. **Chemical Similarity Assessment through
             Multilevel Neighborhoods of Atoms: Definition and Comparison with
             the Other Descriptors.** *J. Chem. Inf. Comput. Sci.* **1999**, *39*, 666-670.
-            [`Link <http://dx.doi.org/10.1021/ci980335o>`_]
+            [`Link <https://doi.org/10.1021/ci980335o>`_]
 
 
 

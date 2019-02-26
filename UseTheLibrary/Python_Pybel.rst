@@ -24,7 +24,7 @@ To use Pybel, use ``import pybel`` or ``from pybel import *``.
 .. [omh2008] N.M. O'Boyle, C. Morley and G.R. Hutchison.
    **Pybel: a Python wrapper for the OpenBabel cheminformatics toolkit.**
    *Chem. Cent. J.* **2008**, *2*, 5.
-   [`Link <http://dx.doi.org/10.1186/1752-153X-2-5>`_]
+   [`Link <https://doi.org/10.1186/1752-153X-2-5>`_]
 
 Atoms and Molecules
 ^^^^^^^^^^^^^^^^^^^

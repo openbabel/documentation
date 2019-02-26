@@ -12,7 +12,7 @@ As described in [gb2001]_.
             Language (MCDL): Composition, Connectivity and
             Supplementary Modules.**
             *J. Chem. Inf. Comput. Sci.*, **2004**, *41*, 1491-1499.
-            [`Link <http://dx.doi.org/10.1021/ci000108y>`_]
+            [`Link <https://doi.org/10.1021/ci000108y>`_]
 
 Here's an example conversion from SMILES to MCDL::
 
