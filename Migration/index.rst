@@ -17,3 +17,70 @@ While this may seem like a major change, adapting code to handle the change shou
 
 For the particular case of creating a new atom, it is worth noting that the implicit hydrogen count defaults to zero and that the user must set it themself. To help with this situation a convenience function has been added to OBAtom that sets the implicit hydrogen count to be consistent with normal valence rules.
 
+Regarding specific API functions, the following have been removed:
+
+* OBAtom::SetImplicitValence(), GetImplicitValence()
+* OBAtom::IncrementImplicitValence(), DecrementImplicitValence()
+* OBAtom::ForceNoH(), HasNoHForce(), ForceImplH(), HasImplHForced()
+* OBAtom::ImplicitHydrogenCount()
+
+The following have been added:
+* OBAtom::SetImplicitHCount(), GetImplicitHCount()
+
+Kekulization
+------------
+The following API functions have been removed as part of this rewrite.
+
+* OBAtom::KBOSum()
+* OBBond::SetKSingle(), SetKDouble(), SetKTriple()
+* OBBond::UnsetKekule()
+* OBBond::IsSingle(), IsDouble(), IsTriple().
+* OBBond::IsKSingle(), IsKDouble(), IsKTriple()
+
+Regarding OBBond::IsSingle, etc., the user should replaced these with ``OBBond::GetBondOrder()==1`` if that is their intention. The original IsSingle(), etc. returned ``false`` for aromatic bonds - this can be tested with a call to ``OBBond::IsAromatic()``.
+
+Handling of elements and related information
+--------------------------------------------
+
+The API for interconverting atomic numbers and element symbols has been replaced for performance reasons.
+
+.. code-bock: c++
+
+::
+
+  // OB 2.x
+  OBElementTable etab;
+  const char *elem = etab.GetSymbol(6);
+  unsigned int atomic_num = etab.GetAtomicNum(elem);
+
+  // OB 3.0
+  #include <openbabel/elements.h>
+  const char *elem = OBElements.GetSymbol(6);
+  unsigned int atomic_num = OBElements.GetAtomicNum(elem);
+
+Furthermore, the OBAtom API convenience functions for testing for particular elements have been removed. Instead, `OBAtom.GetAtomicNum()` should be used along with an element constant or atomic number:
+
+::
+
+  // OB 2.x
+  if (atom->IsCarbon()) {...
+
+  // OB 3.0
+  if (atom->GetAtomicNum() == OBElements.Carbon) {...
+  if (atom->GetAtomicNum() == 6) {...
+
+Handling of isotope information now longer uses OBIsotopeTable but is also accessed through the OBElements namespace::
+
+  // OB 2.x
+  OBIsotopeTable isotab;
+  isotab.GetExactMass(6, 14);
+
+  // OB 3.0
+  double exact = OBElements.GetExactMass(OBElements.Carbon, 14);
+
+Finally, the OBElement::CorrectedBondRad() method was removed.
+
+OBBond API
+----------
+
+
