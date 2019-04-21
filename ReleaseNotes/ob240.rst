@@ -54,7 +54,7 @@ New file format capabilities and options
 * VASP: Custom atom element sorting on writing (Kirill Okhotnikov)
 
 Other new features and improvements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * 2D layout: Improved the choice of which bonds to designate as hash/wedge bonds around a stereo center (Craig James)
 * 3D builder: Use bond length corrections based on bond order from Pyykko and Atsumi (https://doi.org/10.1002/chem.200901472) (Geoff Hutchison)
