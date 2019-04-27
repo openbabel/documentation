@@ -82,8 +82,8 @@ OB 2.x referred to the function that returned the explicit degree of an atom as 
 
 * ``OBAtom::GetExplicitValence()`` (OB 2.x ``BOSum()``)
 * ``OBAtom::GetExplicitDegree()`` (OB 2.x ``GetValence()``)
-* ``OBAtom::GetHvyValence()`` (OB 2.x ``GetHvyDegree()``)
-* ``OBAtom::GetHeteroValence()`` (OB 2.x ``GetHeteroDegree()``)
+* ``OBAtom::GetHvyDegree()`` (OB 2.x ``GetHvyValence()``)
+* ``OBAtom::GetHeteroDegree()`` (OB 2.x ``GetHeteroValence()``)
 
 Molecule, atom and bond flags
 -----------------------------
