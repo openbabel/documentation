@@ -70,14 +70,15 @@ Handling of isotope information now longer uses ``OBIsotopeTable`` but is access
 
 .. (TMI?) Finally, the OBElement::CorrectedBondRad() method was removed.
 
-OBBond API
-----------
+Atom classes
+------------
+
+In OB 2.x, atom class information was stored as part of an ``OBAtomClassData`` object attached to an ``OBMol`` and accessed via ``OBMol.GetData("Atom Class")``. In OB 3.0, atom class information is instead stored as an ``OBPairInteger`` associated with an ``OBAtom`` and accessed via ``OBAtom.GetData("Atom Class")``.
 
 OBAtom valence and degree methods
 ---------------------------------
 
-OB 2.x referred to the function that returned the explicit degree of an atom as ``GetValence()``. This was confusing, at best. To find the explicit valence, the ``BOSum()`` method was required. OB 3.0 avoids this confusion by renaming methods associated with degree or valence::
-
+OB 2.x referred to the function that returned the explicit degree of an atom as ``GetValence()``. This was confusing, at best. To find the explicit valence, the ``BOSum()`` method was required. OB 3.0 avoids this confusion by renaming methods associated with degree or valence:
 
 * ``OBAtom::GetExplicitValence()`` (OB 2.x ``BOSum()``)
 * ``OBAtom::GetExplicitDegree()`` (OB 2.x ``GetValence()``)
