@@ -22,3 +22,4 @@ Open Babel is a C++ library and can easily be used from C++. In addition it can 
    Perl.rst
    CSharp.rst
    Ruby.rst
+   migration.rst
