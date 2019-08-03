@@ -167,4 +167,11 @@ recognizes ``c1ccccc1c`` as the benzyl radical, but it doesn't like
 ``c1cc(c)ccc1``. Radical centres should not be involved in ring
 closure: for cyclohexyl radical ``C1cCCCC1`` is ok, but ``c1CCCCC1`` is not.
 
+Other Supported Extensions
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Open Babel supports quadruple bonds ``$``, e.g. ``[Rh-](Cl)(Cl)(Cl)(Cl)$[Rh-](Cl)(Cl)(Cl)Cl`` 
+and aromatic ``[te]``, e.g. ``Cc1[te]ccc1``. In addition, ring closures 
+up to 5 digits ``%(N)`` are supported, e.g. ``C%(100)CC%(100)``.
+
 .. |3-pentyl radical| image:: ../_static/Zigzag.png
