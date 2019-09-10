@@ -3,21 +3,29 @@ Open Babel 3.0.0
 
 Released 2019/nn/nn.
 
-This is a major release. It fixes some long-standing issues affecting performance in terms of chemical accuracy and speed, and all users are recommended to upgrade. It also removes deprecatedcomponents and breaks the API in a few places. For information on migrating from earlier version, please see [REF].
+This is a major release. It fixes some long-standing issues affecting performance in terms of chemical accuracy and speed, and all users are recommended to upgrade. It also removes deprecated components and breaks the API in a few places. For information on migrating from earlier version, please see [REF].
 
-Highlights
-~~~~~~~~~~
+Notable changes
+~~~~~~~~~~~~~~~
+* The babel program has been removed, and the replacement obabel should be used instead. The obabel program fixes some flaws with the original babel (not least that the user could accidentally overwrite an input file) and so has been preferred for many years.
+* The Python bindings are now accessed via "from openbabel import pybel" or "from openbabel import openbabel".
+* Under the hood, the code for handling implicit hydrogens and kekulization has been entirely replaced in order to address problems with the original approach that had resulted in multiple bug reports over the years. As well as being accurate, the new approach is much faster.
+* The speed of reading and writing SMILES has been improved by more than 50-fold.
+* New functionality in the API:
 
-
+  - A new class for managing reactions stored as OBMols (OBReactionFacade)
+  - A new method to copy part of an OBMol into a new OBMol (OBMol::CopySubstructure)
 
 ..
   is:pr is:merged created:>=2016-10-01
+  is:pr is:merged created:>=2019-04-01
 
 New file formats
 ~~~~~~~~~~~~~~~~
 * Add basic support for RInChI (Reaction InChI) (by baoilleach, PR#1667)
 * Added basic ADF Band and ADF DFTB readers (by psavery, PR#1793)
 * Add support for COF format (Culgi object file) plus tests (by pbecherer, PR#1944)
+* Add maeparser support to openbabel  (by lorton, PR#1993)
 
 New file format capabilities and options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,6 +58,8 @@ New file format capabilities and options
 * ADF DFTB: Add new detection string for ADF 2018 (by psavery, PR#1888)
 * Update Gaussian format (by e-kwsm, PR#1969)
 * Update URLs of specification of gromacs (by e-kwsm, PR#1974)
+* Update URL of specification of MDL MOL (by e-kwsm, PR#1980)  
+* Add SMILES support for elements specified by 3-digit number, e.g. [#101] (by baoilleach, PR#1997)  
 
 Other new features and improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -95,6 +105,9 @@ Other new features and improvements
 * Improve python script (by e-kwsm, PR#1970)  
 * Make `pybel.Outputfile` compatible with `with` statment (by yishutu, PR#1971)
 * Obrms enhancement (by dkoes, PR#1978)
+* Move to a single function for setting/unsetting bond and atom flags (by baoilleach, PR#1965)
+* Rename/add valence and degree methods (by baoilleach, PR#1975)
+* Do not stoke around the (svg) text (by Artoria2e5, PR#2012)
 
 Development/Build/Install Improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -118,6 +131,7 @@ Development/Build/Install Improvements
 * Hyperlink DOIs to preferred resolver (by katrinleinweber, PR#1909)
 * For Travis builds, include output for build failures (by baoilleach, PR#1959)  
 * Add __init__.py to gitignore (by yishutu, PR#1972)  
+* Ignore in-source installation (by RMeli, PR#2027)
 
 Bug Fixes
 ~~~~~~~~~
@@ -237,7 +251,19 @@ Bug Fixes
 * Fix clang warning about in-class init of a non-static data member (by baoilleach, PR#1949)
 * Update bindings for changes to headers (by baoilleach, PR#1963)
 * Fix randomly failing Python gradient test (by baoilleach, PR#1966)
-
+* Exit with non-zero if an error occurs (by e-kwsm, PR#1973)
+* Avoid non-finite bond vectors (by dkoes, PR#1981)  
+* Include babelconfig in vector3.h  (by dkoes, PR#1985)  
+* Fix #1987: CMake failing at FindRapidJSON (by RMeli, PR#1988)
+* fpsformat.cpp: compile bugfix header added. (by orex, PR#1991)
+* Address Ubuntu bug in defining python install dir (by dkoes, PR#1992)  
+* PDB and PDBQT Insertion Code Fixes (by RMeli, PR#1998)
+* Make pybel compatible with #1975 (by yishutu, PR#2005)  
+* H vector fix (by dkoes, PR#2010)
+* Change forcefield.cpp so that steepest descent and conjugate gradient update maxgrad (by PeaWagon, PR#2017)
+* Update coordinates in the fast option of obabel (by n-yoshikawa, PR#2026)  
+  
+  
 Cast of contributors
 ~~~~~~~~~~~~~~~~~~~~
-aandi, adalke (Andrew Dalke), adamjstewart (Adam J. Stewart), afonari (Alexandr Fonari), baoilleach (Noel O'Boyle), barrymoo (Barry Moore), bbucior (Ben Bucior), boryszef (Borys Szefczyk), camannguyen (An Nguyen), cmanion (Charles A. Manion), cowsandmilk (David Hall), cstein (Casper Steinmann), derekharmon (Derek Harmon), djhogan (Daniel Hogan), dkoes (David Koes), e-kwsm (Eisuke Kawashima), eloyfelix (Eloy Felix), fredrikw (Fredrik Wallner), ghutchis (Geoff Hutchison), hille721 (Christoph Hille), hseara (Hector Martinez-Seara), jasonychuang (Jason Huang), jeffjanes (Jeff Janes), johnmay (John Mayfield), katrinleinweber (Katrin Leinweber), keipertk (Kristopher Keipert), kyle-roberts-arzeda, langner (Karol M. Langner), mcs07 (Matt Swain), merkys (Andrius Merkys), mkrykunov, mmghahremanpour (Mohammad Ghahremanpour), mwojcikowski (Maciej Wójcikowski), n-yoshikawa (Naruki Yoshikawa), nakatamaho (Nakata Maho), nsoranzo (Nicola Soranzo), oititov (Titov Oleg), pbecherer (Paul Becherer), philthiel (Philipp Thiel), psavery (Patrick Avery), serval2412 (Julien Nabet), sunoru, susilehtola (Susi Lehtola), tgaudin (Théophile Gaudin), theavey (Thomas Heavey), timvdm (Tim Vandermeersch), torcolvin (Tor Colvin), wojdyr (Marcin Wojdyr), xomachine (Dmitriy Fomichev), yishutu (Yi-Shu Tu)
+aandi, adalke (Andrew Dalke), adamjstewart (Adam J. Stewart), afonari (Alexandr Fonari), artoria2e5 (Mingye Wang), baoilleach (Noel O'Boyle), barrymoo (Barry Moore), bbucior (Ben Bucior), boryszef (Borys Szefczyk), camannguyen (An Nguyen), cmanion (Charles A. Manion), cowsandmilk (David Hall), cstein (Casper Steinmann), derekharmon (Derek Harmon), djhogan (Daniel Hogan), dkoes (David Koes), e-kwsm (Eisuke Kawashima), eloyfelix (Eloy Felix), fredrikw (Fredrik Wallner), ghutchis (Geoff Hutchison), hille721 (Christoph Hille), hseara (Hector Martinez-Seara), jasonychuang (Jason Huang), jeffjanes (Jeff Janes), johnmay (John Mayfield), katrinleinweber (Katrin Leinweber), keipertk (Kristopher Keipert), kyle-roberts-arzeda, langner (Karol M. Langner), lorton (Pat Lorton), mcs07 (Matt Swain), merkys (Andrius Merkys), mkrykunov, mmghahremanpour (Mohammad Ghahremanpour), mwojcikowski (Maciej Wójcikowski), n-yoshikawa (Naruki Yoshikawa), nakatamaho (Nakata Maho), nsoranzo (Nicola Soranzo), oititov (Titov Oleg), orex (Kirill Okhotnikov), pbecherer (Paul Becherer), peawagon (Jen), philthiel (Philipp Thiel), psavery (Patrick Avery), rmeli (Rocco Meli), serval2412 (Julien Nabet), sunoru, susilehtola (Susi Lehtola), tgaudin (Théophile Gaudin), theavey (Thomas Heavey), timvdm (Tim Vandermeersch), torcolvin (Tor Colvin), wojdyr (Marcin Wojdyr), xomachine (Dmitriy Fomichev), yishutu (Yi-Shu Tu)
