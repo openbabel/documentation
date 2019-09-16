@@ -108,6 +108,9 @@ Other new features and improvements
 * Move to a single function for setting/unsetting bond and atom flags (by baoilleach, PR#1965)
 * Rename/add valence and degree methods (by baoilleach, PR#1975)
 * Do not stoke around the (svg) text (by Artoria2e5, PR#2012)
+* Add a warning message when both -p and -h options are set (by yishutu, PR#2031)  
+* "Bye bye babel" - remove the babel binary (by baoilleach, PR#1976)  
+* Add force field support for dielectric constants in charge terms. (by ghutchis, PR#2022)  
 
 Development/Build/Install Improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -262,7 +265,7 @@ Bug Fixes
 * H vector fix (by dkoes, PR#2010)
 * Change forcefield.cpp so that steepest descent and conjugate gradient update maxgrad (by PeaWagon, PR#2017)
 * Update coordinates in the fast option of obabel (by n-yoshikawa, PR#2026)  
-  
+* Update the CSharp bindings (by baoilleach, PR#2032)  
   
 Cast of contributors
 ~~~~~~~~~~~~~~~~~~~~
