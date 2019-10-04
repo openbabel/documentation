@@ -35,6 +35,12 @@ The following are read:
     atomRefs4 (for atomParity)
   - On <bond>: atomRefs2, order, CML1: atomRef, atomRef1, atomRef2
 
+Atom classes are also read and written. This is done using a specially
+formed atom id. When reading, if the atom id is of the form aN_M (where
+N and M are positive integers), then M is interpreted as the atom class.
+Such atom ids are automatically generated when writing an atom with an
+atom class.
+
 
 
 Read Options
@@ -49,7 +55,6 @@ Write Options
 -1  *write CML1 (rather than CML2)*
 -a  *write array format for atoms and bonds*
 -A  *write aromatic bonds as such, not Kekule form*
--h  *use hydrogenCount for all hydrogens*
 -m  *write metadata*
 -x  *omit XML and namespace declarations*
 -c  *continuous output: no formatting*

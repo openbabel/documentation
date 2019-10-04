@@ -2,5 +2,10 @@
 
 Jaguar input format (jin)
 =========================
-.. note:: This is a write-only format.
+Read Options
+~~~~~~~~~~~~ 
+
+-s  *Output single bonds only*
+-b  *Disable bonding entirely*
+
 

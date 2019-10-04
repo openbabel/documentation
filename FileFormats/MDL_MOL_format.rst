@@ -48,8 +48,18 @@ Write Options
 -a  *write atomclass if available*
 -m  *write no properties*
 -w  *use wedge and hash bonds from input (2D only)*
+-v  *always specify the valence in the valence field*
+
+      The default behavior is to only specify the valence if it
+      is not consistent with the MDL valence model.
+      So, for CH4 we don't specify it, but we do for CH3.
+      This option may be useful to preserve the correct number of
+      implicit hydrogens if a downstream tool does not correctly
+      implement the MDL valence model (but does honor the valence
+      field).
 -S  *do not store cis/trans stereochemistry in 0D MOL files*
 -A  *output in Alias form, e.g. Ph, if present*
+-E  *add an ASCII depiction of the molecule as a property*
 -H  *use HYD extension (always on if mol contains zero-order bonds)*
 
 

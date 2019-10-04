@@ -10,3 +10,9 @@ Read Options
 -c  *Ignore CONECT records*
 
 
+Write Options
+~~~~~~~~~~~~~ 
+
+-o  *Write origin in space group label (CRYST1 section)*
+
+
