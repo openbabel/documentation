@@ -1,9 +1,9 @@
 .. _obabel:
 
-obabel and babel - Convert, Filter and Manipulate Chemical Data
-===============================================================
+obabel - Convert, Filter and Manipulate Chemical Data
+=====================================================
 
-:command:`obabel` and :command:`babel` are cross-platform programs designed to interconvert between many file formats used in molecular modeling and computational chemistry and related areas. They can also be used for filtering molecules and for simple manipulation of chemical data.
+:command:`obabel` is a command-line program for interconverting between many file formats used in molecular modeling and computational chemistry and related areas. It can also be used for filtering molecules and for simple manipulation of chemical data.
 
 Synopsis
 --------
@@ -11,11 +11,7 @@ Synopsis
 .. hlist::
 
    * ``obabel [-H <help-options>]``
-   * ``babel [-H <help-options>]``
    * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]``
-   * ``babel [-i <input-ID>] infile [-o <output-ID>] [outfile] [OPTIONS]``
-
-:command:`obabel` is recommended over :command:`babel` (see :ref:`babel vs obabel`).
 
 .. _babel options:
 
@@ -25,7 +21,6 @@ Options
 .. rubric:: Information and help
 
 *  ``obabel [-H <help-options>]``
-*  ``babel  [-H <help-options>]``
 
 -H
     Output usage information
@@ -47,12 +42,11 @@ Options
 .. rubric:: Conversion options
 
 * ``obabel [-i <input-ID>] infile [-o <output-ID>] [-O outfile] [OPTIONS]``
-* ``obabel -:"<SMILES string>"    [-o <output-ID>] [-O outfile] [OPTIONS]``
-* ``babel  [-i <input-ID>] infile [-o <output-ID>]    [outfile] [OPTIONS]``
+* ``obabel -:"<text>"  [-i <input-ID>] [-o <output-ID>] [-O outfile] [OPTIONS]``
 
 .. note::
 
-  If only input and output files are given, Open Babel will guess the file type from the filename extension. For information on the file formats supported by Open Babel, please see :ref:`file formats`.
+  If only input and output files are given, Open Babel will guess the file type from the filename extension. For information on the file formats supported by Open Babel, please see :ref:`file formats`. If text is provided using the ``-:`` notation, SMILES are assumed by default if an input format is not specified.
 
 -a <options>
     Format-specific input options. Use ``-H <format-ID>`` to see options
@@ -296,34 +290,6 @@ For the test data (taken from ChEMBLdb), this gave::
     S(=O)(=O)(Nc1ncc(cc1)C)c1c2c(c(N(C)C)ccc2)ccc1          22 100589 3
     c1([nH]c2c(c1)cccc2)C(=O)N1CCN(c2c(N(CC)CC)cccn2)CC1    46 101536 4
 
-.. _babel vs obabel:
-
-Differences between babel and obabel
-------------------------------------
-
-Essentially :command:`obabel` is a modern version of :command:`babel` with additional capabilities and a more standard interface. Over time, :command:`obabel` will replace :command:`babel` and so we recommend that you start using :command:`obabel` now.
-
-Specifically, the differences are as follows:
-
-* :command:`obabel` requires that the output file be specified with a ``-O`` option. This is closer to the normal Unix convention for commandline programs, and prevents users accidentally overwriting the input file.
-
-* :command:`obabel` is more flexible when the user needs to specify parameter values on options. For instance,  the ``--unique`` option can be used with or without a parameter (specifying the criteria used).  With :command:`babel`, this only works when the option is the last on the line; with :command:`obabel`, no such restriction applies. Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
-
-* :command:`obabel` has a shortcut for entering SMILES strings. Precede the SMILES by -: and use in place of an input file. The SMILES string should be enclosed in quotation marks. For example::
-
-     obabel -:"O=C(O)c1ccccc1OC(=O)C" -ocan
-
-  More than one can be used, and a molecule title can be included if enclosed in quotes::
-
-     obabel -:"O=C(O)c1ccccc1OC(=O)C aspirin" -:"Oc1ccccc1C(=O)O salicylic acid"
-            -ofpt
-
-* :command:`obabel` cannot use concatenated single-character options.
-
-.. tip::
-
-    To adapt a command line for :command:`babel` into one for :command:`obabel` you can usually simply put ``-O`` in front of the output filename.
-
 Format Options
 --------------
 
@@ -346,7 +312,7 @@ The information can be calculated from the structure of the molecule or can orig
 
 ``MW`` is the ID of a descriptor which calculates the molecular weight of the molecule, and ``CAT_NO`` is a property of the molecule from the SDF input file. The values of these are added to the title of the molecule. For input files with many molecules these additions are specific to each molecule. (Note that the related option ``--addtotitle`` simply adds the same text to every title.)
 
-The append option only takes one parameter, which means that with ``babel`` all of the descriptor IDs or property names must be enclosed together in a single set of quotes. With ``obabel`` this is usually unnecessary.
+The append option only takes one parameter, which means that it may be necessary to enclose all of the descriptor IDs or property names together in a single set of quotes.
 
 If the name of the property in the SDF file (internally the Attribute in OBPairData) contains spaces, these spaces should be replaced by underscore characters, '_'. So the example above would also work for a property named ``CAT NO``.
 
@@ -433,7 +399,7 @@ Open Babel uses a SDF-like property (internally this is stored in the class OBPa
 
 converts only a molecule with a property logP=10.900, since the others do not have this property and logP, being also a descriptor, is calculated and is always much less than 5.
 
-.. _here: http://openbabel.svn.sourceforge.net/viewvc/openbabel/openbabel/trunk/test/files/filterset.sdf?revision=1955
+.. _here: https://raw.githubusercontent.com/openbabel/openbabel/master/test/files/filterset.sdf
 
 If a property does not have a conditional test, then it returns true only if it exists. So::
 
@@ -508,7 +474,7 @@ will convert both Ethanol and Dimethyl Ether.
 Substructure and similarity searching
 -------------------------------------
 
-For information on using :command:`babel` for substructure searching and similarity searching, see :ref:`fingerprints`.
+For information on using :command:`obabel` for substructure searching and similarity searching, see :ref:`fingerprints`.
 
 .. _sorting option:
 

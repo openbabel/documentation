@@ -10,10 +10,28 @@ Here we describe the main changes, and how to change existing code to adapt.
 Removal of babel
 ----------------
 
-The ``babel`` executable has been removed, and ``obabel`` should be used instead. Typically the only change needed is to place ``-O`` before the output filename::
+The ``babel`` executable has been removed, and ``obabel`` should be used instead. Essentially :command:`obabel` is a modern version of :command:`babel` with additional capabilities and a more standard interface. Typically the only change needed is to place ``-O`` before the output filename::
+
 
   $ babel -ismi tmp.smi -omol out.mol
   $ obabel -ismi tmp.smi -omol -O out.mol
+
+Specifically, the differences are as follows:
+
+* :command:`obabel` requires that the output file be specified with a ``-O`` option. This is closer to the normal Unix convention for commandline programs, and prevents users accidentally overwriting the input file.
+
+* :command:`obabel` is more flexible when the user needs to specify parameter values on options. For instance,  the ``--unique`` option can be used with or without a parameter (specifying the criteria used).  With :command:`babel`, this only works when the option is the last on the line; with :command:`obabel`, no such restriction applies. Because of the original design of :command:`babel`, it is not possible to add this capability in a backwards-compatible way.
+
+* :command:`obabel` has a shortcut for entering SMILES strings. Precede the SMILES by -: and use in place of an input file. The SMILES string should be enclosed in quotation marks. For example::
+
+     obabel -:"O=C(O)c1ccccc1OC(=O)C" -ocan
+
+  More than one can be used, and a molecule title can be included if enclosed in quotes::
+
+     obabel -:"O=C(O)c1ccccc1OC(=O)C aspirin" -:"Oc1ccccc1C(=O)O salicylic acid"
+            -ofpt
+
+* :command:`obabel` cannot use concatenated single-character options.
 
 Python module
 -------------
