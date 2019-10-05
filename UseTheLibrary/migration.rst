@@ -1,3 +1,5 @@
+.. _migrating_to_3.0:
+
 Updating to Open Babel 3.0 from 2.x
 ===================================
 
@@ -128,7 +130,7 @@ Regarding specific API functions, the following have been removed:
 
 * ``OBAtom::SetImplicitValence()``, ``GetImplicitValence()``
 * ``OBAtom::IncrementImplicitValence()``, ``DecrementImplicitValence()``
-* ``OBAtom::ForceNoH(), ``HasNoHForce()``, ``ForceImplH()``, ``HasImplHForced()``
+* ``OBAtom::ForceNoH()``, ``HasNoHForce()``, ``ForceImplH()``, ``HasImplHForced()``
 * ``OBAtom::ImplicitHydrogenCount()``
 
 The following have been added:
