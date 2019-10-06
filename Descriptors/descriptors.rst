@@ -70,6 +70,17 @@ SMARTS: \*=\*
 
 Datafile: psa.txt
 
+.. rubric:: Rotatable bonds filter (rotors)
+
+
+
+.. rubric:: Melting point (MP)
+
+This is a melting point descriptor developed
+by Andy Lang. For details see:
+http://onschallenge.wikispaces.com/MeltingPointModel011
+Datafile: mpC.txt
+
 Textual descriptors
 -------------------
 

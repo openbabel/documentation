@@ -4,7 +4,7 @@ import sys
 if os.path.isfile("pybel.py") or os.path.isfile("pybel.pyc"):
     sys.exit("Delete pybel.pyc and move pybel.py to oldpybel.py")
 
-import pybel
+from openbabel import pybel
 
 def heading(text, symbol):
     return text + "\n" + symbol*len(text)
@@ -14,7 +14,8 @@ def escape(text):
 
 # descriptors
 numerical = ["atoms", "bonds", "HBD", "HBA1", "HBA2", "nF", "logP",
-        "MW", "tbonds", "MR", "abonds", "sbonds", "dbonds", "TPSA"]
+        "MW", "tbonds", "MR", "abonds", "sbonds", "dbonds", "TPSA",
+        "rotors", "MP"]
 textual = ["cansmi", "cansmiNS", "InChI", "InChIKey", "formula", "title"]
 filters = ["L5", "smarts", "s"]
 all = numerical + textual + filters
