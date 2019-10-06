@@ -8,6 +8,8 @@ Computational chemistry formats
    ABINIT_Output_Format.rst
    ACES_input_format.rst
    ACES_output_format.rst
+   ADF_Band_output_format.rst
+   ADF_DFTB_output_format.rst
    ADF_cartesian_input_format.rst
    ADF_output_format.rst
    CAChe_MolStruct_format.rst
@@ -15,6 +17,7 @@ Computational chemistry formats
    Cacao_Cartesian_format.rst
    Cacao_Internal_format.rst
    Crystal_09_output_format.rst
+   Culgi_object_file_format.rst
    DALTON_input_format.rst
    DALTON_output_format.rst
    DMol3_coordinates_format.rst
@@ -26,7 +29,7 @@ Computational chemistry formats
    GAMESS-UK_Input.rst
    GAMESS-UK_Output.rst
    GULP_format.rst
-   Gaussian_98_or_03_Input.rst
+   Gaussian_Input.rst
    Gaussian_Output.rst
    Gaussian_Z-Matrix_Input.rst
    Gaussian_formatted_checkpoint_file_format.rst
