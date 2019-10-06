@@ -1,9 +1,9 @@
 Open Babel 3.0.0
 ================
 
-Released 2019/nn/nn.
+Released 2019/10/nn.
 
-This is a major release. It fixes some long-standing issues affecting performance in terms of chemical accuracy and speed, and all users are recommended to upgrade. It also removes deprecated components and breaks the API in a few places. For information on migrating from earlier version, please see [REF].
+This is a major release. It fixes some long-standing issues affecting performance in terms of chemical accuracy and speed, and all users are recommended to upgrade. It also removes deprecated components and breaks the API in a few places. For information on migrating from the previous version, please see :ref:`migrating_to_3.0`.
 
 Notable changes
 ~~~~~~~~~~~~~~~
@@ -19,6 +19,7 @@ Notable changes
 ..
   is:pr is:merged created:>=2016-10-01
   is:pr is:merged created:>=2019-04-01
+  is:pr is:merged created:>=2019-09-10 (on 2019-10-05)
 
 New file formats
 ~~~~~~~~~~~~~~~~
@@ -135,6 +136,7 @@ Development/Build/Install Improvements
 * For Travis builds, include output for build failures (by baoilleach, PR#1959)  
 * Add __init__.py to gitignore (by yishutu, PR#1972)  
 * Ignore in-source installation (by RMeli, PR#2027)
+* Add a GitHub funding link to the open collective page. (by ghutchis, PR#2042)
 
 Bug Fixes
 ~~~~~~~~~
@@ -266,7 +268,15 @@ Bug Fixes
 * Change forcefield.cpp so that steepest descent and conjugate gradient update maxgrad (by PeaWagon, PR#2017)
 * Update coordinates in the fast option of obabel (by n-yoshikawa, PR#2026)  
 * Update the CSharp bindings (by baoilleach, PR#2032)  
-  
+* Don't make kekule SMILES the default in the GUI (by baoilleach, PR#2039)
+* Bumping the major version requires more changes throughout the library. (by baoilleach, PR#2036)
+* Fix reading of uninitialized data. (by dkoes, PR#2038)
+* Remove minor version from some names (by baoilleach, PR#2040)
+* Fixed alias expansion for files with multiple aliases (by fredrikw, PR#2035)
+* Update doc (by e-kwsm, PR#1979)
+* Fix compilation with GCC 4.8 (standard compiler on CentOS 7.5) (by baoilleach, PR#2047)
+* Some tests (by dkoes, PR#2008)
+
 Cast of contributors
 ~~~~~~~~~~~~~~~~~~~~
 aandi, adalke (Andrew Dalke), adamjstewart (Adam J. Stewart), afonari (Alexandr Fonari), artoria2e5 (Mingye Wang), baoilleach (Noel O'Boyle), barrymoo (Barry Moore), bbucior (Ben Bucior), boryszef (Borys Szefczyk), camannguyen (An Nguyen), cmanion (Charles A. Manion), cowsandmilk (David Hall), cstein (Casper Steinmann), derekharmon (Derek Harmon), djhogan (Daniel Hogan), dkoes (David Koes), e-kwsm (Eisuke Kawashima), eloyfelix (Eloy Felix), fredrikw (Fredrik Wallner), ghutchis (Geoff Hutchison), hille721 (Christoph Hille), hseara (Hector Martinez-Seara), jasonychuang (Jason Huang), jeffjanes (Jeff Janes), johnmay (John Mayfield), katrinleinweber (Katrin Leinweber), keipertk (Kristopher Keipert), kyle-roberts-arzeda, langner (Karol M. Langner), lorton (Pat Lorton), mcs07 (Matt Swain), merkys (Andrius Merkys), mkrykunov, mmghahremanpour (Mohammad Ghahremanpour), mwojcikowski (Maciej Wójcikowski), n-yoshikawa (Naruki Yoshikawa), nakatamaho (Nakata Maho), nsoranzo (Nicola Soranzo), oititov (Titov Oleg), orex (Kirill Okhotnikov), pbecherer (Paul Becherer), peawagon (Jen), philthiel (Philipp Thiel), psavery (Patrick Avery), rmeli (Rocco Meli), serval2412 (Julien Nabet), sunoru, susilehtola (Susi Lehtola), tgaudin (Théophile Gaudin), theavey (Thomas Heavey), timvdm (Tim Vandermeersch), torcolvin (Tor Colvin), wojdyr (Marcin Wojdyr), xomachine (Dmitriy Fomichev), yishutu (Yi-Shu Tu)
