@@ -229,9 +229,11 @@ for name, codes in sections:
                         broken[0] = broken[0][:-1] + ">"
 
                     params.add(broken[0][0])
-                    print >> output, "-%s  *%s*" % (broken[0], " ".join(broken[start:]))
-                    if False:
-                        print  "-%s  %s" % (broken[0], " ".join(broken[start:]))
+                    optiondesc = " ".join(broken[start:])
+                    print >> output, "-%s  *%s*" % (broken[0], optiondesc)
+                    if "default" in optiondesc.lower():
+                        print("      **** Potential default value in GUI****\n")
+                        print("      -%s  *%s*" % (broken[0], optiondesc))
 
         if data[COMMENTS]:
             print >> output, heading("Comments", "~")
