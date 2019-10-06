@@ -12,8 +12,6 @@ Write Options
 ~~~~~~~~~~~~~ 
 
 -l  *Output ignores residue information (only ligands)*
-
-
 -c  *Write UCSF Dock scores saved in comments preceding molecules*
 
 

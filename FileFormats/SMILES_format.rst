@@ -77,7 +77,6 @@ Write Options
 
      The output will be rearranged so that any additional
      SMILES added to the end will be attached to this atom.
-
 -T <max seconds>  *Specify the canonicalization timeout*
 
      Canonicalization can take a while for symmetric molecules and a
