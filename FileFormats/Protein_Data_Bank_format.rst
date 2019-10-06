@@ -13,6 +13,7 @@ Read Options
 Write Options
 ~~~~~~~~~~~~~ 
 
+-n  *Do not write duplicate CONECT records to indicate bond order*
 -o  *Write origin in space group label (CRYST1 section)*
 
 
