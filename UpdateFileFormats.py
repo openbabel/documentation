@@ -4,7 +4,7 @@ import sys
 if os.path.isfile("pybel.py") or os.path.isfile("pybel.pyc"):
     sys.exit("Delete pybel.pyc and move pybel.py to oldpybel.py")
 
-import pybel
+from openbabel import pybel
 import pdb
 import collections
 
@@ -20,10 +20,11 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 'tmol', 'zin', 'moo', 
             'qcin', 'qcout', 'gamin', 'gamout', 'jin', 'jout',
             'fhiaims', 'got', 'pwscf' ,'gukin', 'gukout', 'cache',
             'castep', "abinit", "c09out", "acesin", "acesout",
-            'orca', 'orcainp', 'dallog', 'dalmol', 'exyz', 'aoforce'])
+            'orca', 'orcainp', 'dallog', 'dalmol', 'exyz', 'aoforce',
+            'adfband', 'adfdftb', "cof"])
 viewers = ("3D viewer", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
                           "unixyz", "c3d1", "c3d2", "bs", "crk3d",
-                          "xsf"])
+                          "xsf", "MAE", "MAEGZ"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
                  'inchi', 'inchikey', 'mol2', 'mol', 'cml', 'smy'])
 cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
@@ -43,7 +44,7 @@ md_and_dock = ('Molecular dynamics and docking',
                        "gro", "pdbqt", "CONFIG", "HISTORY", "txyz",
                        "lmpdat", "siesta", "lpmd", "MDFF"])
 thermo = ('Kinetics and Thermodynamics', ["ck", "therm"])
-reactions = ("Reaction", ["cmlr", "rxn", "rsmi"])
+reactions = ("Reaction", ["cmlr", "rxn", "rsmi", "rinchi"])
 biology = ("Biological data", ["fasta", "pqr"])
 misc = ("Miscellaneous", ["msms"])
 unknown = ("Obscure", ["feat", "fix", "xed", "alc",

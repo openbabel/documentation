@@ -79,11 +79,12 @@ Write Options
 -r  *ows<num> number of rows in table(not displayed in GUI)*
 -N <num>  *max number objects to be output*
 -l  *draw grid lines*
--h <condition><color>  *highlight mol if condition is met*
+-h <condition>  *highlight mol if condition is met*
 
     The condition can use descriptors and properties,
     See documentation on ``--filter`` option for details.
-    Specifying the highlight color is optional.
+    To highlight in a particular color, follow the condition
+    by a color.
 -i  *add index to each atom*
 
     These indices are those in sd or mol files and correspond to the

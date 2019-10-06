@@ -1,5 +1,5 @@
 2D Depiction
-=========
+============
 
 As the old Chinese proverb has it, a molecular depiction is worth a
 thousand words. This chapter covers everything relevant to using Open

@@ -130,7 +130,7 @@ Options
 -k
     Translate computational chemistry modeling keywords. See
     the computational chemistry formats (:ref:`Computational chemistry`),
-    for example :ref:`GAMESS_Input` and :ref:`Gaussian_98_or_03_Input`.
+    for example :ref:`GAMESS_Input` and :ref:`Gaussian_Input`.
 -l <#>
     For multiple entry input, stop import with molecule # as the last
     entry
