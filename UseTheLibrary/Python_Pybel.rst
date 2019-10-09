@@ -19,7 +19,7 @@ Information on the Pybel API can be found at the interactive Python
 prompt using the ``help()`` function. The full API is also listed in  
 the next section (see :ref:`Pybel API`).
 
-To use Pybel, use ``import pybel`` or ``from pybel import *``.
+To use Pybel, use ``from openbabel import pybel``.
 
 .. [omh2008] N.M. O'Boyle, C. Morley and G.R. Hutchison.
    **Pybel: a Python wrapper for the OpenBabel cheminformatics toolkit.**
@@ -80,14 +80,14 @@ values in the data fields:
 ::
 
     >>> mol = readfile("sdf", "calculatedprops.sdf").next() # (readfile is described below)
-    >>> print mol.molwt
+    >>> print(mol.molwt)
     100.1
-    >>> print len(mol.atoms)
+    >>> print(len(mol.atoms))
     16
-    >>> print mol.data.keys()
+    >>> print(mol.data.keys())
     {'Comment': 'Created by CDK', 'NSC': 1, 'Hydrogen Bond Donors': 3,
      'Surface Area': 342.43, .... }
-    >>> print mol.data['Hydrogen Bond Donors']
+    >>> print(mol.data['Hydrogen Bond Donors'])
     3
     >>> mol.data['Random Value'] = random.randint(0,1000) # Add a descriptor containing noise
 
@@ -192,10 +192,10 @@ file:
 ::
 
     >>> mymol = readstring("smi", "CCCC")
-    >>> print mymol.molwt
+    >>> print(mymol.molwt)
     58
     >>> for mymol in readfile("sdf", "largeSDfile.sdf")
-    ... print mymol.molwt
+    ... print(mymol.molwt)
     >>> singlemol = readfile("pdb", "1CRN.pdb").next()
 
 If a single molecule is to be written to a molecule or string, the
@@ -223,7 +223,7 @@ classes:
 
 ::
 
-    >>> print mymol.write("smi")
+    >>> print(mymol.write("smi"))
     'CCCC'
     >>> mymol.write("smi", "outputfile.txt")
     >>> largeSDfile = Outputfile("sdf", "multipleSD.sdf")
@@ -263,13 +263,13 @@ Here is an example of its use:
 
 ::
 
-    >>> import pybel
+    >>> from openbabel import pybel
     >>> smiles = ['CCCC', 'CCCN']
     >>> mols = [pybel.readstring("smi", x) for x in smiles] # Create a list of two molecules
     >>> fps = [x.calcfp() for x in mols] # Calculate their fingerprints
-    >>> print fps[0].bits, fps[1].bits
+    >>> print(fps[0].bits, fps[1].bits)
     [261, 385, 671] [83, 261, 349, 671, 907]
-    >>> print fps[0] | fps[1] # Print the Tanimoto coefficient
+    >>> print(fps[0] | fps[1]) # Print the Tanimoto coefficient
     0.3333
 
 SMARTS matching
@@ -289,7 +289,7 @@ Here is an example of its use:
 
     >>> mol = readstring("smi","CCN(CC)CC") # triethylamine
     >>> smarts = Smarts("[#6][#6]") # Matches an ethyl group
-    >>> print smarts.findall(mol) 
+    >>> print(smarts.findall(mol))
     [(1, 2), (4, 5), (6, 7)]
 
 .. _Combining:
@@ -311,7 +311,7 @@ classes are available, while at the interactive Python prompt.
 
 ::
 
-    >>> import pybel
+    >>> from openbabel import pybel
     >>> mol = pybel.readfile("pdb", "1PYB").next()
     >>> help(mol)
     Help on Molecule in module pybel object:
@@ -323,12 +323,12 @@ classes are available, while at the interactive Python prompt.
      |  The original Open Babel molecule can be accessed using the attribute:
      |     OBMol
     ...
-    >>> print len(mol.atoms), mol.molwt
+    >>> print(len(mol.atoms), mol.molwt)
     3430 49315.2
     >>> dir(mol.OBMol) # Show the list of methods provided by openbabel.py
     ['AddAtom', 'AddBond', 'AddConformer', 'AddHydrogens', 'AddPolarHydrogens', ... ]
     >>> mol.OBMol.AddHydrogens()
-    >>> print len(mol.atoms), mol.molwt
+    >>> print(len(mol.atoms), mol.molwt)
     7244 49406.0
 
 The next example is an extension of one of the :file:`openbabel.py`
@@ -338,7 +338,7 @@ Pybel:
 
 ::
 
-    import openbabel, pybel
+    from openbabel import openbabel, pybel
     
     mol = openbabel.OBMol()
     a = mol.NewAtom()

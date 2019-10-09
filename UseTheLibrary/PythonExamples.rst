@@ -14,26 +14,26 @@ compared to another SD file.
 
 ::
 
-    from openbabel import *
+    from openbabel import openbabel as ob
     
-    obconversion = OBConversion()
+    obconversion = ob.OBConversion()
     obconversion.SetInFormat("sdf")
-    obmol = OBMol()
+    obmol = ob.OBMol()
     
     notatend = obconversion.ReadFile(obmol,"../xsaa.sdf")
     while notatend:
-        print obmol.GetMolWt()
-        obmol = OBMol()
+        print(obmol.GetMolWt())
+        obmol = ob.OBMol()
         notatend = obconversion.Read(obmol)
 
 .. rubric:: Pybel
 
 ::
 
-    from pybel import *
+    from openbabel import pybel
     
-    for molecule in readfile("sdf","../xsaa.sdf"):
-        print molecule.molwt
+    for molecule in pybel.readfile("sdf","../xsaa.sdf"):
+        print(molecule.molwt)
 
 Find information on all of the atoms and bonds connected to a particular atom
 -----------------------------------------------------------------------------
@@ -55,10 +55,10 @@ which is the neighbouring atom:
 
 ::
 
-    for neighbour_atom in openbabel.OBAtomAtomIter(obatom):
-       print neighbour_atom.GetAtomicNum()
+    for neighbour_atom in ob.OBAtomAtomIter(obatom):
+       print(neighbour_atom.GetAtomicNum())
        bond = obatom.GetBond(neighbour_atom)
-       print bond.GetBondOrder()
+       print(bond.GetBondOrder())
 
 Examples from around the web
 ----------------------------
@@ -103,7 +103,7 @@ Examples from around the web
 
    ::
 
-       import pybel
+       from openbabel import pybel
        
        smarts = pybel.Smarts("C[C@](O)CC(=O)O")
        inverse = pybel.Smarts("C[C@@](O)CC(=O)O")
@@ -134,7 +134,7 @@ The solution is simple...
 
 ::
 
-    import pybel
+    from openbabel import pybel
     for mol in pybel.readfile("sdf", "bigmol.sdf"):
        mol.write("sdf", "%s.sdf" % mol.title)
 

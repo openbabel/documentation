@@ -45,7 +45,7 @@ list with the output from these commands.
 ::
 
     C:\Documents and Settings\Noel> obabel -V
-    Open Babel 2.3.2 -- Oct 13 2012 -- 17:57:01
+    Open Babel 3.0.0 -- Oct  7 2019 -- 20:18:16
     
     C:\Documents and Settings\Noel> obabel -Hsdf
     sdf  MDL MOL format
@@ -60,17 +60,17 @@ list with the output from these commands.
      Volume in drive C has no label.
      Volume Serial Number is 68A3-3CC9
     
-     Directory of C:\Users\Noel\AppData\Roaming\OpenBabel-2.3.2\data
+     Directory of C:\Users\Noel\AppData\Roaming\OpenBabel-3.0.0\data
 
-    26/10/2010  16:37             4,295 mr.txt
+    06/10/2019  16:37             4,295 mr.txt
                    1 File(s)          4,295 bytes
                    0 Dir(s)  58,607,575,040 bytes free
     
-    C:\Documents and Settings\Noel> C:\Python26\python
-    Python 2.6.5 (r265:79096, Mar 19 2010, 21:48:26) [MSC v.1500 32 bit (Intel)] on
-    win32
+    C:\Documents and Settings\Noel> py
+    Python 2.7.16 (v2.7.16:413a49145e, Mar  4 2019, 01:37:19) [MSC v.1500 64
+    bit (AMD64)] on win32
     Type "help", "copyright", "credits" or "license" for more information.
-    >>> import pybel
+    >>> from openbabel import pybel
     >>> mol = pybel.readstring("smi", "CC(=O)Br")
     >>> mol.make3D()
     >>> print(mol.write("sdf"))
@@ -106,7 +106,7 @@ You may need to add the location of :file:`libopenbabel.so` (on my system, the l
 ::
 
     $ python
-    >>> import openbabel 
+    >>> from openbabel import openbabel 
     Traceback (most recent call last):
       File "<stdin>", line 1, in
       File "/usr/lib/python2.4/site-packages/openbabel.py", line 9, in
