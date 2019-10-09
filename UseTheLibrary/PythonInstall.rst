@@ -7,32 +7,21 @@ Windows
 Install the bindings
 ^^^^^^^^^^^^^^^^^^^^
 
-#. First you need to download and install the
-   `OpenBabelGUI <http://openbabel.org/wiki/Install>`_ version 2.3.2
-#. Next, download and install the OpenBabel Python bindings
-   (version 1.8) for your Python version, either
-   `2.6 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.8/openbabel-python-1.8.py26.exe/download>`_,
-   `2.7 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.8/openbabel-python-1.8.py27.exe/download>`_
-   `3.2 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.8/openbabel-python-1.8.py32.exe/download>`_.
-   or
-   `3.3 <http://sourceforge.net/projects/openbabel/files/openbabel-python/1.8/openbabel-python-1.8.py33.exe/download>`_.
+#. First you need to download and install the main Open Babel executable
+   and library as described in :ref:`Install binaries`.
+#. Next, use ``pip`` to install the Python bindings::
 
-**Note**: If you are **upgrading** from an earlier version of the
-Python bindings, you should uninstall that first (using Add/Remove
-Programs) and then follow steps 1 and 2 above. You should also make
-sure that BABEL\_DATADIR is set correctly to the :file:`data` folder of the
-Open Babel installation (at a command prompt, type *echo %BABEL\_DATADIR%*).
-If not, carefully delete any existing System environment variables
-with the name BABEL\_DATADIR, and correct the value of the User
-environment variable BABEL\_DATADIR (if necessary).
+    pip install -U openbabel
 
-Install Python Imaging Library (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Note**: Python is available as either a 32-bit or 64-bit version. You need to install the corresponding version of Open Babel in step 1.
+
+Install Pillow (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you want to display 2D depictions using Pybel (rather than just write to 
-a file), you need the `Python Imaging Library (PIL) <http://www.pythonware.com/products/pil/#pil117>`_
-by Fredrik Lundh. Unfortunately, at the time of writing (Oct 2011), there is still not an official
-release for Python 3.
+a file), you need to install the Pillow library::
+
+   pip install -U pillow
 
 Test the installation
 ^^^^^^^^^^^^^^^^^^^^^
@@ -113,14 +102,11 @@ You may need to add the location of :file:`libopenbabel.so` (on my system, the l
        import _openbabel
     ImportError: libopenbabel.so.3: cannot open shared object file: No such file or directory
 
-Install Python Imaging Library (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install Pillow (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to display 2D depictions using Pybel (rather than just write to 
-a file), you need the `Python Imaging Library (PIL) <http://www.pythonware.com/products/pil/#pil117>`_
-by Fredrik Lundh, and the Python Tkinter library (part of the standard library).
+If you want to display 2D depictions using Pybel (rather than just write to
+a file), you need the Pillow library, and the Python Tkinter library (part of the standard library).
 These should be available through
-your package manager, e.g. on Debian, PIL is provided by 'python-imaging' and
-'python-imaging-tk', while Tkinter is provided by 'python-tk'. Unfortunately,
-at the time of writing (Oct 2011), there is still not an official
-release of PIL for Python 3.
+your package manager, e.g. on Ubuntu, Pillow is provided by 'python-pil' and
+'python-pil.imagetk', while Tkinter is provided by 'python-tk'.
