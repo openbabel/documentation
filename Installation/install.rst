@@ -11,12 +11,11 @@ Install a binary package
 Windows
 ~~~~~~~
 
-Open Babel is available as a binary installer for Windows, both `64-bit`_ (preferred) or `32-bit`_. It includes several command-line tools as well as a graphical user interface (GUI).
-
-.. _64-bit: http://sourceforge.net/projects/openbabel/files/openbabel/2.4.0/OpenBabel-2.4.0.exe/download
-.. _32-bit: http://sourceforge.net/projects/openbabel/files/openbabel/2.4.0/OpenBabel-2.4.0-x86.exe/download
+Open Babel is available as a binary installer for Windows, both 64-bit (preferred) or 32-bit (indicated by ``x86`` in the filename). It includes several command-line tools as well as a graphical user interface (GUI). The latest version can be download from GitHub_.
 
 Advanced users may be interested in compiling Open Babel themselves (see :ref:`Compiling Open Babel`).
+
+.. _GitHub: https://github.com/openbabel/openbabel/releases
 
 Linux
 ~~~~~
@@ -54,11 +53,11 @@ To build Open Babel, you **need** the following:
 
     Open Babel is written in standards-compliant C++. The best-supported compilers are GCC 4 and MSVC++ 2008, but it also compiles with Clang and Intel Compiler 11. 
 
-* CMake 2.4 or newer
+* CMake 2.8 or newer
 
     Open Babel uses CMake as its build system. CMake is an open source cross-platform build system from KitWare.
 
-    You need to install CMake 2.4 or newer. This is available as a binary package from the KitWare website; alternatively, it may be available through your package manager (on Linux). If necessary, you can also compile it yourself from the source code.
+    You need to install CMake 2.8 or newer. This is available as a binary package from the KitWare website; alternatively, it may be available through your package manager (on Linux). If necessary, you can also compile it yourself from the source code.
 
 If you want to build the GUI (Graphical User Interface), you **need** the following in addition:
 
