@@ -6,14 +6,14 @@ import glob
 ################
 
 for filename in glob.glob(os.path.join("_build", "html", "FileFormats", "*.html")):
-    input = open(filename, "r")
-    text = input.readlines()
-    output = open(filename, "w")
-    for line in text:
-        if line.startswith("<kbd><span class=\"option\">-"):
-            output.write("<kbd><span class=\"option\">" + line[27:])
-        else:
-            output.write(line)
+    with open(filename, encoding="utf-8") as inp:
+        text = inp.readlines()
+    with open(filename, "w", encoding="utf-8") as output:
+        for line in text:
+            if line.startswith("<kbd><span class=\"option\">-"):
+                output.write("<kbd><span class=\"option\">" + line[27:])
+            else:
+                output.write(line)
 
 # Fix LaTeX
 filename = os.path.join("_build", "latex", "OpenBabel.tex")
@@ -38,16 +38,15 @@ def fix(filename, before, after):
     inputfile = filename
     fixed = False
     if os.path.isfile(inputfile):
-        input = open(inputfile, "r")
-        text = input.readlines()
-        input.close()
-        output = open(inputfile, "w")
-        for line in text:
-            if line.startswith(before):
-                output.write(after + line[len(before):])
-                fixed = True
-            else:
-                output.write(line)
+        with open(inputfile, encoding="utf-8") as inp:
+            text = inp.readlines()
+        with open(inputfile, "w", encoding="utf-8") as output:
+            for line in text:
+                if line.startswith(before):
+                    output.write(after + line[len(before):])
+                    fixed = True
+                else:
+                    output.write(line)
     return fixed
 
 fix(os.path.join("_build", "html", "Command-line_tools", "babel.html"),
@@ -56,5 +55,5 @@ fix(os.path.join("_build", "html", "Command-line_tools", "babel.html"),
 fix(os.path.join("_build", "latex", "OpenBabel.tex"),
     "\item [-{-}errorlevel",
     "\item [-{-}{-}errorlevel")
-           
-print "Fixed HTML and LaTeX"
+
+print("Fixed HTML and LaTeX")
