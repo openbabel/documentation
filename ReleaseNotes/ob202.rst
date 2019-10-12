@@ -1,0 +1,18 @@
+Open Babel 2.0.2
+================
+
+Released on 2006-07-24.
+
+What's new from 2.0.1
+~~~~~~~~~~~~~~~~~~~~~
+
+- Substantial fixes to the SMILES and SMARTS parsing support, thanks
+  to a variety of bug reports.
+- A variety of fixes to aromaticity perception and Kekule form
+  assignment.
+- Fixed gzip support, broken in version 2.0.1 inadvertantly.
+- Output a warning when a multi-molecule files is converted to a
+  single-molecule format.
+- Better support for command-line tools such as obgrep on Cygwin.
+- Fixed a variety of crashes.
+- Countless other bug fixes.

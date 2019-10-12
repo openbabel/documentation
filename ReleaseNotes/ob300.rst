@@ -1,7 +1,7 @@
 Open Babel 3.0.0
 ================
 
-Released 2019/10/nn.
+Released on 2019-10-10.
 
 This is a major release. It fixes some long-standing issues affecting performance in terms of chemical accuracy and speed, and all users are recommended to upgrade. It also removes deprecated components and breaks the API in a few places. For information on migrating from the previous version, please see :ref:`migrating_to_3.0`.
 

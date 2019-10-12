@@ -1,7 +1,7 @@
 Open Babel 2.4.0
 ================
 
-Released on the 201x/nn/nn.
+Released on 2016-09-21.
 
 Note that this release deprecates the babel executable in favor of obabel. A future release will remove babel entirely. For information on the differences, please see http://openbabel.org/docs/current/Command-line_tools/babel.html.
 
