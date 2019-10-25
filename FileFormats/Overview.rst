@@ -7,7 +7,14 @@
 Supported File Formats and Options
 ==================================
 
-Chemists are a very imaginative group. They keep thinking of new file formats.
+Chemists are a very imaginative group. They keep thinking of new file
+formats.
+
+Indeed, these are not just simple differences in how chemical
+data is stored, but often completely different views on molecular
+representations. For example, some file formats ignore hydrogen atoms
+as "implicit," while others do not store bonding information. This is,
+in fact, a key reason for Open Babel's existence.
 
 OpenBabel has support for 145 formats in total. It can read 107 formats and can write 107 formats. These formats are identified by a name (for example, ``ShelX format``) and one or more short codes (in this case, ``ins`` or ``res``). The titles of each section provide this information (for example, :ref:`ShelX_format`).
 
