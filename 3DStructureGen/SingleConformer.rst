@@ -8,11 +8,11 @@ OBBuilder
 
 The :obapi:`OBBuilder` class is the part of Open Babel that can take a
 2D or 0D structure and generate a 3D structure. The 3D structure is
-made very quickly using a combination of rules (e.g. sp\ :sup:`3`\  atoms should have four bonds arranged in a tetrahedron) and ring templates (e.g. cyclohexane is shaped like a chair).
+made very quickly using a combination of rules (e.g. sp\ :sup:`3`\  atoms should have four bonds arranged in a tetrahedron) and common fragments (e.g. cyclohexane is shaped like a chair).
 
 The 3D structures that come straight out of OBBuilder may be useful for some purposes but most people will want to "clean them up". This is because they may have clashes or have high energy structures due to some strain. The conformer search or geometry optimization methods described below are typically used after calling OBBuilder.
 
-A more severe limitation of OBBuilder is that due to the limited number of ring templates (and any finite number of ring templates is limited) stereochemistry in rings is not necessarily preserved (a warning message will be issued whenever this is the case). While efforts are ongoing to improve this situation, if preserving stereochemistry is a priority then you will need to look elsewhere for this functionality.
+Full discussion of the methods for coordinate generation is available in 'Fast, efficient fragment-based coordinate generation for Open Babel' `*J. Cheminf.* (2019) **11**, Art. 49.<https://doi.org/10.1186/s13321-019-0372-5>`. Please cite this paper if you use the coordinate generation features in Open Babel.
 
 The functionality of OBBuilder is not directly available through **obabel** but it is used as the necessary first step of the Gen3D operation discussed below.
 
@@ -79,7 +79,7 @@ Gen3D
 
 To illustrate how some of the above methods might be used in practice, consider the **gen3d** operation. This operation (invoked using ``--gen3d`` at the commandline) generates 3D structures for 0D or 2D structures using the following series of steps, all of which have been described above:
 
-1. Use the OBBuilder to create a 3D structure using rules and ring templates
+1. Use the OBBuilder to create a 3D structure using rules and fragment templates
 
 2. Do 250 steps of a steepest descent geometry optimization with the MMFF94
    forcefield
@@ -89,4 +89,16 @@ To illustrate how some of the above methods might be used in practice, consider 
 
 4. Do 250 steps of a conjugate gradient geometry optimization
 
-Taken together, all of these steps ensure that the generated structure is likely to be the global minimum energy conformer. However, for many applications where 100s if not 1000s of molecules need to be processed, gen3d is rather slow. A future version of Open Babel will provide options for slow/medium/fast 3D structure generation which will involve different compromises between speed and finding the global energy minimum.
+Taken together, all of these steps ensure that the generated structure is likely to be the global minimum energy conformer. However, for many applications where 100s if not 1000s of molecules need to be processed, gen3d is rather slow:
+
+ 1. ``--fastest``  only generate coordinates, no force field or conformer search
+
+ 2. ``--fast``  perform quick forcefield optimization
+
+ 3. ``--medium`` **(default)** forcefield optimization + fast conformer search
+
+ 4. ``--better`` more optimization + fast conformer search
+
+ 5. ``--best`` more optimization + significant conformer search
+
+Details on some of the trade-offs involved are outlined in 'Fast, efficient fragment-based coordinate generation for Open Babel' `*J. Cheminf.* (2019) **11**, Art. 49.<https://doi.org/10.1186/s13321-019-0372-5>`. If you use the 3D coordinate generation, please cite this paper.
