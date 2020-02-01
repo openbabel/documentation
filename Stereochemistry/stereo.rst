@@ -1,7 +1,7 @@
 Stereochemistry
 ===============
 
-As with most chemistry toolkits, Open Babel stores stereochemistry as the relative arrangement of atoms in space rather than using the IUPAC system of R/S (etc) to describe absolute stereochemistry. At first this might seem surprising, but the IUPAC system was designed for generating system IUPAC names not for storing stereo information. In contrast, the relative stereochemistry does not require any calculation (this information is provided by the file format), it is fairly simple to understand (unlike the IUPAC system), and it is unaffected by changes to other atoms in a molecule (unlike the IUPAC system). It is also the most common way for chemists to communicate stereo information - consider wedge/hash bonds and layout of double bonds in a chemical depiction.
+As with most chemistry toolkits, Open Babel stores stereochemistry as the relative arrangement of atoms in space rather than using the IUPAC system of R/S (etc) to describe absolute stereochemistry. For example, for a tetrahedral stereocenter, we store information like "looking from atom 2, atoms 4, 5 and 6 are arranged clockwise around atom 3". At first, this might seem surprising and much more verbose; but the IUPAC system was designed for generating systematic IUPAC names and *not* for storing stereo information. In contrast, storing stereochemistry does not require any calculation (this information is provided by the file format), it is fairly simple to understand (unlike the IUPAC system), and it is unaffected by changes to other atoms in a molecule (unlike the IUPAC system). It is also the most common way for chemists to communicate stereo information - consider wedge/hash bonds and layout of double bonds in a chemical depiction.
 
 In Open Babel, stereochemistry information is stored as a property of the molecule as StereoData. Often we are interested in the stereo associated with a particular atom or bond; to simplify access to this, a facade class OBStereoFacade is provided.
 
@@ -56,6 +56,3 @@ Modifying stereochemistry
 .. rubric: Molecules without coordinates
 
 The object returned by GetConfig() contains the full description of the stereochemistry of a particular atom or bond. This is a copy of the data associated with the OBMol, and so modifying it has no effect; instead, SetConfig() is used to copy the modified data back to the OBMol.
-
-:wq
-
