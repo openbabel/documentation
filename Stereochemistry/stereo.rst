@@ -1,16 +1,75 @@
 Stereochemistry
 ===============
 
-As with most chemistry toolkits, Open Babel stores stereochemistry as the relative arrangement of atoms in space rather than using the IUPAC system of R/S (etc) to describe absolute stereochemistry. For example, for a tetrahedral stereocenter, we store information like "looking from atom 2, atoms 4, 5 and 6 are arranged clockwise around atom 3". At first, this might seem surprising and much more verbose; but the IUPAC system was designed for generating systematic IUPAC names and *not* for storing stereo information. In contrast, storing stereochemistry does not require any calculation (this information is provided by the file format), it is fairly simple to understand (unlike the IUPAC system), and it is unaffected by changes to other atoms in a molecule (unlike the IUPAC system). It is also the most common way for chemists to communicate stereo information - consider wedge/hash bonds and layout of double bonds in a chemical depiction.
+Open Babel stores stereochemistry as the relative arrangement of a set of atoms in space. For example, for a tetrahedral stereocenter, we store information like "looking from atom 2, atoms 4, 5 and 6 are arranged clockwise around atom 3". This section describes how a user can work with or manipulate this information. This might be useful to invert a particular center, replace a substituent at a stereocenter, enumerate stereoisomers or determine the number of unspecified stereocenters.
 
-In Open Babel, stereochemistry information is stored as a property of the molecule as StereoData. Often we are interested in the stereo associated with a particular atom or bond; to simplify access to this, a facade class OBStereoFacade is provided.
+Although Open Babel has data structures to support a variety of forms of stereochemistry, currently little use is made of any stereochemistry other than tetrahedral and cis/trans (and square planar to a certain degree).
 
-An Open Babel atom has an index (``OBAtom::GetIdx()``) and an Id (``OBAtom::GetId()``). The former runs from 1 to the number of atoms. The latter can be anything (don't assume it's the Idx-1), but are unique within the molecule. If you delete an atom, the indices change, but the Ids do not. For this reason, all stereo is stored using Ids so that stereo information is not invalidated by changes to the molecule. The key point here is that all methods related to stereo use atom Ids and not atom indices.
+We will look first of all at how stereochemistry information is stored and accessed, and then at how this information is converted to/from particular file formats.
 
-When the stereochemistry description involves implicit hydrogens or lone pairs, the special atom Id ``OBStereo::ImplicitRef`` (numerically, ``-2`` or ``4294967294`` if accessed via the bindings) is used.
+Storage and access
+------------------
 
-Basic access
-------------
+Each record of stereochemistry information around an atom or bond is stored as StereoData associated with the OBMol. First of all, let's look at direct access to the StereoData. The following code counts the number of tetrahedral centers with specified stereochemistry, as well as the number of double bonds with specified cis/trans stereochemistry::
+
+        num_cistrans = 0
+        num_tetra = 0
+
+        mol = pybel.readstring("smi", "F/C=C/C[C@@H](Cl)Br")
+        m = mol.OBMol
+
+        for genericdata in m.GetAllData(ob.StereoData):
+            stereodata = ob.toStereoBase(genericdata)
+            stereotype = stereodata.GetType()
+
+            if stereotype == ob.OBStereo.CisTrans:
+                cistrans = ob.toCisTransStereo(stereodata)
+                cfg = cistrans.GetConfig()
+                if cfg.specified:
+                    num_cistrans += 1
+
+            elif stereotype == ob.OBStereo.Tetrahedral:
+                tetra = ob.toTetrahedralStereo(stereodata)
+                cfg = tetra.GetConfig()
+                if cfg.specified:
+                    num_tetra += 1
+
+.. sidebar:: Atom and Bond Ids
+
+        All of the stereo handling code uses Ids to reference atoms and bonds, rather than indices. An Open Babel atom has an index (``OBAtom::GetIdx()``) and an Id (``OBAtom::GetId()``). The former runs from 1 to the number of atoms. The latter can be anything (don't assume it's the Idx-1), but is unique within the molecule. If you delete an atom, the indices change, but the Ids do not. For this reason, all stereo is stored using Ids so that stereo information is not invalidated by changes to the molecule. When the stereochemistry description involves implicit hydrogens or lone pairs, the special atom Id ``OBStereo::ImplicitRef`` (numerically, ``-2`` or ``4294967294`` if accessed via the bindings) is used.
+
+The code above is quite verbose, and requires iteration through all of the stereo data. To make it simpler to access stereo data for a particular atom or bond, a facade class OBStereoFacade can instead be used, which provides convenience functions for these operations.::
+
+        num_cistrans = 0
+        num_tetra = 0
+
+        mol = pybel.readstring("smi", "F/C=C/C[C@@H](Cl)Br")
+        m = mol.OBMol
+
+        facade = ob.OBStereoFacade(m)
+
+        for atom in ob.OBMolAtomIter(m):
+            mid = atom.GetId()
+            if facade.HasTetrahedralStereo(mid):
+                tetra = facade.GetTetrahedralStereo(mid)
+                cfg = tetra.GetConfig()
+                if cfg.specified:
+                    num_tetra += 1
+
+        for bond in ob.OBMolBondIter(m):
+            mid = bond.GetId()
+            if facade.HasCisTransStereo(mid):
+                cistrans = facade.GetCisTransStereo(mid)
+                cfg = cistrans.GetConfig()
+                if cfg.specified:
+                    num_cistrans += 1
+
+Note that every time you create a new OBStereoFacade, a certain amount of work is done building up the correspondance between atoms/bonds and stereo data. For this reason, a single OBStereoFacade should be created for a molecule and reused.
+
+The stereo config
+-----------------
+
+The actual configuration of atoms that describes the stereochemistry is stored in a Config object associated with the stereo data. Here we 
 
 Let's read the SMILES string ``F[C@@](Cl)(Br)I`` and access the stereo. When we read this SMILES string, the tetrahedral center will be the second atom, that with Idx 2.::
 
@@ -43,7 +102,6 @@ Which prints::
 
   Looking towards atom Id 0, the atoms Ids (2, 3, 4) are arranged anticlockwise
 
-Note that every time you create a new OBStereoFacade, a certain amount of work is done building up the correspondance between atoms/bonds and stereo data. For this reason, a single OBStereoFacade should be created for a molecule and reused.
 
 SMILES strings
 --------------
