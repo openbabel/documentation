@@ -7,8 +7,8 @@ Although Open Babel has data structures to support a variety of forms of stereoc
 
 We will look first of all at how stereochemistry information is stored and accessed, and then at how this information is converted to/from particular file formats.
 
-Storage and access
-------------------
+Accessing stereochemistry information
+-------------------------------------
 
 Each record of stereochemistry information around an atom or bond is stored as StereoData associated with the OBMol. First of all, let's look at direct access to the StereoData. The following code counts the number of tetrahedral centers with specified stereochemistry, as well as the number of double bonds with specified cis/trans stereochemistry::
 
@@ -66,10 +66,10 @@ The code above is quite verbose, and requires iteration through all of the stere
 
 Note that every time you create a new OBStereoFacade, a certain amount of work is done building up the correspondance between atoms/bonds and stereo data. For this reason, a single OBStereoFacade should be created for a molecule and reused.
 
-The stereo config
------------------
+The stereo configuration
+------------------------
 
-The actual configuration of atoms that describes the stereochemistry is stored in a Config object associated with the stereo data. Here we 
+The examples above introduce the Config object, which contains the description of the stereochemistry. The contents of this object will be different depending on the specific type of stereochemistry, e.g. ``OBCisTransStereo::Config`` (``OBCisTransConfig`` from Python) records the begin and end Ids of the associated bond, the Ids of the attached atoms, the spatial relationship of those atoms, and whether stereo is specified.
 
 Let's read the SMILES string ``F[C@@](Cl)(Br)I`` and access the stereo. When we read this SMILES string, the tetrahedral center will be the second atom, that with Idx 2.::
 
@@ -93,7 +93,7 @@ Which prints...::
         Is the configuration specified? Yes
         Looking from atom Id 0, the atoms Ids (2, 3, 4) are arranged clockwise
 
-How do I know that I'm looking from atom Id 0, and that the atom Ids are arranged clockwise? From the documentation for GetConfig() for tetrahedral stereocenters, which states that this is the default. If you want instead the anticlockwise arrangement of atoms looking *towards* the atom with Id 0, you can get that as follows::
+How do I know that I'm looking from atom Id 0, and that the atom Ids are arranged clockwise? From the documentation for ``OBTetrahedralStereo::GetConfig``, which states that this is the default. If you want instead the anticlockwise arrangement of atoms looking *towards* the atom with Id 0, you can get that as follows::
 
    config = tetstereo.GetConfig(0, ob.OBStereo.AntiClockwise, ob.OBStereo.ViewTowards)
    print("Looking towards atom Id {0}, the atoms Ids {1} are arranged anticlockwise".format(config.from_or_towards, config.refs))
@@ -102,15 +102,32 @@ Which prints::
 
   Looking towards atom Id 0, the atoms Ids (2, 3, 4) are arranged anticlockwise
 
+It should be noted that the Config objects returned by GetConfig() are *copies* of the stereo configuration. That is, modifying them has no affect on the stereochemistry of the molecule (unless that is, SetConfig() is used - see the next section). As a result, it is straightforward to keep a copy of the stereo configuration, modify the molecule, and then check whether the modification has altered the stereochemistry using the equality operator of the Config.
 
-SMILES strings
---------------
+Modifying the stereochemistry
+-----------------------------
 
-Open Babel's SMILES reader supports atom-based tetrahedral and bond-based cis/trans stereochemistry.
+We will talk later about how stereochemistry is perceived, and about the interaction between 2D and 3D structural information and how stereochemistry is recorded. For now, let's avoid these issues by using a 0D structure and modifying its stereochemistry.::
 
-Modifying stereochemistry
--------------------------
+        from openbabel import pybel
+        ob = pybel.ob
 
-.. rubric: Molecules without coordinates
+        mol = pybel.readstring("smi", "C[C@@H](Cl)F")
+        print(mol.write("smi", opt={"nonewline": True}))
 
-The object returned by GetConfig() contains the full description of the stereochemistry of a particular atom or bond. This is a copy of the data associated with the OBMol, and so modifying it has no effect; instead, SetConfig() is used to copy the modified data back to the OBMol.
+        # Invert the stereo
+        m = mol.OBMol
+        facade = ob.OBStereoFacade(m)
+        tetstereo = facade.GetTetrahedralStereo(m.GetAtom(2).GetId())
+        config = tetstereo.GetConfig()
+        config.winding = ob.OBStereo.AntiClockwise
+        tetstereo.SetConfig(config)
+
+        print(mol.write("smi", opt={"nonewline": True}))
+
+which prints...::
+
+        C[C@@H](Cl)F
+        C[C@H](Cl)F
+
+How did I know that setting the relative arrangement to anti-clockwise would invert the stereo? Again, as described above, by default GetConfig() returns the atoms in clockwise order. Another way to invert the stereo would be to swap two of the refs, or to set the direction from 'from' to 'towards'.
