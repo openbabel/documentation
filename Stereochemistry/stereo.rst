@@ -102,12 +102,12 @@ Which prints::
 
   Looking towards atom Id 0, the atoms Ids (2, 3, 4) are arranged anticlockwise
 
-It should be noted that the Config objects returned by GetConfig() are *copies* of the stereo configuration. That is, modifying them has no affect on the stereochemistry of the molecule (unless that is, SetConfig() is used - see the next section). As a result, it is straightforward to keep a copy of the stereo configuration, modify the molecule, and then check whether the modification has altered the stereochemistry using the equality operator of the Config.
+It should be noted that the Config objects returned by GetConfig() are *copies* of the stereo configuration. That is, modifying them has no affect on the stereochemistry of the molecule (see the next section). As a result, it is straightforward to keep a copy of the stereo configuration, modify the molecule, and then check whether the modification has altered the stereochemistry using the equality operator of the Config.
 
 Modifying the stereochemistry
 -----------------------------
 
-We will talk later about how stereochemistry is perceived, and about the interaction between 2D and 3D structural information and how stereochemistry is recorded. For now, let's avoid these issues by using a 0D structure and modifying its stereochemistry.::
+We will talk later about the interaction between 2D and 3D structural information and how stereochemistry is perceived and recorded. For now, let's avoid these issues by using a 0D structure and modifying its stereochemistry.::
 
         from openbabel import pybel
         ob = pybel.ob
@@ -122,12 +122,46 @@ We will talk later about how stereochemistry is perceived, and about the interac
         config = tetstereo.GetConfig()
         config.winding = ob.OBStereo.AntiClockwise
         tetstereo.SetConfig(config)
+        print(mol.write("smi", opt={"nonewline": True}))
 
+        config.specified = False
+        tetstereo.SetConfig(config)
         print(mol.write("smi", opt={"nonewline": True}))
 
 which prints...::
 
         C[C@@H](Cl)F
         C[C@H](Cl)F
+        CC(Cl)F
 
 How did I know that setting the relative arrangement to anti-clockwise would invert the stereo? Again, as described above, by default GetConfig() returns the atoms in clockwise order. Another way to invert the stereo would be to swap two of the refs, or to set the direction from 'from' to 'towards'.
+
+Stereo perception
+-----------------
+
+Until now we have not mentioned where this stereo information came from; we have read a SMILES string and somehow the resulting molecule has stereo data associated with it.
+
+Stereo perception is the identification of stereo centers from the molecule and its associated data, which may include 3D coordinates, stereobonds and existing stereo data. Passing an OBMol to the global function ``PerceiveStereo`` triggers stereo perception, and sets a flag marking stereo as perceived (``OBMol::SetChiralityPerceived(true)``). If, in the first place, stereo was already marked as perceived then stereo perception is not performed.
+
+Behind the scenes, the code for stereo perception is quite different depending on the dimensionality (``OBMol::GetDimension()``) of the molecule. The most straightforward to explain is a 3D structure; in this case, a symmetry analysis identifies stereogenic centers and the stereoconfiguration is perceived from the coordinates. A slight complication arises for a file format such as a MOL file that allows atoms and double bonds to be marked as have unspecified stereochemistry. In the specific case of the MOL file, the atom flag that marks this is ignored by default (as described by the specification) but an option (``s``) is provided to read it::
+
+        $ obabel -:"I/C=C/C[C@@](Br)(Cl)F" --gen3d -omol | obabel -imol -osmi
+        I/C=C/C[C@@](Br)(Cl)F
+        $ obabel -:"IC=CCC(Br)(Cl)F" --gen3d -omol | obabel -imol -osmi
+        IC=CC[C@@](Br)(Cl)F
+        $ obabel -:"IC=CCC(Br)(Cl)F" --gen3d -omol | obabel -imol -as -osmi
+        IC=CCC(Br)(Cl)F
+
+And finally, to return to SMILES, a format which has neither 2D nor 3D coordinates.
+
+In fact, the SMILES format is a special case when it comes to stereochemistry; a SMILES string explicitly describes the relative arrangement of atoms around stereocenters (where specified), and so the SMILES reader simply reads and records this information as stereo data. This means that SMILES strings can be read very quickly. However, it also means that any stereo information is accepted without question::
+
+  $ obabel -:"F[C@@](F)(F)F" -osmi
+  F[C@@](F)(F)F
+
+If the SMILES strings come from an untrusted source, then it 
+
+Miscellaneous stereo functions in the API
+-----------------------------------------
+
+
