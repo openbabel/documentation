@@ -24,14 +24,12 @@ Each record of stereochemistry information around an atom or bond is stored as S
 
             if stereotype == ob.OBStereo.CisTrans:
                 cistrans = ob.toCisTransStereo(stereodata)
-                cfg = cistrans.GetConfig()
-                if cfg.specified:
+                if cistrans.IsSpecified():
                     num_cistrans += 1
 
             elif stereotype == ob.OBStereo.Tetrahedral:
                 tetra = ob.toTetrahedralStereo(stereodata)
-                cfg = tetra.GetConfig()
-                if cfg.specified:
+                if tetra.IsSpecified():
                     num_tetra += 1
 
 .. sidebar:: Atom and Bond Ids
@@ -52,16 +50,14 @@ The code above is quite verbose, and requires iteration through all of the stere
             mid = atom.GetId()
             if facade.HasTetrahedralStereo(mid):
                 tetra = facade.GetTetrahedralStereo(mid)
-                cfg = tetra.GetConfig()
-                if cfg.specified:
+                if tetra.IsSpecified():
                     num_tetra += 1
 
         for bond in ob.OBMolBondIter(m):
             mid = bond.GetId()
             if facade.HasCisTransStereo(mid):
                 cistrans = facade.GetCisTransStereo(mid)
-                cfg = cistrans.GetConfig()
-                if cfg.specified:
+                if cistrans.IsSpecified():
                     num_cistrans += 1
 
 Note that every time you create a new OBStereoFacade, a certain amount of work is done building up the correspondance between atoms/bonds and stereo data. For this reason, a single OBStereoFacade should be created for a molecule and reused.
@@ -160,10 +156,6 @@ As just described, the flow of information is from the 3D coordinates to Open Ba
 
 It should also be clear from the discussion above that changing the stereodata (e.g. using SetConfig() to invert a tetrahedral stereocenter) has no affect on the molecule's coordinates (though it may affect downstream processing, such as the information written to a SMILES string). If this is needed, the user will have to manipulate the coordinates themselves, or generate coordinates for the whole molecule using the associated library functions (e.g. the ``--gen3d`` operation).
 
-.. rubric:: 2D structures
-
-TODO
-
 .. rubric:: 0D structures
 
 A SMILES string is sometimes referred to as describing a 0.5D structure, as it can describe the relative arrangement of atoms around stereocenters. The SMILES reader simply reads and records this information as stereo data, and then the molecule is marked as having stereo perceived (unless the ``S`` option is passed - see below).
@@ -177,7 +169,13 @@ Without any additional information, stereo cannot be perceived from a structure 
   $ obabel -:"F[C@@](F)(F)[C@@H](I)Br" -aS -osmi
   FC(F)(F)[C@@H](I)Br
 
+.. rubric:: 2D structures
+
+2D structures represent a depiction of a molecule, and stereochemistry is indicated by wedge or hash bonds, or by adopting particular conventions (e.g. Fischer or Haworth projection of monosaccharides). Open Babel does not support any of these conventions, nor does it support the use of wedge or hash bonds for perspective drawing (e.g. where a thick bond is support by two wedges). This may change in future, of course, but it's worth noting that Open Babel is not the only toolkit with these limitations and so what you think you're storing in your database may not be what the 'computer' thinks it is.
+
+TODO
+
 Miscellaneous stereo functions in the API
 -----------------------------------------
 
-
+* ``OBAtom::IsChiral`` - this is a convenience function that checks whether there is any tetrahedral stereo data associated with a particular atom. Its presence is for legacy reasons - like all convenience functions in the API, a future tidy-up may remove it.
