@@ -141,9 +141,13 @@ Stereo perception
 
 Until now we have not mentioned where this stereo information came from; we have read a SMILES string and somehow the resulting molecule has stereo data associated with it.
 
-Stereo perception is the identification of stereo centers from the molecule and its associated data, which may include 3D coordinates, stereobonds and existing stereo data. Passing an OBMol to the global function ``PerceiveStereo`` triggers stereo perception, and sets a flag marking stereo as perceived (``OBMol::SetChiralityPerceived(true)``). If, in the first place, stereo was already marked as perceived then stereo perception is not performed.
+Stereo perception is the identification of stereo centers from the molecule and its associated data, which may include 3D coordinates, stereobonds and existing stereo data. Passing an OBMol to the global function ``PerceiveStereo`` triggers stereo perception, and sets a flag marking stereo as perceived (``OBMol::SetChiralityPerceived(true)``). If, in the first place, stereo was already marked as perceived then stereo perception is not performed. Any operations that require stereo information should call PerceiveStereo before accessing stereo information.
 
-Behind the scenes, the code for stereo perception is quite different depending on the dimensionality (``OBMol::GetDimension()``) of the molecule. The most straightforward to explain is a 3D structure; in this case, a symmetry analysis identifies stereogenic centers and the stereoconfiguration is perceived from the coordinates. A slight complication arises for a file format such as a MOL file that allows atoms and double bonds to be marked as have unspecified stereochemistry. In the specific case of the MOL file, the atom flag that marks this is ignored by default (as described by the specification) but an option (``s``) is provided to read it::
+Behind the scenes, the code for stereo perception is quite different depending on the dimensionality (``OBMol::GetDimension()``) of the molecule.
+
+.. rubric:: 3D structures
+
+Perhaps the most straightforward is when the structure has 3D coordinates. In this case, a symmetry analysis identifies stereogenic centers and their stereoconfigurations are perceived from the coordinates. Some file formats such as the MOL file allow atoms and double bonds to be marked as have unspecified stereochemistry, and this information is applied to the detected stereocenters. For the specific case of the MOL file, the atom flag that marks this is ignored by default (as required by the specification) but an option (``s``) is provided to read it::
 
         $ obabel -:"I/C=C/C[C@@](Br)(Cl)F" --gen3d -omol | obabel -imol -osmi
         I/C=C/C[C@@](Br)(Cl)F
@@ -152,14 +156,26 @@ Behind the scenes, the code for stereo perception is quite different depending o
         $ obabel -:"IC=CCC(Br)(Cl)F" --gen3d -omol | obabel -imol -as -osmi
         IC=CCC(Br)(Cl)F
 
-And finally, to return to SMILES, a format which has neither 2D nor 3D coordinates.
+As just described, the flow of information is from the 3D coordinates to Open Babel's internal record of stereo centers, and this flow is triggered by calling stereo perception (which does nothing if the stereo is marked as already perceived). It follows from this that altering the coordinates *after* stereo perception (e.g. by reflecting through an axis, thereby inverting chirality) has no affect on the internal stereo data. If operations are performed on the molecule that require stereo is be reperceived, then ``OBMol::SetChiralityPerceived(false)`` should be called.
 
-In fact, the SMILES format is a special case when it comes to stereochemistry; a SMILES string explicitly describes the relative arrangement of atoms around stereocenters (where specified), and so the SMILES reader simply reads and records this information as stereo data. This means that SMILES strings can be read very quickly. However, it also means that any stereo information is accepted without question::
+It should also be clear from the discussion above that changing the stereodata (e.g. using SetConfig() to invert a tetrahedral stereocenter) has no affect on the molecule's coordinates (though it may affect downstream processing, such as the information written to a SMILES string). If this is needed, the user will have to manipulate the coordinates themselves, or generate coordinates for the whole molecule using the associated library functions (e.g. the ``--gen3d`` operation).
 
-  $ obabel -:"F[C@@](F)(F)F" -osmi
-  F[C@@](F)(F)F
+.. rubric:: 2D structures
 
-If the SMILES strings come from an untrusted source, then it 
+TODO
+
+.. rubric:: 0D structures
+
+A SMILES string is sometimes referred to as describing a 0.5D structure, as it can describe the relative arrangement of atoms around stereocenters. The SMILES reader simply reads and records this information as stereo data, and then the molecule is marked as having stereo perceived (unless the ``S`` option is passed - see below).
+
+Being able to skip an explicit call to stereo perception means that SMILES strings can be read quickly - an important feature when dealing with millions or more. However, if you wish to identify additional stereocenters whose stereo configuration is unspecified, or the SMILES strings come from an untrusted source and stereo may have been incorrectly specified (e.g. on a tetrahedral center with two groups the same), then you may wish to trigger reperception.
+
+Without any additional information, stereo cannot be perceived from a structure that has neither 2D nor 3D coordinates. Triggering stereo perception on such a structure will generate stereo objects where applicable, but their stereo will be marked as unspecified. However, where existing stereo data is present (e.g. after reading a SMILES string), the data will be retained if the stereocenter is identified by the perception routine as a true stereocenter. The ``S`` option to the SMILES reader tells it not to mark the stereo as perceived on reading; as a result, reperception will occur if triggered by a writer::
+
+  $ obabel -:"F[C@@](F)(F)[C@@H](I)Br" -osmi
+  F[C@@](F)(F)[C@@H](I)Br
+  $ obabel -:"F[C@@](F)(F)[C@@H](I)Br" -aS -osmi
+  FC(F)(F)[C@@H](I)Br
 
 Miscellaneous stereo functions in the API
 -----------------------------------------
