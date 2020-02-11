@@ -89,7 +89,7 @@ Which prints...::
         Is the configuration specified? Yes
         Looking from atom Id 0, the atoms Ids (2, 3, 4) are arranged clockwise
 
-How do I know that I'm looking from atom Id 0, and that the atom Ids are arranged clockwise? From the documentation for ``OBTetrahedralStereo::GetConfig``, which states that this is the default. If you want instead the anticlockwise arrangement of atoms looking *towards* the atom with Id 0, you can get that as follows::
+How do I know that I'm looking from atom Id 0, and that the atom Ids are arranged clockwise? From the documentation for ``OBTetrahedralStereo::GetConfig``, which states that this is the default. It is worth pointing out that you should never need to test the value of the winding, the direction, or the from/towards atom; the values of these will be whatever you asked for. If you instead ask for the anticlockwise arrangement of atoms looking *towards* the atom with Id 0, you can get that as follows::
 
    config = tetstereo.GetConfig(0, ob.OBStereo.AntiClockwise, ob.OBStereo.ViewTowards)
    print("Looking towards atom Id {0}, the atoms Ids {1} are arranged anticlockwise".format(config.from_or_towards, config.refs))
@@ -156,6 +156,14 @@ As just described, the flow of information is from the 3D coordinates to Open Ba
 
 It should also be clear from the discussion above that changing the stereodata (e.g. using SetConfig() to invert a tetrahedral stereocenter) has no affect on the molecule's coordinates (though it may affect downstream processing, such as the information written to a SMILES string). If this is needed, the user will have to manipulate the coordinates themselves, or generate coordinates for the whole molecule using the associated library functions (e.g. the ``--gen3d`` operation).
 
+.. rubric:: 2D structures
+
+2D structures represent a depiction of a molecule, and stereochemistry is indicated by wedge or hash bonds, or by adopting particular conventions (e.g. Fischer or Haworth projection of monosaccharides). Open Babel does not support any of these conventions, nor does it support the use of wedge or hash bonds for perspective drawing (e.g. where a thick bond is support by two wedges). This may change in future, of course, but it's worth noting that Open Babel is not the only toolkit with these limitations and so what you think you are storing in your database may not be what the 'computer' thinks it is.
+
+Stereo centers are identified based on a symmetry analysis, and their configuration inferred either from the geometry (for cis/trans bonds) or from bonds marked as wedge/hash (tetrahedral centers). File format readers record information about which bonds were marked as wedges or hashes and this can be accessed with OBBond:IsWedge/IsHash, where the Begin atom of the bond is considered the origin of the wedge/hash. Similar to the situation with 3D perception, changing a bond from a wedge to a hash (or vice versa) has no affect on the stereo objects once stereo has been perceived, but triggering reperception will regenerate the desired stereo data.
+
+It should also be noted that the file writers regenerate the wedges or hashes from the stereo data at the point of writing; in other words, the particular location of the wedge/hash or even whether it is present may change on writing. This was done to ensure that the written structure accurately represents Open Babel's internal view of the molecule; passing wedges/hashes through unchanged may not represent this (consider the case where a wedge bond is attached to a tetrahedral center which cannot be a stereocenter).
+
 .. rubric:: 0D structures
 
 A SMILES string is sometimes referred to as describing a 0.5D structure, as it can describe the relative arrangement of atoms around stereocenters. The SMILES reader simply reads and records this information as stereo data, and then the molecule is marked as having stereo perceived (unless the ``S`` option is passed - see below).
@@ -168,12 +176,6 @@ Without any additional information, stereo cannot be perceived from a structure 
   F[C@@](F)(F)[C@@H](I)Br
   $ obabel -:"F[C@@](F)(F)[C@@H](I)Br" -aS -osmi
   FC(F)(F)[C@@H](I)Br
-
-.. rubric:: 2D structures
-
-2D structures represent a depiction of a molecule, and stereochemistry is indicated by wedge or hash bonds, or by adopting particular conventions (e.g. Fischer or Haworth projection of monosaccharides). Open Babel does not support any of these conventions, nor does it support the use of wedge or hash bonds for perspective drawing (e.g. where a thick bond is support by two wedges). This may change in future, of course, but it's worth noting that Open Babel is not the only toolkit with these limitations and so what you think you're storing in your database may not be what the 'computer' thinks it is.
-
-TODO
 
 Miscellaneous stereo functions in the API
 -----------------------------------------
