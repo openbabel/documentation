@@ -18,6 +18,7 @@ The latest version of this documentation is available in several formats from ht
    Forcefields/Overview.rst
    UseTheLibrary/intro.rst
    Cheminf101/index.rst
+   Stereochemistry/stereo.rst
    Aromaticity/Aromaticity.rst
    Features/Radicals.rst
    Contributing/Contributing.rst
