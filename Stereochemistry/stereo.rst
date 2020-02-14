@@ -5,7 +5,7 @@ Open Babel stores stereochemistry as the relative arrangement of a set of atoms 
 
 Although Open Babel has data structures to support a variety of forms of stereochemistry, currently little use is made of any stereochemistry other than tetrahedral and cis/trans (and square planar to a certain degree).
 
-We will look first of all at how stereochemistry information is stored, accessed, and modified. Then we describe how this information is deduced from the chemical structure. This chapter should be read in combination with the API documentation (see Stereochemistry overview page found under "Modules").
+We will look first of all at how stereochemistry information is stored, accessed, and modified. Then we describe how this information is deduced from the chemical structure. This chapter should be read in combination with the API documentation (see the Stereochemistry overview page found under "Modules").
 
 Accessing stereochemistry information
 -------------------------------------
