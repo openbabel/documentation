@@ -1,0 +1,75 @@
+Open Babel 3.0.1
+================
+
+Released on 2020-05-xx.
+
+This is a minor release.
+
+..
+  is:pr is:merged created:>=2019-10-05 (on 2020-04-28)
+
+New file formats
+~~~~~~~~~~~~~~~~
+* Wiswesser Line Notation reader from Roger Sayle (by baoilleach, PR#2084)
+
+Other new features and improvements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Update GAS CONSTANT to 2018 CODATA recommended value (by e-kwsm, PR#2045)
+* Support #0 in SMARTS so that asterisks can be matched (by baoilleach, PR#2079)
+* Add distance geometry method (by n-yoshikawa, PR#1875)
+* Bring back support for lowercase elements and D/T in GetAtomicNum(). (by baoilleach, PR#2100)
+* Change docstrings of add/delete hydrogens (by baoilleach, PR#2110)
+* Add the --neutralize operation to convert charged atoms to neutral (by baoilleach, PR#2109)
+* Support kekulization of aromatic sulfoxides (by baoilleach, PR#2121)
+* Enable casting to StereoBase in the Python bindings (by baoilleach, PR#2124)
+* OBBuilder: Add error message for ring/rigid fragments with all zero coords. (by timvdm, PR#2149)
+* R script updates (by khoran, PR#2145)
+* Be more strict when parsing charges in SMILES (by baoilleach, PR#2132)
+* Improve tools/obconformer.cpp (by e-kwsm, PR#2154)
+
+Development/Build/Install improvements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Avoid `using namespace` in headers (by e-kwsm, PR#2055)
+* Remove babel doc (by e-kwsm, PR#2057)
+* Do not hard-code Open Babel major version for include directory (by e-kwsm, PR#2059)
+* Patched to build on NetBSD (by voidpin, PR#2093)
+* Update download link (by njzjz, PR#2094)
+* Fix GitHub ISSUE_TEMPLATE (by RMeli, PR#2082)
+* Define OpenBabel3_LIBRARY (by dkoes, PR#2086)
+* Initial GitHub action - misspell-fixer (by ghutchis, PR#2163)
+* Use latest checkout action - more efficient (by ghutchis, PR#2172)
+* Initial CMake GitHub Action (by ghutchis, PR#2165)
+
+Bug fixes
+~~~~~~~~~
+* Fix CMake error with R and C# bindings (by ghutchis, PR#2051)
+* Rename MAESTRO extensions from uppercase to lowercase (by baoilleach, PR#2053)
+* Fix file format docstrings that were causing problems with Sphinx or GUI (by baoilleach, PR#2054)
+* Fix BUILD_SHARED=OFF (by dkoes, PR#2056)
+* Fix import of openbabel (by e-kwsm, PR#2058)
+* Update for Open Babel 3 (by e-kwsm, PR#2060)
+* Fix maeparser compile error with some Boost configs (by fredrikw, PR#2076)
+* Find or build maeparser &amp; coordgen libraries (by ricrogz, PR#2064)
+* Fix issue #2095, caused by incorrect application of protonated SMARTS (by au1985, PR#2102)
+* Fix issue #1794, UFF atom typing for deuterium (by ghutchis, PR#2114)
+* Fix segfault on SMI to InChI conversion when using "-d" (by timvdm, PR#2115)
+* Closes #1536: implement periodic boundary conditions (by bbucior, PR#1853)
+* Correct the path to the openbabel-python.cpp (by baoilleach, PR#2119)
+* Remove fragments with zero coordinates - fixes #2144. (by ghutchis, PR#2150)
+* Fix issue #2125 - Zero occupancy in cif file treated as 1.0. (by orex, PR#2136)
+* Fix #2071 - obrms parser segmentation fault (by e-kwsm, PR#2073)
+* Fix #2098 - OBDistanceGeometry is unavailable to users (by n-yoshikawa, PR#2105)
+* Set MAEPARSER_BUILD_SHARED_LIBS (fix #2089) (by e-kwsm, PR#2155)
+* Fix the import of Tkinter in Python 3+ (by mrakitin, PR#2157)
+* Fix for segault (with regression test) (by dkoes, PR#2162)
+* Follow-up with missing spelling fixes from #2163 (by mrakitin, PR#2166)
+* Prefer std::fabs resolves build problem on mac-current (by ghutchis, PR#2168)
+* Fix distance geometry stereo issues (by timvdm, PR#2158)
+* Merge of "Improve OBConversion::WriteString() and WriteFile() initialization" (adalke) #1923 (by baoilleach, PR#2176)
+* Fix output format in the cifformat writer (by afonari, PR#2170)
+
+Cast of contributors
+~~~~~~~~~~~~~~~~~~~~
+adalke (Andrew Dalke), afonari (Alexandr Fonari), au1985, baoilleach (Noel O'Boyle), bbucior (Ben
+Bucior), dkoes (David Koes), e-kwsm (Eisuke Kawashima), fredrikw (Fredrik
+Wallner), ghutchis (Geoff Hutchison), Kamil Rytarowski, khoran (Kevin Horan), mrakitin (Maksim Rakitin), n-yoshikawa (Naruki Yoshikawa), njzjz (Jinzhe Zeng), orex (Kirill Okhotnikov), ricrogz (Ric), rmeli (Rocco Meli), Roger Sayle, timvdm (Tim Vandermeersch), voidpin
