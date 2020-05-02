@@ -24,9 +24,9 @@ compchem = ("Computational chemistry", ['POSCAR', 'tmol', 'tmol', 'zin', 'moo', 
             'adfband', 'adfdftb', "cof"])
 viewers = ("3D viewer", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
                           "unixyz", "c3d1", "c3d2", "bs", "crk3d",
-                          "xsf", "MAE", "MAEGZ"])
+                          "xsf", "mae", "maegz"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
-                 'inchi', 'inchikey', 'mol2', 'mol', 'cml', 'smy'])
+                 'inchi', 'inchikey', 'mol2', 'mol', 'cml', 'smy', 'wln'])
 cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
                                      'mcdl', "car", "csr"])
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
@@ -90,23 +90,24 @@ if unclassified:
     
 indexfile = open(os.path.join("FileFormats", "Overview.rst"), "w")
 overview = open(os.path.join("FileFormats", "Overview.txt"), "r").read()
-print >> indexfile, overview.replace(
+indexfile.write(overview.replace(
     "X formats", "%d formats" % len(exts)).replace(
     "Y formats", "%d formats" % len(in_exts)).replace(
-    "Z formats", "%d formats" % len(out_exts))
-##print >> indexfile, heading("Supported File Formats and Options", "=")
-print >> indexfile, "\n.. toctree::\n   :maxdepth: 2\n"
+    "Z formats", "%d formats" % len(out_exts)))
+indexfile.write("\n")
+
+indexfile.write("\n.. toctree::\n   :maxdepth: 2\n\n")
 
 seen = set()
 for name, codes in sections:
-    print >> indexfile, "   %s_Formats.rst" % name.replace(" ", "_")
+    indexfile.write("   %s_Formats.rst\n" % name.replace(" ", "_"))
     sectionfile = open(os.path.join("FileFormats", "%s_Formats.rst" % name.replace(" ", "_")), "w")
 
-    sectionref = ".. _%s:\n" % name
-    print >> sectionfile, sectionref
+    sectionref = ".. _%s:\n\n" % name
+    sectionfile.write(sectionref)
 
-    print >> sectionfile, heading(name + " formats", "~")
-    print >> sectionfile, "\n.. toctree::\n"
+    sectionfile.write(heading(name + " formats", "~"))
+    sectionfile.write("\n\n.. toctree::\n\n")
 
     names = set()
     for code in codes:
@@ -118,19 +119,19 @@ for name, codes in sections:
     names = sorted(list(names))
         
     for formatname in names:
-        print formatname,
+        print(formatname, end=None)
 
         format = pybel.ob.OBFormat.FindType(exts[formatname][0])
         desc = format.Description()
        
         safename = formatname.replace(" ", "_").replace("/", "_or_")
-        print >> sectionfile, "   %s.rst" % safename
+        sectionfile., 'wln'write("   %s.rst\n" % safename)
         
         output = open(os.path.join("FileFormats", "%s.rst" % safename), "w")
-        ref = ".. _%s:\n" % safename
-        print >> output, ref
+        ref = ".. _%s:\n\n" % safename
+        output.write(ref)
         title = "%s (%s)" % (formatname, ", ".join(exts[formatname]))
-        print >> output, heading(title, "=")
+        output.write(heading(title, "=") + "\n")
 
         flags = []
 #define NOTREADABLE     0x01
@@ -177,32 +178,32 @@ for name, codes in sections:
                     problem = True
                     break
             if problem:
-                print "    **** This format will have problems with the GUI ****"
+                print("    **** This format will have problems with the GUI ****")
 
         # Handle the parts of the description
         if data[INTRO]:
             if data[INTRO][0].replace("No comments yet", "").strip():
-                print >> output, "\n**%s**\n" % data[INTRO][0].strip()
+                output.write("\n**%s**\n\n" % data[INTRO][0].strip())
             
             if len(data[INTRO]) > 1:
                 for line in data[INTRO][1:]:
-                    print >> output, line.rstrip()
-                print >> output, "\n"
+                    output.write(line.rstrip() + "\n")
+                output.write("\n\n")
 
         if len(flags) > 0:
-            print >> output, ".. note:: " + " ".join(flags) + "\n"
+            output.write(".. note:: " + " ".join(flags) + "\n\n")
 
         params = set() # Store the list of options
         for x, y in ((READ, "Read"), (WRITE, "Write")):
             firstline = True
             if len("".join(data[x][1:]).strip()) > 0:
-                print >> output, heading("%s Options" % y, "~"), "\n"
+                output.write(heading("%s Options" % y, "~") + "\n")
                 for d in data[x][1:]:
                     if d.startswith("   ") or not d.strip():
                         if firstline:
-                            print >> output, ""
+                            output.write("\n")
 
-                        print >> output, d
+                        output.write(d + "\n")
                         firstline = False
                         continue
                     else:
@@ -230,16 +231,16 @@ for name, codes in sections:
 
                     params.add(broken[0][0])
                     optiondesc = " ".join(broken[start:])
-                    print >> output, "-%s  *%s*" % (broken[0], optiondesc)
+                    output.write("-%s  *%s*\n" % (broken[0], optiondesc))
                     if "default" in optiondesc.lower():
                         print("      **** Potential default value in GUI****\n")
                         print("      -%s  *%s*" % (broken[0], optiondesc))
 
         if data[COMMENTS]:
-            print >> output, heading("Comments", "~")
+            output.write(heading("Comments", "~") + "\n")
             for line in data[COMMENTS]:
-                print >> output, line.rstrip()
-        print list(params)
+                output.write(line.rstrip() + "\n")
+        print(list(params))
        
         output.close()
     sectionfile.close()
