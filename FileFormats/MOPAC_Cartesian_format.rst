@@ -1,6 +1,6 @@
 .. _MOPAC_Cartesian_format:
 
-MOPAC Cartesian format (mopcrt, mpc, mop)
+MOPAC Cartesian format (mop, mopcrt, mpc)
 =========================================
 Read Options
 ~~~~~~~~~~~~ 

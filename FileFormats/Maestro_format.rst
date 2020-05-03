@@ -1,6 +1,6 @@
 .. _Maestro_format:
 
-Maestro format (MAE, MAEGZ)
+Maestro format (mae, maegz)
 ===========================
 
 **File format of Schrödinger Software**

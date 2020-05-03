@@ -125,12 +125,12 @@ for name, codes in sections:
         desc = format.Description()
        
         safename = formatname.replace(" ", "_").replace("/", "_or_")
-        sectionfile., 'wln'write("   %s.rst\n" % safename)
+        sectionfile.write("   %s.rst\n" % safename)
         
         output = open(os.path.join("FileFormats", "%s.rst" % safename), "w")
         ref = ".. _%s:\n\n" % safename
         output.write(ref)
-        title = "%s (%s)" % (formatname, ", ".join(exts[formatname]))
+        title = "%s (%s)" % (formatname, ", ".join(sorted(exts[formatname])))
         output.write(heading(title, "=") + "\n")
 
         flags = []
@@ -197,7 +197,7 @@ for name, codes in sections:
         for x, y in ((READ, "Read"), (WRITE, "Write")):
             firstline = True
             if len("".join(data[x][1:]).strip()) > 0:
-                output.write(heading("%s Options" % y, "~") + "\n")
+                output.write(heading("%s Options" % y, "~") + " \n\n")
                 for d in data[x][1:]:
                     if d.startswith("   ") or not d.strip():
                         if firstline:

@@ -1,6 +1,6 @@
 .. _Protein_Data_Bank_format:
 
-Protein Data Bank format (pdb, ent)
+Protein Data Bank format (ent, pdb)
 ===================================
 Read Options
 ~~~~~~~~~~~~ 

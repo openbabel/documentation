@@ -1,6 +1,6 @@
 .. _DMol3_coordinates_format:
 
-DMol3 coordinates format (outmol, dmol)
+DMol3 coordinates format (dmol, outmol)
 =======================================
 Read Options
 ~~~~~~~~~~~~ 

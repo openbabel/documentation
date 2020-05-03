@@ -14,3 +14,4 @@ Common cheminformatics formats
    SMILES_format.rst
    SMILES_format_using_Smiley_parser.rst
    Sybyl_Mol2_format.rst
+   Wiswesser_Line_Notation.rst

@@ -1,6 +1,6 @@
 .. _GAMESS_Output:
 
-GAMESS Output (gamout, gam, gamess)
+GAMESS Output (gam, gamess, gamout)
 ===================================
 .. note:: This is a read-only format.
 

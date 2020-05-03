@@ -1,6 +1,6 @@
 .. _Gaussian_Output:
 
-Gaussian Output (g09, g03, g98, g94, g92, gal, g16)
+Gaussian Output (g03, g09, g16, g92, g94, g98, gal)
 ===================================================
 .. note:: This is a read-only format.
 

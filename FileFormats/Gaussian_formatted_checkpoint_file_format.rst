@@ -1,6 +1,6 @@
 .. _Gaussian_formatted_checkpoint_file_format:
 
-Gaussian formatted checkpoint file format (fchk, fch, fck)
+Gaussian formatted checkpoint file format (fch, fchk, fck)
 ==========================================================
 
 **A formatted text file containing the results of a Gaussian calculation**

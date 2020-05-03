@@ -1,6 +1,6 @@
 .. _Generic_Output_file_format:
 
-Generic Output file format (dat, output, out, log)
+Generic Output file format (dat, log, out, output)
 ==================================================
 
 **Automatically detect and read computational chemistry output files**

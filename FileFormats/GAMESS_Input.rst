@@ -1,6 +1,6 @@
 .. _GAMESS_Input:
 
-GAMESS Input (inp, gamin)
+GAMESS Input (gamin, inp)
 =========================
 Write Options
 ~~~~~~~~~~~~~ 

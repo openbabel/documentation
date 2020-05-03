@@ -1,6 +1,6 @@
 .. _MDL_MOL_format:
 
-MDL MOL format (mol, mdl, sdf, sd)
+MDL MOL format (mdl, mol, sd, sdf)
 ==================================
 
 **Reads and writes V2000 and V3000 versions**

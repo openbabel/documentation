@@ -1,6 +1,6 @@
 .. _Gaussian_Input:
 
-Gaussian Input (gjf, gjc, gau, com)
+Gaussian Input (com, gau, gjc, gjf)
 ===================================
 .. note:: This is a write-only format.
 

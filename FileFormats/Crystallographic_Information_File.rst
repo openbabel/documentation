@@ -25,3 +25,9 @@ Read Options
 -B  *Use bonds listed in CIF file from _geom_bond_etc records (overrides option b)*
 
 
+Write Options
+~~~~~~~~~~~~~ 
+
+-g  *Write bonds using _geom_bond_etc fields*
+
+

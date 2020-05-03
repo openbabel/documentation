@@ -8,18 +8,16 @@ This is a minor release.
 ..
   is:pr is:merged created:>=2019-10-05 (on 2020-04-28)
 
-New file formats
-~~~~~~~~~~~~~~~~
-* Wiswesser Line Notation reader from Roger Sayle (by baoilleach, PR#2084)
-
-Other new features and improvements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+New features and improvements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* New file format: Wiswesser Line Notation reader from Roger Sayle (by baoilleach, PR#2084)
+* New option: Add the --neutralize operation to convert charged atoms to neutral (by baoilleach, PR#2109)
+* New functionality: Support for periodic boundary conditions. See additional option -p for MMCIF format, and write option 'g' for CIF. (by bbucior, PR#1853)
+* New functionality: Add distance geometry method (by n-yoshikawa, PR#1875)
 * Update GAS CONSTANT to 2018 CODATA recommended value (by e-kwsm, PR#2045)
 * Support #0 in SMARTS so that asterisks can be matched (by baoilleach, PR#2079)
-* Add distance geometry method (by n-yoshikawa, PR#1875)
 * Bring back support for lowercase elements and D/T in GetAtomicNum(). (by baoilleach, PR#2100)
-* Change docstrings of add/delete hydrogens (by baoilleach, PR#2110)
-* Add the --neutralize operation to convert charged atoms to neutral (by baoilleach, PR#2109)
+* Change docstrings of add/delete hydrogens to better reflect their functionality (by baoilleach, PR#2110)
 * Support kekulization of aromatic sulfoxides (by baoilleach, PR#2121)
 * Enable casting to StereoBase in the Python bindings (by baoilleach, PR#2124)
 * OBBuilder: Add error message for ring/rigid fragments with all zero coords. (by timvdm, PR#2149)
@@ -53,7 +51,6 @@ Bug fixes
 * Fix issue #2095, caused by incorrect application of protonated SMARTS (by au1985, PR#2102)
 * Fix issue #1794, UFF atom typing for deuterium (by ghutchis, PR#2114)
 * Fix segfault on SMI to InChI conversion when using "-d" (by timvdm, PR#2115)
-* Closes #1536: implement periodic boundary conditions (by bbucior, PR#1853)
 * Correct the path to the openbabel-python.cpp (by baoilleach, PR#2119)
 * Remove fragments with zero coordinates - fixes #2144. (by ghutchis, PR#2150)
 * Fix issue #2125 - Zero occupancy in cif file treated as 1.0. (by orex, PR#2136)
