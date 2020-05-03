@@ -11,3 +11,4 @@ Other cheminformatics formats
    MCDL_format.rst
    MSI_BGF_format.rst
    PubChem_format.rst
+   Wiswesser_Line_Notation.rst
