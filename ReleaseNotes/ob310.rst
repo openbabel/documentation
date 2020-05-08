@@ -1,9 +1,9 @@
-Open Babel 3.0.1
+Open Babel 3.1.0
 ================
 
-Released on 2020-05-xx.
+Released on 2020-05-05.
 
-This is a minor release.
+This version represents additional API and is backwards-compatible with the 3.0 release.
 
 ..
   is:pr is:merged created:>=2019-10-05 (on 2020-04-28)
@@ -13,7 +13,8 @@ New features and improvements
 * New file format: Wiswesser Line Notation reader from Roger Sayle (by baoilleach, PR#2084)
 * New option: Add the --neutralize operation to convert charged atoms to neutral (by baoilleach, PR#2109)
 * New functionality: Support for periodic boundary conditions. See additional option -p for MMCIF format, and write option 'g' for CIF. (by bbucior, PR#1853)
-* New functionality: Add distance geometry method (by n-yoshikawa, PR#1875)
+* New functionality: Add distance geometry method (xxby n-yoshikawa, PR#1875)
+* New option: Add -noh to --minimize to allow minimizing without adding explicit hydrogens (by ghutchis, PR#2184)  
 * Update GAS CONSTANT to 2018 CODATA recommended value (by e-kwsm, PR#2045)
 * Support #0 in SMARTS so that asterisks can be matched (by baoilleach, PR#2079)
 * Bring back support for lowercase elements and D/T in GetAtomicNum(). (by baoilleach, PR#2100)
@@ -24,6 +25,7 @@ New features and improvements
 * R script updates (by khoran, PR#2145)
 * Be more strict when parsing charges in SMILES (by baoilleach, PR#2132)
 * Improve tools/obconformer.cpp (by e-kwsm, PR#2154)
+* OBAtom::IsElement() implemention, make OBElements::Element enum (by dkoes, PR#1754)
 
 Development/Build/Install improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,6 +39,14 @@ Development/Build/Install improvements
 * Initial GitHub action - misspell-fixer (by ghutchis, PR#2163)
 * Use latest checkout action - more efficient (by ghutchis, PR#2172)
 * Initial CMake GitHub Action (by ghutchis, PR#2165)
+* Add a template to use with the release drafter GH app (by ghutchis, PR#2182)
+* Pin maeparser version to 1.2.3 - should fix #2180 (by ghutchis, PR#2185)
+* Workaround for SWIG 4.0.1 Java source code problem (by baoilleach, PR#2186)
+* Add a build for bindings (eventually will generate source tar) (by ghutchis, PR#2183)  
+* Fix build on illumos (by wiedi, PR#2187)  
+* Update the WLN docs to have the correct syntax for .rst (by baoilleach, PR#2188)  
+* Rename EXTERN to OB_EXTERN to prevent clashes in other headers (by ghutchis, PR#2189)  
+* Re-enable Ruby bindings (by ghutchis, PR#2193)  
 
 Bug fixes
 ~~~~~~~~~
@@ -64,9 +74,12 @@ Bug fixes
 * Fix distance geometry stereo issues (by timvdm, PR#2158)
 * Merge of "Improve OBConversion::WriteString() and WriteFile() initialization" (adalke) #1923 (by baoilleach, PR#2176)
 * Fix output format in the cifformat writer (by afonari, PR#2170)
+* Fix the cif write test (i.e. modified format) (by ghutchis, PR#2177)
+* Fix tautomer code (by timvdm, PR#2171)  
+
 
 Cast of contributors
 ~~~~~~~~~~~~~~~~~~~~
-adalke (Andrew Dalke), afonari (Alexandr Fonari), au1985, baoilleach (Noel O'Boyle), bbucior (Ben
+adalke (Andrew Dalke), afonari (Alexandr Fonari), au1985 (Alex Ustinov), baoilleach (Noel O'Boyle), bbucior (Ben
 Bucior), dkoes (David Koes), e-kwsm (Eisuke Kawashima), fredrikw (Fredrik
-Wallner), ghutchis (Geoff Hutchison), Kamil Rytarowski, khoran (Kevin Horan), mrakitin (Maksim Rakitin), n-yoshikawa (Naruki Yoshikawa), njzjz (Jinzhe Zeng), orex (Kirill Okhotnikov), ricrogz (Ric), rmeli (Rocco Meli), Roger Sayle, timvdm (Tim Vandermeersch), voidpin
+Wallner), ghutchis (Geoff Hutchison), Kamil Rytarowski, khoran (Kevin Horan), mrakitin (Maksim Rakitin), n-yoshikawa (Naruki Yoshikawa), njzjz (Jinzhe Zeng), orex (Kirill Okhotnikov), ricrogz (Ric), rmeli (Rocco Meli), Roger Sayle, timvdm (Tim Vandermeersch), voidpin (pin), wiedi (Sebastian Wiedenroth)
