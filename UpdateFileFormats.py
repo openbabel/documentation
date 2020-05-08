@@ -26,9 +26,9 @@ viewers = ("3D viewer", ['mold', 'molden', 'yob', 'vmol', 'gpr', 'pcm',
                           "unixyz", "c3d1", "c3d2", "bs", "crk3d",
                           "xsf", "mae", "maegz"])
 common_cheminf = ("Common cheminformatics", ['pdb', 'smi', 'can', 'smiles',
-                 'inchi', 'inchikey', 'mol2', 'mol', 'cml', 'smy', 'wln'])
+                 'inchi', 'inchikey', 'mol2', 'mol', 'cml', 'smy'])
 cheminf = ("Other cheminformatics", ['msi', 'pc', "bgf",
-                                     'mcdl', "car", "csr"])
+                                     'mcdl', "car", "csr", "wln"])
 crystal = ("Crystallography", ["cif", "acr", "ins", "mcif",
                                "fract", "cssr", "pos"])
 twoD_drawing = ("2D drawing", ["ct", "cdxml", "cdx", "ct", "crk2d", "cht"])
