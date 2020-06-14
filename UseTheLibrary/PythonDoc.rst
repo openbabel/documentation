@@ -28,7 +28,7 @@ the
 
 ::
 
-     import openbabel
+     from openbabel import openbabel
     
      mol = openbabel.OBMol()
      print 'Should print 0 (atoms)'
@@ -55,7 +55,7 @@ as a string.
 
 ::
 
-    import openbabel
+    from openbabel import openbabel
     
     obConversion = openbabel.OBConversion()
     obConversion.SetInAndOutFormats("smi", "mdl")
@@ -77,7 +77,7 @@ than reading and writing to a Python string.
 
 ::
 
-    import openbabel
+    from openbabel import openbabel
     
     obConversion = openbabel.OBConversion()
     obConversion.SetInAndOutFormats("pdb", "mol2")
@@ -186,7 +186,7 @@ Using FastSearch from Python
 
 Rather than use the :obapi:`FastSearch` class directly, it's easiest to use the :obapi:`OpenInAndOutFiles() <OpenBabel::OBConversion::OpenInAndOutFiles>` method as follows::
 
- >>> import openbabel
+ >>> from openbabel import openbabel
  >>> conv=openbabel.OBConversion()
  >>> conv.OpenInAndOutFiles("1200mols.smi","index.fs")
  True
@@ -221,7 +221,9 @@ unless you convert the values to Python built-in types first:
 
 ::
 
-    import numpy, openbabel
+    import numpy
+    from openbabel import openbabel
+    
     mol = openbabel.OBMol()
     atom = mol.NewAtom()
     
