@@ -620,7 +620,7 @@ output molecule. The subsequent molecules are aligned so that
 the coordinates of atoms equivalent to these are as nearly as
 possible the same as those of the pattern atoms.
 The atoms in the various molecules can be in any order.
-Tha alignment ignores hydrogen atoms but includes symmetry.
+The alignment ignores hydrogen atoms but includes symmetry.
 Note that the standalone program :program:`obfit` has similar functionality.
 
 The first input molecule could also be part of the data set::
