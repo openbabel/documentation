@@ -79,7 +79,7 @@ values in the data fields:
 
 ::
 
-    >>> mol = readfile("sdf", "calculatedprops.sdf").next() # (readfile is described below)
+    >>> mol = next(readfile("sdf", "calculatedprops.sdf")) # (readfile is described below)
     >>> print(mol.molwt)
     100.1
     >>> print(len(mol.atoms))
@@ -137,7 +137,7 @@ as follows:
 
 ::
 
-    mol = readfile("sdf", "without_desc.sdf").next()
+    mol = next(readfile("sdf", "without_desc.sdf"))
     descvalues = mol.calcdesc()
     # In Python, the update method of a dictionary allows you
     # to add the contents of one dictionary to another
@@ -196,7 +196,7 @@ file:
     58
     >>> for mymol in readfile("sdf", "largeSDfile.sdf")
     ... print(mymol.molwt)
-    >>> singlemol = readfile("pdb", "1CRN.pdb").next()
+    >>> singlemol = next(readfile("pdb", "1CRN.pdb"))
 
 If a single molecule is to be written to a molecule or string, the
 :func:`~pybel.Molecule.write`
@@ -312,7 +312,7 @@ classes are available, while at the interactive Python prompt.
 ::
 
     >>> from openbabel import pybel
-    >>> mol = pybel.readfile("pdb", "1PYB").next()
+    >>> mol = next(pybel.readfile("pdb", "1PYB"))
     >>> help(mol)
     Help on Molecule in module pybel object:
     ...
