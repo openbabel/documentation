@@ -31,8 +31,7 @@ the
      from openbabel import openbabel
     
      mol = openbabel.OBMol()
-     print 'Should print 0 (atoms)'
-     print mol.NumAtoms()
+     print(mol.NumAtoms()) #Should print 0 (atoms)
     
      a = mol.NewAtom()
      a.SetAtomicNum(6)   # carbon atom
@@ -40,10 +39,8 @@ the
     
      b = mol.NewAtom()
      mol.AddBond(1, 2, 1)   # atoms indexed from 1
-     print 'Should print 2 (atoms)'
-     print mol.NumAtoms()
-     print 'Should print 1 (bond)'
-     print mol.NumBonds()
+     print(mol.NumAtoms()) #Should print 2 (atoms)
+     print(mol.NumBonds()) Should print 1 (bond)
     
      mol.Clear();
 
@@ -63,12 +60,10 @@ as a string.
     mol = openbabel.OBMol()
     obConversion.ReadString(mol, "C1=CC=CS1")
     
-    print 'Should print 5 (atoms)'
-    print mol.NumAtoms()
+    print(mol.NumAtoms()) #Should print 5 (atoms)
     
     mol.AddHydrogens()
-    print 'Should print 9 (atoms) after adding hydrogens'
-    print mol.NumAtoms()
+    print(mol.NumAtoms()) Should print 9 (atoms) after adding hydrogens
     
     outMDL = obConversion.WriteString(mol)
 
@@ -87,9 +82,9 @@ than reading and writing to a Python string.
     
     mol.AddHydrogens()
     
-    print mol.NumAtoms()
-    print mol.NumBonds()
-    print mol.NumResidues()
+    print(mol.NumAtoms())
+    print(mol.NumBonds())
+    print(mol.NumResidues())
     
     obConversion.WriteFile(mol, '1abc.mol2')
 
@@ -135,7 +130,7 @@ for iterators:
 ::
 
     for obatom in openbabel.OBMolAtomIter(obmol):
-        print obatom.GetAtomicMass()
+        print(obatom.GetAtomicMass())
 
 Note that OBMolTorsionIter returns atom IDs which are off by one.
 That is, you need to add one to each ID to get the correct ID.

@@ -186,7 +186,7 @@ reading Molecules:
    provides an iterator over the Molecules in a file
 
 Here are some examples of their use. Note in particular the use of
-``.next()`` to access the first (and possibly only) molecule in a
+``next()`` to access the first (and possibly only) molecule in a
 file:
 
 ::
