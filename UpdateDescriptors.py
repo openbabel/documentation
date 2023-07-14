@@ -22,7 +22,7 @@ all = numerical + textual + filters
 
 unclassified = [desc for desc in pybel.descs if desc not in all]
 if unclassified:
-    print "UNCLASSIFIED: ", unclassified
+    print("UNCLASSIFIED: ", unclassified)
 
 desc_sections = [("Numerical descriptors", numerical),
                  ("Textual descriptors", textual),
@@ -49,5 +49,5 @@ marker = "INSERT AUTOMATICALLY GENERATED CONTENT BELOW"
 idx = contents.find(marker) + len(marker)
 
 new_contents = contents[:idx] + "\n\n" + "\n".join(text)
-print >> open(os.path.join("Descriptors", "descriptors.rst"), "w"), new_contents
-
+with open(os.path.join("Descriptors", "descriptors.rst"), "w") as f:
+    f.write(new_contents, '\n')

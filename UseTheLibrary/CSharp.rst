@@ -137,5 +137,5 @@ The following sections show how the same example application would be programmed
         conv.SetInFormat("smi")
         mol = ob.OBMol()
         conv.ReadString(mol, "CCC")
-        print mol.GetMolWt()
+        print(mol.GetMolWt())
 

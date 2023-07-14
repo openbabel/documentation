@@ -231,10 +231,10 @@ for name, codes in sections:
 
                     params.add(broken[0][0])
                     optiondesc = " ".join(broken[start:])
-                    output.write("-%s  *%s*\n" % (broken[0], optiondesc))
+                    output.write(f"-{broken[0]}  *{optiondesc}*\n")
                     if "default" in optiondesc.lower():
                         print("      **** Potential default value in GUI****\n")
-                        print("      -%s  *%s*" % (broken[0], optiondesc))
+                        print(f"      -{broken[0]}  *{optiondesc}*")
 
         if data[COMMENTS]:
             output.write(heading("Comments", "~") + "\n")

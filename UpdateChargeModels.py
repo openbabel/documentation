@@ -22,7 +22,7 @@ all = none + normal + different
 
 unclassified = [charge for charge in chargenames if charge not in all]
 if unclassified:
-    print "UNCLASSIFIED: ", unclassified
+    print("UNCLASSIFIED: ", unclassified)
 
 charge_sections = [("Cheminformatics charge models", normal),
                    ("Special charge models", different)]
@@ -48,5 +48,6 @@ marker = "INSERT AUTOMATICALLY GENERATED CONTENT BELOW"
 idx = contents.find(marker) + len(marker)
 
 new_contents = contents[:idx] + "\n\n" + "\n".join(text)
-print >> open(os.path.join("Charges", "charges.rst"), "w"), new_contents
+with open(os.path.join("Charges", "charges.rst"), "w") as f:
+    f.write(new_contents,'\n')
 

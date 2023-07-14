@@ -171,10 +171,10 @@ functions:
 
     pairdata = [openbabel.toPairData(x) for x in obMol.GetData() 
                 if x.GetDataType()==openbabel.PairData]
-    print pairdata[0].GetAttribute(), pairdata[0].GetValue()
+    print(pairdata[0].GetAttribute(), pairdata[0].GetValue())
     
     unitcell = openbabel.toUnitCell(obMol.GetData(openbabel.UnitCell))
-    print unitcell.GetAlpha(), unitcell.GetSpaceGroup()
+    print(unitcell.GetAlpha(), unitcell.GetSpaceGroup())
 
 Using FastSearch from Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

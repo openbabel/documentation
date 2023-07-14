@@ -68,10 +68,10 @@ Here is an example of use from Python:
     >>> ff = ob.OBForceField.FindForceField("mmff94")
     >>> ff.Setup(obmol)
     True
-    >>> print ff.Energy()
+    >>> print(ff.Energy())
     15.179054202
     >>> ff.SystematicRotorSearch(100)
-    >>> print ff.Energy()
+    >>> print(ff.Energy())
     10.8861155747
 
 Gen3D

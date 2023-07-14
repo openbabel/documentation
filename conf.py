@@ -31,7 +31,7 @@ extensions = [
 try:
     import sphinxcontrib.doxylink
 except ImportError:
-    print( "Cannot import doxylink!")
+    print("Cannot import doxylink!")
 else:
     extensions.append("sphinxcontrib.doxylink")
 

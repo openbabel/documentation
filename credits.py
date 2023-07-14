@@ -8,10 +8,10 @@ for line in open("THANKS", "r"):
         names.append(temp)
 
 output = open("credits.rst", "w")
-print >> output, "Credits\n=======\n"
-print >> output, ".. hlist::\n   :columns: 3\n"
+print("Credits\n=======\n", file=output)
+print(".. hlist::\n   :columns: 3\n", file=output)
 for name in names:
-    print >> output, "   - %s" % name
+    print(f"   - {name}", file=output)
 output.close()
 
         
