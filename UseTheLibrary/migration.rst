@@ -93,7 +93,13 @@ Handling of isotope information now longer uses ``OBIsotopeTable`` but is access
 Atom classes
 ------------
 
-In OB 2.x, atom class information was stored as part of an ``OBAtomClassData`` object attached to an ``OBMol`` and accessed via ``OBMol.GetData("Atom Class")``. In OB 3.0, atom class information is instead stored as an ``OBPairInteger`` associated with an ``OBAtom`` and accessed via ``OBAtom.GetData("Atom Class")``.
+In OB 2.x, atom class information was stored as part of an ``OBAtomClassData`` object attached to an ``OBMol`` and accessed via ``OBMol.GetData("Atom Class")``. In OB 3.0, atom class information is instead stored as an ``OBPairInteger`` associated with an ``OBAtom`` and accessed via ``OBAtom.GetData("Atom Class")``. In Python::
+
+  # OB 3.0
+  data = myatom.GetData("Atom Class")
+  atom_class = None
+  if data is not None:
+       atom_class = ob.toPairInteger(data).GetGenericValue()
 
 OBAtom valence and degree methods
 ---------------------------------
