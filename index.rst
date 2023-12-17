@@ -1,7 +1,10 @@
-Open Babel, or how I learned to love the chemistry file format
-==============================================================
+User Guide
+==========
 
-The latest version of this documentation is available in several formats from http://openbabel.org/docs/dev/.
+Open Babel, or how I learned to love the chemistry file format
+--------------------------------------------------------------
+
+The latest version of this documentation is available in several formats from http://openbabel.org/docs/
 
 .. toctree::
    :maxdepth: 2
