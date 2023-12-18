@@ -20,7 +20,7 @@ OBConversion.
 
 .. sidebar:: PerlMol
 
-  For developing chemistry in Perl, you should also look at the `PerlMol <http://perlmol.org/>`_ project.
+  For developing chemistry in Perl, you should also look at the `PerlMol <https://metacpan.org/pod/PerlMol>`_ project.
 
 As such, essentially any call in the C++ API is available to Perl
 access with very little difference in syntax. This guide is
