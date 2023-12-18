@@ -6,7 +6,7 @@ Release Notes
 .. toctree::
    :maxdepth: 2
 
-   ob301.rst
+   ob310.rst
    ob300.rst
    ob240.rst
    ob231.rst
