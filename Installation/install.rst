@@ -24,6 +24,24 @@ Open Babel binary packages are available from many Linux distributions including
 
 In general, we recommend using the latest release of Open Babel (currently |release|). If this is not available for your Linux distribution, you should :ref:`compile Open Babel yourself <Compiling Open Babel>`.
 
+Ubuntu (and related distros):
+
+        $ sudo apt-get install openbabel
+
+Fedora:
+
+        $ sudo dnf install openbabel
+
+This will make the command :program:`obabel` (the Open Babel command line interface, CLI) available on your computer. For more information on using the CLI, see :ref:`obabel - Convert, Filter and Manipulate Chemical Data<Command-line_tools>`.
+
+After installing, you can check the version of Open Babel is installed using:
+
+        $ obabel --version
+
+You can get help for the CLI using the **-H** option:
+
+        $ obabel -H
+
 .. _Compiling Open Babel:
 
 Compiling Open Babel
