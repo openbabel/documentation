@@ -242,7 +242,7 @@ If you want to add hydrogens (i.e. make them all explicit) when doing the conver
 
 If you want to add hydrogens appropriate for pH7.4 when doing the conversion the command would be::
 
-     obabel mymols.sdf -O outputfile.smi -p
+     obabel mymols.sdf -O outputfile.smi -p 7.4
 
 The protonation is done on an atom-by-atom basis so molecules with multiple ionizable centers will have all centers ionized.
 
