@@ -1,4 +1,4 @@
-Open Babel 3.1.0
+Open Babel 3.2.0
 ================
 
 Released on 2026-05-26.
