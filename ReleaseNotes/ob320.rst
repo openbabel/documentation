@@ -1,0 +1,157 @@
+Open Babel 3.1.0
+================
+
+Released on 2026-05-26.
+
+This release reflects the latest stable version, including multiple feature enhancements and many, many bug fixes. It is backwards compatible with 3.0 and 3.1.
+
+We anticipate more bug-fix releases over the course of 2026 and appreciate the many contributions and reports from everyone.
+
+## Major Features and Fixes
+
+- Many memory and crash bugs fixed, thanks to OSS-Fuzz (Google) for infrastructure, including Cisco TALOS, Trail of Bits, ADA Logics, and Claude Mythos for bug reports. At the moment, all reported bugs are fixed.
+- **L-BFGS optimizer** added to `OBForceField` (internal `LBFGS.h`); `gen3d` and conformer search now use L-BFGS by default (with CG fallback when Eigen is unavailable). @ghutchis (#2933)
+- **New macrocycle ring builder** with **Dale codes** for cycloalkanes with n > 24, plus a post-pass crown builder for unmatched rings up to n ≤ 24. Substantially improves initial 3D geometry for macrocycles. @ghutchis (#2923)
+- **Distance-geometry improvements**: faster, vectorized implementation ensuring stereochemistry is preserved @ghutchis (#2896, #2897)
+- **KET format** (Ketcher JSON) read/write, including aromatic-bond preservation and alias expansion for clean round-trip. @romanbsd (#2909)
+- **ChemicalJSON (`.cjson`)** format support — Avogadro's native format — with rich metadata: total charge & spin multiplicity, NMR and electronic spectra, conformer energies, unit-cell vectors, and space-group info. @ghutchis (#2486, #2491, #2516, #2640, #2654)
+- **InChI bumped to 1.07.5**; library version now reported in the format description. @e-kwsm @ghutchis (#2857, #2947)
+- **Python 2 dropped**; Python 3.13 supported (distutils removed). @e-kwsm @chrisjonesBSU (#2924, #2809) Integrated PyPI binary wheels @njzjz #2925 
+- **CMake 4 compatibility**, `FindPython` refactor, Eigen 2 dropped, `Eigen3::Eigen` imported target adopted. @PPN-SD @e-kwsm (#2784, #2753, #2858)
+- **OBRandomMT**: new `std::mt19937_64`-based PRNG wrapper (opt-in via `USE_RANDOMMT`, default on); `OB_RANDOM_SEED` environment variable documented for reproducibility. @e-kwsm (#2241)
+
+## New Features and Improvements
+
+- **WLN (Wiswesser Line Notation) reader additions.** @baoilleach @michaelblakey (#2510)
+- **PDBQT**: Meeko-compatible VDW radii @bmp192529 (#2798); data-block output @dkoes (#2796); implicit H assignment on read @fredrikw (#2553); partial-charge column alignment fix @flatstik (#2601).
+- **PDB**: segment-name parsing/retention @dkoes (#2637); more robust reading @dkoes (#2395).
+- **Tinker**: custom atom-class read @mquevill (#2355); multi-word titles and optional comment line @mquevill (#2354).
+- **ORCA**: retain *all* conformers on read @ghutchis (#2922); ORCA 5 vibration header handled @ghutchis (#2521).
+- **xtb**: handle "Gaussian"-style vibration output (Raman = 0.0). @ghutchis (#2653)
+- **Turbomole**: write `$lattice` block when a unit cell is present. @e-kwsm (#2823)
+- **CIF**: atomic coordinates are no longer wrapped into the unit cell by default. @ghutchis (#2629)
+- **COF**: new version-numbering scheme (old files still readable). @pbecherer (#2840)
+- **CML/CMLR**: support conversion to CMLR @romanbsd (#2694); dangling-reference fix in the reaction writer @romanbsd (#2926).
+- **STL**: bond visualization, improved color export, `-s` scale option, modernized source. @TheRealSami (#2814)
+- **FASTA**: actually connect atoms on conversion @fredrikw (#2371); retain chains/residues @ghutchis (#2734).
+- **Ruby SWIG wrapper**: reactions @romanbsd (#2748) and tautomers @romanbsd (#2943) now supported.
+- **obrms**: parameter docs added to help text and man page; length-of-RMSDs sanity check @e-kwsm (#2942); improvements @dkoes (#2608).
+- **`obabel`**: `--separate` no longer breaks on EOL when reading from stdin. @matterhorn103 (#2721)
+- **`CorrectForPH`** now respects perceived chains. @fredrikw (#2648)
+- **C++ syntax**: `OBAtom::GetNbrs()` and range-based for loops @timvdm (#2635); `override` annotations @e-kwsm (#2175); `noexcept` for deprecated `throw()` @e-kwsm (#2859); `OB_DEPRECATED` macros @e-kwsm (#2002).
+
+## Bug Fixes
+
+- Stereo leak in SMILES parser @ghutchis (#2908); tautomer assertion / code bugs.
+- Canonical-label generation now has a 5-second timeout to avoid hangs on pathological inputs. @ghutchis (#2921)
+- CDXML: clear `ImplicitHydrogens` between fragments (fixes segfault, #2696) @fredrikw (#2697); implicit-H handling generally improved (#2416) @StashOfCode (#2400).
+- CDJSON: implicit-valence handling on read; `"l"` field deserialization; `"h"` field respected. @gregmagdits (#2769)
+- libxml2 ≥ 2.12.7 compatibility. @merkys (#2702)
+- InChI: memory leaks @romanbsd (#2706, #2772) and crashes @romanbsd (#2717, #2747) fixed; crash converting some bad CML → InChI fixed.
+- CML parsing crash on specific inputs. @romanbsd (#2705)
+- AOFORCE parser memory issues. @tyler92 (#2749)
+- SSSR/RingSearch: ring-pruning bug @fredrikw (#2684); ring iteration with no rings @dkoes (#2295).
+- pybel: missing atom properties @dkoes (#2293); `pybel.draw` file-write check; removed `_png2` requirement for coordinate generation.
+- SMILES: H-suppression bug when specifying output atom order. @baoilleach (#2287)
+- SMILES crashes from malformed input. @tyler92 (#2746)
+- `obthermo` crash from pointgroup code. @dspoel (#2285)
+- GRO format: first residue index 0 no longer crashes. @DStarEpoch (#2598)
+- VASP and Turbomole format fixes. @e-kwsm (#2563)
+- `obminimize` help text and docs. (#2519)
+- `CopySubstructure` segfault with option `2`. @baoilleach (#2449)
+- Bond perception of ring nitrogens @dkoes (Nbondfix branch); azete bond order @dkoes (#2379); ammonium XYZ parsing @dkoes (#2380).
+- MDL v3000 coordinate rounding (`%.4f` 2D, `%.6f` 3D). @ghutchis (#2929)
+- Uninitialized arrays / infinite-loop fixes. @Crivella (#2850, #2851)
+- Big-endian / s390x portability fixes. @pranavkaruvally (#2816)
+- PQR debug output cleanup. @crabby-rathbun (#2854)
+- Examples build fix for GCC / libstdc++ 8.3. @jcbollinger (#2235)
+- Misc undefined-behavior and memory leak fixes. @jcbollinger (#2224, #2227, #2228), @afonari (#2220, #2225, #2226, #2232, #2233)
+- Initialize allocated memory to zero. @afonari (#2248)
+- `OBMol::NumHvyAtoms()` const + `OBResidue::GetNumHvyAtoms()`. (#2300, #2299)
+
+## Security and Fuzz Hardening
+
+- **CVE-2022 (Cisco TALOS)**: 14 CVEs across MOL2 (CVE-2022-43607), CSR, GRO, PQS, MSI, ORCA, Gaussian, and MOPAC formats — including 5 `translationVectors[]` OOB writes. @ghutchis (#2883, #2884, #2885, #2886, #2887)
+- **CVE-2026 batch**: CIF `transform3d::DescribeAsString` OOB read, MOL2 `SetFormalCharge` NULL deref, CDXML NULL deref. @VedantMadane (#2862)
+- **CVE-2025**: GAMESS use-after-free (CVE-2025-10994), zipstream overlapping memcpy (CVE-2025-10995), SMILES heap-buffer-overflow (CVE-2025-10996), ChemKin (CVE-2025-10997/10998), CACAO (CVE-2025-10999), PQS (CVE-2025-11000). @ghutchis (#2913)
+- **OSS-Fuzz / Trail of Bits / ADA Logics / Claude Mythos / TALOS**: dozens of fixes across MCDL, ChemDraw CDX, Chemkin, abinit, cacao, Gaussian (incl. z-matrix and cube), Molpro, POV-Ray, Tinker, SMARTS, MDL V3000, SDF, CIF, and the SMILES canonicalizer (OOM on hypervalent / high-permutation molecules). @ghutchis (#2891, #2910, #2916–#2918, #2921, #2928, #2937, #2938, #2939, #2944, #2948, #2949, #2950, #2954)
+- **Hardening**: stack-smashing recursion in `FindRings` converted to an iterative loop; bond-loop and atom-count bounds checks; charge bounds (±999); rejection of recursive SMARTS `((` depth > 1000; bound on heavy atoms (MCDL > 200); guards on tokenize/`vs` access; rejection of elements > 118; `std::unique_ptr` adoption to fix leaks/use-after-free.
+- **MCDL hardening** (Arthur Chan / ADA Logics report). @ghutchis (#2883)
+- **`SECURITY` policy** and fuzz **regression tests** added. @ghutchis (#2882)
+- **New fuzz harnesses**: three new harnesses by @DavidKorczynski (#2874), plus `fuzz_convert` by @tyler92 (#2737). Initial OSS-Fuzz integration by @catenacyber (#2342).
+
+## Build Improvements
+
+- **CI**: CIFuzz GitHub Action @DavidKorczynski (#2551); CodeQL workflow @lgtm-migrator (#2546); Dependabot for GitHub Actions @ghutchis (#2739); **cibuildwheel** workflow producing relocatable Python wheels for Windows / macOS / Linux / Linux ARM64 @ghutchis (#2946); Linux ARM64 ASAN+UBSAN test build @ghutchis (#2898); Python lint with safety policy.
+- **CMake 4 compatibility** end-to-end @PPN-SD (#2784); replaced deprecated `exec_program` and other modernization @e-kwsm (#2507); `OpenBabel3Config.cmake` retains include info @e-kwsm (#2802); public/private include-dir hygiene @pinotree (#2315); Windows config-install location fix @nicolasfella (#2463); CMake-version bumps for Python @chrisjonesBSU (#2809).
+- **`FindPython`** adopted; Python install path/prefix modernized @e-kwsm (#2753, #2927); per-language `*_INSTDIR` variables (Python, Java, R, Perl, Ruby, C#, PHP) made configurable @cygwin-lem (#2289).
+- **Eigen**: drop Eigen 2; find `Eigen3` in config mode and link `Eigen3::Eigen`; ensure `HAVE_EIGEN3` is set at configure @e-kwsm (#2858).
+- **Dependencies**: InChI 1.07.5 @e-kwsm (#2857); maeparser 1.3.3 @e-kwsm (#2899); coordgen pinned to `v3.0.2-10-gd20e735` @e-kwsm (#2901), with template-file lookup removed @bsiegert (#2297).
+- **Compiler/portability**: include `<ctime>` for GCC 12+/C++17 @KunhuanLiu (#2844); CMake time-check typo for GCC 12 @thesamesam (#2493); drop `register` @e-kwsm (#2920); drop deprecated `<ciso646>` @e-kwsm (#2860); replace `std::random_shuffle` with `std::shuffle` @e-kwsm (#2931); remove deprecated C headers @e-kwsm (#2388); MSVC2015 `back_inserter` include @baoilleach (#2230); Intel build uses IPO and strip at link in Release; big-endian / s390x fixes @pranavkaruvally (#2816).
+- **Modernization**: SWIG 4.x support and Javadoc/Pydoc bindings @baoilleach (#2242, #2243); `std::unordered_map` adoption @e-kwsm (#2500); always use `std::shared_ptr` (#2501); remove deprecated `std::bind1st`/`bind2nd`/`binary_function` @e-kwsm (#2569, #2001, #2464); replace deprecated throw spec with `noexcept` @e-kwsm (#2859); `IOError` → `OSError` in Python tests @e-kwsm (#2466).
+- **Misc.**: `.gitattributes` + EOL renormalization @e-kwsm (#2489); updated built-in data files @dkoes (#2328); debug/sanitizer build variants skip slow tests @ghutchis (#2907); many internal deprecation warnings removed in a final refactor @ghutchis (#2937).
+
+## Contributors
+
+Many thanks to everyone who contributed code, bug reports, and reviews
+for 3.2. Full shortlog: `git shortlog -sn openbabel-3-1-1..openbabel-3-2-0`.
+
+Top contributors by commit count:
+@ghutchis, @e-kwsm, @fredrikw, @romanbsd, @dkoes, @baoilleach,
+@afonari, @cygwin-lem, @chrisjonesBSU, @jcbollinger, @pinotree,
+@TheRealSami, @timvdm, @yishutu, @szlepermarcin, @mquevill, @tyler92,
+@Crivella, @DavidKorczynski, @VedantMadane, @bmp192529, @pbecherer,
+@matterhorn103, @merkys, @StashOfCode, @gregmagdits, @PPN-SD,
+@pranavkaruvally, @dspoel, @bsiegert, @KunhuanLiu, @thesamesam,
+@nicolasfella, @flatstik, @crabby-rathbun, @catenacyber, @njzjz-bot.
+
+Also via fuzzing reports: OSS-Fuzz, Cisco TALOS, Trail of Bits,
+ADA Logics (Arthur Chan), and Claude Mythos / Claude Security.
+
+
+## New Contributors
+* @jcbollinger made their first contribution in https://github.com/openbabel/openbabel/pull/2228
+* @lemniscati made their first contribution in https://github.com/openbabel/openbabel/pull/2292
+* @pinotree made their first contribution in https://github.com/openbabel/openbabel/pull/2315
+* @bsiegert made their first contribution in https://github.com/openbabel/openbabel/pull/2297
+* @catenacyber made their first contribution in https://github.com/openbabel/openbabel/pull/2342
+* @imgbot[bot] made their first contribution in https://github.com/openbabel/openbabel/pull/2345
+* @StashOfCode made their first contribution in https://github.com/openbabel/openbabel/pull/2400
+* @GregCT made their first contribution in https://github.com/openbabel/openbabel/pull/2383
+* @nicolasfella made their first contribution in https://github.com/openbabel/openbabel/pull/2463
+* @szlepermarcin made their first contribution in https://github.com/openbabel/openbabel/pull/2477
+* @SebastianWellig made their first contribution in https://github.com/openbabel/openbabel/pull/2456
+* @cclauss made their first contribution in https://github.com/openbabel/openbabel/pull/2405
+* @mquevill made their first contribution in https://github.com/openbabel/openbabel/pull/2354
+* @nbehrnd made their first contribution in https://github.com/openbabel/openbabel/pull/2307
+* @ioadong made their first contribution in https://github.com/openbabel/openbabel/pull/2460
+* @thesamesam made their first contribution in https://github.com/openbabel/openbabel/pull/2493
+* @DanielSabo made their first contribution in https://github.com/openbabel/openbabel/pull/2519
+* @Mblakey made their first contribution in https://github.com/openbabel/openbabel/pull/2510
+* @zhongxiang117 made their first contribution in https://github.com/openbabel/openbabel/pull/2509
+* @magnusrahm made their first contribution in https://github.com/openbabel/openbabel/pull/2596
+* @flatstik made their first contribution in https://github.com/openbabel/openbabel/pull/2601
+* @DStarEpoch made their first contribution in https://github.com/openbabel/openbabel/pull/2598
+* @romanbsd made their first contribution in https://github.com/openbabel/openbabel/pull/2706
+* @matterhorn103 made their first contribution in https://github.com/openbabel/openbabel/pull/2721
+* @tyler92 made their first contribution in https://github.com/openbabel/openbabel/pull/2737
+* @lgtm-com[bot] made their first contribution in https://github.com/openbabel/openbabel/pull/2546
+* @DavidKorczynski made their first contribution in https://github.com/openbabel/openbabel/pull/2551
+* @dependabot[bot] made their first contribution in https://github.com/openbabel/openbabel/pull/2740
+* @correaa made their first contribution in https://github.com/openbabel/openbabel/pull/2574
+* @chrisjonesBSU made their first contribution in https://github.com/openbabel/openbabel/pull/2809
+* @PPN-SD made their first contribution in https://github.com/openbabel/openbabel/pull/2784
+* @KunhuanLiu made their first contribution in https://github.com/openbabel/openbabel/pull/2844
+* @Crivella made their first contribution in https://github.com/openbabel/openbabel/pull/2850
+* @Marti2203 made their first contribution in https://github.com/openbabel/openbabel/pull/2793
+* @VedantMadane made their first contribution in https://github.com/openbabel/openbabel/pull/2862
+* @pranavk made their first contribution in https://github.com/openbabel/openbabel/pull/2847
+* @TheRealSami made their first contribution in https://github.com/openbabel/openbabel/pull/2814
+* @crabby-rathbun made their first contribution in https://github.com/openbabel/openbabel/pull/2854
+* @gregmagdits made their first contribution in https://github.com/openbabel/openbabel/pull/2769
+* @pranavkaruvally made their first contribution in https://github.com/openbabel/openbabel/pull/2816
+* @bmp192529 made their first contribution in https://github.com/openbabel/openbabel/pull/2798
+* @njzjz-bot made their first contribution in https://github.com/openbabel/openbabel/pull/2925
+* @ostueker made their first contribution in https://github.com/openbabel/openbabel/pull/2540
+
+**Full Changelog**: https://github.com/openbabel/openbabel/compare/openbabel-3-1-1...openbabel-3-2-0
